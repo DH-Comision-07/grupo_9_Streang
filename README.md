@@ -26,5 +26,5 @@ De este conocido sitio web nos pareció interesante el slider gigante que tiene 
 * Damián Strier
 * Tomás Ochotorena
 * Francisco Alonso
-* 
+* Santiago Alvarez
 *
