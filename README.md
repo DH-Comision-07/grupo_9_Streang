@@ -29,4 +29,7 @@ De este conocido sitio web nos pareció interesante el slider gigante que tiene 
 * Santiago Alvarez
 * Agustín Salazar Lea Plaza
 * Manuel Castillo
-* Máximo Castillo
+* Máximo Castillo 
+
+Espacio de trabajo Trello (GRUPO 9 STREANG)
+link: https://trello.com/b/erom3WiA/streang
