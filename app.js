@@ -15,6 +15,7 @@ app.get('/', (req, res) => {
     res.sendFile(path.resolve(__dirname, './views/home.html'))
 });
 
+// route para pagina de producto
 app.get('/producto', (req, res) => {
     res.sendFile(path.resolve(__dirname, './views/productDetail.html'))
 });
