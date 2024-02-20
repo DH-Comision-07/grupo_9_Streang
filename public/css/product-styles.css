@@ -1,9 +1,11 @@
 *{
     box-sizing: border-box;
+    font-family: Roboto;
 }
 
 body{
     margin: 0px;
+    background-color: #0B0B73;
 }
 
 header{
@@ -41,4 +43,79 @@ header .fa-solid{
 
 .user-icon-container{
     width: 33%;
+}
+
+
+/* #### BODY #### */
+
+.product-title{
+    margin: 5px auto 5px 10px;
+    color:aquamarine
+}
+
+.product-container{
+    display: flex;
+    flex-direction: column;
+    padding: 5px;
+    width: 90%;
+    margin: auto;
+    /* border: 1px solid red; */
+    background-color: rgb(27, 73, 158);
+}
+
+.main-img-container{
+    width: 100%;
+}
+
+.main-img-container img{
+    width: 100%;
+}
+
+.more-img-container{
+    display: flex;
+    justify-content: space-between;
+}
+
+.more-img-container img{
+    width: 33%;
+}
+
+.price-container{
+    display: flex;
+    justify-content: space-around;
+    background-color: black;
+    width: 100%;
+    border-radius: 5px;
+}
+
+.price, .discount, .final-price{
+    width: 33%;
+    padding: 3px;
+    margin: 2px;
+    text-align: center;
+}
+
+.price{
+    text-decoration: line-through;
+    background-color: gray;
+    border-radius: 3px;
+}
+
+.final-price{
+    background-color: gray;
+    border-radius: 3px;
+}
+
+.discount{
+    background-color: rgba(42, 207, 19, 0.8);
+    font-size: 0.8em;
+    border-radius: 2px;
+}
+
+.add-cart{
+    background-color: green;
+    margin: 5px auto;
+    padding: 10px;
+    border-radius: 5px;
+    color: antiquewhite;
 }
