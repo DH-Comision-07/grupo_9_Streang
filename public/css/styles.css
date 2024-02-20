@@ -1,0 +1,14 @@
+.producto {
+    margin: auto;
+    width: 90%;
+    
+}
+
+.imagen-producto {
+    width: 100%;
+}
+
+.producto__descripcion, .producto__precio {
+    width: 95%;
+    margin-left: 2%;
+}
