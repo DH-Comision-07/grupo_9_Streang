@@ -11,6 +11,10 @@
 }
 
 /* MAIN */
+main {
+	color: lightskyblue;
+}
+
 .producto {
     margin: auto;
     width: 90%;
@@ -23,4 +27,11 @@
 .producto__descripcion, .producto__precio {
     width: 95%;
     margin-left: 2%;
+}
+
+
+/* FOOTER */
+.footer {
+	color: lightskyblue;
+	background-color: black;
 }
