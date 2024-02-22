@@ -50,7 +50,9 @@ header .fa-solid{
 
 .product-title{
     margin: 5px auto 5px 10px;
-    color:aquamarine
+    color:aquamarine;
+    display: flex;
+    align-items: center;
 }
 
 .product-container{
@@ -61,6 +63,7 @@ header .fa-solid{
     margin: auto;
     /* border: 1px solid red; */
     background-color: rgb(27, 73, 158);
+    margin-bottom: 5%;
 }
 
 .main-img-container{
@@ -93,6 +96,7 @@ header .fa-solid{
     padding: 3px;
     margin: 2px;
     text-align: center;
+    color: white;
 }
 
 .price{
