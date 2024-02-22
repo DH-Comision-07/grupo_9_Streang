@@ -5,18 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Streang - Inicio</title>
     <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/product-styles.css">
 </head>
 <body>
+    <!-- HEADER -->
     <header>
-        <div class="header">
-            <img class="header__logo" src="/images/steam-logo.webp" alt="Streang logo">
-            <img src="images/menu-icon.png" alt="menu icon" height="48" width="48">
-            <a href="#"><img src="images/user-icon.png" alt="user icon"></a>
+        <div class="header-top">
+                <i class="fa-solid fa-bars"></i>
+            <div class="logo-container">
+                <img src="images/streang-logo-v1.png" alt="Streang logo">
+            </div>
+                <i class="fa-solid fa-user"></i>
         </div>
-        <div>
-            <h4>Espacio para barra de busqueda</h4>
-        </div>
+        <div class="header-bottom"></div>
+        <input class="search-bar" type="text" value="Buscar...">
     </header>
+
+    <!-- MAIN -->
     <main>
         <h2>Espacio para slide de imagenes de juegos principales</h2>
         <section>
@@ -40,10 +45,14 @@
                 <div class="imagen-producto">
                     <img src="images/hollow-knight.webp" alt="imagen Hollow Knight">
                 </div>
-                <div>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                <div class="producto__descripcion">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                        Tincidunt augue interdum velit euismod in pellentesque massa
+                        placerat duis. Hendrerit gravida rutrum quisque non tellus.
+                        Semper feugiat nibh sed pulvinar proin gravida.</p>
                 </div>
-                <div>
+                <div class="producto__precio">
                     <h3>$25000</h3>
                 </div>
 
@@ -52,12 +61,14 @@
                 <div>
                     <img class="imagen-producto" src="images/GTAV.jpeg" alt="imagen GTAV">
                 </div>
-                <div>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, <br>
-                        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. <br>
-                        Tincidunt augue interdum velit euismod in pellentesque massa <br>
-                        placerat duis. Hendrerit gravida rutrum quisque non tellus. <br>
+                <div class="producto__descripcion">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                        Tincidunt augue interdum velit euismod in pellentesque massa
+                        placerat duis. Hendrerit gravida rutrum quisque non tellus.
                         Semper feugiat nibh sed pulvinar proin gravida.</p>
+                </div>
+                <div class="producto__precio">
                     <h3>$90000</h3>
                 </div>
 

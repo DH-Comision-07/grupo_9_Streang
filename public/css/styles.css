@@ -1,13 +1,43 @@
-/* HEADER */
-.header {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
+p {
+    color: white;
 }
 
-.header__logo {
+/* HEADER */
+header{
+    display: flex;
+    flex-direction: column;
     width: 100%;
+}
+
+.header-top{
+    display: flex;
+    justify-content: space-between;
+    background-color: #0B0B73;
+    width: 1wv;
+    align-items: center;
+}
+
+.logo-container{
+    width: 34%;
+    align-items: center;
+}
+
+header .fa-solid{
+    margin: 0px auto;
+    font-size: 1.4em;
+    color: lightskyblue;
+}
+
+.logo-container img{
+    width: 100%;
+}
+
+.menu-container{
+    width: 33%;
+}
+
+.user-icon-container{
+    width: 33%;
 }
 
 /* MAIN */
