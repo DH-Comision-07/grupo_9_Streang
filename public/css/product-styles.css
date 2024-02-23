@@ -63,8 +63,9 @@ header .fa-solid{
     margin: auto;
     /* border: 1px solid red; */
     background-color: rgb(27, 73, 158);
-    margin-bottom: 5%;
-    margin-top: 5%;
+    margin-bottom: 3%;
+    margin-top: 3%;
+	border: solid 2px white;
 }
 
 .main-img-container{
