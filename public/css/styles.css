@@ -64,11 +64,12 @@ main {
 .footer {
 	color: lightskyblue;
 	background-color: black;
-	
 }
 
 .footer__section {
 	text-align: center;
 	padding: 0.1% 0;
 	line-height: 18px;
+	width: 90%;
+	margin: auto;
 }
