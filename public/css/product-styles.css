@@ -125,3 +125,88 @@ header .fa-solid{
     border-radius: 5px;
     color: antiquewhite;
 }
+
+/* SECCION COMENTARIOS */
+
+.comentaries h3{
+    padding-left: 5%;
+}
+
+.form-container{
+    width: 90%;
+    margin: auto;
+    padding: 10px;
+    background-color:rgb(27, 73, 158);
+    border-radius: 5px;
+}
+
+.form-container form{
+    display: flex;
+    flex-direction: column;
+}
+
+textarea{
+    margin: 10px 0;
+    border: none;
+    border-radius: 3px;
+    padding: 5px;
+}
+
+.form-container form input{
+    border: none;
+    border-radius: 3px;
+    padding-left: 5px;
+    height: 30px;
+}
+
+.buttons-container{
+    display: flex;
+}
+
+.buttons-container button{
+    padding: 12px;
+    width: 120px;
+    margin-right: 10px;
+    border: none;
+    border-radius: 5px;
+}
+
+.user-comentary{
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    margin: 10px auto;
+    background-color: rgb(27, 73, 158);
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.info-user{
+    display: flex;
+    /* border: 1px solid black; */
+    align-items: center;
+
+}
+
+.info-user .profile-img-container{
+    border: 1px solid black;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.user-and-date-container{
+    display: flex;
+    flex-direction: column;
+}
+
+.user-and-date-container p{
+    margin: 0;
+}
+
+.user-and-date-container .date{
+    font-size: 12px;
+    color: rgb(134, 130, 130);
+    margin-top: 5px;
+}
