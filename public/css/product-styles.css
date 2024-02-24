@@ -210,3 +210,30 @@ textarea{
     color: rgb(134, 130, 130);
     margin-top: 5px;
 }
+
+/* SECCION PRODUCTOS SIMILARES */
+
+.similar-products{
+    width: 100%;
+}
+
+.similar-products-container{
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+    /* height: 150px; */
+    margin: 10px auto;
+    background-color: rgb(27, 73, 158);
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.similar-products-container img{
+    width: 30%;
+    padding: 5px;
+    background-color: lightskyblue;
+}
+
+main h3{
+    padding-left: 5%;
+}
