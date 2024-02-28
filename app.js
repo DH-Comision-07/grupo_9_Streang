@@ -7,11 +7,9 @@ app.use(express.json());
 const publicPath = path.resolve(__dirname, './public');
 app.use(express.static(publicPath));
 
-const port = process.env.PORT || 3000
-app.listen(port, () =>{
-    console.log(`Servidor corriendo en Puerto ${port}`)
+app.listen(3000, () =>{
+    console.log(`Servidor corriendo en Puerto 3000`)
 });
-
 
 // route para pagina raiz
 app.get('/', (req, res) => {
