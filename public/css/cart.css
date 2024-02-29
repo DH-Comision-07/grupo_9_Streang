@@ -75,8 +75,15 @@ main {
 }
 
 .product-title{
-    margin: 5px auto 5px 10px;
+    margin: 10px auto 10px 10px;
     color:black;
+    display: flex;
+    align-items: center;
+}
+
+.cuphead {
+  padding: 1%;
+  color:black;
     display: flex;
     align-items: center;
 }
