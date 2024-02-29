@@ -64,7 +64,7 @@ main {
 footer {
 	color: lightskyblue;
 	background-color: black;
-    margin: auto;
+    text-align: center;
 }
 
 .footer__section {
@@ -72,7 +72,7 @@ footer {
 	padding: 0.1% 0;
 	line-height: 18px;
 	width: 90%;
-	margin: auto;
+	margin: auto 2%;
 }
 
 .footer__copy {
@@ -100,7 +100,6 @@ footer {
 
     .footer {
         display: flex;
-        width: 95%;
         margin: auto;
     }
 }

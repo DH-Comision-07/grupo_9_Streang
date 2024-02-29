@@ -1,6 +1,6 @@
 *{
     box-sizing: border-box;
-    font-family: Roboto;
+    font-family: "Roboto";
 }
 
 body {
@@ -51,18 +51,16 @@ header .fa-solid{
 
 
 main {
-	background-color: lightskyblue;
-    font-family: Roboto;
+  font-family: "Roboto";
 }
 
 
 
 .main-img-container{
     width: 100%;
-   display: flex;
 }
 
-.product-container{
+/* .product-container{
     display: flex;
     flex-direction: column;
     padding: 5px;
@@ -72,14 +70,14 @@ main {
     margin-bottom: 3%;
     margin-top: 3%;
 	border: solid 14px #0B0B73;
-}
+} */
 
-.product-title{
+/* .product-title{
     margin: 10px auto 10px 10px;
     color:black;
     display: flex;
     align-items: center;
-}
+} */
 
 .cuphead {
   padding: 1%;
@@ -94,13 +92,13 @@ main {
     border: solid 2px black
 }
 
-.price-container{
+/* .price-container{
     display: flex;
     justify-content: space-around;
     background-color: black;
     width: 17%;
     border-radius: 5px;
-}
+} */
 
 .price, .discount, .final-price{
     width: 33%;
@@ -127,12 +125,13 @@ main {
     border-radius: 2px;
 }
 
-input {
+/* input {
     color: lightskyblue;
-  }
+  } */
 
 .wave-group {
     position: relative;
+    text-align: center;
   }
   
   .wave-group .input {
@@ -235,10 +234,11 @@ input {
     width: 9em;
    }
 
-   .input-container {
+.input-container {
     width: 220px;
     position: relative;
-  }
+    margin: auto;
+}
   
   .icon {
     position: absolute;
@@ -290,6 +290,8 @@ input {
     box-shadow: rgb(201, 46, 70) 0px 10px 0px 0px;
     color: hsl(0, 0%, 100%);
     cursor: pointer;
+    width: 50%;
+    margin: 2% auto;
   }
   
   .button1:hover {

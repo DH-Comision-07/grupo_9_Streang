@@ -1,0 +1,12 @@
+.form__section {
+    margin: 2% 0;
+}
+
+.form__section:last-of-type {
+    margin-bottom: 3%;
+}
+
+.form {
+    width: 95%;
+    margin: auto;
+}

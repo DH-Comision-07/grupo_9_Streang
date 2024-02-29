@@ -128,6 +128,10 @@ header .fa-solid{
 
 /* SECCION COMENTARIOS */
 
+.comentaries {
+    margin: auto;
+}
+
 .comentaries h3{
     padding-left: 5%;
 }
@@ -215,6 +219,7 @@ textarea{
 
 .similar-products{
     width: 100%;
+    margin: auto;
 }
 
 .similar-products-container{
@@ -236,4 +241,22 @@ textarea{
 
 main h3{
     padding-left: 5%;
+}
+
+@media (min-width: 468px) {
+    .product-container, .comentaries, .similar-products {
+        width: 80%;
+    }
+}
+
+@media (min-width: 768px) {
+    .product-container, .comentaries, .similar-products {
+        width: 60%;
+    }
+}
+
+@media (min-width: 1200px) {
+    .product-container, .comentaries, .similar-products {
+        width: 40%;
+    }
 }

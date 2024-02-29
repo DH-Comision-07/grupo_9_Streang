@@ -7,6 +7,7 @@
 	<link href="css/styles.css" rel="stylesheet"/>
     <link href="css/product-styles.css" rel="stylesheet"/>
     <link href="css/register.css" rel="stylesheet"/>
+    <link href="css/cart.css" rel="stylesheet"/>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
@@ -25,7 +26,13 @@
                 <i class="fa-solid fa-user"></i>
         </div>
         <div class="header-bottom"></div>
-        <input class="search-bar" type="text" placeholder="Buscar...">
+        <div class="input-container">
+            <input type="text" name="text" class="input" placeholder="Buscar...">
+            <span class="icon"> 
+              <svg width="19px" height="19px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path opacity="1" d="M14 5H20" stroke="#000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> <path opacity="1" d="M14 8H17" stroke="#000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M21 11.5C21 16.75 16.75 21 11.5 21C6.25 21 2 16.75 2 11.5C2 6.25 6.25 2 11.5 2" stroke="#000" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"></path> <path opacity="1" d="M22 22L20 20" stroke="#000" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
+            </span>
+        </div>
+        <!-- <input class="search-bar" type="text" placeholder="Buscar..."> -->
     </header>
 	
 	<!-- MAIN -->
@@ -35,7 +42,7 @@
             <article class="product-container">
                 <div class="main-img-container">
                     <h2 class="product-title">Cuphead</h2>
-                    <img src="images/CupheadNuevaFoto.png">
+                    <img src="/images/CupheadNuevaFoto.png">
                 </div>
                 <div class="more-img-container">
                     <img src="images/cuphead-img1.jpg" alt="game image">

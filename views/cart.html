@@ -3,8 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="/css/cart.css">
+    <title>Carrito</title>
+    <link href="css/styles.css" rel="stylesheet"/>
+    <link href="css/product-styles.css" rel="stylesheet"/>
+    <link href="css/register.css" rel="stylesheet"/>
+    <link href="/css/cart.css" rel="stylesheet">
     <script src="https://kit.fontawesome.com/49746c139e.js" crossorigin="anonymous"></script>
 </head>
 <body>
@@ -22,24 +25,54 @@
         <span class="icon"> 
           <svg width="19px" height="19px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path opacity="1" d="M14 5H20" stroke="#000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> <path opacity="1" d="M14 8H17" stroke="#000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M21 11.5C21 16.75 16.75 21 11.5 21C6.25 21 2 16.75 2 11.5C2 6.25 6.25 2 11.5 2" stroke="#000" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"></path> <path opacity="1" d="M22 22L20 20" stroke="#000" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
         </span>
-      </div>
+    </div>
     </header>
+
     <main>
 <section>
+
     <article class="product-container">
         <div class="main-img-container">
-            <h2 class="cuphead">Cuphead</h2>
-            <img class="imagenJuego" src="/images/cuphead.png">
-            <p>La historia trata acerca de dos hermanos, los protagonistas Cuphead y Mugman, que deben derrotar a varios enemigos y jefes para poder saldar una deuda que tenían pendiente con el diablo.</p>
-            </div>
-            <div class="price-container">
-                <h4 class="price">$12000</h4>
-                <h4 class="discount">%20 dto</h4>
-                <h4 class="final-price">$9600</h4>
-                <button class="button1" >Eliminar del carrito </button>
-            </div>
+            <h2 class="product-title">Cuphead</h2>
+            <img src="/images/CupheadNuevaFoto.png">
+        </div>
+        <div class="product-description">
+            <p>La historia trata acerca de dos hermanos, los protagonistas
+                 Cuphead y Mugman, que deben derrotar a varios enemigos y jefes para 
+                 poder saldar una deuda que tenían pendiente con el diablo.</p>
+        </div>
+        <div class="price-container">
+            <h4 class="price">$12000</h4>
+            <h4 class="discount">%20 dto</h4>
+            <h4 class="final-price">$9600</h4>
+        </div>
+        <button class="button1">Eliminar del carrito</button>
     </article>
+    
     <article class="product-container">
+        <div class="main-img-container">
+            <h2 class="product-title">Hollow Knight</h2>
+            <img src="/images/hollow-knight.webp">
+        </div>
+        <div class="more-img-container">
+            <img src="images/cuphead-img1.jpg" alt="game image">
+            <img src="images/cuphead-img2.webp" alt="game image">
+            <img src="images/cuphead-img3.webp" alt="game image">
+        </div>
+        <div class="product-description">
+            <p>Hollow Knight cuenta la historia del Caballero, en su búsqueda
+                 por descubrir los secretos del largamente abandonado reino de los
+                  insectos de Hallownest, cuyas profundidades atraen a los aventureros
+                   y valientes con la promesa de tesoros o la respuesta a misterios antiguos.</p>
+        </div>
+        <div class="price-container">
+            <h4 class="price">$25000</h4>
+            <h4 class="discount">%10 dto</h4>
+            <h4 class="final-price">$22500</h4>
+        </div>
+        <button class="button1">Eliminar del carrito</button>
+    </article>
+    <!-- <article class="product-container">
             <div class="main-img-container">
                 <h2 class="product-title">Hollow Knight</h2>
                 <img class="imagenJuego" src="/images/hollow-knight.webp">
@@ -49,9 +82,9 @@
                 <h4 class="price">$25000</h4>
                 <h4 class="discount">%10 dto</h4>
                 <h4 class="final-price">$22500</h4>
-                <button class="button1" >Eliminar del carrito </button>
+                <button class="button1" >Eliminar del carrito</button>
             </div>
-    </article>
+    </article> -->
 </section>
     </main>
     <footer>
