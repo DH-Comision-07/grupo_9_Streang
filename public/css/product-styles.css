@@ -14,7 +14,7 @@ header{
     width: 100%;
 }
 
-.nav-bar, .header-right, .fa-magnifying-glass{
+.nav-bar, .header-right, .fa-magnifying-glass, iframe, .product-description img{
     display: none;
 }
 
@@ -246,8 +246,21 @@ main h3{
     padding-left: 5%;
 }
 
+/* ######## FOOTER ######## */
+footer{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+footer article{
+    width: 90%;
+    margin: auto;
+}
+
 /* MEDIA DESKTOP */
 @media (min-width: 1023px){
+
     header{
         display: flex;
         flex-direction: row;
@@ -354,5 +367,76 @@ main h3{
         font-size: 1.3vw;
     }
 
+    /* MAIN PRODUCTO  */
+
+    main{
+        width: 1100px;
+        margin: auto;
+    }
+
+    .product-container{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    .product-imgs{
+        width: 50%;
+    }
+
+    .main-img-container img{
+        display: none;
+    }
+
+    iframe, .product-description img{
+        width: 100%;
+        display: block;
+    }
+
+    .product-description{
+        width: 45%;
+        margin-top: 40px;
+        margin-right: 20px;
+    }
+
+    .product-description img{
+        width: 100%;
+    }
+
+    .price-container{
+        width: 50%;
+        height: 30px;
+        margin-top: 15px;
+    }
+
+    /* ######### FOOTER ########### */
+
+    footer{
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }
+
+    footer section{
+        width: 30%;
+        text-align: center;
+        padding: 15px;
+    }
+
+    .copyright{
+        font-size: 10px;
+        padding-left: 20px;
+        text-align: left;
+        width: 100%;
+    }
+
+    /* EFECTOS */
+    .add-cart:hover, .more-img-container img:hover, iframe:hover, button:hover{
+        box-shadow: 0px 0px 10px black;
+        cursor: pointer;
+    }
 
 }
