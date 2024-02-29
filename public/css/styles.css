@@ -61,9 +61,10 @@ main {
 
 
 /* FOOTER */
-.footer {
+footer {
 	color: lightskyblue;
 	background-color: black;
+    margin: auto;
 }
 
 .footer__section {
@@ -72,4 +73,34 @@ main {
 	line-height: 18px;
 	width: 90%;
 	margin: auto;
+}
+
+.footer__copy {
+    text-align: center;
+}
+
+@media (min-width: 768px) {
+    .header-top {
+        width: 40%;
+        margin: auto;
+    }
+
+    .search-bar {
+        width: 30%;
+        margin: auto;
+    }
+
+    .products {
+        display: flex;
+        width: 95%;
+        margin: auto;
+        justify-content: space-around;
+        gap: 2%;
+    }
+
+    .footer {
+        display: flex;
+        width: 95%;
+        margin: auto;
+    }
 }
