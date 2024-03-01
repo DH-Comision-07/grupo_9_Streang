@@ -30,3 +30,9 @@ app.get('/register', (req, res) => {
 app.get('/cart', (req, res) => {
     res.sendFile(path.resolve(__dirname, './views/cart.html'))
 });
+
+// router para pagina de login
+app.get('/login', (req, res) => {
+    res.sendFile(path.resolve(__dirname, './views/login.html'))
+});
+
