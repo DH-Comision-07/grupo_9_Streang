@@ -13,12 +13,12 @@ header{
     display: flex;
     justify-content: space-between;
     background-color: #0B0B73;
-    width: 1wv;
+    width: 1vw;
     align-items: center;
 }
 
 .logo-container{
-    width: 34%;
+    width: 20vw;
     align-items: center;
 }
 
