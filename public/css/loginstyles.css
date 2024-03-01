@@ -35,3 +35,6 @@ padding: 30px;
     margin: 10px;
     font-size: 10px;
 }
+.input-container, .fa-solid{
+    display: none;
+}
