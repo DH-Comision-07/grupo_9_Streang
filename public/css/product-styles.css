@@ -2,19 +2,17 @@
     box-sizing: border-box;
     font-family: Roboto;
 }
-
 body{
     margin: 0px;
     background-color: #0B0B73;
 }
-
 header{
     display: flex;
     flex-direction: column;
     width: 100%;
 }
 
-.nav-bar, .header-right, .fa-magnifying-glass, iframe, .product-description img{
+.nav-bar, .header-right, .fa-magnifying-glass{
     display: none;
 }
 
@@ -25,26 +23,21 @@ header{
     width: 1wv;
     align-items: center;
 }
-
 .logo-container{
     width: 34%;
     align-items: center;
 }
-
 header .fa-solid{
     margin: 0px auto;
     font-size: 1.4em;
     color: lightskyblue;
 }
-
 .logo-container img{
     width: 100%;
 }
-
 .menu-container{
     width: 33%;
 }
-
 .user-icon-container{
     width: 33%;
 }
@@ -62,7 +55,6 @@ header .fa-solid{
     display: flex;
     align-items: center;
 }
-
 .product-container{
     display: flex;
     flex-direction: column;
@@ -75,24 +67,19 @@ header .fa-solid{
     margin-top: 3%;
 	border: solid 2px white;
 }
-
 .main-img-container{
     width: 100%;
 }
-
 .main-img-container img{
     width: 100%;
 }
-
 .more-img-container{
     display: flex;
     justify-content: space-between;
 }
-
 .more-img-container img{
     width: 33%;
 }
-
 .price-container{
     display: flex;
     justify-content: space-around;
@@ -100,7 +87,6 @@ header .fa-solid{
     width: 100%;
     border-radius: 5px;
 }
-
 .price, .discount, .final-price{
     width: 33%;
     padding: 3px;
@@ -108,24 +94,20 @@ header .fa-solid{
     text-align: center;
     color: white;
 }
-
 .price{
     text-decoration: line-through;
     background-color: gray;
     border-radius: 3px;
 }
-
 .final-price{
     background-color: gray;
     border-radius: 3px;
 }
-
 .discount{
     background-color: rgba(42, 207, 19, 0.8);
     font-size: 0.8em;
     border-radius: 2px;
 }
-
 .add-cart{
     background-color: green;
     margin: 5px auto;
@@ -133,17 +115,10 @@ header .fa-solid{
     border-radius: 5px;
     color: antiquewhite;
 }
-
 /* SECCION COMENTARIOS */
-
-.comentaries {
-    margin: auto;
-}
-
 .comentaries h3{
     padding-left: 5%;
 }
-
 .form-container{
     width: 90%;
     margin: auto;
@@ -151,30 +126,25 @@ header .fa-solid{
     background-color:rgb(27, 73, 158);
     border-radius: 5px;
 }
-
 .form-container form{
     display: flex;
     flex-direction: column;
 }
-
 textarea{
     margin: 10px 0;
     border: none;
     border-radius: 3px;
     padding: 5px;
 }
-
 .form-container form input{
     border: none;
     border-radius: 3px;
     padding-left: 5px;
     height: 30px;
 }
-
 .buttons-container{
     display: flex;
 }
-
 .buttons-container button{
     padding: 12px;
     width: 120px;
@@ -182,7 +152,6 @@ textarea{
     border: none;
     border-radius: 5px;
 }
-
 .user-comentary{
     display: flex;
     flex-direction: column;
@@ -192,14 +161,11 @@ textarea{
     padding: 10px;
     border-radius: 5px;
 }
-
 .info-user{
     display: flex;
     /* border: 1px solid black; */
     align-items: center;
-
 }
-
 .info-user .profile-img-container{
     border: 1px solid black;
     width: 50px;
@@ -207,29 +173,22 @@ textarea{
     border-radius: 50%;
     margin-right: 10px;
 }
-
 .user-and-date-container{
     display: flex;
     flex-direction: column;
 }
-
 .user-and-date-container p{
     margin: 0;
 }
-
 .user-and-date-container .date{
     font-size: 12px;
     color: rgb(134, 130, 130);
     margin-top: 5px;
 }
-
 /* SECCION PRODUCTOS SIMILARES */
-
 .similar-products{
     width: 100%;
-    margin: auto;
 }
-
 .similar-products-container{
     display: flex;
     justify-content: space-between;
@@ -240,7 +199,6 @@ textarea{
     padding: 10px;
     border-radius: 5px;
 }
-
 .similar-products-container img{
     width: 30%;
     padding: 5px;
@@ -251,39 +209,8 @@ main h3{
     padding-left: 5%;
 }
 
-<<<<<<< HEAD
-@media (min-width: 468px) {
-    .product-container, .comentaries, .similar-products {
-        width: 80%;
-    }
-}
-
-@media (min-width: 768px) {
-    .product-container, .comentaries, .similar-products {
-        width: 60%;
-    }
-}
-
-@media (min-width: 1200px) {
-    .product-container, .comentaries, .similar-products {
-        width: 40%;
-    }
-=======
-/* ######## FOOTER ######## */
-footer{
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-}
-
-footer article{
-    width: 90%;
-    margin: auto;
-}
-
 /* MEDIA DESKTOP */
 @media (min-width: 1023px){
-
     header{
         display: flex;
         flex-direction: row;
@@ -291,6 +218,7 @@ footer article{
         width: 100%;
         /* justify-content: space-between; */
     }
+
 
     .header-top .fa-solid{
         display: none;
@@ -360,7 +288,7 @@ footer article{
         justify-content: space-around;
         margin-top: 30px;
         padding: 0;
-        
+
         /* margin-left: 0; */
     }
 
@@ -462,5 +390,5 @@ footer article{
         cursor: pointer;
     }
 
->>>>>>> af57bc9b5768511f69172f55e3c122d4183d09a6
+
 }
