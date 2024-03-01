@@ -34,4 +34,4 @@ De este conocido sitio web nos pareció interesante el slider gigante que tiene 
 Espacio de trabajo Trello (GRUPO 9 STREANG)
 link: https://trello.com/b/erom3WiA/streang
 
-[![Estrella.jpg](https://i.postimg.cc/7ZwCC7Tw/Estrella.jpg)][def]
+![Estrella.jpg](https://i.postimg.cc/7ZwCC7Tw/Estrella.jpg)
