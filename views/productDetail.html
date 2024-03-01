@@ -21,31 +21,34 @@
         <div class="header-top">
                 <i class="fa-solid fa-bars"></i>
             <div class="logo-container">
-                <img src="images/streang-logo-v1.png" alt="Streang logo">
+                <a href="/" ><img src="images/streang-logo-v1.png" alt="Streang logo"></a>
             </div>
                 <i class="fa-solid fa-user"></i>
         </div>
         <div class="header-bottom"></div>
-        <div class="input-container">
-            <input type="text" name="text" class="input" placeholder="Buscar...">
-            <span class="icon"> 
-              <svg width="19px" height="19px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path opacity="1" d="M14 5H20" stroke="#000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> <path opacity="1" d="M14 8H17" stroke="#000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M21 11.5C21 16.75 16.75 21 11.5 21C6.25 21 2 16.75 2 11.5C2 6.25 6.25 2 11.5 2" stroke="#000" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"></path> <path opacity="1" d="M22 22L20 20" stroke="#000" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
-            </span>
-        </div>
+        <input class="search-bar" type="text" value="Buscar...">
     </header>
     
     <main>
         <article class="product-container">
-            <div class="main-img-container">
-                <h2 class="product-title">Cuphead</h2>
-                <img src="/images/cuphead.png">
+            <div class="product-imgs">
+                <div class="main-img-container">
+                    <h2 class="product-title">Cuphead</h2>
+                    <img src="/images/cuphead.png">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/NN-9SQXoi50?si=LRLl-qW8hl5XjIx2" 
+                    title="YouTube video player" frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; 
+                    picture-in-picture; web-share" allowfullscreen></iframe>
+                </div>
+                <div class="more-img-container">
+                    <img src="images/cuphead-img1.jpg" alt="game image">
+                    <img src="images/cuphead-img2.webp" alt="game image">
+                    <img src="images/cuphead-img3.webp" alt="game image">
+                </div>
             </div>
-            <div class="more-img-container">
-                <img src="images/cuphead-img1.jpg" alt="game image">
-                <img src="images/cuphead-img2.webp" alt="game image">
-                <img src="images/cuphead-img3.webp" alt="game image">
-            </div>
+            
             <div class="product-description">
+                <img src="images/cuphead-banner.jpg" alt="cuphead title image">
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
                     Fusce risus velit, pulvinar vitae vulputate laoreet, 
                     imperdiet a odio. Praesent mollis orci et quam eleifend fringilla. 
@@ -59,6 +62,7 @@
             </div>
             <h3 class="add-cart">Agregar al carrito</h3>
         </article>
+
         <section class="comentaries">
             <h3>Dejá tu comentario</h3>
             <div class="form-container">
@@ -120,27 +124,25 @@
         </section>
     </main>
     
-    <footer>
-        <div class="footer">
-            <section class="footer__section">
-                <h2>Pagá con tarjeta o en efectivo</h2>
-                <p>Paga hasta en 12 cuotas sin interes con tarjetas VISA bancarizadas, u obtené 10% de descuento
-                    pagando en efectivo.
-                </p>
-            </section>
-            <section class="footer__section">
-                <h2>Envío gratis desde $ 15000</h2>
-                <p>Te regalamos el envío en compras superiores a $15000</p>
-            </section>
-            <section class="footer__section">
-                <h2>Garantía con cambio directo</h2>
-                <p>Si tu producto tiene alguna falla, te cambiamos el producto de manera inmediata
-                    dentro de los primeros 5 días.
-                </p>
-            </section>
-        </div>
+    <footer class="footer">
         <section class="footer__section">
-            <p>Copyright © 2020-2024 Streang®</p>
+            <h2>Pagá con tarjeta o en efectivo</h2>
+            <p>Paga hasta en 12 cuotas sin interes con tarjetas VISA bancarizadas, u obtené 10% de descuento
+                pagando en efectivo.
+            </p>
+        </section>
+        <section class="footer__section">
+            <h2>Envío gratis desde $ 15000</h2>
+            <p>Te regalamos el envío en compras superiores a $15000</p>
+        </section>
+        <section class="footer__section">
+            <h2>Garantía con cambio directo</h2>
+            <p>Si tu producto tiene alguna falla, te cambiamos el producto de manera inmediata
+                dentro de los primeros 5 días.
+            </p>
+        </section>
+        <section class="footer__section">
+            <p>Copyright © 2020-2024 Streang® </p>
         </section>
     </footer>
 
