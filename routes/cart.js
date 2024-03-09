@@ -1,11 +1,10 @@
 let express = require ('express');
 let router = express.Router();
 let path = require ('path');
+const cartController = require('../controllers/cartController');
 
 // router para pagina de carrito
-router.get('/', (req, res) => {
-    res.sendFile(path.resolve(__dirname, '../views/cart.html'))
-});
+router.get('/', cartController.paginaCart);
 
 
 
