@@ -31,8 +31,9 @@
       </div>
     </header>
     <h1 class="login">Login</h1>
-    <div class="formulario-login-box">
-      <form action="/index.html" class="login-form">
+    <div class="logincotainer">
+      <div class="formcontainer">
+        <form action="/index.html" class="login-form">
         <input type="text" placeholder="Nombre y apellido" class="nombre"/>
         <br>
         <input type="email" placeholder="E-mail" class="email"/>
@@ -41,9 +42,16 @@
         <br>
         <button class="iniciar-sesion">Iniciar sesion</button>
         <br>
+        </form>
+      </div>
+        <div class="olviderecordarmediv">
+        <form action="/index.html" class="olviderecordarmeform">
         <label for="nombre">Olvidé mi contraseña</label><input type="checkbox" name="Olvidé mi contraseña" value="si" class="olvide-mi-clave">
         <label for="nombre">Recordarme</label><input type="checkbox" name="Recordarme" value="si" class="recordarme">
-    </form>
+      </form>
+        </div>
     </div>
+    
+    
   </body>
 </html>
