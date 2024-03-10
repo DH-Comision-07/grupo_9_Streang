@@ -1,10 +1,9 @@
 let express = require ('express');
 let router = express.Router();
 let path = require ('path');
+const mainController = require('../controllers/mainController');
 
 // route para pagina raiz
-router.get('/', (req, res) => {
-    res.sendFile(path.resolve(__dirname, '../views/home.html'))
-});
+router.get('/', mainController.paginaPrincipal);
 
 module.exports = router;
