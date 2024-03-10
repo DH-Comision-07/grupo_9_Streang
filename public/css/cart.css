@@ -360,8 +360,21 @@ footer {
   background-color: black;
   margin-top:20px;
 }
+
 footer p{
   color: white;
+}
+
+.footer__section {
+	text-align: center;
+	padding: 0.1% 0;
+	line-height: 18px;
+	width: 90%;
+	margin: auto 2%;
+}
+
+.footer__copy {
+    text-align: center;
 }
 
 @keyframes anim {
@@ -536,6 +549,10 @@ footer p{
 
   .cart-total{
     align-self: flex-start;
+  }
+
+  .footer {
+    display: flex;
   }
 
   @media (min-width: 1200px){
