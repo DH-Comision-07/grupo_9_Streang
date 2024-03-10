@@ -331,4 +331,8 @@ footer {
         display: none;
     }
 
+    .footer {
+        display: flex;
+    }
+
 }
