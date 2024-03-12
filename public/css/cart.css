@@ -231,6 +231,7 @@ img{
 
 .wave-group .input:focus {
   outline: none;
+  /* outline: #0B0B73; */
 }
 
 .wave-group .label {
@@ -344,8 +345,9 @@ img{
 
 .input:focus {
   outline: none;
-  border: 0.5px solid lightskyblue;
-  box-shadow: -5px -5px 0px lightskyblue;
+  border: none;
+  border-bottom: 0.5px solid lightskyblue;
+  
 }
 
 .input-container:hover > .icon {
