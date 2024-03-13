@@ -11,39 +11,8 @@
     <title>Producto</title>
 </head>
 <body>
-    <header>
-        <div class="header-top">
-                <i class="fa-solid fa-bars"></i>
-            <div class="logo-container">
-                <a href="/" ><img src="images/streang-logo-v1.png" alt="Streang logo"></a>
-            </div>
-                <i class="fa-solid fa-user"></i>
-        </div>
-        <div class="header-mid">
-            <div class="search-bar-container">
-                <input class="search-bar" type="text" placeholder="Buscar...">
-                <i class="fa-solid fa-magnifying-glass"></i>
-            </div>            
-            <div class="nav-bar">
-                <ul>
-                    <li><a class="nav-link" href="#">Categorias</a></li>
-                    <li><a class="nav-link" href="#">Promociones</a></li>
-                    <li><a class="nav-link" href="#">Vender</a></li>
-                    <li><a class="nav-link" href="#">Contacto</a></li>
-                    <li><a class="nav-link" href="#">Ayuda</a></li>
-                </ul>
-            </div>
-        </div>
-        <div class="header-right">
-            <ul class="right-nav-bar">
-                <li><a href="/login">Ingresá <i class="fa-solid fa-right-to-bracket"></i></a></li>
-                <li><a href="/register">Creá tu cuenta <i class="fa-solid fa-user"></i></a></li>
-                <li><a href="/cart">Tu carrito <i class="fa-solid fa-cart-shopping"></i></a></li>
-            </ul>
-
-        </div>
-    </header>
-    
+        <!-- Header -->
+        <%-include('partials/header.ejs')%>
     <main>
         <article class="product-container">
             <div class="product-imgs">
@@ -138,27 +107,8 @@
         </section>
     </main>
     
-    <footer>
-        <section>
-            <h2>Pagá con tarjeta o en efectivo</h2>
-            <p>Paga hasta en 12 cuotas sin interes con tarjetas VISA bancarizadas, u obtené 10% de descuento
-                pagando en efectivo.
-            </p>
-        </section>
-        <section>
-            <h2>Envío gratis desde $ 15000</h2>
-            <p>Te regalamos el envío en compras superiores a $15000</p>
-        </section>
-        <section>
-            <h2>Garantía con cambio directo</h2>
-            <p>Si tu producto tiene alguna falla, te cambiamos el producto de manera inmediata
-                dentro de los primeros 5 días.
-            </p>
-        </section>
-        <section class="copyright">
-            <p>Copyright © 2020-2024 Streang® </p>
-        </section>
-    </footer>
+        <!-- FOOTER -->
+        <%-include('partials/footer.ejs')%>
 
 </body>
 </html>
