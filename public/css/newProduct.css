@@ -15,6 +15,7 @@ body{
     /* height: 300px; */
     width: 100%;
     margin: 0;
+    margin-top: 40px;
     padding: 0;
 }
 
@@ -24,14 +25,14 @@ body{
 }
 
 .caja1 {
-    width: 50%;
+    width: 25%;
     background-color: #0B0B73;
     overflow-y: auto; /* Use 'auto' instead of 'scroll' to show scrollbar only when necessary */
     max-height: 100vh;
 }
 
 .caja2 {
-    width: 50%;
+    width: 75%;
     background-color: blueviolet;
     position: sticky;
     top: 0;
@@ -51,3 +52,219 @@ body{
     height: 100%; /* Occupy full height of parent */
     overflow: auto; /* Add overflow to ensure scrolling if content overflows */
 }
+
+/* ESTILO DE VISTA PREVIA DEL PRODUCTO */
+.product-title{
+    margin: 5px auto 5px 10px;
+    color:aquamarine;
+    display: flex;
+    align-items: center;
+}
+.product-container{
+    display: flex;
+    flex-direction: column;
+    padding: 5px;
+    width: 90%;
+    margin: auto;
+    /* border: 1px solid red; */
+    background-color: rgb(27, 73, 158);
+    margin-bottom: 3%;
+    margin-top: 3%;
+	border: solid 2px white;
+}
+.main-img-container{
+    width: 100%;
+}
+.main-img-container img{
+    width: 100%;
+
+}
+.more-img-container{
+    display: flex;
+    justify-content: space-between;
+}
+
+.more-img-container i{
+    width: 33%;
+    /* border: dotted 1px red; */
+}
+.price-container{
+    display: flex;
+    justify-content: space-around;
+    background-color: black;
+    width: 100%;
+    border-radius: 5px;
+}
+.price, .discount, .final-price{
+    width: 33%;
+    padding: 3px;
+    margin: 2px;
+    text-align: center;
+    color: white;
+}
+.price{
+    text-decoration: line-through;
+    background-color: gray;
+    border-radius: 3px;
+}
+.final-price{
+    background-color: gray;
+    border-radius: 3px;
+}
+.discount{
+    background-color: rgba(42, 207, 19, 0.8);
+    font-size: 0.8em;
+    border-radius: 2px;
+}
+.add-cart{
+    background-color: green;
+    margin: 5px auto;
+    padding: 10px;
+    border-radius: 5px;
+    color: antiquewhite;
+}
+
+/* DESKTOP */
+@media (min-width: 1023px){
+
+    /* main{
+        width: 1100px;
+        margin: auto;
+    } */
+    
+    .product-container{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        height: 90%;
+        justify-content: space-between;
+    }
+    
+    .product-imgs{
+        width: 50%;
+        display: flex;
+        flex-direction: column;
+        /* flex-wrap: wrap; */
+    }
+
+    .main-img-container{
+        /* position: relative; */
+        width: 100%;
+        height: 370px;
+        /* border: 1px solid red */
+    }
+    
+    .main-img-container img{
+        display: none;
+    }
+
+    .main-img-container .fa-youtube{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: 1px solid grey;
+        /* position: absolute; */
+        top: 10%;
+        left: 1%;
+        width: 100%;
+        height: 80%;
+        /* padding: 120px 190px; */
+        font-size: 3em;
+        border-radius: 10px;
+    }
+
+    iframe, .product-description img{
+        width: 100%;
+        display: block;
+    }
+
+    .more-img-container{
+        /* border: solid green 1px; */
+        height: 25%;
+        width: 100%;
+    }
+
+    .more-img-container i{
+        display: flex;
+        justify-content: center;
+        width: 33%;
+        border: 1px solid grey;
+        border-radius: 10px;
+        font-size: 2.5em;
+        align-content: center;
+        /* text-align: center; */
+        align-items: center;
+    }
+    
+    .product-description{
+        width: 45%;
+        margin-top: 40px;
+        margin-right: 20px;
+    }
+    
+    .product-description img{
+        width: 100%;
+    }
+    
+    .price-container{
+        width: 50%;
+        height: 30px;
+        margin-top: 15px;
+    }
+
+    /* ESTILO DEL FORMULARIO */
+
+    .caja1 h2{
+        margin: 20px 0px 0px 20px;
+        color:white;
+
+    }
+
+    .form-container{
+        display: flex;
+        flex-direction: column;
+        width: 90%;
+        margin: auto;
+    }
+
+    input.product-img, label.product-img-label{
+        position: relative;
+        height: 150px !important;
+        width: 100%;
+        margin: auto;
+        margin-top: 5px;
+        margin-bottom: 10px;
+    }
+
+    .fa-images.img-form{
+        position: absolute;
+        z-index: 1;
+        top: 40%;
+        left: 40%;
+        font-size: 3em;
+    }
+
+    .form-container input{
+        height: 60px;
+        margin: 5px 0;
+        border: none;
+        border-radius: 5px;
+        width: 100%;
+    }
+
+    .submit-button{
+        width: 50%;
+        margin: auto;
+        height: 50px;
+        border-radius: 5px;
+        border: none;
+        margin-top:5px;
+        margin-bottom: 5px;
+    }
+
+      
+}
+
+
+  
+
