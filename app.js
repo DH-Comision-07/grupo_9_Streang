@@ -1,21 +1,16 @@
 const express = require('express');
 const path = require('path');
-const rutasRegister = require('./routes/register.js');
-const rutasProductos = require('./routes/productos.js');
-const rutasLogin = require('./routes/login.js');
-const rutasCart = require('./routes/cart.js');
-const rutasMain = require('./routes/main.js');
+const mainRouter = require('./routes/mainRoutes.routes');
+
 
 const app = express();
-app.use ('/register', rutasRegister);
-app.use ('/producto', rutasProductos);
-app.use ('/login', rutasLogin);
-app.use ('/cart', rutasCart);
-app.use ('/', rutasMain);
+app.set("view engine", "ejs");
+app.use('/', mainRouter);
+
 
 app.use(express.json());
 
-app.set("view engine", "ejs");
+
 
 const publicPath = path.resolve(__dirname, './public');
 app.use(express.static(publicPath));

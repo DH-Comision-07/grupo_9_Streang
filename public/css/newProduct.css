@@ -1,0 +1,53 @@
+*{
+    box-sizing: border-box;
+}
+
+body{
+    margin: 0;
+    padding: 0;
+}
+
+.cajas-container{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    /* height: 300px; */
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.caja1, .caja2{
+    width: 50%;
+    background-color: #0B0B73;
+}
+
+.caja1 {
+    width: 50%;
+    background-color: #0B0B73;
+    overflow-y: auto; /* Use 'auto' instead of 'scroll' to show scrollbar only when necessary */
+    max-height: 100vh;
+}
+
+.caja2 {
+    width: 50%;
+    background-color: blueviolet;
+    position: sticky;
+    top: 0;
+    height: 100vh; /* Occupy full viewport height */
+}
+
+.caja2-hija{
+    background-color: red;
+    height: 200px;
+    width: 200px;
+    margin: auto;
+    
+}
+
+.product-container {
+    position: relative;
+    height: 100%; /* Occupy full height of parent */
+    overflow: auto; /* Add overflow to ensure scrolling if content overflows */
+}
