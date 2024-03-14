@@ -7,51 +7,140 @@ body{
     padding: 0;
 }
 
-.cajas-container{
+.main-boxes-container{
     display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    /* height: 300px; */
+    flex-direction: column-reverse;
+    align-items: end;
+    justify-content:flex-end;
     width: 100%;
     margin: 0;
     margin-top: 40px;
     padding: 0;
 }
 
-.caja1, .caja2{
-    width: 50%;
+.form-box, .preview-box{
+    width: 100%;
     background-color: #0B0B73;
 }
 
-.caja1 {
-    width: 25%;
+.form-box {
+    width: 100%;
     background-color: #0B0B73;
-    overflow-y: auto; /* Use 'auto' instead of 'scroll' to show scrollbar only when necessary */
-    max-height: 100vh;
 }
 
-.caja2 {
-    width: 75%;
-    background-color: blueviolet;
-    position: sticky;
+.preview-box {
+    width: 100%;
+    background-color: #0B0B73;
     top: 0;
-    height: 100vh; /* Occupy full viewport height */
-}
-
-.caja2-hija{
-    background-color: red;
-    height: 200px;
-    width: 200px;
-    margin: auto;
-    
+    padding: 10px;
 }
 
 .product-container {
     position: relative;
-    height: 100%; /* Occupy full height of parent */
-    overflow: auto; /* Add overflow to ensure scrolling if content overflows */
+    height: 100%;
 }
+
+.main-img-mobile{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border:1px solid grey;
+    width: 100%;
+    height: 350px;
+    font-size: 3em;
+}
+
+.main-img-container .fa-youtube, .product-banner{
+    display: none;
+}
+
+.more-img-container{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+}
+
+.more-img-container .fa-images{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5em;
+    width: 33.3%;
+    margin: 3px;
+    height: 100px;
+    border: 1px solid grey;
+}
+
+/* ESTILO DEL FORMULARIO */
+
+.form-box h2{
+    margin: 20px 0px 0px 20px;
+    color:white;
+}
+
+.form-container{
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    margin: auto;
+}
+
+input.product-img, label.product-img-label{
+    position: relative;
+    height: 150px !important;
+    width: 100%;
+    margin: auto;
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+
+select.category, select.format, textarea.description-area{
+    height: 60px;
+    margin: 5px 0;
+    border: none;
+    border-radius: 5px;
+    width: 100%;
+    color: grey
+}
+
+textarea.description-area{
+    height: inherit;
+    width: 100%;
+    resize: none;
+}
+
+.fa-images.img-form{
+    position: absolute;
+    z-index: 1;
+    top: 40%;
+    left: 40%;
+    font-size: 3em;
+}
+
+.form-container input{
+    height: 60px;
+    margin: 5px 0;
+    border: none;
+    border-radius: 5px;
+    width: 100%;
+}
+
+.submit-button{
+    width: 50%;
+    margin: auto;
+    height: 50px;
+    border-radius: 5px;
+    border: none;
+    margin-top:5px;
+    margin-bottom: 5px;
+}
+
+.submit-button:hover{
+    box-shadow: 0px 0px 10px black;
+    cursor: pointer;
+}
+
 
 /* ESTILO DE VISTA PREVIA DEL PRODUCTO */
 .product-title{
@@ -60,25 +149,28 @@ body{
     display: flex;
     align-items: center;
 }
+
 .product-container{
     display: flex;
     flex-direction: column;
     padding: 5px;
     width: 90%;
     margin: auto;
-    /* border: 1px solid red; */
     background-color: rgb(27, 73, 158);
     margin-bottom: 3%;
     margin-top: 3%;
 	border: solid 2px white;
 }
+
 .main-img-container{
     width: 100%;
 }
+
 .main-img-container img{
     width: 100%;
 
 }
+
 .more-img-container{
     display: flex;
     justify-content: space-between;
@@ -86,8 +178,8 @@ body{
 
 .more-img-container i{
     width: 33%;
-    /* border: dotted 1px red; */
 }
+
 .price-container{
     display: flex;
     justify-content: space-around;
@@ -111,26 +203,61 @@ body{
     background-color: gray;
     border-radius: 3px;
 }
+
 .discount{
     background-color: rgba(42, 207, 19, 0.8);
     font-size: 0.8em;
     border-radius: 2px;
 }
+
 .add-cart{
     background-color: green;
     margin: 5px auto;
-    padding: 10px;
+    padding-top: 10px;
     border-radius: 5px;
     color: antiquewhite;
 }
 
 /* DESKTOP */
-@media (min-width: 1023px){
+@media (min-width: 800px){
 
-    /* main{
-        width: 1100px;
-        margin: auto;
-    } */
+    /* ESTILO VISTA PREVIA PRODUCTO */
+
+    .main-img-mobile{
+        display: none;
+    }
+
+    .product-banner{
+        display: block;
+    }
+
+    .main-boxes-container{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        width: 100%;
+        margin: 0;
+        margin-top: 40px;
+        padding: 0;
+    }
+    
+   
+    .form-box {
+        width: 25%;
+        background-color: #0B0B73;
+        overflow-y: auto;
+        max-height: 100vh;
+    }
+    
+    .preview-box {
+        width: 75%;
+        background-color: #0B0B73;
+        position: sticky;
+        top: 0;
+        padding: 10px;
+        height: 100vh;
+    }    
     
     .product-container{
         display: flex;
@@ -144,14 +271,12 @@ body{
         width: 50%;
         display: flex;
         flex-direction: column;
-        /* flex-wrap: wrap; */
+        
     }
 
-    .main-img-container{
-        /* position: relative; */
+    .main-img-container{       
         width: 100%;
-        height: 370px;
-        /* border: 1px solid red */
+        height: 370px;        
     }
     
     .main-img-container img{
@@ -163,12 +288,10 @@ body{
         justify-content: center;
         align-items: center;
         border: 1px solid grey;
-        /* position: absolute; */
         top: 10%;
         left: 1%;
         width: 100%;
         height: 80%;
-        /* padding: 120px 190px; */
         font-size: 3em;
         border-radius: 10px;
     }
@@ -179,7 +302,6 @@ body{
     }
 
     .more-img-container{
-        /* border: solid green 1px; */
         height: 25%;
         width: 100%;
     }
@@ -192,7 +314,6 @@ body{
         border-radius: 10px;
         font-size: 2.5em;
         align-content: center;
-        /* text-align: center; */
         align-items: center;
     }
     
@@ -205,6 +326,15 @@ body{
     .product-description img{
         width: 100%;
     }
+
+    .product-banner{
+        width: 100%;
+        padding: 60px 0;
+        font-size: 3em;
+        border: 1px solid grey;
+        border-radius: 10px;
+        text-align: center;
+    }
     
     .price-container{
         width: 50%;
@@ -212,54 +342,45 @@ body{
         margin-top: 15px;
     }
 
-    /* ESTILO DEL FORMULARIO */
-
-    .caja1 h2{
-        margin: 20px 0px 0px 20px;
-        color:white;
-
-    }
-
-    .form-container{
-        display: flex;
-        flex-direction: column;
-        width: 90%;
-        margin: auto;
-    }
-
-    input.product-img, label.product-img-label{
-        position: relative;
-        height: 150px !important;
-        width: 100%;
-        margin: auto;
-        margin-top: 5px;
-        margin-bottom: 10px;
-    }
-
-    .fa-images.img-form{
-        position: absolute;
-        z-index: 1;
-        top: 40%;
-        left: 40%;
-        font-size: 3em;
-    }
-
-    .form-container input{
-        height: 60px;
-        margin: 5px 0;
-        border: none;
-        border-radius: 5px;
-        width: 100%;
-    }
-
-    .submit-button{
-        width: 50%;
-        margin: auto;
+    .add-cart{
+        background-color: green;
         height: 50px;
+        margin: 5px auto;
+        padding: 10px;
         border-radius: 5px;
-        border: none;
-        margin-top:5px;
-        margin-bottom: 5px;
+        color: antiquewhite;
+    }
+
+    /* ESTILO DEL SCROLL */
+    /* Tamaño del scroll */
+    .form-box::-webkit-scrollbar {
+        width: 8px;
+    }
+    
+    /* Estilos barra (thumb) de scroll */
+    .form-box::-webkit-scrollbar-thumb {
+        background: grey;
+        border-radius: 4px;
+    }
+    
+    .form-box::-webkit-scrollbar-thumb:active {
+        background-color: #999999;
+    }
+    
+    .form-box::-webkit-scrollbar-thumb:hover {
+        background: #b3b3b3;
+        box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.2);
+    }
+    
+    /* Estilos track de scroll */
+    .form-box::-webkit-scrollbar-track {
+        background: #e1e1e1;
+        border-radius: 4px;
+    }
+    
+    .form-box::-webkit-scrollbar-track:hover, 
+    .form-box::-webkit-scrollbar-track:active {
+        background: #d4d4d4;
     }
 
       
