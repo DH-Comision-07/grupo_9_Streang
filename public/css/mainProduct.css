@@ -211,7 +211,12 @@ main h3{
 }
 
 footer {
+    color: lightskyblue;
     text-align: center;
+    background-color: black;
+}
+footer p{
+    color: white;
 }
 
 /* MEDIA DESKTOP */

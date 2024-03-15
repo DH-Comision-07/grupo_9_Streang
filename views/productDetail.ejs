@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%-include('partials/head.ejs')%>
+    <link href="css/mainProduct.css" rel="stylesheet"/>
+    <title>Producto</title>
+</head>
+<body>
+        <!-- Header -->
+        <%-include('partials/header.ejs')%>
+    <main>
+        <article class="product-container">
+            <div class="product-imgs">
+                <div class="main-img-container">
+                    <h2 class="product-title">Cuphead</h2>
+                    <img src="/images/cuphead.png">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/NN-9SQXoi50?si=LRLl-qW8hl5XjIx2" 
+                    title="YouTube video player" frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; 
+                    picture-in-picture; web-share" allowfullscreen></iframe>
+                </div>
+                <div class="more-img-container">
+                    <img src="images/cuphead-img1.jpg" alt="game image">
+                    <img src="images/cuphead-img2.webp" alt="game image">
+                    <img src="images/cuphead-img3.webp" alt="game image">
+                </div>
+            </div>
+            
+            <div class="product-description">
+                <img src="images/cuphead-banner.jpg" alt="cuphead title image">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+                    Fusce risus velit, pulvinar vitae vulputate laoreet, 
+                    imperdiet a odio. Praesent mollis orci et quam eleifend fringilla. 
+                    Vivamus at euismod mi, non ultricies sem. 
+                    Suspendisse ac risus non lacus tristique finibus. </p>
+            </div>
+            <div class="price-container">
+                <h4 class="price">$12000</h4>
+                <h4 class="discount">%20 dto</h4>
+                <h4 class="final-price">$9600</h4>
+            </div>
+            <h3 class="add-cart">Agregar al carrito</h3>
+        </article>
+
+        <section class="comentaries">
+            <h3>Dejá tu comentario</h3>
+            <div class="form-container">
+                <form action="#" method="POST">                    
+                    <input type="text" placeholder="Nombre" name="user-name">
+                    <textarea maxlength="1500" placeholder="Escribe aquí tu comentario" rows="10"></textarea>
+                    <div class="buttons-container">
+                        <button class="sendButton">Aceptar</button>
+                        <button class="cancelButton" type="reset">Borrar</button>
+                    </div>
+                </form>
+            </div>
+            <h3>Opiniones de usuarios</h3>
+            <article class="user-comentary">
+                <div class="info-user">
+                    <div class="profile-img-container">
+                        <!-- <p> </p> -->
+                    </div>
+                    <div class="user-and-date-container">
+                        <p class="userName">Usuario01</p>
+                        <p class="date">15 de Julio 2023</p>
+                    </div>
+                </div>
+                <p class="comentary">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+                    Fusce risus velit, pulvinar vitae vulputate laoreet, 
+                    imperdiet a odio. Praesent mollis orci et quam eleifend fringilla. 
+                    Vivamus at euismod mi, non ultricies sem. 
+                    Suspendisse ac risus non lacus tristique finibus.
+                </p>
+            </article>
+            <article class="user-comentary">
+                <div class="info-user">
+                    <div class="profile-img-container">
+                        <!-- <p> </p> -->
+                    </div>
+                    <div class="user-and-date-container">
+                        <p class="userName">Usuario02</p>
+                        <p class="date">7 de Agosto 2023</p>
+                    </div>
+                </div>
+                <p class="comentary">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+                    Fusce risus velit, pulvinar vitae vulputate laoreet, 
+                    imperdiet a odio. Praesent mollis orci et quam eleifend fringilla. 
+                    Vivamus at euismod mi, non ultricies sem. 
+                    Suspendisse ac risus non lacus tristique finibus.
+                </p>
+            </article>            
+        </section>
+        <h3>Productos similares</h3>
+        <section class="similar-products">
+            <div class="similar-products-container">
+                <img src="images/hollow-knight.webp" alt="Hollow Knight game">
+                <img src="images/GTAV.jpeg" alt="GTAV game">
+                <img src="images/cuphead-the-delicious-last-course.webp" alt="Cuphead the deliciuos last course">
+            </div>            
+        </section>
+    </main>
+    
+        <!-- FOOTER -->
+        <%-include('partials/footer.ejs')%>
+
+</body>
+</html>

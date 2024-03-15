@@ -1,0 +1,52 @@
+*{
+    box-sizing: border-box;
+}
+body{
+    background-color: #0B0B73;
+    color: white;
+    text-align: center;
+}
+
+.logincontainer{
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+    margin: auto;
+}
+.formcontainer{
+    text-align: center;
+}
+.olviderecordarmediv{
+    display: flex;
+    flex-wrap: row;
+    justify-content: space-between;
+}
+
+.login{
+    padding: 30px;
+    font-size: 30px;
+}
+.nombre{
+    margin: 10px;
+}
+.email{
+    margin: 10px;
+}
+.password{
+    margin: 10px;
+}
+.iniciar-sesion{
+    margin: 10px;
+   
+}
+.olvide-mi-clave{
+    display: flex;
+    margin: 10px;
+    font-size: 10px;
+ 
+}
+.recordarme{
+    display: flex;
+    margin: 10px;
+    font-size: 10px;
+}
