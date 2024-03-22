@@ -110,6 +110,23 @@ textarea.description-area{
     resize: none;
 }
 
+
+.video-instructions-container {
+    display: none;
+    background-color: white;
+    padding: 5px;
+    margin-top: -10px;
+    border: none;
+    border-radius: 0 0 5px 5px;
+}
+
+.video-label:hover .video-instructions-container,
+.video-label input:focus + .video-instructions-container {
+    display: block;
+}
+
+
+
 .fa-images.img-form{
     position: absolute;
     z-index: 1;

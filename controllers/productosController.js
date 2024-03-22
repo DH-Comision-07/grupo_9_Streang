@@ -24,6 +24,7 @@ const productosController = {
             id: maxId + 1,
             name: req.body.name,
             price: parseFloat(req.body.price),
+            video: req.body.video,
             description: req.body.description,
             category: req.body.category,
             discount: parseFloat(req.body.discount),
