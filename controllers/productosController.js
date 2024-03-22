@@ -26,6 +26,7 @@ const productosController = {
             price: parseFloat(req.body.price),
             video: req.body.video,
             description: req.body.description,
+            mainImage: req.file.filename,
             category: req.body.category,
             discount: parseFloat(req.body.discount),
             format: req.body.format,

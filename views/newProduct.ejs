@@ -12,10 +12,10 @@
             <div class="main-boxes-container">
                 <div class="form-box">
                     <h2>Nuevo producto</h2>
-                    <form class="form-container" action="/producto/nuevo" method="POST">
+                    <form class="form-container" action="/producto/nuevo" method="POST" enctype="multipart/form-data">
                         
                         <label class="product-img-label" for=""><i class="fa-regular fa-images img-form"></i>
-                            <input class="product-img" type="text" name="mainImage" placeholder="">
+                            <input class="product-img" type="file" name="mainImage" placeholder="">
                         </label>
 
                         <label class="product-img-label" for=""><i class="fa-regular fa-images img-form"></i>
@@ -23,7 +23,7 @@
                         </label>
 
                         <label class="video-label" for="">
-                            <input type="text" name="video" placeholder="Video de Youtube">
+                            <input id="videoInput" type="text" name="video" placeholder="Video de Youtube">
                             <div class="video-instructions-container">
                                 <p class="video-instructions">Para compartir un video desde YouTube, ve al video,
                                     selecciona la opción "compartir" y luego selecciona "incorporar". Sólo copia el 
@@ -81,6 +81,9 @@
                                 title="YouTube video player" frameborder="0" 
                                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; 
                                 picture-in-picture; web-share" allowfullscreen></iframe> -->
+                                <div id="videoPreview" class="video-preview"></div>
+                                <!-- <iframe  width="560" height="315" src="" frameborder="0" allowfullscreen></iframe> -->
+                                
                                 <i class="fa-brands fa-youtube"></i>
                             </div>
                             <div class="more-img-container">
@@ -154,6 +157,22 @@
 
             // Escuchando el evento de entrada en el campo discount (si es un elemento de texto)
             document.querySelector('.discount').addEventListener('input', calculateFinalPrice);
+        });
+
+        // script para mostrar dinamicamente un video de youtube
+        const videoInput = document.getElementById('videoInput');
+        const videoPreview = document.getElementById('videoPreview');
+
+        videoInput.addEventListener('input', function() {
+            const videoCode = this.value.trim(); // Obtener el código del video y eliminar espacios en blanco
+
+            // Validar que el código del video no esté vacío y comience con '<iframe'
+            if (videoCode && videoCode.startsWith('<iframe')) {
+                videoPreview.innerHTML = videoCode; // Mostrar el código del video en la vista previa
+                document.getElementsByClassName('fa-youtube')[0].style.display = 'none';
+            } else {
+                videoPreview.innerHTML = ''; // Limpiar la vista previa si no se proporciona un código válido
+            }
         });
         </script>
     </body>
