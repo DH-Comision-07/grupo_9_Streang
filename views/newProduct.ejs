@@ -12,10 +12,14 @@
             <div class="main-boxes-container">
                 <div class="form-box">
                     <h2>Nuevo producto</h2>
-                    <form class="form-container" action="" method="POST">
+                    <form class="form-container" action="/producto/nuevo" method="POST">
                         
                         <label class="product-img-label" for=""><i class="fa-regular fa-images img-form"></i>
-                            <input class="product-img" type="text" name="image" placeholder="" required>
+                            <input class="product-img" type="text" name="mainImage" placeholder="">
+                        </label>
+
+                        <label class="product-img-label" for=""><i class="fa-regular fa-images img-form"></i>
+                            <input class="product-img" type="text" name="moreImages" placeholder="">
                         </label>
 
                         <label for="">
@@ -23,19 +27,11 @@
                         </label>
 
                         <label for="">
-                            <input type="text" name="name" placeholder="Nombre" required>
+                            <input type="text" name="name" placeholder="Nombre del producto*" required>
                         </label>
 
                         <textarea class="description-area" name="description" cols="30" rows="10" autocapitalize="on"
-                        placeholder="Descripcion" required></textarea>
-
-                        <!-- <label for="">
-                            <input type="text" name="description" placeholder="Descripcion" required>
-                        </label> -->
-
-                        <!-- <label for="">
-                            <input type="text" name="category" placeholder="Categoria" required>
-                        </label> -->
+                        placeholder="Descripcion*" required></textarea>
 
                         <select class="category" name="category">
                             <option value="" selected hidden>Categoria</option>
@@ -48,7 +44,11 @@
                         </select>
 
                         <label for="">
-                            <input type="text" name="price" placeholder="Precio" required>
+                            <input type="text" name="price" placeholder="Precio*" required>
+                        </label>
+
+                        <label for="">
+                            <input type="text" name="discount" placeholder="Descuento">
                         </label>
 
                         <select class="format" name="format">
@@ -69,7 +69,7 @@
                     <article class="product-container">
                         <div class="product-imgs">
                             <div class="main-img-container">
-                                <h2 class="product-title">Cuphead</h2>
+                                <h2 id="preview-name" class="product-title">Cuphead</h2>
                                 <i class="fa-regular fa-images main-img-mobile"></i>
                                 <!-- <iframe width="560" height="315" src="https://www.youtube.com/embed/NN-9SQXoi50?si=LRLl-qW8hl5XjIx2" 
                                 title="YouTube video player" frameborder="0" 
@@ -89,15 +89,15 @@
                         
                         <div class="product-description">
                             <i class="fa-regular fa-images product-banner"></i>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+                            <p id="preview-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
                                 Fusce risus velit, pulvinar vitae vulputate laoreet, 
                                 imperdiet a odio. Praesent mollis orci et quam eleifend fringilla. 
                                 Vivamus at euismod mi, non ultricies sem. 
                                 Suspendisse ac risus non lacus tristique finibus. </p>
                         </div>
                         <div class="price-container">
-                            <h4 class="price">$12000</h4>
-                            <h4 class="discount">%20 dto</h4>
+                            <h4 id="preview-price" class="price">$12000</h4>
+                            <h4 id="preview-discount" class="discount">%20 dto</h4>
                             <h4 class="final-price">$9600</h4>
                         </div>
                         <h3 class="add-cart">Agregar al carrito</h3>
@@ -108,5 +108,47 @@
         </main>
 
         <%-include('partials/footer.ejs')%>
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                // Escuchando el evento de entrada en los campos del formulario
+                document.querySelectorAll('.form-container input, .form-container textarea, .form-container select').forEach(input => {
+                    input.addEventListener('input', function() {
+                        // Obteniendo el valor del campo
+                        const value = this.value;
+                        // Obteniendo el nombre del campo
+                        const name = this.getAttribute('name');
+                        // Actualizando el contenido del elemento correspondiente en el preview-box
+                        const previewElement = document.getElementById(`preview-${name}`);
+                        if (previewElement) {
+                            previewElement.textContent = value;
+                        }
+                    });
+                });
+            });
+
+            document.addEventListener('DOMContentLoaded', function() {
+                // Función para calcular el final-price
+            function calculateFinalPrice() {
+                // Obteniendo el valor del campo price
+                const price = parseFloat(document.querySelector('input[name="price"]').value);
+                // Obteniendo el valor del campo discount
+                const discount = parseFloat(document.querySelector('input[name="discount"]').value);
+                document.querySelector('.discount').textContent = `%${discount} dto`;
+                // Calculando el final-price aplicando el descuento al price
+                const finalPrice = price - (price * (discount / 100));
+                // Actualizando el contenido del elemento correspondiente en el preview-box
+                document.querySelector('.final-price').textContent = `$${finalPrice.toFixed(2)}`;
+            }
+
+            // Escuchando el evento de entrada en el campo price
+            document.querySelector('input[name="price"]').addEventListener('input', calculateFinalPrice);
+
+            // Escuchando el evento de entrada en el campo discount (si es un campo de entrada)
+            document.querySelector('input[name="discount"]').addEventListener('input', calculateFinalPrice);
+
+            // Escuchando el evento de entrada en el campo discount (si es un elemento de texto)
+            document.querySelector('.discount').addEventListener('input', calculateFinalPrice);
+        });
+        </script>
     </body>
     </html>

@@ -6,7 +6,13 @@ let productosController = require ('../controllers/productosController.js');
 
 // route para pagina de producto
 router.get('/producto', productosController.paginaProductos);
-router.get('/producto/nuevo', productosController.newProduct);
+
+
+
+// route para POST nuevo producto
+router.get('/nuevo', productosController.newProduct);
+router.post('/nuevo', productosController.create);
+
 
 
 module.exports = router;
