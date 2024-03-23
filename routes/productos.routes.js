@@ -18,17 +18,17 @@ const storage = multer.diskStorage({
     }
   });
 
-const uploadFile = multer({ storage: storage});
+const uploadFile = multer({ storage: storage}).fields([{name: "mainImage"},{name: "moreImages", maxCount: 3}]);
+
 
 // **** rutas ****
-
 
 // route para pagina de producto
 router.get('/producto', productosController.paginaProductos);
 
 // route para POST nuevo producto
-router.get('/nuevo', uploadFile.single('mainImage'), productosController.newProduct);
-router.post('/nuevo', uploadFile.single('mainImage'), productosController.create);
+router.get('/create',  productosController.newProduct);
+router.post('/', uploadFile, productosController.create);
 
 
 

@@ -12,14 +12,14 @@
             <div class="main-boxes-container">
                 <div class="form-box">
                     <h2>Nuevo producto</h2>
-                    <form class="form-container" action="/producto/nuevo" method="POST" enctype="multipart/form-data">
+                    <form class="form-container" action="/products" method="POST" enctype="multipart/form-data">
                         
                         <label class="product-img-label" for=""><i class="fa-regular fa-images img-form"></i>
                             <input class="product-img" type="file" name="mainImage" placeholder="">
                         </label>
 
                         <label class="product-img-label" for=""><i class="fa-regular fa-images img-form"></i>
-                            <input class="product-img" type="text" name="moreImages" placeholder="">
+                            <input class="product-img" type="file" name="moreImages" placeholder="" multiple>
                         </label>
 
                         <label class="video-label" for="">

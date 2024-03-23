@@ -13,6 +13,6 @@ router.use('/', homeRoutes);
 router.use('/cart', cartRoutes);
 router.use('/login', loginRoutes);
 router.use('/register', registerRoutes);
-router.use('/producto', productosRoutes)
+router.use('/products', productosRoutes)
 
 module.exports = router;
