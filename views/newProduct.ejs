@@ -14,12 +14,17 @@
                     <h2>Nuevo producto</h2>
                     <form class="form-container" action="/products" method="POST" enctype="multipart/form-data">
                         
-                        <label class="product-img-label" for=""><i class="fa-regular fa-images img-form"></i>
-                            <input class="product-img" type="file" name="mainImage" placeholder="">
+                        <label id="mainImageLabel" class="product-img-label" for="mainImageInput">Imagen principal<i class="fa-regular fa-images img-form"></i>
+                            <input id="mainImageInput" class="product-img" type="file" name="mainImage" placeholder="">
+                            <p id="mainImageName"></p>
                         </label>
 
-                        <label class="product-img-label" for=""><i class="fa-regular fa-images img-form"></i>
-                            <input class="product-img" type="file" name="moreImages" placeholder="" multiple>
+                        <label id="moreImagesLabel" class="product-img-label" for="moreImageInput">Más imágenes<i class="fa-regular fa-images img-form"></i>
+                            <input id="moreImageInput" class="product-img" type="file" name="moreImages" placeholder="" multiple>
+                        </label>
+
+                        <label id="bannerImageLabel" class="product-img-label" for="bannerImageInput">Imagen del banner<i class="fa-regular fa-images img-form"></i>
+                            <input id="bannerImageInput" class="product-img" type="file" name="bannerImage" placeholder="">
                         </label>
 
                         <label class="video-label" for="">
@@ -77,27 +82,23 @@
                             <div class="main-img-container">
                                 <h2 id="preview-name" class="product-title">Cuphead</h2>
                                 <i class="fa-regular fa-images main-img-mobile"></i>
-                                <!-- <iframe width="560" height="315" src="https://www.youtube.com/embed/NN-9SQXoi50?si=LRLl-qW8hl5XjIx2" 
-                                title="YouTube video player" frameborder="0" 
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; 
-                                picture-in-picture; web-share" allowfullscreen></iframe> -->
+                                <div id="mainImagePreview"></div>
+                                <!-- <img class="main-img" src="/images/cuphead.png" style="display: none"> -->
                                 <div id="videoPreview" class="video-preview"></div>
-                                <!-- <iframe  width="560" height="315" src="" frameborder="0" allowfullscreen></iframe> -->
+
                                 
                                 <i class="fa-brands fa-youtube"></i>
                             </div>
-                            <div class="more-img-container">
+                            <div class="more-img-container" id="moreImagesContainer">
                                 <i class="fa-regular fa-images"></i>
                                 <i class="fa-regular fa-images"></i>
                                 <i class="fa-regular fa-images"></i>
-                                <!-- <img src="../images/cuphead-img1.jpg" alt="game image">
-                                <img src="../images/cuphead-img2.webp" alt="game image">
-                                <img src="../images/cuphead-img3.webp" alt="game image"> -->
                             </div>
                         </div>
                         
                         <div class="product-description">
-                            <i class="fa-regular fa-images product-banner"></i>
+                            <i id="bannerImage" class="fa-regular fa-images product-banner"></i>
+                            <div id="banner-preview"></div>
                             <p id="preview-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
                                 Fusce risus velit, pulvinar vitae vulputate laoreet, 
                                 imperdiet a odio. Praesent mollis orci et quam eleifend fringilla. 
@@ -117,63 +118,8 @@
         </main>
 
         <%-include('partials/footer.ejs')%>
-        <script>
-            document.addEventListener('DOMContentLoaded', function() {
-                // Escuchando el evento de entrada en los campos del formulario
-                document.querySelectorAll('.form-container input, .form-container textarea, .form-container select').forEach(input => {
-                    input.addEventListener('input', function() {
-                        // Obteniendo el valor del campo
-                        const value = this.value;
-                        // Obteniendo el nombre del campo
-                        const name = this.getAttribute('name');
-                        // Actualizando el contenido del elemento correspondiente en el preview-box
-                        const previewElement = document.getElementById(`preview-${name}`);
-                        if (previewElement) {
-                            previewElement.textContent = value;
-                        }
-                    });
-                });
-            });
-
-            document.addEventListener('DOMContentLoaded', function() {
-                // Función para calcular el final-price
-            function calculateFinalPrice() {
-                // Obteniendo el valor del campo price
-                const price = parseFloat(document.querySelector('input[name="price"]').value);
-                // Obteniendo el valor del campo discount
-                const discount = parseFloat(document.querySelector('input[name="discount"]').value);
-                document.querySelector('.discount').textContent = `%${discount} dto`;
-                // Calculando el final-price aplicando el descuento al price
-                const finalPrice = price - (price * (discount / 100));
-                // Actualizando el contenido del elemento correspondiente en el preview-box
-                document.querySelector('.final-price').textContent = `$${finalPrice.toFixed(2)}`;
-            }
-
-            // Escuchando el evento de entrada en el campo price
-            document.querySelector('input[name="price"]').addEventListener('input', calculateFinalPrice);
-
-            // Escuchando el evento de entrada en el campo discount (si es un campo de entrada)
-            document.querySelector('input[name="discount"]').addEventListener('input', calculateFinalPrice);
-
-            // Escuchando el evento de entrada en el campo discount (si es un elemento de texto)
-            document.querySelector('.discount').addEventListener('input', calculateFinalPrice);
-        });
-
-        // script para mostrar dinamicamente un video de youtube
-        const videoInput = document.getElementById('videoInput');
-        const videoPreview = document.getElementById('videoPreview');
-
-        videoInput.addEventListener('input', function() {
-            const videoCode = this.value.trim(); // Obtener el código del video y eliminar espacios en blanco
-
-            // Validar que el código del video no esté vacío y comience con '<iframe'
-            if (videoCode && videoCode.startsWith('<iframe')) {
-                videoPreview.innerHTML = videoCode; // Mostrar el código del video en la vista previa
-                document.getElementsByClassName('fa-youtube')[0].style.display = 'none';
-            } else {
-                videoPreview.innerHTML = ''; // Limpiar la vista previa si no se proporciona un código válido
-            }
-        });
-        </script>
+         
+        <script src="../js/newProduct.js" type="text/javascript"></script>
     </body>
+    
     </html>
