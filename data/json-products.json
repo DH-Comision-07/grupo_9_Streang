@@ -67,119 +67,64 @@
     {
         "id": 6,
         "name": "Producto de prueba",
-        "price": 22333,
-        "video": "",
-        "stock": 4,
+        "price": 2852,
+        "video": "<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/QdBZY2fkU-0?si=PmOtZnTXdXOHQW02\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen></iframe>",
+        "stock": 35,
         "format": "physical",
-        "category": "consoles",
-        "discount": 2,
-        "moreImages": {
-            "mainImage": [
-                {
-                    "path": "public\\images\\products\\product-1711207027823.webp",
-                    "size": 50358,
-                    "encoding": "7bit",
-                    "mimetype": "image/webp",
-                    "filename": "product-1711207027823.webp",
-                    "fieldname": "mainImage",
-                    "destination": "public\\images\\products",
-                    "originalname": "Koko_by_sammytorres.webp"
-                }
-            ],
-            "moreImages": [
-                {
-                    "path": "public\\images\\products\\product-1711207027828.jpg",
-                    "size": 119005,
-                    "encoding": "7bit",
-                    "mimetype": "image/jpeg",
-                    "filename": "product-1711207027828.jpg",
-                    "fieldname": "moreImages",
-                    "destination": "public\\images\\products",
-                    "originalname": "fernet-branca.jpg"
-                },
-                {
-                    "path": "public\\images\\products\\product-1711207027833.jpg",
-                    "size": 728383,
-                    "encoding": "7bit",
-                    "mimetype": "image/jpeg",
-                    "filename": "product-1711207027833.jpg",
-                    "fieldname": "moreImages",
-                    "destination": "public\\images\\products",
-                    "originalname": "mate-rosa.jpg"
-                }
-            ]
-        },
-        "description": "Probando subir archivos con multer y cargar nuevos productos"
-    },
-    {
-        "id": 7,
-        "name": "producto de prueba",
-        "price": 12345,
-        "video": "video",
-        "stock": 5,
-        "format": "physical",
-        "category": "consoles",
+        "category": "videogames",
         "discount": 25,
-        "moreImages": {
-            "mainImage": [
-                {
-                    "path": "public\\images\\products\\product-1711238408027.webp",
-                    "size": 50358,
-                    "encoding": "7bit",
-                    "mimetype": "image/webp",
-                    "filename": "product-1711238408027.webp",
-                    "fieldname": "mainImage",
-                    "destination": "public\\images\\products",
-                    "originalname": "Koko_by_sammytorres.webp"
-                }
-            ],
-            "moreImages": [
-                {
-                    "path": "public\\images\\products\\product-1711238408035.jpg",
-                    "size": 119005,
-                    "encoding": "7bit",
-                    "mimetype": "image/jpeg",
-                    "filename": "product-1711238408035.jpg",
-                    "fieldname": "moreImages",
-                    "destination": "public\\images\\products",
-                    "originalname": "fernet-branca.jpg"
-                },
-                {
-                    "path": "public\\images\\products\\product-1711238408042.jpg",
-                    "size": 728383,
-                    "encoding": "7bit",
-                    "mimetype": "image/jpeg",
-                    "filename": "product-1711238408042.jpg",
-                    "fieldname": "moreImages",
-                    "destination": "public\\images\\products",
-                    "originalname": "mate-rosa.jpg"
-                }
-            ],
-            "bannerImage": [
-                {
-                    "path": "public\\images\\products\\product-1711238408057.jpg",
-                    "size": 728383,
-                    "encoding": "7bit",
-                    "mimetype": "image/jpeg",
-                    "filename": "product-1711238408057.jpg",
-                    "fieldname": "bannerImage",
-                    "destination": "public\\images\\products",
-                    "originalname": "mate-rosa.jpg"
-                }
-            ]
+        "mainImage": {
+            "path": "public\\images\\products\\product-1711317443992.webp",
+            "size": 181900,
+            "encoding": "7bit",
+            "mimetype": "image/webp",
+            "filename": "product-1711317443992.webp",
+            "fieldname": "mainImage",
+            "destination": "public\\images\\products",
+            "originalname": "gta6-main.webp"
         },
-        "description": "Producto de prueba"
-    },
-    {
-        "id": 8,
-        "name": "Fernet",
-        "price": 10000,
-        "video": "<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/TXojNdGyfFU?si=2dQmkws7cqS8Z46K\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen></iframe>",
-        "stock": 5,
-        "format": "Formato",
-        "category": "accesories",
-        "discount": 23,
-        "moreImages": {},
-        "description": "Entonces esta es la descripcion"
+        "moreImages": [
+            {
+                "path": "public\\images\\products\\product-1711317443996.jpg",
+                "size": 111130,
+                "encoding": "7bit",
+                "mimetype": "image/jpeg",
+                "filename": "product-1711317443996.jpg",
+                "fieldname": "moreImages",
+                "destination": "public\\images\\products",
+                "originalname": "17017638344011.jpg"
+            },
+            {
+                "path": "public\\images\\products\\product-1711317444000.png",
+                "size": 5738292,
+                "encoding": "7bit",
+                "mimetype": "image/png",
+                "filename": "product-1711317444000.png",
+                "fieldname": "moreImages",
+                "destination": "public\\images\\products",
+                "originalname": "dont-expect-ps5-pro-to-run-gta-6-at-60fps-tech-experts-say_v2um.png"
+            },
+            {
+                "path": "public\\images\\products\\product-1711317444055.jpg",
+                "size": 108931,
+                "encoding": "7bit",
+                "mimetype": "image/jpeg",
+                "filename": "product-1711317444055.jpg",
+                "fieldname": "moreImages",
+                "destination": "public\\images\\products",
+                "originalname": "grand-theft-auto-vi-2023125158282_7.jpg"
+            }
+        ],
+        "description": "Ahora si, producto de prueba, con Js funcionando con todos los efectos y visualizacion en tiempo real.",
+        "bannerImage": {
+            "path": "public\\images\\products\\product-1711317444060.jpg",
+            "size": 139046,
+            "encoding": "7bit",
+            "mimetype": "image/jpeg",
+            "filename": "product-1711317444060.jpg",
+            "fieldname": "bannerImage",
+            "destination": "public\\images\\products",
+            "originalname": "gta&-banner.jpg"
+        }
     }
 ]

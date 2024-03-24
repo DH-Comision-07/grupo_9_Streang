@@ -19,8 +19,7 @@ const storage = multer.diskStorage({
   });
 
 const uploadFile = multer({ storage: storage}).fields([{name: "mainImage", maxCount: 1},
- {name: "moreImages", maxCount: 3},
- {name: "bannerImage", maxCount: 1}]);
+ {name: "moreImages", maxCount: 3}, {name: 'bannerImage', maxCount: 1}]);
 
 
 // **** rutas ****

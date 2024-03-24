@@ -1,5 +1,4 @@
-
-
+// CARGAR EN TIEMPO REAL EL NOMBRE Y DESCRIPCION DEL PRODUCTO
 document.addEventListener('DOMContentLoaded', function() {
     // Escuchando el evento de entrada en los campos del formulario
     document.querySelectorAll('.form-container input, .form-container textarea, .form-container select').forEach(input => {
@@ -17,6 +16,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
+// CALCULA EL PRECIO EN TIEMPO REAL
 document.addEventListener('DOMContentLoaded', function() {
     // Función para calcular el final-price
     function calculateFinalPrice() {
@@ -41,7 +41,6 @@ document.addEventListener('DOMContentLoaded', function() {
     document.querySelector('.discount').addEventListener('input', calculateFinalPrice);
 });
 
-
 // script para mostrar dinamicamente un video de youtube
 const videoInput = document.getElementById('videoInput');
 const videoPreview = document.getElementById('videoPreview');
@@ -57,7 +56,6 @@ videoInput.addEventListener('input', function() {
         videoPreview.innerHTML = ''; // Limpiar la vista previa si no se proporciona un código válido
     }
 });
-
 
 // script para mostrar dinamicamente una imagen
 document.addEventListener('DOMContentLoaded', function() {
@@ -140,8 +138,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 
-//Script para el efecto de sombra al pasar el mouse sobre otro elemento 
-
+// Script para el efecto de sombra al pasar el mouse sobre otro elemento 
 document.addEventListener('DOMContentLoaded', function() {
     const moreImagesLabel = document.getElementById('moreImagesLabel');
     const moreImagesContainer = document.getElementById('moreImagesContainer');
@@ -166,19 +163,18 @@ document.addEventListener('DOMContentLoaded', function() {
 
 }); 
 
-
 // Script para mostrar el nombre del archivo cargado
 let mainImage = document.querySelector("#mainImageInput");
 mainImage.addEventListener("change", function() {    
-    document.querySelector("#mainImageLabel").innerText = mainImage.files[0].name;
+    document.querySelector("#mainImageName").innerText = mainImage.files[0].name;
 })
 
 let moreImages = document.querySelector("#moreImageInput");
 moreImages.addEventListener("change", function() {
-    document.querySelector("#moreImagesLabel").innerText = `${moreImages.files[0].name} + ${moreImages.files[1].name} + ${moreImages.files[2].name}`;
+    document.querySelector("#moreImagesNames").innerText = `${moreImages.files[0].name} + ${moreImages.files[1].name} + ${moreImages.files[2].name}`;
 })
 
 let bannerImage = document.querySelector("#bannerImageInput");
 bannerImage.addEventListener("change", function() {
-    document.querySelector("#bannerImageLabel").innerText = bannerImage.files[0].name;
-})
+    document.querySelector("#bannerImageName").innerText = bannerImage.files[0].name;
+});

@@ -3,6 +3,7 @@
 <head>
 <%-include('./partials/head.ejs')%>
 <link rel="stylesheet" href="../css/newProduct.css">
+
 </head>
 
     <body>
@@ -21,10 +22,12 @@
 
                         <label id="moreImagesLabel" class="product-img-label" for="moreImageInput">Más imágenes<i class="fa-regular fa-images img-form"></i>
                             <input id="moreImageInput" class="product-img" type="file" name="moreImages" placeholder="" multiple>
+                            <p id="moreImagesNames"></p>
                         </label>
 
                         <label id="bannerImageLabel" class="product-img-label" for="bannerImageInput">Imagen del banner<i class="fa-regular fa-images img-form"></i>
                             <input id="bannerImageInput" class="product-img" type="file" name="bannerImage" placeholder="">
+                            <p id="bannerImageName"></p>
                         </label>
 
                         <label class="video-label" for="">
@@ -118,8 +121,7 @@
         </main>
 
         <%-include('partials/footer.ejs')%>
-         
-        <script src="../js/newProduct.js" type="text/javascript"></script>
+        <script src="../js/newProduct.js"></script>
     </body>
     
     </html>
