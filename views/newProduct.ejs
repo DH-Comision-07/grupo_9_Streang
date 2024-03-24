@@ -3,6 +3,7 @@
 <head>
 <%-include('./partials/head.ejs')%>
 <link rel="stylesheet" href="../css/newProduct.css">
+
 </head>
 
     <body>
@@ -12,30 +13,39 @@
             <div class="main-boxes-container">
                 <div class="form-box">
                     <h2>Nuevo producto</h2>
-                    <form class="form-container" action="" method="POST">
+                    <form class="form-container" action="/products" method="POST" enctype="multipart/form-data">
                         
-                        <label class="product-img-label" for=""><i class="fa-regular fa-images img-form"></i>
-                            <input class="product-img" type="text" name="image" placeholder="" required>
+                        <label id="mainImageLabel" class="product-img-label" for="mainImageInput">Imagen principal<i class="fa-regular fa-images img-form"></i>
+                            <input id="mainImageInput" class="product-img" type="file" name="mainImage" placeholder="">
+                            <p id="mainImageName"></p>
+                        </label>
+
+                        <label id="moreImagesLabel" class="product-img-label" for="moreImageInput">Más imágenes<i class="fa-regular fa-images img-form"></i>
+                            <input id="moreImageInput" class="product-img" type="file" name="moreImages" placeholder="" multiple>
+                            <p id="moreImagesNames"></p>
+                        </label>
+
+                        <label id="bannerImageLabel" class="product-img-label" for="bannerImageInput">Imagen del banner<i class="fa-regular fa-images img-form"></i>
+                            <input id="bannerImageInput" class="product-img" type="file" name="bannerImage" placeholder="">
+                            <p id="bannerImageName"></p>
+                        </label>
+
+                        <label class="video-label" for="">
+                            <input id="videoInput" type="text" name="video" placeholder="Video de Youtube">
+                            <div class="video-instructions-container">
+                                <p class="video-instructions">Para compartir un video desde YouTube, ve al video,
+                                    selecciona la opción "compartir" y luego selecciona "incorporar". Sólo copia el 
+                                    texto que se muestra y pégalo en el campo correspondiente.
+                                </p>
+                            </div>                            
                         </label>
 
                         <label for="">
-                            <input type="text" name="video" placeholder="Video de Youtube">
-                        </label>
-
-                        <label for="">
-                            <input type="text" name="name" placeholder="Nombre" required>
+                            <input type="text" name="name" placeholder="Nombre del producto*" required>
                         </label>
 
                         <textarea class="description-area" name="description" cols="30" rows="10" autocapitalize="on"
-                        placeholder="Descripcion" required></textarea>
-
-                        <!-- <label for="">
-                            <input type="text" name="description" placeholder="Descripcion" required>
-                        </label> -->
-
-                        <!-- <label for="">
-                            <input type="text" name="category" placeholder="Categoria" required>
-                        </label> -->
+                        placeholder="Descripcion*" required></textarea>
 
                         <select class="category" name="category">
                             <option value="" selected hidden>Categoria</option>
@@ -48,7 +58,11 @@
                         </select>
 
                         <label for="">
-                            <input type="text" name="price" placeholder="Precio" required>
+                            <input type="text" name="price" placeholder="Precio*" required>
+                        </label>
+
+                        <label for="">
+                            <input type="text" name="discount" placeholder="Descuento">
                         </label>
 
                         <select class="format" name="format">
@@ -69,35 +83,34 @@
                     <article class="product-container">
                         <div class="product-imgs">
                             <div class="main-img-container">
-                                <h2 class="product-title">Cuphead</h2>
+                                <h2 id="preview-name" class="product-title">Cuphead</h2>
                                 <i class="fa-regular fa-images main-img-mobile"></i>
-                                <!-- <iframe width="560" height="315" src="https://www.youtube.com/embed/NN-9SQXoi50?si=LRLl-qW8hl5XjIx2" 
-                                title="YouTube video player" frameborder="0" 
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; 
-                                picture-in-picture; web-share" allowfullscreen></iframe> -->
+                                <div id="mainImagePreview"></div>
+                                <!-- <img class="main-img" src="/images/cuphead.png" style="display: none"> -->
+                                <div id="videoPreview" class="video-preview"></div>
+
+                                
                                 <i class="fa-brands fa-youtube"></i>
                             </div>
-                            <div class="more-img-container">
+                            <div class="more-img-container" id="moreImagesContainer">
                                 <i class="fa-regular fa-images"></i>
                                 <i class="fa-regular fa-images"></i>
                                 <i class="fa-regular fa-images"></i>
-                                <!-- <img src="../images/cuphead-img1.jpg" alt="game image">
-                                <img src="../images/cuphead-img2.webp" alt="game image">
-                                <img src="../images/cuphead-img3.webp" alt="game image"> -->
                             </div>
                         </div>
                         
                         <div class="product-description">
-                            <i class="fa-regular fa-images product-banner"></i>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+                            <i id="bannerImage" class="fa-regular fa-images product-banner"></i>
+                            <div id="banner-preview"></div>
+                            <p id="preview-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
                                 Fusce risus velit, pulvinar vitae vulputate laoreet, 
                                 imperdiet a odio. Praesent mollis orci et quam eleifend fringilla. 
                                 Vivamus at euismod mi, non ultricies sem. 
                                 Suspendisse ac risus non lacus tristique finibus. </p>
                         </div>
                         <div class="price-container">
-                            <h4 class="price">$12000</h4>
-                            <h4 class="discount">%20 dto</h4>
+                            <h4 id="preview-price" class="price">$12000</h4>
+                            <h4 id="preview-discount" class="discount">%20 dto</h4>
                             <h4 class="final-price">$9600</h4>
                         </div>
                         <h3 class="add-cart">Agregar al carrito</h3>
@@ -108,5 +121,7 @@
         </main>
 
         <%-include('partials/footer.ejs')%>
+        <script src="../js/newProduct.js"></script>
     </body>
+    
     </html>

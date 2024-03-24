@@ -110,6 +110,49 @@ textarea.description-area{
     resize: none;
 }
 
+
+.video-instructions-container {
+    display: none;
+    background-color: white;
+    padding: 5px;
+    margin-top: -10px;
+    border: none;
+    border-radius: 0 0 5px 5px;
+}
+
+#mainImageInput, #moreImageInput, #bannerImageInput {
+    display: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+.product-img-label{
+    display: block;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: white;
+}
+
+label.product-img-label:hover{
+    cursor: pointer;
+    box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.8);
+}
+
+.video-label:hover .video-instructions-container,
+.video-label input:focus + .video-instructions-container {
+    display: block;
+}
+
 .fa-images.img-form{
     position: absolute;
     z-index: 1;
@@ -175,6 +218,18 @@ textarea.description-area{
     display: flex;
     justify-content: space-between;
 }
+
+/* proxima linea es solo para estilo de efecto hover con eventListener */
+.box-shadowed {
+    box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.8); /* Estilo de la sombra al pasar el cursor */
+}
+
+.more-img-container img {
+    margin-right: 10px;
+    width: 30%;
+    height: 100px;
+}
+
 
 .more-img-container i{
     width: 33%;
