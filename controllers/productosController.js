@@ -19,26 +19,32 @@ const productosController = {
                 maxId = obj.id;
             }
         }
-
-        let newProduct = {
-            id: maxId + 1,
-            name: req.body.name,
-            price: parseFloat(req.body.price),
-            video: req.body.video,
-            description: req.body.description,
-            mainImage: req.files['mainImage'][0],
-            moreImages: req.files['moreImages'],
-            bannerImage: req.files['bannerImage'][0],
-            category: req.body.category,
-            discount: parseFloat(req.body.discount),
-            format: req.body.format,
-            stock: parseInt(req.body.stock)
+       
+        try{            
+            let newProduct = {
+                id: maxId + 1,
+                name: req.body.name,
+                price: parseFloat(req.body.price),
+                video: req.body.video,
+                description: req.body.description,
+                mainImage: req.files['mainImage'][0],
+                moreImages: req.files['moreImages'],
+                // bannerImage: req.files['bannerImage'][0]?req.files['bannerImage'][0]:null,
+                bannerImage: req.files['bannerImage'][0],
+                category: req.body.category,
+                discount: parseFloat(req.body.discount),
+                format: req.body.format,
+                stock: parseInt(req.body.stock)
+            }
+            products.push(newProduct);
+            let JSONproducts = JSON.stringify(products);
+            fs.writeFileSync(productsFilePath, JSONproducts);
+            res.send(products);                
+                
+        } catch (error) {
+            res.status(500).send(`No se seleccionaron las imágenes correspondientes. Seleccione las imágenes
+            que desea cargar e intente nuevamente.`);
         }
-        products.push(newProduct);
-        let JSONproducts = JSON.stringify(products);
-        fs.writeFileSync(productsFilePath, JSONproducts);
-
-        res.send(products);
     }
 };
 
