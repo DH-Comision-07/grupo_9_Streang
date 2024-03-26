@@ -33,9 +33,7 @@
                         <label class="video-label" for="">
                             <input id="videoInput" type="text" name="video" placeholder="Video de Youtube">
                             <div class="video-instructions-container">
-                                <p class="video-instructions">Para compartir un video desde YouTube, ve al video,
-                                    selecciona la opción "compartir" y luego selecciona "incorporar". Sólo copia el 
-                                    texto que se muestra y pégalo en el campo correspondiente.
+                                <p class="video-instructions">Pega la dirección URL del vídeo aquí.
                                 </p>
                             </div>                            
                         </label>
@@ -56,6 +54,33 @@
                             <option value="PC">Computacion</option>
                             <option value="other">Otros</option>
                         </select>
+
+                        <div class="checkbox-container">
+
+                        
+                            <p class="checkbox">Plataforma</p>
+                            <label class="checkbox" for="">
+                                <input class="checkbox" type="checkbox" name="platform" value="pc">PC
+                            </label>
+                            <label class="checkbox" for="">
+                                <input class="checkbox" type="checkbox" name="platform" value="ps3">Playstation 3
+                            </label>
+                            <label class="checkbox" for="">
+                                <input class="checkbox" type="checkbox" name="platform" value="ps4">Playstation 4
+                            </label>
+                            <label class="checkbox" for="">
+                                <input class="checkbox" type="checkbox" name="platform" value="ps5">Playstation 5
+                            </label>
+                            <label class="checkbox" for="">
+                                <input class="checkbox" type="checkbox" name="platform" value="xboxOne">Xbox One
+                            </label>
+                            <label class="checkbox" for="">
+                                <input class="checkbox" type="checkbox" name="platform" value="xbox360">Xbox 360
+                            </label>
+                            <label class="checkbox" for="">
+                                <input class="checkbox" type="checkbox" name="platform" value="nintendoSwitch">Nintendo Switch
+                            </label>
+                        </div>
 
                         <label for="">
                             <input type="text" name="price" placeholder="Precio*" required>
@@ -83,7 +108,7 @@
                     <article class="product-container">
                         <div class="product-imgs">
                             <div class="main-img-container">
-                                <h2 id="preview-name" class="product-title">Cuphead</h2>
+                                <h2 id="preview-name" class="product-title">Título del producto</h2>
                                 <i class="fa-regular fa-images main-img-mobile"></i>
                                 <div id="mainImagePreview"></div>
                                 <!-- <img class="main-img" src="/images/cuphead.png" style="display: none"> -->
@@ -102,11 +127,8 @@
                         <div class="product-description">
                             <i id="bannerImage" class="fa-regular fa-images product-banner"></i>
                             <div id="banner-preview"></div>
-                            <p id="preview-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-                                Fusce risus velit, pulvinar vitae vulputate laoreet, 
-                                imperdiet a odio. Praesent mollis orci et quam eleifend fringilla. 
-                                Vivamus at euismod mi, non ultricies sem. 
-                                Suspendisse ac risus non lacus tristique finibus. </p>
+                            <p id="preview-description">La descripcion de tu producto
+                                se mostrará aquí. </p>
                         </div>
                         <div class="price-container">
                             <h4 id="preview-price" class="price">$12000</h4>

@@ -25,10 +25,11 @@ const uploadFile = multer({ storage: storage}).fields([{name: "mainImage", maxCo
 // **** rutas ****
 
 // route para pagina de producto
-router.get('/producto', productosController.paginaProductos);
+router.get('/:id', productosController.productDetail);
 
 // route para POST nuevo producto
-router.get('/create',  productosController.newProduct);
+router.get('/create',  function(req, res) {
+  res.setHeader('Cache-Control', 'no-cache, no-store, must-revalidate')},productosController.newProduct);
 router.post('/', uploadFile, productosController.create);
 
 

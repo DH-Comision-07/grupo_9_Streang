@@ -1,67 +1,400 @@
 [
     {
+        "id": 6,
+        "name": "GTA VI",
+        "price": 100000,
+        "video": "QdBZY2fkU-0",
+        "stock": 15,
+        "format": "physical",
+        "category": "videogames",
+        "discount": 5,
+        "mainImage": {
+            "path": "public\\images\\products\\product-1711458843155.webp",
+            "size": 181900,
+            "encoding": "7bit",
+            "mimetype": "image/webp",
+            "filename": "product-1711458843155.webp",
+            "fieldname": "mainImage",
+            "destination": "public\\images\\products",
+            "originalname": "gta6-main.webp"
+        },
+        "finalPrice": 95000,
+        "moreImages": [
+            {
+                "path": "public\\images\\products\\product-1711458843163.jpg",
+                "size": 111130,
+                "encoding": "7bit",
+                "mimetype": "image/jpeg",
+                "filename": "product-1711458843163.jpg",
+                "fieldname": "moreImages",
+                "destination": "public\\images\\products",
+                "originalname": "17017638344011.jpg"
+            },
+            {
+                "path": "public\\images\\products\\product-1711458843168.png",
+                "size": 5738292,
+                "encoding": "7bit",
+                "mimetype": "image/png",
+                "filename": "product-1711458843168.png",
+                "fieldname": "moreImages",
+                "destination": "public\\images\\products",
+                "originalname": "dont-expect-ps5-pro-to-run-gta-6-at-60fps-tech-experts-say_v2um.png"
+            },
+            {
+                "path": "public\\images\\products\\product-1711458843216.jpg",
+                "size": 108931,
+                "encoding": "7bit",
+                "mimetype": "image/jpeg",
+                "filename": "product-1711458843216.jpg",
+                "fieldname": "moreImages",
+                "destination": "public\\images\\products",
+                "originalname": "grand-theft-auto-vi-2023125158282_7.jpg"
+            }
+        ],
+        "description": "Grand Theft Auto VI pone rumbo al estado de Leonida, hogar de las calles rebosantes de neones de Vice City y sus alrededores, en la evolución más grande e inmersiva de la serie Grand Theft Auto hasta la fecha. Disponible en 2025 para PlayStation®5 y Xbox Series X|S.",
+        "bannerImage": {
+            "path": "public\\images\\products\\product-1711458843218.jpg",
+            "size": 139046,
+            "encoding": "7bit",
+            "mimetype": "image/jpeg",
+            "filename": "product-1711458843218.jpg",
+            "fieldname": "bannerImage",
+            "destination": "public\\images\\products",
+            "originalname": "gta&-banner.jpg"
+        }
+    },
+    {
         "id": 1,
-        "name": "The Witcher 3: Wild Hunt",
-        "price": 29.99,
-        "video": "",
-        "stock": 100,
-        "format": "Digital",
-        "discount": 0,
-        "category": "Action RPG",
-        "mainImage": "",
-        "moreImages": "",
-        "description": "Immerse yourself in a dark fantasy world in this award-winning RPG. Follow Geralt of Rivia on his epic journey to find his adopted daughter and confront the Wild Hunt."
+        "name": "The Whitcher 3: Wild hunt",
+        "price": 85000,
+        "video": "53MyR_Z3i1w",
+        "stock": 9,
+        "format": "physical",
+        "category": "videogames",
+        "discount": 10,
+        "mainImage": {
+            "path": "public\\images\\products\\product-1711469449491.avif",
+            "size": 100248,
+            "encoding": "7bit",
+            "mimetype": "image/avif",
+            "filename": "product-1711469449491.avif",
+            "fieldname": "mainImage",
+            "destination": "public\\images\\products",
+            "originalname": "witcher-main.avif"
+        },
+        "moreImages": [
+            {
+                "path": "public\\images\\products\\product-1711469449496.webp",
+                "size": 388396,
+                "encoding": "7bit",
+                "mimetype": "image/webp",
+                "filename": "product-1711469449496.webp",
+                "fieldname": "moreImages",
+                "destination": "public\\images\\products",
+                "originalname": "guia-trucos-witcher-3-wild-hunt.webp"
+            },
+            {
+                "path": "public\\images\\products\\product-1711469449507.jpg",
+                "size": 96155,
+                "encoding": "7bit",
+                "mimetype": "image/jpeg",
+                "filename": "product-1711469449507.jpg",
+                "fieldname": "moreImages",
+                "destination": "public\\images\\products",
+                "originalname": "The-Witcher-3-Wild-Hunt-cinematica.jpg"
+            },
+            {
+                "path": "public\\images\\products\\product-1711469449511.webp",
+                "size": 72522,
+                "encoding": "7bit",
+                "mimetype": "image/webp",
+                "filename": "product-1711469449511.webp",
+                "fieldname": "moreImages",
+                "destination": "public\\images\\products",
+                "originalname": "tw3-kf-updatedforthenext.webp"
+            }
+        ],
+        "finalPrice": 76500,
+        "description": "Immerse yourself in a dark fantasy world in this award-winning RPG. Follow Geralt of Rivia on his epic journey to find his adopted daughter and confront the Wild Hunt.",
+        "bannerImage": {
+            "path": "public\\images\\products\\product-1711469449515.jpg",
+            "size": 39618,
+            "encoding": "7bit",
+            "mimetype": "image/jpeg",
+            "filename": "product-1711469449515.jpg",
+            "fieldname": "bannerImage",
+            "destination": "public\\images\\products",
+            "originalname": "header.jpg"
+        }
     },
     {
         "id": 2,
         "name": "Super Mario Odyssey",
-        "price": 49.99,
-        "video": "",
-        "stock": 80,
-        "format": "Physical",
-        "discount": 0,
-        "category": "Platformer",
-        "mainImage": "",
-        "moreImages": "",
-        "description": "Embark on a globe-trotting adventure with Mario and his new companion, Cappy. Explore vast worlds, solve puzzles, and rescue Princess Peach from Bowser's clutches."
+        "price": 55000,
+        "video": "5kcdRBHM7kM",
+        "stock": 8,
+        "format": "digital",
+        "category": "videogames",
+        "discount": 5,
+        "mainImage": {
+            "path": "public\\images\\products\\product-1711472211280.avif",
+            "size": 447847,
+            "encoding": "7bit",
+            "mimetype": "image/avif",
+            "filename": "product-1711472211280.avif",
+            "fieldname": "mainImage",
+            "destination": "public\\images\\products",
+            "originalname": "main.avif"
+        },
+        "moreImages": [
+            {
+                "path": "public\\images\\products\\product-1711472211287.avif",
+                "size": 24561,
+                "encoding": "7bit",
+                "mimetype": "image/avif",
+                "filename": "product-1711472211287.avif",
+                "fieldname": "moreImages",
+                "destination": "public\\images\\products",
+                "originalname": "7db70ecd883f94d935f65b9f4454b8151b6f8be7c4be95543e87488e48e5a6b9.avif"
+            },
+            {
+                "path": "public\\images\\products\\product-1711472211290.avif",
+                "size": 22269,
+                "encoding": "7bit",
+                "mimetype": "image/avif",
+                "filename": "product-1711472211290.avif",
+                "fieldname": "moreImages",
+                "destination": "public\\images\\products",
+                "originalname": "1839d571921e3fb19ef48da64c145cb8ce573b07d7390c6350f15291b3905048.avif"
+            },
+            {
+                "path": "public\\images\\products\\product-1711472211293.avif",
+                "size": 30214,
+                "encoding": "7bit",
+                "mimetype": "image/avif",
+                "filename": "product-1711472211293.avif",
+                "fieldname": "moreImages",
+                "destination": "public\\images\\products",
+                "originalname": "d0510e4804381287c64dc3ab374ae9273419e263e9a732e72af3b39cd70f2b5f.avif"
+            }
+        ],
+        "finalPrice": 52250,
+        "description": "Embark on a globe-trotting adventure with Mario and his new companion, Cappy. Explore vast worlds, solve puzzles, and rescue Princess Peach from Bowser's clutches.",
+        "bannerImage": {
+            "path": "public\\images\\products\\product-1711472211295.jpg",
+            "size": 224528,
+            "encoding": "7bit",
+            "mimetype": "image/jpeg",
+            "filename": "product-1711472211295.jpg",
+            "fieldname": "bannerImage",
+            "destination": "public\\images\\products",
+            "originalname": "ep153-header.jpg"
+        }
     },
     {
         "id": 3,
         "name": "Red Dead Redemption 2",
-        "price": 39.99,
-        "video": "",
-        "stock": 120,
-        "format": "Digital",
+        "price": 50000,
+        "video": "gmA6MrX81z4",
+        "stock": 15,
+        "format": "physical",
+        "category": "videogames",
         "discount": 0,
-        "category": "Action-Adventure",
-        "mainImage": "",
-        "moreImages": "",
-        "description": "Experience the American Wild West in this epic tale of outlaw Arthur Morgan and the Van der Linde gang. Engage in gunfights, hunt wildlife, and live the life of a cowboy."
+        "platform": [
+            "pc",
+            "ps4",
+            "xboxOne"
+        ],
+        "mainImage": {
+            "path": "public\\images\\products\\product-1711472690685.jpg",
+            "size": 241045,
+            "encoding": "7bit",
+            "mimetype": "image/jpeg",
+            "filename": "product-1711472690685.jpg",
+            "fieldname": "mainImage",
+            "destination": "public\\images\\products",
+            "originalname": "main.jpg"
+        },
+        "moreImages": [
+            {
+                "path": "public\\images\\products\\product-1711472690694.png",
+                "size": 279882,
+                "encoding": "7bit",
+                "mimetype": "image/png",
+                "filename": "product-1711472690694.png",
+                "fieldname": "moreImages",
+                "destination": "public\\images\\products",
+                "originalname": "500_333.png"
+            },
+            {
+                "path": "public\\images\\products\\product-1711472690706.jpg",
+                "size": 632673,
+                "encoding": "7bit",
+                "mimetype": "image/jpeg",
+                "filename": "product-1711472690706.jpg",
+                "fieldname": "moreImages",
+                "destination": "public\\images\\products",
+                "originalname": "mZjPUKs99v2woErVN6GYBJ.jpg"
+            },
+            {
+                "path": "public\\images\\products\\product-1711472690720.jpg",
+                "size": 69227,
+                "encoding": "7bit",
+                "mimetype": "image/jpeg",
+                "filename": "product-1711472690720.jpg",
+                "fieldname": "moreImages",
+                "destination": "public\\images\\products",
+                "originalname": "red-dead-redemption-ii-2.jpg"
+            }
+        ],
+        "finalPrice": 50000,
+        "description": "Experience the American Wild West in this epic tale of outlaw Arthur Morgan and the Van der Linde gang. Engage in gunfights, hunt wildlife, and live the life of a cowboy.",
+        "bannerImage": {
+            "path": "public\\images\\products\\product-1711472690723.jpg",
+            "size": 35873,
+            "encoding": "7bit",
+            "mimetype": "image/jpeg",
+            "filename": "product-1711472690723.jpg",
+            "fieldname": "bannerImage",
+            "destination": "public\\images\\products",
+            "originalname": "banner.jpg"
+        }
     },
     {
         "id": 4,
         "name": "The Legend of Zelda: Breath of the Wild",
-        "price": 59.99,
-        "video": "",
-        "stock": 70,
-        "format": "Physical",
-        "discount": 0,
-        "category": "Action-Adventure",
-        "mainImage": "",
-        "moreImages": "",
-        "description": "Enter a vast open world filled with mysteries, puzzles, and adventure. Join Link as he awakens from a century-long slumber to defeat Calamity Ganon and save Hyrule."
+        "price": 30000,
+        "video": "ofH5ptn5w-A",
+        "stock": 7,
+        "format": "digital",
+        "category": "videogames",
+        "discount": 10,
+        "platform": "nintendoSwitch",
+        "mainImage": {
+            "path": "public\\images\\products\\product-1711472949011.jpg",
+            "size": 106472,
+            "encoding": "7bit",
+            "mimetype": "image/jpeg",
+            "filename": "product-1711472949011.jpg",
+            "fieldname": "mainImage",
+            "destination": "public\\images\\products",
+            "originalname": "The_Legend_of_Zelda_Breath_of_the_Wild.jpg"
+        },
+        "moreImages": [
+            {
+                "path": "public\\images\\products\\product-1711472949017.jpg",
+                "size": 63795,
+                "encoding": "7bit",
+                "mimetype": "image/jpeg",
+                "filename": "product-1711472949017.jpg",
+                "fieldname": "moreImages",
+                "destination": "public\\images\\products",
+                "originalname": "05kV0iHXtm9IkEu1PMkh9pX-4.fit_scale.size_760x427.v1569481406.jpg"
+            },
+            {
+                "path": "public\\images\\products\\product-1711472949025.jpg",
+                "size": 79450,
+                "encoding": "7bit",
+                "mimetype": "image/jpeg",
+                "filename": "product-1711472949025.jpg",
+                "fieldname": "moreImages",
+                "destination": "public\\images\\products",
+                "originalname": "1058-producto-the-legend-of-zelda-breath-of-the-wild-nintendo-switch-2-6204.jpg"
+            },
+            {
+                "path": "public\\images\\products\\product-1711472949031.jpg",
+                "size": 317013,
+                "encoding": "7bit",
+                "mimetype": "image/jpeg",
+                "filename": "product-1711472949031.jpg",
+                "fieldname": "moreImages",
+                "destination": "public\\images\\products",
+                "originalname": "1366_2000.jpg"
+            }
+        ],
+        "finalPrice": 27000,
+        "description": "Enter a vast open world filled with mysteries, puzzles, and adventure. Join Link as he awakens from a century-long slumber to defeat Calamity Ganon and save Hyrule.",
+        "bannerImage": {
+            "path": "public\\images\\products\\product-1711472949043.avif",
+            "size": 327709,
+            "encoding": "7bit",
+            "mimetype": "image/avif",
+            "filename": "product-1711472949043.avif",
+            "fieldname": "bannerImage",
+            "destination": "public\\images\\products",
+            "originalname": "banner.avif"
+        }
     },
     {
         "id": 5,
         "name": "FIFA 22",
-        "price": 49.99,
-        "video": "",
-        "stock": 90,
-        "format": "Digital",
-        "discount": 0,
-        "category": "Sports",
-        "mainImage": "",
-        "moreImages": "",
-        "description": "Experience the thrill of soccer with realistic gameplay, stunning graphics, and immersive modes. Compete in career mode, Ultimate Team, or play with friends online."
+        "price": 85000,
+        "video": "o1igaMv46SY",
+        "stock": 20,
+        "format": "physical",
+        "category": "videogames",
+        "discount": 5,
+        "platform": [
+            "pc",
+            "ps4",
+            "ps5",
+            "xboxOne",
+            "xbox360",
+            "nintendoSwitch"
+        ],
+        "mainImage": {
+            "path": "public\\images\\products\\product-1711473398339.jpg",
+            "size": 65052,
+            "encoding": "7bit",
+            "mimetype": "image/jpeg",
+            "filename": "product-1711473398339.jpg",
+            "fieldname": "mainImage",
+            "destination": "public\\images\\products",
+            "originalname": "fifa_22-5479208.jpg"
+        },
+        "moreImages": [
+            {
+                "path": "public\\images\\products\\product-1711473398340.jpg",
+                "size": 260097,
+                "encoding": "7bit",
+                "mimetype": "image/jpeg",
+                "filename": "product-1711473398340.jpg",
+                "fieldname": "moreImages",
+                "destination": "public\\images\\products",
+                "originalname": "fifa-22-20210927154009-1632775274557.jpg"
+            },
+            {
+                "path": "public\\images\\products\\product-1711473398348.webp",
+                "size": 56920,
+                "encoding": "7bit",
+                "mimetype": "image/webp",
+                "filename": "product-1711473398348.webp",
+                "fieldname": "moreImages",
+                "destination": "public\\images\\products",
+                "originalname": "fifa-22-FIFA 22-2.webp"
+            },
+            {
+                "path": "public\\images\\products\\product-1711473398352.jpg",
+                "size": 109537,
+                "encoding": "7bit",
+                "mimetype": "image/jpeg",
+                "filename": "product-1711473398352.jpg",
+                "fieldname": "moreImages",
+                "destination": "public\\images\\products",
+                "originalname": "maxresdefault.jpg"
+            }
+        ],
+        "finalPrice": 80750,
+        "description": "Experience the thrill of soccer with realistic gameplay, stunning graphics, and immersive modes. Compete in career mode, Ultimate Team, or play with friends online.",
+        "bannerImage": {
+            "path": "public\\images\\products\\product-1711473398355.webp",
+            "size": 44222,
+            "encoding": "7bit",
+            "mimetype": "image/webp",
+            "filename": "product-1711473398355.webp",
+            "fieldname": "bannerImage",
+            "destination": "public\\images\\products",
+            "originalname": "banner.webp"
+        }
     }
 ]
