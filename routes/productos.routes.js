@@ -24,14 +24,22 @@ const uploadFile = multer({ storage: storage}).fields([{name: "mainImage", maxCo
 
 // **** rutas ****
 
+// VER TODOS LOS PRODUCTOS
+router.get('/', productosController.viewAll);
+
 // route para pagina de producto
-router.get('/:id', productosController.productDetail);
+router.get('/detail/:id', productosController.productDetail);
+
+// VER POR CATEGORIA
+router.get('/categories/:category', productosController.viewCategory);
+
+
+
+
 
 // route para POST nuevo producto
-router.get('/create',  function(req, res) {
-  res.setHeader('Cache-Control', 'no-cache, no-store, must-revalidate')},productosController.newProduct);
+router.get('/create', productosController.newProduct);
 router.post('/', uploadFile, productosController.create);
-
 
 
 module.exports = router;

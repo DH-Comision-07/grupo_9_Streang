@@ -352,9 +352,9 @@ footer p{
         width: 50%;
     }
 
-    .main-img-container img{
+    /* .main-img-container img{
         display: none;
-    }
+    } */
 
     iframe, .product-description img{
         width: 100%;

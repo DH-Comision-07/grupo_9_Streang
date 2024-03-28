@@ -5,21 +5,24 @@ const productsFilePath = path.join(__dirname, '../data/json-products.json');
 const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 
 const productosController = { 
-    paginaProductos: (req, res) => {
-        // res.sendFile(path.resolve(__dirname, '../views/productDetail.html'));
-        res.render("productDetail");
+    viewAll: (req, res) => {
+        res.render("allProducts", {products: products});
     },
 
-    productDetail: (req, res) => {
+    productDetail: function (req, res) {
         let productId = req.params.id;
-        if(productId == "create"){
-           res.render("newProduct");
-        } else {
             let product = products.find(product => product.id == productId);
-            res.render("productDetail", {product: product});
-        }      
-    }, 
-
+            res.render("productDetail", { product: product });
+            
+    },
+    
+    viewCategory: function(req, res) {
+        let category = req.params.category;
+        let result = products.filter(product => product.category == category);
+        res.render("search", {result: result});
+            
+    },
+    
     newProduct: (req, res) => {
         res.render("newProduct");
 
