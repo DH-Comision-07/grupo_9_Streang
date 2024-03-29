@@ -22,22 +22,20 @@ const uploadFile = multer({ storage: storage}).fields([{name: "mainImage", maxCo
  {name: "moreImages", maxCount: 3}, {name: 'bannerImage', maxCount: 1}]);
 
 
+
+
 // **** rutas ****
 
 // VER TODOS LOS PRODUCTOS
 router.get('/', productosController.viewAll);
 
-// route para pagina de producto
+// VER DETALLE DE UN PRPDUCTO
 router.get('/detail/:id', productosController.productDetail);
 
 // VER POR CATEGORIA
 router.get('/categories/:category', productosController.viewCategory);
 
-
-
-
-
-// route para POST nuevo producto
+// CREAR NUEVO PRODUCTO
 router.get('/create', productosController.newProduct);
 router.post('/', uploadFile, productosController.create);
 
