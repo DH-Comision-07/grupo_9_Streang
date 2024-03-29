@@ -1,69 +1,5 @@
 [
     {
-        "id": 6,
-        "name": "GTA VI",
-        "price": 100000,
-        "video": "QdBZY2fkU-0",
-        "stock": 15,
-        "format": "physical",
-        "category": "videogames",
-        "discount": 5,
-        "mainImage": {
-            "path": "public\\images\\products\\product-1711458843155.webp",
-            "size": 181900,
-            "encoding": "7bit",
-            "mimetype": "image/webp",
-            "filename": "product-1711458843155.webp",
-            "fieldname": "mainImage",
-            "destination": "public\\images\\products",
-            "originalname": "gta6-main.webp"
-        },
-        "finalPrice": 95000,
-        "moreImages": [
-            {
-                "path": "public\\images\\products\\product-1711458843163.jpg",
-                "size": 111130,
-                "encoding": "7bit",
-                "mimetype": "image/jpeg",
-                "filename": "product-1711458843163.jpg",
-                "fieldname": "moreImages",
-                "destination": "public\\images\\products",
-                "originalname": "17017638344011.jpg"
-            },
-            {
-                "path": "public\\images\\products\\product-1711458843168.png",
-                "size": 5738292,
-                "encoding": "7bit",
-                "mimetype": "image/png",
-                "filename": "product-1711458843168.png",
-                "fieldname": "moreImages",
-                "destination": "public\\images\\products",
-                "originalname": "dont-expect-ps5-pro-to-run-gta-6-at-60fps-tech-experts-say_v2um.png"
-            },
-            {
-                "path": "public\\images\\products\\product-1711458843216.jpg",
-                "size": 108931,
-                "encoding": "7bit",
-                "mimetype": "image/jpeg",
-                "filename": "product-1711458843216.jpg",
-                "fieldname": "moreImages",
-                "destination": "public\\images\\products",
-                "originalname": "grand-theft-auto-vi-2023125158282_7.jpg"
-            }
-        ],
-        "description": "Grand Theft Auto VI pone rumbo al estado de Leonida, hogar de las calles rebosantes de neones de Vice City y sus alrededores, en la evolución más grande e inmersiva de la serie Grand Theft Auto hasta la fecha. Disponible en 2025 para PlayStation®5 y Xbox Series X|S.",
-        "bannerImage": {
-            "path": "public\\images\\products\\product-1711458843218.jpg",
-            "size": 139046,
-            "encoding": "7bit",
-            "mimetype": "image/jpeg",
-            "filename": "product-1711458843218.jpg",
-            "fieldname": "bannerImage",
-            "destination": "public\\images\\products",
-            "originalname": "gta&-banner.jpg"
-        }
-    },
-    {
         "id": 1,
         "name": "The Whitcher 3: Wild hunt",
         "price": 85000,
@@ -395,6 +331,71 @@
             "fieldname": "bannerImage",
             "destination": "public\\images\\products",
             "originalname": "banner.webp"
+        }
+    },
+    
+    {
+        "id": 6,
+        "name": "GTA VI",
+        "price": 100000,
+        "video": "QdBZY2fkU-0",
+        "stock": 15,
+        "format": "physical",
+        "category": "videogames",
+        "discount": 5,
+        "mainImage": {
+            "path": "public\\images\\products\\product-1711458843155.webp",
+            "size": 181900,
+            "encoding": "7bit",
+            "mimetype": "image/webp",
+            "filename": "product-1711458843155.webp",
+            "fieldname": "mainImage",
+            "destination": "public\\images\\products",
+            "originalname": "gta6-main.webp"
+        },
+        "finalPrice": 95000,
+        "moreImages": [
+            {
+                "path": "public\\images\\products\\product-1711458843163.jpg",
+                "size": 111130,
+                "encoding": "7bit",
+                "mimetype": "image/jpeg",
+                "filename": "product-1711458843163.jpg",
+                "fieldname": "moreImages",
+                "destination": "public\\images\\products",
+                "originalname": "17017638344011.jpg"
+            },
+            {
+                "path": "public\\images\\products\\product-1711458843168.png",
+                "size": 5738292,
+                "encoding": "7bit",
+                "mimetype": "image/png",
+                "filename": "product-1711458843168.png",
+                "fieldname": "moreImages",
+                "destination": "public\\images\\products",
+                "originalname": "dont-expect-ps5-pro-to-run-gta-6-at-60fps-tech-experts-say_v2um.png"
+            },
+            {
+                "path": "public\\images\\products\\product-1711458843216.jpg",
+                "size": 108931,
+                "encoding": "7bit",
+                "mimetype": "image/jpeg",
+                "filename": "product-1711458843216.jpg",
+                "fieldname": "moreImages",
+                "destination": "public\\images\\products",
+                "originalname": "grand-theft-auto-vi-2023125158282_7.jpg"
+            }
+        ],
+        "description": "Grand Theft Auto VI pone rumbo al estado de Leonida, hogar de las calles rebosantes de neones de Vice City y sus alrededores, en la evolución más grande e inmersiva de la serie Grand Theft Auto hasta la fecha. Disponible en 2025 para PlayStation®5 y Xbox Series X|S.",
+        "bannerImage": {
+            "path": "public\\images\\products\\product-1711458843218.jpg",
+            "size": 139046,
+            "encoding": "7bit",
+            "mimetype": "image/jpeg",
+            "filename": "product-1711458843218.jpg",
+            "fieldname": "bannerImage",
+            "destination": "public\\images\\products",
+            "originalname": "gta&-banner.jpg"
         }
     }
 ]

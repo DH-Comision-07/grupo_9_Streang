@@ -2,10 +2,26 @@
     box-sizing: border-box;
     font-family: Roboto;
 }
+
 body{
-    margin: 0px;
     background-color: #0B0B73;
+    margin: 0;
+    padding: 0;
 }
+
+p {
+    color: white;
+}
+
+img {
+    width: 80%;
+}
+
+.img-carousel{
+    display: none;
+}
+
+/* HEADER */
 header{
     display: flex;
     flex-direction: column;
@@ -46,7 +62,6 @@ header .fa-solid{
     width: 100%;
 }
 
-
 /* #### BODY #### */
 
 .product-title{
@@ -55,7 +70,6 @@ header .fa-solid{
     display: flex;
     align-items: center;
 }
-
 .product-container{
     display: flex;
     flex-direction: column;
@@ -67,11 +81,6 @@ header .fa-solid{
     margin-bottom: 3%;
     margin-top: 3%;
 	border: solid 2px white;
-}
-
-#player{
-    display: block;
-    width: 100%;
 }
 .main-img-container{
     width: 100%;
@@ -122,107 +131,24 @@ header .fa-solid{
     border-radius: 5px;
     color: antiquewhite;
 }
-/* SECCION COMENTARIOS */
-.comentaries h3{
-    padding-left: 5%;
-}
-.form-container{
-    width: 90%;
-    margin: auto;
-    padding: 10px;
-    background-color:rgb(27, 73, 158);
-    border-radius: 5px;
-}
-.form-container form{
-    display: flex;
-    flex-direction: column;
-}
-textarea{
-    margin: 10px 0;
-    border: none;
-    border-radius: 3px;
-    padding: 5px;
-}
-.form-container form input{
-    border: none;
-    border-radius: 3px;
-    padding-left: 5px;
-    height: 30px;
-}
-.buttons-container{
-    display: flex;
-}
-.buttons-container button{
-    padding: 12px;
-    width: 120px;
-    margin-right: 10px;
-    border: none;
-    border-radius: 5px;
-}
-.user-comentary{
-    display: flex;
-    flex-direction: column;
-    width: 90%;
-    margin: 10px auto;
-    background-color: rgb(27, 73, 158);
-    padding: 10px;
-    border-radius: 5px;
-}
-.info-user{
-    display: flex;
-    /* border: 1px solid black; */
-    align-items: center;
-}
-.info-user .profile-img-container{
-    border: 1px solid black;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    margin-right: 10px;
-}
-.user-and-date-container{
-    display: flex;
-    flex-direction: column;
-}
-.user-and-date-container p{
-    margin: 0;
-}
-.user-and-date-container .date{
-    font-size: 12px;
-    color: rgb(134, 130, 130);
-    margin-top: 5px;
-}
-/* SECCION PRODUCTOS SIMILARES */
-.similar-products{
-    width: 100%;
-}
-.similar-products-container{
-    display: flex;
-    justify-content: space-between;
-    width: 90%;
-    /* height: 150px; */
-    margin: 10px auto;
-    background-color: rgb(27, 73, 158);
-    padding: 10px;
-    border-radius: 5px;
-}
-.similar-products-container img{
-    width: 30%;
-    padding: 5px;
-    background-color: lightskyblue;
-}
 
-main h3{
-    padding-left: 5%;
-}
-
+/* FOOTER */
 footer {
-    color: lightskyblue;
+	color: lightskyblue;
+	background-color: black;
     text-align: center;
-    background-color: black;
 }
-footer p{
-    color: white;
+
+.footer__section {
+	text-align: center;
+	padding: 0.1% 0;
+	line-height: 18px;
+	width: 90%;
+	margin: auto 2%;
+}
+
+.footer__copy {
+    text-align: center;
 }
 
 /* MEDIA DESKTOP */
@@ -234,7 +160,6 @@ footer p{
         width: 100%;
         /* justify-content: space-between; */
     }
-
 
     .header-top .fa-solid{
         display: none;
@@ -334,77 +259,115 @@ footer p{
         font-size: 1.3vw;
     }
 
-    /* MAIN PRODUCTO  */
-
+    /* BODY */
     main{
-        width: 1100px;
+        width: 1024px;
+        margin: auto;
+        text-align: center;
+    }
+
+    .img-carousel{
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        margin: auto;
+        text-align: center;
+        margin: 20px 0;
+    }
+
+    .img-carousel .fa-solid{
+        font-size: 3em;
+        height: 50px;
+        width: 50px;
+        border: 1px solid black;
+        border-radius: 50%;
+        background-color: rgba(0,0,0, 0.5);
+    }
+
+    .products{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
         margin: auto;
     }
 
     .product-container{
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: space-between;
+        width: 30%;
+        position: relative;
+        margin: 0 5px;
+        margin-bottom: 20px;
+        box-shadow: 4px 4px 8px 0 black;
+        border: none;
     }
 
-    .product-imgs{
-        width: 50%;
+    .main-img-container{
+        /* height: 400px;
+        width: 320px; */
+        width: 100%;
+        height: 80%;
+        padding-bottom: 10px;
+        background-size: cover;
+        margin: 0 auto;
     }
 
     .main-img-container img{
+        margin-left: -10px;
+    }
+
+    .linkToProduct{
+        text-decoration: none;
+        margin: auto;
+    }
+
+    .more-img-container{
+        height: 70px;
+    }
+
+    .main-img-container img{
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+    }
+
+    .add-cart, .product-title{
         display: none;
     }
 
-    iframe, .product-description img{
-        width: 100%;
-        display: block;
+    .product-description p{
+        padding: 0 10px;
     }
 
     .product-description{
-        width: 45%;
-        margin-top: 40px;
-        margin-right: 20px;
+        display: none;
     }
 
-    .product-description img{
-        width: 100%;
-    }
-
-    .price-container{
-        width: 50%;
-        height: 30px;
-        margin-top: 15px;
-    }
-
-    /* ######### FOOTER ########### */
-
-    footer{
-        width: 100%;
+    .footer {
         display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: space-around;
     }
 
-    footer section{
-        width: 30%;
-        text-align: center;
-        padding: 15px;
-    }
-
-    .copyright{
-        font-size: 10px;
-        padding-left: 20px;
-        text-align: left;
-        width: 100%;
-    }
-
-    /* EFECTOS */
-    .add-cart:hover, .more-img-container img:hover, iframe:hover, button:hover{
-        box-shadow: 0px 0px 10px black;
-        cursor: pointer;
+    /* *** EFECTOS *** */
+    .imgExpanded{
+        /* width: 500%;
+        height: 500%; */
+        scale: 10;
+        /* margin: auto; */
+        z-index: 1;
+        border: 3px solid white;
     }
 
 
+
+    .more-img-container img:hover{
+        transform: scale(2) translate(-50%, -50%);
+        position: fixed;
+        background-color: rgba(0,0,0, 0.5);
+        top: 70%;
+        left: 67%;
+        z-index: 1;
+        margin: 50px;
+        border: 3px solid white;
+    }
+
+
+    
 }
