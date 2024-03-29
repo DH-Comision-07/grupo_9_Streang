@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <%-include('partials/head.ejs')%>
-    <link href="../css/mainProduct.css" rel="stylesheet"/>
+    <link href="/css/mainProduct.css" rel="stylesheet"/>
     <title>Producto</title>
 </head>
 <body>
@@ -13,12 +13,13 @@
             <div class="product-imgs">
                 <div class="main-img-container">
                     <h2 class="product-title"><%= product.name%></h2>
+                    <%if (product.video == null) {%>
                     <img src="/images/products/<%=product.mainImage.filename%>">
-                    
+                    <%}else{%>
                     <div id="player">
                         <p id="video"><%=product.video%></p>
                     </div>
-                    
+                    <%}%>
                 </div>
                 <div class="more-img-container">
                     <img src="/images/products/<%=product.moreImages[0].filename%>" alt="game image">

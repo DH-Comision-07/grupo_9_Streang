@@ -13,34 +13,31 @@
 	
 	<!-- MAIN -->
     <main>
-        
-        <div class="img-carousel">
-            <i class="fa-solid fa-caret-left"></i>
-            <img src="images/doom-eternal.jpg" alt="game image">
-            <i class="fa-solid fa-caret-right"></i>
-        </div>
         <section class="products">
-            <%for(i=0;i<6;i++){%>
+            <%if(result.length > 0){
+            for(i=0;i<result.length; i++){%>
             <article class="product-container">
                 <div class="main-img-container">
-                    <h2 class="product-title"><%= products[i].name %></h2>                    
-                    <a class="linkToProduct" href="/products/detail/<%= products[i].id %>"><img class="mainImage" src="images/products/<%= products[i].mainImage.filename %>"></a>
+                    <h2 class="product-title"><%= result[i].name %></h2>                    
+                    <a class="linkToProduct" href="/products/detail/<%= result[i].id %>"><img class="mainImage" src="/images/products/<%= result[i].mainImage.filename %>"></a>
                 </div>
                 <div class="more-img-container">
-                    <img class="clickable" data-product-index="<%= i %>" src="images/products/<%= products[i].moreImages[0].filename %>" alt="game image">
-                    <img class="clickable" data-product-index="<%= i %>" src="images/products/<%= products[i].moreImages[1].filename %>" alt="game image">
-                    <img class="clickable" data-product-index="<%= i %>" src="images/products/<%= products[i].moreImages[2].filename %>" alt="game image">
+                    <img class="clickable" data-product-index="<%= i %>" src="/images/products/<%= result[i].moreImages[0].filename %>" alt="game image">
+                    <img class="clickable" data-product-index="<%= i %>" src="/images/products/<%= result[i].moreImages[1].filename %>" alt="game image">
+                    <img class="clickable" data-product-index="<%= i %>" src="/images/products/<%= result[i].moreImages[2].filename %>" alt="game image">
                 </div>
                 <div class="product-description">
-                    <p><%= products[i].description %> </p>
+                    <p><%= result[i].description %> </p>
                 </div>
                 <div class="price-container">
-                    <h4 class="price">$<%= products[i].price %></h4>
-                    <h4 class="discount">%<%= products[i].discount %></h4>
-                    <h4 class="final-price">$<%= products[i].finalPrice %></h4>
+                    <h4 class="price">$<%= result[i].price %></h4>
+                    <h4 class="discount">%<%= result[i].discount %></h4>
+                    <h4 class="final-price">$<%= result[i].finalPrice %></h4>
                 </div>
                 <h3 class="add-cart">Agregar al carrito</h3>
             </article>
+            <%}}else{%>
+                <h2>No se encontraron resultados</h2>
             <%}%>
 
             
