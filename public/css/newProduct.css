@@ -110,7 +110,6 @@ textarea.description-area{
     resize: none;
 }
 
-
 .video-instructions-container {
     display: none;
     background-color: white;
@@ -123,17 +122,6 @@ textarea.description-area{
 #mainImageInput, #moreImageInput, #bannerImageInput {
     display: none;
 }
-
-
-
-
-
-
-
-
-
-
-
 
 .product-img-label{
     display: block;
@@ -161,12 +149,29 @@ label.product-img-label:hover{
     font-size: 3em;
 }
 
-.form-container input{
+.form-container input:not(.checkbox){
     height: 60px;
     margin: 5px 0;
     border: none;
     border-radius: 5px;
     width: 100%;
+}
+
+.checkbox-container{
+    display: flex;
+    flex-direction: column;
+    padding-left: 10px;
+    background-color: white;
+    border: none;
+    border-radius: 5px;
+}
+
+.checkbox{
+    color:black;
+}
+
+label.checkbox:last-child{
+    margin-bottom: 15px;
 }
 
 .submit-button{

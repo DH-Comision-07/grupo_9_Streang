@@ -41,21 +41,36 @@ document.addEventListener('DOMContentLoaded', function() {
     document.querySelector('.discount').addEventListener('input', calculateFinalPrice);
 });
 
+
 // script para mostrar dinamicamente un video de youtube
 const videoInput = document.getElementById('videoInput');
 const videoPreview = document.getElementById('videoPreview');
 
 videoInput.addEventListener('input', function() {
-    const videoCode = this.value.trim(); // Obtener el código del video y eliminar espacios en blanco
+    const videoUrl = this.value.trim(); // Obtener la URL del video y eliminar espacios en blanco
 
-    // Validar que el código del video no esté vacío y comience con '<iframe'
-    if (videoCode && videoCode.startsWith('<iframe')) {
-        videoPreview.innerHTML = videoCode; // Mostrar el código del video en la vista previa
-        document.getElementsByClassName('fa-youtube')[0].style.display = 'none';
+    // Validar que la URL del video no esté vacía y contenga el texto "youtube.com" (puedes ajustar esto según tus necesidades)
+    if (videoUrl && videoUrl.includes("youtube.com")) {
+        const videoId = extractVideoId(videoUrl); // Obtener el ID del video de la URL
+        const embedUrl = `https://www.youtube.com/embed/${videoId}`; // Construir la URL de inserción del video
+
+        // Mostrar el video en la vista previa usando un iframe
+        videoPreview.innerHTML = `<iframe width="560" height="315" src="${embedUrl}" frameborder="0" allowfullscreen></iframe>`;
+        document.getElementsByClassName('fa-youtube')[0].style.display = 'none'; // Ocultar el ícono de YouTube
     } else {
-        videoPreview.innerHTML = ''; // Limpiar la vista previa si no se proporciona un código válido
+        videoPreview.innerHTML = ''; // Limpiar la vista previa si no se proporciona una URL de video válida
     }
 });
+
+
+// Función para extraer el ID del video de la URL de YouTube
+function extractVideoId(url) {
+    const videoIdRegex = /(?:\/|v=)([a-zA-Z0-9_-]{11})/; // Expresión regular para extraer el ID del video
+    const match = url.match(videoIdRegex); // Obtener el ID del video usando la expresión regular
+
+    return match ? match[1] : null; // Devolver el ID del video o null si no se encuentra
+}
+
 
 // script para mostrar dinamicamente una imagen
 document.addEventListener('DOMContentLoaded', function() {
