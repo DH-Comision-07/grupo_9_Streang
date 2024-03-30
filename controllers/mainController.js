@@ -5,6 +5,7 @@ const mainController = {
     paginaPrincipal: (req, res) => {
         res.render("home", {products : products});
     },
+    
     search : function(req, res) {
         try{
             let searched = req.query.query_search;

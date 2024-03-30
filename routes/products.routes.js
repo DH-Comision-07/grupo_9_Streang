@@ -39,5 +39,11 @@ router.get('/categories/:category', productosController.viewCategory);
 router.get('/create', productosController.newProduct);
 router.post('/', uploadFile, productosController.create);
 
+// FORMULARIO DE EDICIÓN DE PRODUCTO
+router.get('/id/edit', productosController.edit);
+router.put('/:id', productosController.productDetail); // ACCIÓN DE EDICIÓN
+
+// BORRADO DE PRODUCTO
+router.delete('/:id', productosController.delete);
 
 module.exports = router;
