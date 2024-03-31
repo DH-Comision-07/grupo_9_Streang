@@ -5,7 +5,7 @@ const productsFilePath = path.join(__dirname, '../data/json-products.json');
 const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 
 const productosController = { 
-    viewAll: (req, res) => {
+    viewAll: function (req, res) {
         res.render("allProducts", {products: products});
     },
 
@@ -27,6 +27,7 @@ const productosController = {
         res.render("newProduct");
 
     },
+
     create: function(req, res){
         let maxId = 0;
         for (const obj of products) {
@@ -68,6 +69,23 @@ const productosController = {
             res.status(500).send(`No se seleccionaron las imágenes correspondientes. Seleccione las imágenes
             que desea cargar e intente nuevamente.`);
         }
+    },
+
+    edit: function(req, res){
+        let productID = req.params.id;
+		let product = products.find(function(product){
+            product.id == productID;
+        });
+		res.render('productDetail', {productToEdit : product});
+    },
+
+    delete: function(req, res){
+        let productID = parseInt(req.params.id);
+		products.splice(productID - 1, 1);
+		console.log(products);
+		let jsonProducts = JSON.stringify(products);
+		fs.writeFileSync('./data/json-products.json', jsonProducts);
+		res.send(products);
     }
 };
 

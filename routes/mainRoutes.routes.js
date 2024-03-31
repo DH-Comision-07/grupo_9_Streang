@@ -1,18 +1,9 @@
 const express = require('express');
 const router = express.Router();
-const multer = require('multer');
-const path = require('path');
+const indexRouter = require('./index.routes');
+const productsRouter = require('./products.routes');
 
-const loginRoutes = require('./login.routes');
-const registerRoutes = require('./register.routes');
-const cartRoutes = require('./cart.routes');
-const homeRoutes = require('./main.routes');
-const productosRoutes = require('./productos.routes');
-
-router.use('/', homeRoutes);
-router.use('/cart', cartRoutes);
-router.use('/login', loginRoutes);
-router.use('/register', registerRoutes);
-router.use('/products', productosRoutes)
+router.use('/', indexRouter);
+router.use('/products', productsRouter)
 
 module.exports = router;
