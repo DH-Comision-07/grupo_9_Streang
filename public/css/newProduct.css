@@ -108,6 +108,7 @@ textarea.description-area{
     height: inherit;
     width: 100%;
     resize: none;
+    color: black;
 }
 
 .video-instructions-container {

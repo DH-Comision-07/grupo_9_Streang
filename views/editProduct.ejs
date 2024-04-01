@@ -39,11 +39,11 @@
                         </label>
 
                         <label for="">
-                            <input type="text" name="name" placeholder="<%= product.name %>*" required>
+                            <input type="text" name="name" placeholder="Nombre del producto" value="<%= product.name %>*" required>
                         </label>
 
                         <textarea class="description-area" name="description" cols="30" rows="10" autocapitalize="on"
-                        placeholder="<%= product.description %>*" required></textarea>
+                        placeholder="Descripcion" value="" required><%= product.description %></textarea>
 
                         <select class="category" name="category">
                             <option value="" selected hidden>Categoria</option>
@@ -83,11 +83,11 @@
                         </div>
 
                         <label for="">
-                            <input type="text" name="price" placeholder="<%= product.price %>*" required>
+                            <input type="text" name="price" placeholder="Precio" value="<%= product.price %>*" required>
                         </label>
 
                         <label for="">
-                            <input type="text" name="discount" placeholder="<%= product.discount %>">
+                            <input type="text" name="discount" value="<%= product.discount %>" placeholder="Descuento">
                         </label>
 
                         <select class="format" name="format">
@@ -97,7 +97,7 @@
                         </select>
 
                         <label for="">
-                            <input type="number" name="stock" placeholder="<%= product.stock %>">
+                            <input type="number" name="stock" placeholder="Stock" value="<%= product.stock %>">
                         </label>
 
                         <button class="submit-button" type="submit">Guardar Cambios</button>
