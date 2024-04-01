@@ -71,6 +71,12 @@ const productosController = {
         }
     },
 
+    viewEdit: function(req, res){
+        let productID = req.params.id;
+        let productToEdit = products.find(product => product.id == productID);
+        res.render("editProduct", {product:productToEdit});
+    },
+
     edit: function(req, res){
         let productID = req.params.id;
 		let product = products.find(function(product){

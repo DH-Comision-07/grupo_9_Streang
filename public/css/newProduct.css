@@ -189,6 +189,11 @@ label.checkbox:last-child{
     cursor: pointer;
 }
 
+.delete-button{
+    background-color: red;
+    color: white;
+}
+
 
 /* ESTILO DE VISTA PREVIA DEL PRODUCTO */
 .product-title{
