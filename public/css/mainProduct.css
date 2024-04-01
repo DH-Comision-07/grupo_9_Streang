@@ -55,6 +55,7 @@ header .fa-solid{
     display: flex;
     align-items: center;
 }
+
 .product-container{
     display: flex;
     flex-direction: column;
@@ -66,6 +67,11 @@ header .fa-solid{
     margin-bottom: 3%;
     margin-top: 3%;
 	border: solid 2px white;
+}
+
+#player{
+    display: block;
+    width: 100%;
 }
 .main-img-container{
     width: 100%;
@@ -346,9 +352,9 @@ footer p{
         width: 50%;
     }
 
-    .main-img-container img{
+    /* .main-img-container img{
         display: none;
-    }
+    } */
 
     iframe, .product-description img{
         width: 100%;

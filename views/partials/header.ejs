@@ -2,20 +2,34 @@
     <div class="header-top">
             <i class="fa-solid fa-bars"></i>
         <div class="logo-container">
-            <a href="/" ><img src="../images/streang-logo-v1.png" alt="Streang logo"></a>
+            <a href="/" ><img src="/images/streang-logo-v1.png" alt="Streang logo"></a>
         </div>
             <i class="fa-solid fa-user"></i>
     </div>
     <div class="header-mid">
         <div class="search-bar-container">
-            <input class="search-bar" type="text" placeholder="Buscar...">
-            <i class="fa-solid fa-magnifying-glass"></i>
+            <form action="/search" method="GET">
+                <input name="query_search" class="search-bar" type="text" placeholder="Buscar...">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </form>            
         </div>            
         <div class="nav-bar">
             <ul>
-                <li><a class="nav-link" href="#">Categorias</a></li>
+                <div class="dropdown">                
+                    <li class="dropdown-li">
+                        <a class="nav-link" href="#">Categorias</a>
+                        <ul class="dropdown-content">
+                            <li><a href="/products/categories/videogames">Videojuegos</a></li>
+                            <li><a href="/products/categories/consoles">Consolas</a></li>
+                            <li><a href="/products/categories/accesories">Accesorios</a></li>
+                            <li><a href="/products/categories/audio">Audio y sonido</a></li>
+                            <li><a href="/products/categories/PC">Computación</a></li>
+                            <li><a href="/products/categories/other">Otros</a></li>
+                        </ul>
+                    </li>
+                </div>
                 <li><a class="nav-link" href="#">Promociones</a></li>
-                <li><a class="nav-link" href="#">Vender</a></li>
+                <li><a class="nav-link" href="/products/create">Vender</a></li>
                 <li><a class="nav-link" href="#">Contacto</a></li>
                 <li><a class="nav-link" href="#">Ayuda</a></li>
             </ul>
