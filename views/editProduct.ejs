@@ -13,7 +13,7 @@
             <div class="main-boxes-container">
                 <div class="form-box">
                     <h2>Editar producto</h2>
-                    <form class="form-container" action="/products" method="POST" enctype="multipart/form-data">
+                    <form id="edit-form" class="form-container" action="/products" method="POST" enctype="multipart/form-data">
                         
                         <label id="mainImageLabel" class="product-img-label" for="mainImageInput">Imagen principal<i class="fa-regular fa-images img-form"></i>
                             <input id="mainImageInput" class="product-img" type="file" name="mainImage" placeholder="">
@@ -100,9 +100,9 @@
                             <input type="number" name="stock" placeholder="Stock" value="<%= product.stock %>">
                         </label>
 
-                        <button class="submit-button" type="submit">Guardar Cambios</button>
-                        <button class="submit-button delete-button" formaction="/products/<%= product.id %>/?_method=DELETE" >Eliminar Producto</button>
-
+                        <button class="submit-button" type="submit">Guardar Cambios</button>                        
+                        <button type="button" class="submit-button delete-button" id="delete-button">Eliminar Producto</button>
+                        
                     </form>
                 </div>
                 <div class="preview-box">
@@ -143,9 +143,20 @@
             </div>
             
         </main>
+        <div class="confirm-container" id="confirm-container">
+            <div class="confirm-delete">
+                <p>¿Estás seguro de querer eliminar este producto?</p>
+                <div class="confirm-buttons">
+                    <button form="edit-form" class="submit-button delete-button" formmethod="post" formaction="/products/<%= product.id %>/?_method=DELETE">Eliminar Producto</button>
+                    <button id="cancel-button" class="submit-button">Cancelar</button>
+                </div>                
+            </div>
+        </div>
 
         <%-include('partials/footer.ejs')%>
         <script src="/js/newProduct.js"></script>
+        <script src="/js/editProduct.js"></script>
+
     </body>
     
     </html>
