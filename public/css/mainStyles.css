@@ -50,8 +50,6 @@ header .fa-solid{
     width: 100%;
 }
 
-
-
 .dropdown-content {
     display: none;
     position: absolute;
@@ -59,7 +57,7 @@ header .fa-solid{
     min-width: 160px;
     margin-top: 10px;
     z-index: 1;
-    width: 100px;
+    width: auto;
 }
 
 .dropdown-content li{

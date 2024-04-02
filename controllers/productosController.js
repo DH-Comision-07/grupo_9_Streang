@@ -63,7 +63,7 @@ const productosController = {
             products.push(newProduct);
             let JSONproducts = JSON.stringify(products);
             fs.writeFileSync(productsFilePath, JSONproducts);
-            res.send(products);                
+            res.redirect('/products');
                 
         } catch (error) {
             res.status(500).send(`No se seleccionaron las imágenes correspondientes. Seleccione las imágenes
@@ -91,7 +91,7 @@ const productosController = {
 		console.log(products);
 		let jsonProducts = JSON.stringify(products);
 		fs.writeFileSync('./data/json-products.json', jsonProducts);
-		res.send(products);
+		res.redirect('/products');
     }
 };
 

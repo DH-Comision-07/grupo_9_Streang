@@ -24,7 +24,7 @@
             <article class="product-container">
                 <div class="main-img-container">
                     <h2 class="product-title"><%= products[i].name %></h2>                    
-                    <a class="linkToProduct" href="/products/<%= products[i].id %>"><img class="mainImage" src="/images/products/<%= products[i].mainImage.filename %>"></a>
+                    <a class="linkToProduct" href="/products/detail/<%= products[i].id %>"><img class="mainImage" src="/images/products/<%= products[i].mainImage.filename %>"></a>
                 </div>
                 <div class="more-img-container">
                     <img class="clickable" data-product-index="<%= i %>" src="/images/products/<%= products[i].moreImages[0].filename %>" alt="game image">
@@ -40,6 +40,7 @@
                     <h4 class="final-price">$<%= products[i].finalPrice %></h4>
                 </div>
                 <h3 class="add-cart">Agregar al carrito</h3>
+                <a class="toEdit-button" href="/products/<%= products[i].id %>/edit">Editar producto</a>
             </article>
             <%}%>
 
