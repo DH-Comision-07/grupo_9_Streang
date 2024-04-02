@@ -204,6 +204,8 @@ label.checkbox:last-child{
     align-items: center;
 }
 
+
+
 .product-container{
     display: flex;
     flex-direction: column;
@@ -222,7 +224,6 @@ label.checkbox:last-child{
 
 .main-img-container img{
     width: 100%;
-
 }
 
 .more-img-container{
@@ -323,13 +324,14 @@ label.checkbox:last-child{
         top: 0;
         padding: 10px;
         height: 100vh;
+        overflow-y: scroll;
     }    
     
     .product-container{
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
-        height: 90%;
+        height: auto;
         justify-content: space-between;
     }
     
