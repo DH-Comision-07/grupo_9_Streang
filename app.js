@@ -13,12 +13,14 @@ app.use('/', mainRouter);
 const publicPath = path.resolve(__dirname, './public');
 app.use(express.static(publicPath));
 
+const PORT = process.env.PORT || 3000;
+
 app.use((req, res, next) =>{
     res.status(404).render('not-found')
 })
 
-app.listen(3000, () =>{
-    console.log(`Servidor corriendo en Puerto 3000`);
+app.listen(PORT, () =>{
+    console.log(`http://localhost:${PORT}`);
 });
 
 
