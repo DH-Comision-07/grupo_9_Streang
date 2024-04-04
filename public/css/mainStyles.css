@@ -20,6 +20,32 @@ header form{
     display: none;
 }
 
+.show{
+    display: block;
+    z-index: 1;
+    /* position: absolute; */
+    /* left: 20px;
+    top: 50px; */
+    top: 4em;
+    background-color: #0B0B73;
+    width: 200px;
+    /* padding: 10px; */
+    border: 1px solid white;
+}
+
+.show ul li, .show ul a{
+    padding: 5px;
+    /* background-color: white; */
+    text-decoration: none;
+    list-style: none;
+    color: white;
+}
+
+.show ul{
+    padding: 10px;
+    margin: 0;
+}
+
 .header-top{
     display: flex;
     justify-content: space-between;
