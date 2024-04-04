@@ -13,7 +13,7 @@
             <div class="main-boxes-container">
                 <div class="form-box">
                     <h2>Editar producto</h2>
-                    <form id="edit-form" class="form-container" action="/products" method="POST" enctype="multipart/form-data">
+                    <form id="edit-form" class="form-container" action="/products/<%= product.id %>/edit?_method=PUT" method="POST" enctype="multipart/form-data">
                         
                         <label id="mainImageLabel" class="product-img-label" for="mainImageInput">Imagen principal<i class="fa-regular fa-images img-form"></i>
                             <input id="mainImageInput" class="product-img" type="file" name="mainImage" placeholder="">
@@ -31,7 +31,7 @@
                         </label>
 
                         <label class="video-label" for="">
-                            <input id="videoInput" type="text" name="video" placeholder="Video de Youtube">
+                            <input id="videoInput" type="text" name="video" value="https://www.youtube.com/watch?v=<%= product.video %>" placeholder="Video de Youtube">
                             <div class="video-instructions-container">
                                 <p class="video-instructions">Pega la dirección URL del vídeo aquí.
                                 </p>
@@ -100,7 +100,7 @@
                             <input type="number" name="stock" placeholder="Stock" value="<%= product.stock %>">
                         </label>
 
-                        <button formmethod="post" formaction="/products/<%= product.id %>/edit?_method=PUT" class="submit-button" type="submit">Guardar Cambios</button>                        
+                        <button type="submit"  class="submit-button">Guardar Cambios</button>                        
                         <button type="button" class="submit-button delete-button" id="delete-button">Eliminar Producto</button>
                         
                     </form>
