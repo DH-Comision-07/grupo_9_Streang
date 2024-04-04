@@ -82,7 +82,7 @@ const productosController = {
 		let product = products.find(function(product){
             product.id == productID;
         });
-		res.render('productDetail', {productToEdit : product});
+		res.send("Este mensaje es porque anda el PUT")
     },
 
     delete: function(req, res){
