@@ -132,6 +132,18 @@ header .fa-solid{
     color: antiquewhite;
 }
 
+.toEdit-button{
+    background-color: lightblue;
+    margin: 5px auto;
+    padding: 10px;
+    border-radius: 5px;
+    border:none;
+}
+a.toEdit-button{
+    color: black;
+    text-decoration: none;
+}
+
 /* FOOTER */
 footer {
 	color: lightskyblue;

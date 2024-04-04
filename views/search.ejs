@@ -48,24 +48,7 @@
     <!-- FOOTER -->
     <%-include('partials/footer.ejs')%>
 
-    <script>
-     
-        
-        document.addEventListener('DOMContentLoaded', function () {
-            const clickableImages = document.querySelectorAll('.clickable');
-
-            clickableImages.forEach(function (clickableImage) {
-                clickableImage.addEventListener('click', function () {
-                    const productIndex = this.getAttribute('data-product-index');
-                    const mainImage = document.querySelector('.product-container:nth-child(' + (parseInt(productIndex) + 1) + ') .mainImage');
-                    const tempSrc = mainImage.src;
-                    mainImage.src = this.src;
-                    this.src = tempSrc;
-                });
-            });
-        });
-
-    </script>
+    <script src="./js/allProducts.js"></script>
 	
 </body>
 </html>

@@ -108,6 +108,7 @@ textarea.description-area{
     height: inherit;
     width: 100%;
     resize: none;
+    color: black;
 }
 
 .video-instructions-container {
@@ -189,6 +190,42 @@ label.checkbox:last-child{
     cursor: pointer;
 }
 
+.delete-button{
+    background-color: red;
+    color: white;
+}
+
+.confirm-container{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin:auto;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.confirm-delete{
+    background-color: white;
+    padding: 25px;
+    border: none;
+    border-radius:5px ;
+}
+
+.confirm-buttons{
+    display: flex;
+}
+
+.show{
+    opacity: 1;
+    pointer-events: auto;
+}
+
 
 /* ESTILO DE VISTA PREVIA DEL PRODUCTO */
 .product-title{
@@ -197,6 +234,8 @@ label.checkbox:last-child{
     display: flex;
     align-items: center;
 }
+
+
 
 .product-container{
     display: flex;
@@ -216,7 +255,6 @@ label.checkbox:last-child{
 
 .main-img-container img{
     width: 100%;
-
 }
 
 .more-img-container{
@@ -317,13 +355,14 @@ label.checkbox:last-child{
         top: 0;
         padding: 10px;
         height: 100vh;
+        overflow-y: scroll;
     }    
     
     .product-container{
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
-        height: 90%;
+        height: auto;
         justify-content: space-between;
     }
     
