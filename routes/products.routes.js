@@ -12,7 +12,6 @@ const storage = multer.diskStorage({
       cb(null, path.join('./public/images/products'));
     }, 
     filename: function (req, file, cb) {
-      console.log(file);
       const newFileName = 'product-' + Date.now() + path.extname(file.originalname);
       cb(null, newFileName);
     }
@@ -41,7 +40,7 @@ router.post('/', uploadFile, productosController.create);
 
 // FORMULARIO DE EDICIÓN DE PRODUCTO
 router.get('/:id/edit', productosController.viewEdit);
-router.put('/:id', productosController.productDetail); // ACCIÓN DE EDICIÓN
+router.put('/:id/edit', uploadFile, productosController.edit); // ACCIÓN DE EDICIÓN
 
 // BORRADO DE PRODUCTO
 router.delete('/:id', productosController.delete);
