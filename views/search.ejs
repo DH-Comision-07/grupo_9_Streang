@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%-include('partials/head.ejs')%>
+	<link href="/css/home.css" rel="stylesheet"/>
+    <title>Streang - Venta de videojuegos y consolas</title>
+</head>
+
+<body>
+	<!-- HEADER -->
+
+    <%-include('partials/header.ejs')%>
+	
+	<!-- MAIN -->
+    <main>
+        <section class="products">
+            <%if(result.length > 0){
+            for(i=0;i<result.length; i++){%>
+            <article class="product-container">
+                <div class="main-img-container">
+                    <h2 class="product-title"><%= result[i].name %></h2>                    
+                    <a class="linkToProduct" href="/products/detail/<%= result[i].id %>"><img class="mainImage" src="/images/products/<%= result[i].mainImage.filename %>"></a>
+                </div>
+                <div class="more-img-container">
+                    <img class="clickable" data-product-index="<%= i %>" src="/images/products/<%= result[i].moreImages[0].filename %>" alt="game image">
+                    <img class="clickable" data-product-index="<%= i %>" src="/images/products/<%= result[i].moreImages[1].filename %>" alt="game image">
+                    <img class="clickable" data-product-index="<%= i %>" src="/images/products/<%= result[i].moreImages[2].filename %>" alt="game image">
+                </div>
+                <div class="product-description">
+                    <p><%= result[i].description %> </p>
+                </div>
+                <div class="price-container">
+                    <h4 class="price">$<%= result[i].price %></h4>
+                    <h4 class="discount">%<%= result[i].discount %></h4>
+                    <h4 class="final-price">$<%= result[i].finalPrice %></h4>
+                </div>
+                <h3 class="add-cart">Agregar al carrito</h3>
+            </article>
+            <%}}else{%>
+                <h2>No se encontraron resultados</h2>
+            <%}%>
+
+            
+        </section>
+    </main>
+	
+	
+    <!-- FOOTER -->
+    <%-include('partials/footer.ejs')%>
+
+    <script src="./js/allProducts.js"></script>
+	
+</body>
+</html>

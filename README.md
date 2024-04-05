@@ -43,3 +43,7 @@ Espacio de trabajo Trello (GRUPO 9 STREANG)
 link: https://trello.com/b/erom3WiA/streang
 
 ![Estrella.jpg](https://i.postimg.cc/7ZwCC7Tw/Estrella.jpg)
+
+![Estrella.jpg](https://i.postimg.cc/NM101XKx/Estrella.jpg)
+
+![retro.jpg](https://i.postimg.cc/WzvFsN7Z/retro.jpg)
