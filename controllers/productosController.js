@@ -130,7 +130,6 @@ const productosController = {
 	
 		// Find the index of the product in the products array
 		let productIndex = products.findIndex(product => product.id == productID);
-		// console.log(productIndex);
 	
 		if (productIndex !== -1) { // Product found
 			// Update the product in the array
@@ -142,7 +141,6 @@ const productosController = {
 			// Write the updated JSON back to the file
 			fs.writeFileSync('./data/json-products.json', jsonProducts);
 
-			// res.redirect('/products')
             res.redirect('/products');
 		} else {
 			// Product not found
@@ -152,11 +150,17 @@ const productosController = {
 
     delete: function(req, res){
         let productID = parseInt(req.params.id);
-		products.splice(productID - 1, 1);
-		console.log(products);
-		let jsonProducts = JSON.stringify(products);
-		fs.writeFileSync('./data/json-products.json', jsonProducts);
-		res.redirect('/products');
+        let productToDelete = products.find(product => product.id == productID);
+        let productIndex = products.findIndex(product => product.id == productID);
+        console.log(productToDelete);
+        if (productIndex !== -1){
+            products.splice(productIndex, 1);
+            let jsonProducts = JSON.stringify(products);
+            fs.writeFileSync('./data/json-products.json', jsonProducts);
+		    res.redirect('/products');
+        } else {
+            res.send('producto no encontrado')
+        }
     }
 };
 
