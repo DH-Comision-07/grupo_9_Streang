@@ -26,6 +26,10 @@ const mainController = {
 
     paginaCart: (req, res) => {
         res.render("cart");
+    },
+
+    contact: (req, res) => {
+        res.render("contact");
     }
 }
 
