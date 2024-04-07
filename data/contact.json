@@ -1,1 +1,22 @@
-[{},{"name":"Nicolas","email":"lerchnicolas@hotmail.com","subject":"Prueba","message":"Es un mensaje de prueba"},{"name":"Pedro","email":"pedro@mail.com","subject":"Otra prueba","message":"Es otro mensaje para probar el contacto"},{"date":"2024-04-06T23:59:34.220Z","name":"Florencia","email":"ejemplo@mail.com","subject":"Prueba","message":"prueba con fecha"}]
+[
+    {},
+    {
+        "name": "Nicolas",
+        "email": "lerchnicolas@hotmail.com",
+        "subject": "Prueba",
+        "message": "Es un mensaje de prueba"
+    },
+    {
+        "name": "Pedro",
+        "email": "pedro@mail.com",
+        "subject": "Otra prueba",
+        "message": "Es otro mensaje para probar el contacto"
+    },
+    {
+        "date": "2024-04-06T23:59:34.220Z",
+        "name": "Florencia",
+        "email": "ejemplo@mail.com",
+        "subject": "Prueba",
+        "message": "prueba con fecha"
+    }
+]
