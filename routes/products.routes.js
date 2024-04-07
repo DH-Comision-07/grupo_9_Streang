@@ -34,6 +34,9 @@ router.get('/detail/:id', productosController.productDetail);
 // VER POR CATEGORIA
 router.get('/categories/:category', productosController.viewCategory);
 
+// VER PROMOCIONES
+router.get('/discounts', productosController.viewDiscounts);
+
 // CREAR NUEVO PRODUCTO
 router.get('/create', productosController.newProduct);
 router.post('/', uploadFile, productosController.create);

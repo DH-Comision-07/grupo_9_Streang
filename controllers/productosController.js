@@ -161,6 +161,13 @@ const productosController = {
         } else {
             res.send('producto no encontrado')
         }
+    },
+
+    viewDiscounts: function(req, res){
+        // let discounts = products.map(product => product.discount > 0);
+        let discounts = products.filter(product => product.discount > 0);
+
+        res.render('discounts', {products: discounts});
     }
 };
 
