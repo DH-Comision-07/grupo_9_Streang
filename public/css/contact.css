@@ -8,6 +8,85 @@ body{
     color:aquamarine;
 }
 
+@media (max-width: 1022px){
+
+    .contact-container{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .form-container{
+        background-color: rgba(34, 34, 156, 0.7);
+        width: 90%;
+        margin: auto;
+        border: none;
+        border-radius: 5px;
+        margin-bottom: 35px;
+    }
+
+    form{
+        display: flex;
+        flex-direction: column;
+        padding-top: 15px;
+        /* justify-content: center;
+        text-align: center;
+        align-items: center; */
+        width: 90%;
+        margin: auto;
+    }
+
+    form input, form textarea{
+        margin: 10px 0;
+        border: none;
+        border-radius: 5px;
+        height: 35px;
+        background-color: rgba(255, 255, 255, 0.1);
+        color: white;
+    }
+
+    form textarea{
+        height: 150px !important;
+    }
+
+    /* .contact-container{
+        display: flex;
+        width: 90%;
+        justify-content: space-between;
+    } */
+
+    .social-media-contact span{
+        display: none;
+    }
+
+    .social-media-contact{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        width: 80%;
+        margin: auto;
+    }
+
+    .contact{
+        width: 50%;
+        /* padding: 10px; */
+        /* padding-left: 25px; */
+        height: 100px;
+    }
+
+    .contact a, .contact span{
+        text-decoration: none;
+        color: white;
+    }
+
+    .contact i{
+        font-size: 4em;
+        margin-right: 10px;
+    }
+}
+
 .send-button{
     margin: 10px 0;
     padding: 10px;
@@ -30,6 +109,7 @@ body{
  }
 
 @media (min-width: 1023px){
+
     .contact-container{
         display: flex;
         width: 100%;
@@ -49,6 +129,7 @@ body{
     .contact a, .contact span{
         text-decoration: none;
         color: white;
+        text-align: left;
     }
     
     .contact i{
@@ -87,9 +168,9 @@ body{
         margin: 10px 0;
         border: none;
         border-radius: 5px;
-        /* background-color: rgba(37, 37, 124, 0.5); */
         background-color: rgba(255, 255, 255, 0.1);
         padding-left: 10px;
+        color: white;
     }
 
     .form-container textarea{
