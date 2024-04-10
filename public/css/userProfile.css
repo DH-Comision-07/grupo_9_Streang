@@ -1,0 +1,124 @@
+main {
+    display: flex;
+    /* flex-wrap: wrap; */
+    justify-content: space-between;
+    padding: 15px;
+}
+
+.user-data{
+    background-color: aliceblue;
+    width: 25%;
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+    border: none;
+    border-radius: 10px;
+}
+
+.profile-img-container{
+    width: 100%;
+    margin: 20px 0;
+    text-align: center;
+}
+
+.profile-img-container img{
+    /* width: 150%; */
+    width: 70%;
+    /* margin: auto; */
+    /* margin-left: 8%; */
+    margin-top: 20px;
+    border-radius: 100%;
+    border: 1px solid black;
+    /* margin: auto; */
+}
+
+.user-info-container{
+    margin: 10px;
+    padding-left: 10px;
+}
+
+.user-info-container label{
+    color:grey;
+    font-size: 15px;
+}
+
+.user-info-container p{
+    margin-top: 5px;
+}
+
+.edit-button{
+    width: 30%;
+    margin: 0 auto;
+    font-size: 15px;
+    height: 40px;
+    border-radius: 5px;
+    border: none;
+    background-color: grey;
+}
+
+.more-info{
+    display: flex;
+    flex-direction: column;
+    width: 75%;
+    margin-top: 5px;
+    margin-left: 10px;
+    background-color: #0B0B73;
+    border-radius: 10px;
+    border:none;
+}
+
+.last-purchases{
+    display: flex;
+    flex-direction: column;
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 15px;
+    background-color: aliceblue;
+}
+
+.purchase{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid black;
+    border-radius: 10px;
+    margin: 5px 0;
+    padding: 0 10px;
+}
+
+.cart-info{
+    display: flex;
+    flex-direction: column;
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 15px;
+    background-color: aliceblue;
+}
+
+.cart-item{
+    display: flex;
+    flex-direction: row;
+    /* justify-content: space-between; */
+    align-items: center;
+    margin: 5px 0;
+    padding: 0 10px;
+    border: 1px solid black;
+    border-radius: 10px;
+}
+
+.cart-item img{
+    height: 60px;
+    margin: 5px;
+}
+
+.cart-item .price{
+    width: 70%;
+    text-align: right;
+}
+
+.total{
+    text-align: right;
+    margin-right: 8%;
+}
