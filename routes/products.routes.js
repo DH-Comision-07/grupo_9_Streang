@@ -12,7 +12,6 @@ const storage = multer.diskStorage({
       cb(null, path.join('./public/images/products'));
     }, 
     filename: function (req, file, cb) {
-      console.log(file);
       const newFileName = 'product-' + Date.now() + path.extname(file.originalname);
       cb(null, newFileName);
     }
@@ -35,12 +34,15 @@ router.get('/detail/:id', productosController.productDetail);
 // VER POR CATEGORIA
 router.get('/categories/:category', productosController.viewCategory);
 
+// VER PROMOCIONES
+router.get('/discounts', productosController.viewDiscounts);
+
 // CREAR NUEVO PRODUCTO
 router.get('/create', productosController.newProduct);
 router.post('/', uploadFile, productosController.create);
 
 // FORMULARIO DE EDICIÓN DE PRODUCTO
-router.get('/:id/edit', productosController.edit);
+router.get('/id/edit', productosController.edit);
 router.put('/:id', productosController.productDetail); // ACCIÓN DE EDICIÓN
 
 // BORRADO DE PRODUCTO

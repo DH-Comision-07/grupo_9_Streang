@@ -18,4 +18,10 @@ router.get('/cart', mainController.paginaCart);
 // router para pagina de registro
 router.get('/register', mainController.paginaRegister);
 
+// router para pagina de contacto
+router.get('/contact', mainController.contact);
+
+//router post mensaje de contacto
+router.post('/contact', mainController.sendMessage);
+
 module.exports = router;

@@ -20,6 +20,32 @@ header form{
     display: none;
 }
 
+.show{
+    display: block;
+    z-index: 1;
+    /* position: absolute; */
+    /* left: 20px;
+    top: 50px; */
+    top: 4em;
+    background-color: #0B0B73;
+    width: 200px;
+    /* padding: 10px; */
+    border: 1px solid white;
+}
+
+.show ul li, .show ul a{
+    padding: 5px;
+    /* background-color: white; */
+    text-decoration: none;
+    list-style: none;
+    color: white;
+}
+
+.show ul{
+    padding: 10px;
+    margin: 0;
+}
+
 .header-top{
     display: flex;
     justify-content: space-between;
@@ -50,8 +76,6 @@ header .fa-solid{
     width: 100%;
 }
 
-
-
 .dropdown-content {
     display: none;
     position: absolute;
@@ -59,7 +83,7 @@ header .fa-solid{
     min-width: 160px;
     margin-top: 10px;
     z-index: 1;
-    width: 100px;
+    width: auto;
 }
 
 .dropdown-content li{
@@ -78,6 +102,89 @@ header .fa-solid{
 
 .dropdown-content a:hover, .dropdown-content li:hover  {background-color: rgb(28, 67, 139);}
 
+
+
+/* *** SLIDER *** */
+
+.slider-container{
+    margin: auto ;
+    width: 100%;
+    padding: 20px;
+}
+
+.slider-container ul, .slider-container li{
+    margin: 0;
+    list-style: none;
+    text-decoration: none;
+    margin: auto;
+}
+
+ul.slider{
+    position: relative;
+    height: 200px;
+    width: 100%;
+    margin: auto;
+    background-color: #0B0B73;
+    margin-bottom: 20px;
+}
+
+ul.slider li{
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    width: inherit;
+    height: inherit;
+    transition: opacity .5s;
+    background: #fff;
+}
+
+ul.slider li img{
+    width: 100%;
+    /* height: auto; */
+    height: inherit;
+    max-height: 400px !important;
+    margin: auto;
+    object-fit: cover;
+}
+
+ul.slider li:first-child{
+    opacity: 1;
+}
+
+.menu{
+    display: flex;
+    /* flex-direction: column; */
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin: 20px;
+    padding: 0;
+    /* margin-bottom: 0; */
+}
+
+.menu li{
+    display: inline;
+    text-align: center;
+    width: 10%;
+    margin: 0;
+}
+
+.menu li a{
+    display: inline-block;
+    color: white;
+    text-decoration: none;
+    background-color: grey;
+    padding: 1px;
+    width: 25px;
+    height: 25px;
+    font-size: 20px;
+    border-radius: 100%;
+}
+
+ul.slider li:target{
+    opacity: 1;
+}
 
 
 
@@ -214,6 +321,87 @@ footer {
 
     section.products{
         margin-top: 20px;
+    }
+
+    /* *** SLIDER *** */
+
+    .slider-container{
+        margin: auto ;
+        width: 800px;
+        padding: 20px;
+    }
+
+    .slider-container ul, .slider-container li{
+        margin: 0;
+        list-style: none;
+        text-decoration: none;
+        margin: auto;
+    }
+
+    ul.slider{
+        position: relative;
+        height: 400px;
+        width: 100%;
+        margin: auto;
+        background-color: #0B0B73;
+        margin-bottom: 20px;
+    }
+
+    ul.slider li{
+        position: absolute;
+        top: 0;
+        left: 0;
+        opacity: 0;
+        width: inherit;
+        height: inherit;
+        transition: opacity .5s;
+        background: #fff;
+    }
+
+    ul.slider li img{
+        width: 100%;
+        /* height: auto; */
+        height: 400px;
+        max-height: 400px !important;
+        margin: auto;
+        object-fit: cover;
+    }
+
+    ul.slider li:first-child{
+        opacity: 1;
+    }
+
+    .menu{
+        display: flex;
+        /* flex-direction: column; */
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        margin: 20px;
+        /* margin-bottom: 0; */
+    }
+
+    .menu li{
+        display: inline;
+        text-align: center;
+        width: 10%;
+        margin: 0;
+    }
+
+    .menu li a{
+        display: inline-block;
+        color: white;
+        text-decoration: none;
+        background-color: grey;
+        padding: 1px;
+        width: 25px;
+        height: 25px;
+        font-size: 20px;
+        border-radius: 100%;
+    }
+
+    ul.slider li:target{
+        opacity: 1;
     }
 
     .footer {
