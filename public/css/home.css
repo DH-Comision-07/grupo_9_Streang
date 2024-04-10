@@ -296,12 +296,13 @@ footer {
     .products{
         display: flex;
         flex-wrap: wrap;
-        justify-content:flex-start;
+        /* justify-content:flex-start; */
+        justify-content: flex-start;
         margin: auto;
     }
 
     .product-container{
-        width: 30%;
+        width: 32%;
         position: relative;
         margin: 0 5px;
         margin-bottom: 20px;
