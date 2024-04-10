@@ -14,11 +14,7 @@
 	<!-- MAIN -->
     <main>
         
-        <div class="img-carousel">
-            <i class="fa-solid fa-caret-left"></i>
-            <img src="images/doom-eternal.jpg" alt="game image">
-            <i class="fa-solid fa-caret-right"></i>
-        </div>
+        <%-include('partials/slider.ejs')%>
         <section class="products">
             <%for(i=0;i<products.length;i++){%>
             <article class="product-container">
