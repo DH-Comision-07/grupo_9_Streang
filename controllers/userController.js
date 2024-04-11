@@ -2,11 +2,12 @@ const fs = require('fs');
 const path = require('path');
 const usersFilePath = path.join(__dirname, '../data/users.json');
 const usersDataBase = require('../data/users.json')
-users = JSON.parse(fs.readFileSync(usersFilePath, 'utf-8'))
+let users = JSON.parse(fs.readFileSync(usersFilePath, 'utf-8'))
 
 const userController = {
     viewProfile : function (req, res) {
-        res.render("userProfile");
+        let user = users.find(user => user.id == parseInt(req.params.id));
+        res.render("userProfile", {user: user});
     },
     saveUser: (req,res) => {
         let maxId = 0;
@@ -28,6 +29,19 @@ const userController = {
         fs.writeFileSync(usersFilePath, usersJSON)
         res.send(usersJSON)
     },
+
+    deleteUser: (req, res) =>{
+        let userIndex = users.findIndex(user => user.id == parseInt(req.params.id));
+        if(userIndex !== -1){
+            users.splice(userIndex, 1);
+            let usersJSON = JSON.stringify(users);
+            fs.writeFileSync(usersFilePath, usersJSON);
+            res.redirect('/');
+        } else {
+            return 'Usuario no encontrado';
+        }
+    },
+
     registerView: function (req,res) {
         res.render('register');
     },

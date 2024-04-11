@@ -150,7 +150,7 @@ const productsService = {
 
     delete: function(id){
         let productID = parseInt(id);
-        let productToDelete = this.products.find(product => product.id == productID);
+        // let productToDelete = this.products.find(product => product.id == productID);
         let productIndex = this.products.findIndex(product => product.id == productID);
         // console.log(productToDelete);
         if (productIndex !== -1){

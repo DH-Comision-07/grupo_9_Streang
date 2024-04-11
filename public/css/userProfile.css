@@ -46,7 +46,7 @@ main {
     margin-top: 5px;
 }
 
-.edit-button{
+.edit-button, .delete-button{
     width: 30%;
     margin: 0 auto;
     font-size: 15px;
@@ -54,6 +54,17 @@ main {
     border-radius: 5px;
     border: none;
     background-color: grey;
+}
+
+.delete-button{
+    margin: 10px auto;
+    color: white !important;
+    background-color: red !important;
+}
+
+.delete-button:hover, .edit-button:hover{
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+    cursor: pointer;
 }
 
 .more-info{
