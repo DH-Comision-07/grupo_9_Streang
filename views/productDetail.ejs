@@ -14,7 +14,7 @@
                 <div class="main-img-container">
                     <h2 class="product-title"><%= product.name%></h2>
                     <%if (product.video == null) {%>
-                    <img class="mainImage" src="/images/products/<%=product.mainImage.filename%>">
+                    <img class="mainImage" src="/images/products/<%=product.mainImage.filename %>">
                     <%}else{%>
                     <div id="player">
                         <p id="video"><%=product.video%></p>
@@ -30,7 +30,7 @@
             </div>
             
             <div class="product-description">
-                <img src="/images/products/<%=product.bannerImage.filename%>" alt="cuphead title image">
+                <img src="/images/products/<%=product.bannerImage.filename %>" alt="cuphead title image">
                 <p> <%=product.description%> </p>
             </div>
             <div class="price-container">

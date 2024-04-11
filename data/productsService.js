@@ -31,7 +31,41 @@ const productsService = {
                 maxId = obj.id;
             }
         }
-        console.log(maxId);
+
+        // Verificacion de imagenes. Si no se cargo una imagen, se define por defecto la imagen "default.avif"
+        let mainImage = {"filename": ""};
+        let moreImages = [{"filename": ""}, {"filename": ""}, {"filename": ""}];
+        let bannerImage = {"filename": ""};
+
+        if(!req.files['mainImage'] || req.files['mainImage'][0] == undefined || !req.files['mainImage'][0]){
+            mainImage.filename = 'default.avif'
+        } else {
+            mainImage = req.files['mainImage'][0];
+        }
+
+        if(!req.files['moreImages'] || req.files['moreImages'][0] == undefined){
+            moreImages[0].filename = "default.avif"
+            moreImages[1].filename = "default.avif"
+            moreImages[2].filename = "default.avif";
+        } else if (req.files['moreImages'][1] == undefined){
+            moreImages[0] = req.files['moreImages'][0];
+            moreImages[1].filename = "default.avif"
+            moreImages[2].filename = "default.avif";
+        } else if( req.files['moreImages'][2] == undefined){
+            moreImages[0] = req.files['moreImages'][0];
+            moreImages[1] = req.files['moreImages'][1]
+            moreImages[2].filename = "default.avif";
+        } else {
+            moreImages = req.files['moreImages'];
+        }
+
+        if(!req.files['bannerImage'] || req.files['bannerImage'][0] == undefined){
+            bannerImage.filename = 'default.avif';
+        } else {
+            bannerImage = req.files['bannerImage'][0];
+        }
+
+        console.log(mainImage);
         
         function extractYouTubeId(url) {
             const match = url.match(/[?&]v=([^?&]+)/);
@@ -46,9 +80,9 @@ const productsService = {
                 price: parseFloat(req.body.price),
                 video: youtubeId,
                 description: req.body.description,
-                mainImage: req.files['mainImage'][0],
-                moreImages: req.files['moreImages'],
-                bannerImage: req.files['bannerImage'][0],
+                mainImage: mainImage,
+                moreImages: moreImages,
+                bannerImage: bannerImage,
                 category: req.body.category,
                 discount: parseFloat(req.body.discount),
                 finalPrice : parseFloat(req.body.price) - (parseFloat(req.body.price) * (parseFloat(req.body.discount) / 100)),
@@ -63,9 +97,6 @@ const productsService = {
                 
         } catch (error) {
             return error;
-
-            // res.status(500).send(`No se seleccionaron las imágenes correspondientes. Seleccione las imágenes
-            // que desea cargar e intente nuevamente.`);
         }
     },
 
