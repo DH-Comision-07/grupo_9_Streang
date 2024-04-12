@@ -42,7 +42,7 @@ router.get('/create', productosController.newProduct);
 router.post('/', uploadFile, productosController.create);
 
 // FORMULARIO DE EDICIÓN DE PRODUCTO
-router.get('/id/edit', productosController.edit);
+router.get('/:id/edit', productosController.viewEdit);
 router.put('/:id', productosController.productDetail); // ACCIÓN DE EDICIÓN
 
 // BORRADO DE PRODUCTO

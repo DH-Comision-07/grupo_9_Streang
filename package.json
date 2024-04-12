@@ -12,13 +12,9 @@
   "license": "ISC",
   "dependencies": {
     "ejs": "^3.1.9",
-<<<<<<< HEAD
-    "express": "^4.18.2",
-=======
     "method-override": "^3.0.0",
     "express": "^4.19.2",
     "multer": "^1.4.5-lts.1",
->>>>>>> c2577a79175169e58e872f18b556eec886117f64
     "nodemon": "^3.1.0"
   }
 }
