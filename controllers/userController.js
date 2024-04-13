@@ -27,7 +27,7 @@ const userController = {
         users.push(newUserInfo)
         let usersJSON = JSON.stringify(users)
         fs.writeFileSync(usersFilePath, usersJSON)
-        res.send(usersJSON)
+        res.send(req.files[0])
     },
 
     deleteUser: (req, res) =>{
