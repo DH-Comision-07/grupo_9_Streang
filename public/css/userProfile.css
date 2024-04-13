@@ -23,8 +23,9 @@ main {
 
 .profile-img-container img{
     /* width: 150%; */
-    width: 150px;
-    
+    width: 250px;
+    height: 250px;
+    object-fit: cover;   
     /* margin: auto; */
     /* margin-left: 8%; */
     margin-top: 20px;
