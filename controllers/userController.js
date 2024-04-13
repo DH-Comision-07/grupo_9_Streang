@@ -23,11 +23,13 @@ const userController = {
             password: req.body.password,
             name: req.body.realName,
             surname: req.body.surname,
+            birthdate: req.body.birthDate,
+            avatar: req.file
         }
         users.push(newUserInfo)
         let usersJSON = JSON.stringify(users)
         fs.writeFileSync(usersFilePath, usersJSON)
-        res.send(req.files[0])
+        res.send(newUserInfo)
     },
 
     deleteUser: (req, res) =>{
