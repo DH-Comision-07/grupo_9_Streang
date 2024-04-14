@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%-include('./partials/head')%>
+    <link rel="stylesheet" href="/css/userProfile.css">
+    <title>Mi perfil</title>
+</head>
+<body>
+
+    <%-include('./partials/header')%>
+
+    <main>
+        <div class="user-data">
+            <div class="profile-img-container">
+                <img src="/images/users/avatar/<%= user.avatar.filename %>" alt="profile image">
+            </div>
+            <div class="user-info-container">
+                <%if(user.rol == "admin"){%>
+                    <p>Esto se muestra solo a los admin</p>
+                <%}%>
+                <label for="">Usuario</label>
+                <p class="data"><%= user.username %></p>
+                <label for="">Nombre</label>
+                <p class="data"><%= user.name %></p>
+                <label for="">Apellido</label>
+                <p class="data"><%= user.surname %></p>
+                <label for="">E-mail</label>
+                <p class="data"><%= user.email %></p>
+                <label for="">Fecha de Nacimiento</label>
+                <p class="data"><%= user.birthDate %></p>
+            </div>
+            <form id="edit-form">
+            </form>
+            <button type="button" class="edit-button">Editar</button>
+            <button form="edit-form" class="delete-button" formmethod="post" formaction="/users/<%= user.id %>/delete?_method=DELETE" >Eliminar Cuenta</button>
+
+        </div>
+        <div class="more-info">
+            <div class="products">
+                <h3>Productos</h3>
+                <%for(i=0; i < 4; i++){%>
+                <div class="product">
+                    <p class="title"><%= products[i].name %></p>
+                    <p class="price">Precio: $<%= products[i].price %></p> 
+                    <p class="discount">%<%= products[i].discount %> Dto.</p>
+                    <p class="final-price">Precio final: $<%= products[i].finalPrice %></p>                   
+                    <!-- <button type="button" class="edit-button" formmethod="GET" formaction="/products/products[i].id/edit">Editar</button> -->
+                    <a href="/products/<%= products[i].id %>/edit" class="edit-button">Editar</a>
+                </div>
+                <%}%>
+
+                <a class="view-all" href="/products">Ver todos los productos</a>
+
+            </div>
+            <div class="users-info">
+                <h3>Usuarios</h3>
+                <%for(i=0; i < 4; i++){%>
+                <div class="user-card"> 
+                    <div class="img-container">
+                        <img src="/images/users/avatar/<%= users[i].avatar.filename %> " alt="product image">
+                    </div>
+                    <p class="username">Username: <%= users[i].username %></p>
+                    <p class="complete-name"><%= users[i].name %> <%= users[i].surname %></p>
+                    <p class="rol">Rol: <%= users[i].rol %> </p>
+                    <a href="/products/<%= products[i].id %>/edit" class="edit-button">Editar</a>
+                </div>
+                <%}%>
+                <a class="view-all" href="#">Ver todos los usuarios</a>
+            </div>
+        </div>
+    </main>
+
+    <%-include('./partials/footer')%>
+    
+</body>
+</html>

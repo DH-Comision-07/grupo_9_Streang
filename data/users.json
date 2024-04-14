@@ -1,1 +1,204 @@
-[{"id":1,"email":"carlos@example.com","image":"imagen1.jpg","surname":"Gomez","password":"clave123","category":"cliente","name":"Carlos","username":"carlos_123","birthDate":"15/06/1990"},{"id":2,"email":"laura@example.com","image":"imagen2.jpg","surname":"Hernandez","password":"password456","category":"cliente","name":"Laura","username":"laura_456","birthDate":"23/09/1987"},{"id":3,"email":"juanr@example.com","image":"imagen3.jpg","surname":"Rodriguez","password":"contraseña789","category":"administrador","name":"Juan","username":"juan_789","birthDate":"10/12/1985"},{"id":4,"email":"ana@example.com","image":"imagen4.jpg","surname":"Martinez","password":"clave123","category":"cliente","name":"Ana","username":"ana_123","birthDate":"05/03/1992"},{"id":5,"email":"pablo@example.com","image":"imagen5.jpg","surname":"Lopez","password":"password456","category":"cliente","name":"Pablo","username":"pablo_456","birthDate":"17/08/1989"},{"id":6,"email":"sofia@example.com","image":"imagen6.jpg","surname":"Garcia","password":"contraseña789","category":"administrador","name":"Sofia","username":"sofia_789","birthDate":"30/04/1983"},{"id":7,"email":"diego@example.com","image":"imagen7.jpg","surname":"Sanchez","password":"clave123","category":"cliente","name":"Diego","username":"diego_123","birthDate":"12/11/1995"},{"id":8,"email":"valeria@example.com","image":"imagen8.jpg","surname":"Diaz","password":"password456","category":"cliente","name":"Valeria","username":"valeria_456","birthDate":"08/02/1986"},{"id":9,"email":"martin@example.com","image":"imagen9.jpg","surname":"Perez","password":"contraseña789","category":"administrador","name":"Martin","username":"martin_789","birthDate":"25/10/1998"},{"id":10,"email":"melipek334@evvgo.com","username":"dawdwada","password":"wdawda","name":"dawdwadawda","surname":"dawdawd","birthdate":"2023-12-01","avatar":{"fieldname":"UserAvatar","originalname":"90e6d37770a240ee4875829c36e47db4.jpg","encoding":"7bit","mimetype":"image/jpeg","destination":"D:\\Node\\grupo_9_Streang\\public\\images\\users\\avatar","filename":"avatar-1713022216361.jpg","path":"D:\\Node\\grupo_9_Streang\\public\\images\\users\\avatar\\avatar-1713022216361.jpg","size":13548}},{"id":11,"email":"santiagomanecraftfon@outlook.com","username":"tati","password":"caca","name":"santiago","surname":"alvarez","birthdate":"2006-02-02","avatar":{"fieldname":"UserAvatar","originalname":"c7bf4ace45f28f885aaaae1fb2142906.jpg","encoding":"7bit","mimetype":"image/jpeg","destination":"D:\\Node\\grupo_9_Streang\\public\\images\\users\\avatar","filename":"avatar-1713022555411.jpg","path":"D:\\Node\\grupo_9_Streang\\public\\images\\users\\avatar\\avatar-1713022555411.jpg","size":83277}}]
+[
+    {
+        "id": 1,
+        "rol": "admin",
+        "name": "Carlos",
+        "email": "carlos@example.com",
+        "image": "imagen1.jpg",
+        "avatar": {
+            "path": "D:\\Node\\grupo_9_Streang\\public\\images\\users\\avatar\\avatar-1713022555411.jpg",
+            "size": 83277,
+            "encoding": "7bit",
+            "mimetype": "image/jpeg",
+            "filename": "avatar-1713022555411.jpg",
+            "fieldname": "UserAvatar",
+            "destination": "D:\\Node\\grupo_9_Streang\\public\\images\\users\\avatar",
+            "originalname": "c7bf4ace45f28f885aaaae1fb2142906.jpg"
+        },
+        "surname": "Gomez",
+        "password": "clave123",
+        "category": "cliente",
+        "username": "carlos_123",
+        "birthDate": "15/06/1990"
+    },
+    {
+        "id": 2,
+        "rol": "usuario",
+        "name": "Laura",
+        "email": "laura@example.com",
+        "image": "imagen2.jpg",
+        "avatar": {
+            "path": "D:\\Node\\grupo_9_Streang\\public\\images\\users\\avatar\\avatar-1713022216361.jpg",
+            "size": 13548,
+            "encoding": "7bit",
+            "mimetype": "image/jpeg",
+            "filename": "avatar-1713022216361.jpg",
+            "fieldname": "UserAvatar",
+            "destination": "D:\\Node\\grupo_9_Streang\\public\\images\\users\\avatar",
+            "originalname": "90e6d37770a240ee4875829c36e47db4.jpg"
+        },
+        "surname": "Hernandez",
+        "password": "password456",
+        "category": "cliente",
+        "username": "laura_456",
+        "birthDate": "23/09/1987"
+    },
+    {
+        "id": 3,
+        "rol": "admin",
+        "name": "Juan",
+        "email": "juanr@example.com",
+        "image": "imagen3.jpg",
+        "avatar": {
+            "path": "D:\\Node\\grupo_9_Streang\\public\\images\\users\\avatar\\avatar-1713022555411.jpg",
+            "size": 83277,
+            "encoding": "7bit",
+            "mimetype": "image/jpeg",
+            "filename": "avatar-1713022555411.jpg",
+            "fieldname": "UserAvatar",
+            "destination": "D:\\Node\\grupo_9_Streang\\public\\images\\users\\avatar",
+            "originalname": "c7bf4ace45f28f885aaaae1fb2142906.jpg"
+        },
+        "surname": "Rodriguez",
+        "password": "contraseña789",
+        "category": "administrador",
+        "username": "juan_789",
+        "birthDate": "10/12/1985"
+    },
+    {
+        "id": 4,
+        "rol": "usuario",
+        "name": "Ana",
+        "email": "ana@example.com",
+        "image": "imagen4.jpg",
+        "avatar": {
+            "path": "D:\\Node\\grupo_9_Streang\\public\\images\\users\\avatar\\avatar-1713022216361.jpg",
+            "size": 13548,
+            "encoding": "7bit",
+            "mimetype": "image/jpeg",
+            "filename": "avatar-1713022216361.jpg",
+            "fieldname": "UserAvatar",
+            "destination": "D:\\Node\\grupo_9_Streang\\public\\images\\users\\avatar",
+            "originalname": "90e6d37770a240ee4875829c36e47db4.jpg"
+        },
+        "surname": "Martinez",
+        "password": "clave123",
+        "category": "cliente",
+        "username": "ana_123",
+        "birthDate": "05/03/1992"
+    },
+    {
+        "id": 5,
+        "name": "Pablo",
+        "email": "pablo@example.com",
+        "image": "imagen5.jpg",
+        "surname": "Lopez",
+        "password": "password456",
+        "category": "cliente",
+        "username": "pablo_456",
+        "birthDate": "17/08/1989"
+    },
+    {
+        "id": 6,
+        "name": "Sofia",
+        "email": "sofia@example.com",
+        "image": "imagen6.jpg",
+        "surname": "Garcia",
+        "password": "contraseña789",
+        "category": "administrador",
+        "username": "sofia_789",
+        "birthDate": "30/04/1983"
+    },
+    {
+        "id": 7,
+        "name": "Diego",
+        "email": "diego@example.com",
+        "image": "imagen7.jpg",
+        "surname": "Sanchez",
+        "password": "clave123",
+        "category": "cliente",
+        "username": "diego_123",
+        "birthDate": "12/11/1995"
+    },
+    {
+        "id": 8,
+        "name": "Valeria",
+        "email": "valeria@example.com",
+        "image": "imagen8.jpg",
+        "surname": "Diaz",
+        "password": "password456",
+        "category": "cliente",
+        "username": "valeria_456",
+        "birthDate": "08/02/1986"
+    },
+    {
+        "id": 9,
+        "name": "Martin",
+        "email": "martin@example.com",
+        "image": "imagen9.jpg",
+        "surname": "Perez",
+        "password": "contraseña789",
+        "category": "administrador",
+        "username": "martin_789",
+        "birthDate": "25/10/1998"
+    },
+    {
+        "id": 10,
+        "name": "dawdwadawda",
+        "email": "melipek334@evvgo.com",
+        "avatar": {
+            "path": "D:\\Node\\grupo_9_Streang\\public\\images\\users\\avatar\\avatar-1713022216361.jpg",
+            "size": 13548,
+            "encoding": "7bit",
+            "mimetype": "image/jpeg",
+            "filename": "avatar-1713022216361.jpg",
+            "fieldname": "UserAvatar",
+            "destination": "D:\\Node\\grupo_9_Streang\\public\\images\\users\\avatar",
+            "originalname": "90e6d37770a240ee4875829c36e47db4.jpg"
+        },
+        "surname": "dawdawd",
+        "username": "dawdwada",
+        "password": "wdawda",
+        "birthdate": "2023-12-01"
+    },
+    {
+        "id": 11,
+        "rol": "admin",
+        "name": "santiago",
+        "email": "santiagomanecraftfon@outlook.com",
+        "avatar": {
+            "path": "D:\\Node\\grupo_9_Streang\\public\\images\\users\\avatar\\avatar-1713022555411.jpg",
+            "size": 83277,
+            "encoding": "7bit",
+            "mimetype": "image/jpeg",
+            "filename": "avatar-1713022555411.jpg",
+            "fieldname": "UserAvatar",
+            "destination": "D:\\Node\\grupo_9_Streang\\public\\images\\users\\avatar",
+            "originalname": "c7bf4ace45f28f885aaaae1fb2142906.jpg"
+        },
+        "surname": "alvarez",
+        "username": "tati",
+        "password": "caca",
+        "birthDate": "2006-02-02"
+    },
+    {
+        "id": 12,
+        "name": "Nicolas",
+        "email": "lerchnicolas@hotmail.com",
+        "avatar": {
+            "path": "C:\\Users\\Usuario\\Desktop\\Cursos\\DigitalHouse\\Streang\\public\\images\\users\\avatar\\avatar-1713134445984.png",
+            "size": 350494,
+            "encoding": "7bit",
+            "mimetype": "image/png",
+            "filename": "avatar-1713134445984.png",
+            "fieldname": "UserAvatar",
+            "destination": "C:\\Users\\Usuario\\Desktop\\Cursos\\DigitalHouse\\Streang\\public\\images\\users\\avatar",
+            "originalname": "capshield.png"
+        },
+        "surname": "Lerch",
+        "username": "Truaman1243",
+        "password": "123456",
+        "birthDate": "1997-07-11",
+        "rol": "admin"
+    }
+]

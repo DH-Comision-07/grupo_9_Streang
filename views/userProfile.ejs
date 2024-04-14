@@ -11,9 +11,12 @@
     <main>
         <div class="user-data">
             <div class="profile-img-container">
-                <img src="/images/users/avatar/<%= user.avatar.filename%>" alt="profile image">
+                <img src="/images/users/avatar/<%= user.avatar.filename %>" alt="profile image">
             </div>
             <div class="user-info-container">
+                <%if(user.rol == "admin"){%>
+                    <p>Esto se muestra solo a los admin</p>
+                <%}%>
                 <label for="">Usuario</label>
                 <p class="data"><%= user.username %></p>
                 <label for="">Nombre</label>

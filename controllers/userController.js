@@ -3,11 +3,20 @@ const path = require('path');
 const usersFilePath = path.join(__dirname, '../data/users.json');
 const usersDataBase = require('../data/users.json')
 let users = JSON.parse(fs.readFileSync(usersFilePath, 'utf-8'))
+const productsFilePath = path.join(__dirname, '../data/json-products.json');
+const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 
 const userController = {
     viewProfile : function (req, res) {
+        
         let user = users.find(user => user.id == parseInt(req.params.id));
-        res.render("userProfile", {user: user});
+        if(user.rol == 'usuario' || !user.rol){
+            res.render("userProfile", {user:user, products: products, users:users} );
+        } else if (user.rol == "admin") {
+            res.render("adminProfile", {user:user, products: products, users:users});
+        } else {
+            res.send('Usuario no encontrado');
+        }
     },
     saveUser: (req,res) => {
         let maxId = 0;
@@ -23,7 +32,7 @@ const userController = {
             password: req.body.password,
             name: req.body.realName,
             surname: req.body.surname,
-            birthdate: req.body.birthDate,
+            birthDate: req.body.birthDate,
             avatar: req.file
         }
         users.push(newUserInfo)

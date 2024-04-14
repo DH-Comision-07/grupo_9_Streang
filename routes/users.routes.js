@@ -19,6 +19,8 @@ const storage = multer.diskStorage ({
 
 const upload = multer({storage:storage})
 
+
+// ruta para ver perfil de usuario por id
 router.get('/profile/:id', userController.viewProfile);
 
 router.get('/register', userController.registerView)
@@ -26,5 +28,8 @@ router.post('/register', upload.single('UserAvatar'),  userController.saveUser)
 
 // ruta para borrar un usuario
 router.delete('/:id/delete', userController.deleteUser)
+
+// ruta paara vista de perfil de admin
+
 
 module.exports = router;
