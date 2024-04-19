@@ -2,9 +2,12 @@ const fs = require('fs');
 const path = require('path');
 const usersFilePath = path.join(__dirname, '../data/users.json');
 const usersDataBase = require('../data/users.json')
+const bcryptjs = require('bcryptjs');
 let users = JSON.parse(fs.readFileSync(usersFilePath, 'utf-8'))
+
 const productsFilePath = path.join(__dirname, '../data/json-products.json');
 const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
+
 
 const userController = {
     viewProfile : function (req, res) {
@@ -25,20 +28,29 @@ const userController = {
                 maxId = obj.id;
             }
         }
-        let newUserInfo = {
-            id: maxId + 1,
-            email: req.body.email,
-            username: req.body.username,
-            password: req.body.password,
-            name: req.body.realName,
-            surname: req.body.surname,
-            birthDate: req.body.birthDate,
-            avatar: req.file
-        }
-        users.push(newUserInfo)
-        let usersJSON = JSON.stringify(users)
-        fs.writeFileSync(usersFilePath, usersJSON)
-        res.send(newUserInfo)
+
+        // verificar si ambas pass del registro son iguales
+        let hashedPass = bcryptjs.hashSync(req.body.password, 10);
+        let equalPass = bcryptjs.compareSync(req.body.repPassword, hashedPass)
+
+        if(equalPass){
+            let newUserInfo = {
+                id: maxId + 1,
+                email: req.body.email,
+                username: req.body.username,
+                password: hashedPass,
+                name: req.body.realName,
+                surname: req.body.surname,
+                birthDate: req.body.birthDate,
+                avatar: req.file.filename
+            }
+            users.push(newUserInfo)
+            let usersJSON = JSON.stringify(users)
+            fs.writeFileSync(usersFilePath, usersJSON)
+            res.send(newUserInfo)
+        } else {
+            res.send("Las contraseñas no coinciden.");
+        }        
     },
 
     deleteUser: (req, res) =>{
