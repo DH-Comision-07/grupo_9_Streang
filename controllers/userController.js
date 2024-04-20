@@ -34,18 +34,26 @@ const userController = {
                 maxId = obj.id;
             }
         }
-        //express-validator
-        let errors = validationResult(req);
-        if(!errors.isEmpty()){
-            res.render('register', {
-                errors: errors.array(),
+    
+        let resultValidation = validationResult(req);
+
+        if(resultValidation.errors.length > 0){
+            return res.render('register', {
+                errors: resultValidation.mapped(),
                 old: req.body});
-            // res.send(errors);
         }
 
         // verificar si ambas pass del registro son iguales
         let hashedPass = bcryptjs.hashSync(req.body.password, 10);
         let equalPass = bcryptjs.compareSync(req.body.repPassword, hashedPass)
+
+        // Si no se carga una image, guarda una imagen default
+        let avatarImage = ""
+        if(!req.file || req.file == undefined){
+            avatarImage = "avatar-default.png"
+        } else {
+            avatarImage = req.file.filename;
+        }
 
         if(equalPass){
             let newUserInfo = {
@@ -56,7 +64,7 @@ const userController = {
                 name: req.body.realName,
                 surname: req.body.surname,
                 birthDate: req.body.birthDate,
-                avatar: req.file.filename,
+                avatar: avatarImage,
                 rol: 'user'
             }
             users.push(newUserInfo)
@@ -95,7 +103,7 @@ const userController = {
                 avatar: avatarImage,
                 rol: userToEdit.rol
             }
-            
+
             if(userIndex !== -1){
                 users[userIndex] = userEdited;
                 let usersJSON = JSON.stringify(users);

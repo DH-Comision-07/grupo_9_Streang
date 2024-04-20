@@ -6,7 +6,7 @@ const validateRegister = [
     check('repPassword').notEmpty().withMessage('Repita la misma contraseña.'),
     check('realName').notEmpty().withMessage('Introduzca su nombre.'),
     check('surname').notEmpty().withMessage('Introduzca su apellido.'),
-    check('birthDate').notEmpty().withMessage('Introduzca su fecha de nacimiento.'),
+    check('birthDate').notEmpty().withMessage('Introduzca su fecha de nacimiento.')
     // check('UserAvatar').exists().withMessage('Seleccione una imagen de perfil.')
 ];
 
