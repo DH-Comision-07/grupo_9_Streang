@@ -1,0 +1,23 @@
+<div class="edit-container" id="edit-container">
+    <div class="form-container">
+        <h2>Editar usuario</h2>
+        <form action="/users/profile/<%= user.id %>?_method=PUT" method="POST" enctype="multipart/form-data">                
+            <div class="control-formulario"><input type="email" placeholder="Email" name="email" value="<%= user.email %>"></div>
+            <div class="control-formulario"><input type="text" placeholder="Nombre de usuario" name="username" value="<%= user.username %>"></div>
+            <div class="control-formulario"><input type="password" placeholder="Ingrese nueva contraseña" name="password"></div>
+            <div class="control-formulario"><input type="password" placeholder="Repita nueva contraseña" name="repPassword"></div>
+            <div class="control-formulario"><input type="text" placeholder="Nombre" name="realName" value="<%= user.name %>"></div>
+            <div class="control-formulario"><input type="text" placeholder="Apellido" name="surname" value="<%= user.surname %>"></div>
+            <label><h3 class="titulo">Selecciona tu dia de nacimiento</h3></label>
+            <div class="control-formulario"><input type="date" placeholder="" name="birthDate" value="<%= user.birthDate %>"></div>
+            <label><h3 class="titulo">Sube tu imagen de avatar</h3></label>
+            <div class="control-formulario"><input type="file" placeholder="UserAvatar" name="avatar"></div>
+            <button class="edit-button-form" type="submit">Aceptar</button>
+            <button id="cancel-button" class="cancel-button" type="button">Cancelar</button>
+        </form>
+    </div>
+</div>
+
+<script src="/js/editUser.js"></script>
+
+<!-- RECORDAR HACER EL SCRIPT -->

@@ -4,6 +4,7 @@ const express = require('express');
 const router = express.Router();
 const userController = require('../controllers/userController');
 const mainController = require('../controllers/mainController');
+const validateRegister = require('../middlewares/userRegisterValidation');
 
 
 const storage = multer.diskStorage ({
@@ -24,7 +25,10 @@ const upload = multer({storage:storage})
 router.get('/profile/:id', userController.viewProfile);
 
 router.get('/register', userController.registerView)
-router.post('/register', upload.single('UserAvatar'),  userController.saveUser)
+router.post('/register', upload.single('UserAvatar'), validateRegister, userController.saveUser)
+
+//ruta para editar usuario
+router.put('/profile/:id', upload.single('avatar'), userController.editUser)
 
 // ruta para borrar un usuario
 router.delete('/:id/delete', userController.deleteUser)
