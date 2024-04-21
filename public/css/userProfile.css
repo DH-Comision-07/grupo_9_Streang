@@ -374,6 +374,11 @@ a.view-all{
         align-items: center;
     }
 
+    .form-container{
+        width: 95%;
+        height: auto;
+    }
+
     @media (max-width: 460px){
         .users-info .img-container, .users-info .complete-name{
             display: none;

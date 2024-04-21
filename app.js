@@ -3,10 +3,12 @@ const path = require('path');
 const mainRouter = require('./routes/mainRoutes.routes');
 const app = express();
 const methodOverride = require('method-override');
+const session = require('express-session');
 
 app.use(express.urlencoded({extended: true}));
 app.use(express.json());
 app.use(methodOverride('_method'));
+app.use(session({secret: "streang2024"}));
 
 app.set("view engine", "ejs");
 app.use('/', mainRouter);

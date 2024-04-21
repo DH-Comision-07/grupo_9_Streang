@@ -14,16 +14,17 @@ const userController = {
     viewProfile : function (req, res) {
         
         try{
-            let user = users.find(user => user.id == parseInt(req.params.id));
-            if(user.rol != 'admin' || !user.rol){
+            let user = users.find(user => user.id == req.session.userLogged.id);
+            if(req.session.userLogged.rol != 'admin' || !req.session.userLogged.rol){
                 res.render("userProfile", {user:user, products: products, users:users} );
-            } else if (user.rol == "admin") {
+            } else if (req.session.userLogged.rol == "admin") {
                 res.render("adminProfile", {user:user, products: products, users:users});
             } else {
                 res.send('Usuario no encontrado');
             }
         } catch(err){
-            res.redirect('/');
+            // res.redirect('/');
+            res.send(req.session.userLogged)
         }
         
     },
@@ -94,7 +95,7 @@ const userController = {
         if(equalPass){
             let userEdited = {
                 id : parseInt(req.params.id),
-                email: req.body.email,
+                email: req.body.email.toLowerCase(),
                 username: req.body.username,
                 password: hashedPass,
                 name: req.body.realName,
@@ -127,6 +128,38 @@ const userController = {
         } else {
             return 'Usuario no encontrado';
         }
+    },
+
+    processLogin : function(req, res){
+
+        let userToLogin = users.find(user => user.email == req.body.email.toLowerCase());
+       if(userToLogin){
+        if(bcryptjs.compareSync(req.body.password, userToLogin.password)){
+            req.session.userLogged = userToLogin;
+            
+            let user2 = req.session.userLogged;
+            console.log(user2);
+            res.redirect('/users/profile')
+            
+        } else {
+            res.send("Credenciales invalidas");
+        }
+       }else{
+        res.send("mail no encontrado")
+       }
+       
+       if(req.session.userLogged){
+        res.send(req.session.userLogged)
+       } else {
+        res.send("error");
+       }
+    },
+
+    check : function (req, res){
+        if(req.session.userLogged){
+            res.send('usuario Logueado')
+        }
+        res.send('usuario NO Logueado')
     },
 
     registerView: function (req,res) {

@@ -8,8 +8,11 @@
 
 <body>
 	<!-- HEADER -->
-
+    <%if(user){ %>
+        <%-include('partials/headerLogged.ejs')%>
+    <%}else{%>
     <%-include('partials/header.ejs')%>
+    <%}%>
 	
 	<!-- MAIN -->
     <main>
@@ -36,11 +39,11 @@
                     <h4 class="final-price">$<%= products[i].finalPrice %></h4>
                 </div>
                 <h3 class="add-cart">Agregar al carrito</h3>
+                <%if(user && user.rol == "admin"){ %>
                 <a class="toEdit-button" href="/products/<%= products[i].id %>/edit">Editar producto</a>
+                <%}%>
             </article>
             <%}%>
-
-            
         </section>
     </main>
 	
