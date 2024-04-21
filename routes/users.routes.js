@@ -30,6 +30,9 @@ router.post('/register', upload.single('UserAvatar'), validateRegister, userCont
 //ruta para editar usuario
 router.put('/profile/:id', upload.single('avatar'), userController.editUser)
 
+// ruta para hacer que un usuario adquiera el rol="amin"
+router.put('/admin', userController.adminForm)
+
 // ruta para borrar un usuario
 router.delete('/:id/delete', userController.deleteUser)
 

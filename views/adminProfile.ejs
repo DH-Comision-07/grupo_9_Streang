@@ -10,33 +10,8 @@
     <%-include('./partials/header')%>
 
     <main>
-        <div class="user-data">
-            <div class="profile-img-container">
-                <img src="/images/users/avatar/<%= user.avatar %>" alt="profile image">
-            </div>
-            <div class="user-info-container">
-                <%if(user.rol == "admin"){%>
-                    <p>Esto se muestra solo a los admin</p>
-                <%}%>
-                <label for="">Usuario</label>
-                <p class="data"><%= user.username %></p>
-                <label for="">Nombre</label>
-                <p class="data"><%= user.name %></p>
-                <label for="">Apellido</label>
-                <p class="data"><%= user.surname %></p>
-                <label for="">E-mail</label>
-                <p class="data"><%= user.email %></p>
-                <label for="">Fecha de Nacimiento</label>
-                <p class="data"><%= user.birthDate %></p>
-            </div>
-            
-            <div class="botones">
-                <form id="edit-form">
-                </form>
-                <button id="edit-button-form" type="button" class="edit-button">Editar</button>
-                <button type="button" class="edit-button"><a href="/login">Cerrar sesión</a></button>
-                <button form="edit-form" class="delete-button" formmethod="post" formaction="/users/<%= user.id %>/delete?_method=DELETE" >Eliminar Cuenta</button>
-            </div>          
+        
+        <%-include('./partials/profileUserCard')%>
 
         </div>
         <div class="more-info">
@@ -58,7 +33,9 @@
             </div>
             <div class="users-info">
                 <h3>Usuarios</h3>
-                <%for(i=0; i < 4; i++){%>
+                <%let userToShow = "";
+                for(i=0; i < 4; i++){
+                    userToShow=users[i];%>
                 <div class="user-card"> 
                     <div class="img-container">
                         <img src="/images/users/avatar/<%= users[i].avatar %> " alt="product image">
@@ -66,8 +43,39 @@
                     <p class="username">Username: <%= users[i].username %></p>
                     <p class="complete-name"><%= users[i].name %> <%= users[i].surname %></p>
                     <p class="rol">Rol: <%= users[i].rol %> </p>
-                    <a href="#" class="edit-button">Editar</a>
+                    <button class="edit-btn" type="button">Ver</button>
                 </div>
+
+                <div class="edit-container-users">
+                    <div class="form-container">
+                        <h2>Editar usuario</h2>
+                        <div class="profile-img-container">
+                            <img src="/images/users/avatar/<%= users[i].avatar %>" alt="profile image">
+                        </div>
+                        <label for="">Usuario</label>
+                        <p class="data"><%= users[i].username %></p>
+                        <label for="">Nombre</label>
+                        <p class="data"><%= users[i].name %></p>
+                        <label for="">Apellido</label>
+                        <p class="data"><%= users[i].surname %></p>
+                        <label for="">E-mail</label>
+                        <p class="data"><%= users[i].email %></p>
+                        <label for="">Fecha de Nacimiento</label>
+                        <p class="data"><%= users[i].birthDate %></p>
+                        
+                        <form id="adminForm" action="/users/admin?_method=PUT" method="POST">
+                            <label>
+                                <input type="checkbox" name="admin"> Admin
+                            </label>
+                            <input name="id" value="<%=users[i].id%>" style="display: none">
+                            <input name="prueba">
+                            <br>
+                            <button class="edit-button-form" type="submit">Aceptar</button>
+                            <button id="cancel-btn" class="cancel-button" type="button">Cancelar</button>
+                        </form>
+                    </div>
+                </div>
+
                 <%}%>
                 <a class="view-all" href="#">Ver todos los usuarios</a>
             </div>

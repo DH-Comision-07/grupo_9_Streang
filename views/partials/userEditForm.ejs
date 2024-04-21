@@ -1,6 +1,5 @@
 <div class="edit-container" id="edit-container">
     <div class="form-container">
-        <h2>Editar usuario</h2>
         <form action="/users/profile/<%= user.id %>?_method=PUT" method="POST" enctype="multipart/form-data">                
             <div class="control-formulario"><input type="email" placeholder="Email" name="email" value="<%= user.email %>"></div>
             <div class="control-formulario"><input type="text" placeholder="Nombre de usuario" name="username" value="<%= user.username %>"></div>

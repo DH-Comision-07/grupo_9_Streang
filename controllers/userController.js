@@ -103,7 +103,7 @@ const userController = {
                 birthDate: req.body.birthDate,
                 avatar: avatarImage,
                 rol: userToEdit.rol
-            }
+            }            
 
             if(userIndex !== -1){
                 users[userIndex] = userEdited;
@@ -164,6 +164,25 @@ const userController = {
     registerView: function (req,res) {
         res.render('register');
     },
+
+    adminForm: function(req, res){
+
+        let userIndex = users.findIndex(user => user.id == req.body.id);
+        let userToEdit = users.find(user => user.id == req.body.id);
+
+        if(req.body.admin == "on"){
+            userToEdit.rol = "admin";
+            } else {
+            userToEdit.rol = "user";
+        }
+
+        if(userIndex !== -1){
+            users[userIndex] = userToEdit;
+            let usersJSON = JSON.stringify(users);
+            fs.writeFileSync(usersFilePath, usersJSON);
+            res.redirect(`/`);
+        }
+    }
 };
 
 module.exports = userController;
