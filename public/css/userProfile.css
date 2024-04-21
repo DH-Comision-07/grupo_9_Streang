@@ -176,6 +176,13 @@ a.view-all{
     margin-bottom: 20px;
 }
 
+button a{
+    padding: 0;
+    text-align: center;
+    text-decoration: none;
+    color: black;
+}
+
 .cart-item{
     display: flex;
     justify-content:space-between;

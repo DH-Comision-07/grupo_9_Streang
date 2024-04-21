@@ -22,20 +22,11 @@ const productsService = {
         return user;
     },
 
-    // setUser: function(req){
-    //     if(req.session.userLogged){
-    //         const user = req.session.userLogged;
-    //         console.log(user);
-    //         return user;
-    //     }        
-    // },
-
     getAll: function(req){
         let user = req.session.userLogged;
         return {
-            products : this.products,
-            user: user
-            };
+            products : this.products
+        };
     },
 
     getOne: function(id){

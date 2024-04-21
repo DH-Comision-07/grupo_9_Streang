@@ -138,7 +138,6 @@ const userController = {
             req.session.userLogged = userToLogin;
             
             let user2 = req.session.userLogged;
-            console.log(user2);
             res.redirect('/users/profile')
             
         } else {
