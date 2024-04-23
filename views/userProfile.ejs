@@ -11,19 +11,24 @@
     <main>
         <div class="user-data">
             <div class="profile-img-container">
-                <img src="/images/profile.avif" alt="profile image">
+                <img src="/images/users/avatar/<%= user.avatar.filename%>" alt="profile image">
             </div>
             <div class="user-info-container">
+                <label for="">Usuario</label>
+                <p class="data"><%= user.username %></p>
                 <label for="">Nombre</label>
-                <p class="data">Nicolas</p>
+                <p class="data"><%= user.name %></p>
                 <label for="">Apellido</label>
-                <p class="data">Lerch</p>
-                <label for="">Direccion</label>
-                <p class="data">Mal Paso 3271</p>
+                <p class="data"><%= user.surname %></p>
+                <label for="">E-mail</label>
+                <p class="data"><%= user.email %></p>
                 <label for="">Fecha de Nacimiento</label>
-                <p class="data">11/07/1997</p>
+                <p class="data"><%= user.birthDate %></p>
             </div>
+            <form id="edit-form">
+            </form>
             <button type="button" class="edit-button">Editar</button>
+            <button form="edit-form" class="delete-button" formmethod="post" formaction="/users/<%= user.id %>/delete?_method=DELETE" >Eliminar Cuenta</button>
 
         </div>
         <div class="more-info">
