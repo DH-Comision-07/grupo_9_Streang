@@ -4,6 +4,7 @@ const express = require('express');
 const router = express.Router();
 const userController = require('../controllers/userController');
 const mainController = require('../controllers/mainController');
+const validateRegister = require('../middlewares/userRegisterValidation');
 
 
 const storage = multer.diskStorage ({
@@ -19,12 +20,28 @@ const storage = multer.diskStorage ({
 
 const upload = multer({storage:storage})
 
-router.get('/profile/:id', userController.viewProfile);
+
+// ruta para ver perfil de usuario por id
+router.get('/profile', userController.viewProfile);
 
 router.get('/register', userController.registerView)
-router.post('/register', upload.single('UserAvatar'),  userController.saveUser)
+router.post('/register', upload.single('UserAvatar'), validateRegister, userController.saveUser)
+
+//ruta para editar usuario
+router.put('/profile/:id', upload.single('avatar'), userController.editUser)
+
+// ruta para hacer que un usuario adquiera el rol="amin"
+router.put('/admin', userController.adminForm)
 
 // ruta para borrar un usuario
 router.delete('/:id/delete', userController.deleteUser)
+
+// router para pagina de login
+router.post('/login', userController.processLogin)
+
+router.get('/check', userController.check)
+
+// ruta paara vista de perfil de admin
+
 
 module.exports = router;

@@ -48,4 +48,6 @@ router.put('/:id', productosController.productDetail); // ACCIÓN DE EDICIÓN
 // BORRADO DE PRODUCTO
 router.delete('/:id', productosController.delete);
 
+router.get('/check', productosController.check)
+
 module.exports = router;

@@ -1,12 +1,16 @@
 const productsService = require('../data/productsService');
-
 const productosController = { 
     viewAll: function (req, res) {
-        res.render('allProducts', productsService.getAll());
+        // console.log(productsService.getAll());
+        res.render('allProducts', productsService.getAll(req));
+    },
+
+    check: function(req, res){
+        res.send(productsService.check(req));
     },
 
     productDetail: function (req, res) {
-        res.render("productDetail", productsService.getOne(req.params.id));            
+        res.render("productDetail", productsService.getOne(req.params.id));
     },
     
     viewCategory: function(req, res) {

@@ -9,16 +9,15 @@ router.get('/', mainController.paginaPrincipal);
 //route para buscar un producto
 router.get('/search', mainController.search);
 
-// router para pagina de login
 router.get('/login', mainController.paginaLogin);
 
 // router para pagina de carrito
 router.get('/cart', mainController.paginaCart);
 
 
+
 // router para pagina de contacto
 router.get('/contact', mainController.contact);
-
 //router post mensaje de contacto
 router.post('/contact', mainController.sendMessage);
 

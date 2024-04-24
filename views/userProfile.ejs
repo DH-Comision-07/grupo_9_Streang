@@ -9,26 +9,8 @@
     <%-include('./partials/header.ejs')%>
 
     <main>
-        <div class="user-data">
-            <div class="profile-img-container">
-                <img src="/images/users/avatar/<%= user.avatar.filename%>" alt="profile image">
-            </div>
-            <div class="user-info-container">
-                <label for="">Usuario</label>
-                <p class="data"><%= user.username %></p>
-                <label for="">Nombre</label>
-                <p class="data"><%= user.name %></p>
-                <label for="">Apellido</label>
-                <p class="data"><%= user.surname %></p>
-                <label for="">E-mail</label>
-                <p class="data"><%= user.email %></p>
-                <label for="">Fecha de Nacimiento</label>
-                <p class="data"><%= user.birthDate %></p>
-            </div>
-            <form id="edit-form">
-            </form>
-            <button type="button" class="edit-button">Editar</button>
-            <button form="edit-form" class="delete-button" formmethod="post" formaction="/users/<%= user.id %>/delete?_method=DELETE" >Eliminar Cuenta</button>
+        
+        <%-include('./partials/profileUserCard')%>
 
         </div>
         <div class="more-info">
@@ -54,7 +36,7 @@
                     <p class="price">Total $1234</p>                    
                     <button type="button" class="purchase-button">Ver</button>
                 </div>
-
+                <a class="view-all" href="/#">Ver todas las compras</a>
             </div>
             <div class="cart-info">
                 <h3>Carrito</h3>
@@ -62,22 +44,25 @@
                     <img src="/images/hollow-knight.webp" alt="product image">
                     <p class="title">Hollow Knight</p>
                     <p class="price">$1234</p>
+                    <button type="button" class="purchase-button">Ver</button>
                 </div>
                 <div class="cart-item">
                     <img src="/images/hollow-knight.webp" alt="product image">
                     <p class="title">Hollow Knight</p>
                     <p class="price">$1234</p>
+                    <button type="button" class="purchase-button">Ver</button>
                 </div>
                 <div class="total">
+                    <a class="buy" href="/#">Comprar</a>
                     <h3>Total $2486</h3>
                 </div>
 
             </div>
         </div>
+        <%-include('./partials/userEditForm')%>
     </main>
     
-
-
     <%-include('./partials/footer.ejs')%>
+    <!-- <script src="/js/editUser.js"></script> -->
 </body>
 </html>

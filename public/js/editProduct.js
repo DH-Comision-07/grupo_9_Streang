@@ -9,6 +9,4 @@ deletebutton.addEventListener('click', () => {
 
 cancelButton.addEventListener('click', () => {
     confirmContainer.classList.remove('show');
-})
-
-
+});
