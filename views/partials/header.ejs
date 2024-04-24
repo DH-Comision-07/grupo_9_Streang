@@ -4,7 +4,10 @@
         <div class="logo-container">
             <a href="/" ><img src="/images/streang-logo-v1.png" alt="Streang logo"></a>
         </div>
-            <i class="fa-solid fa-user"></i>
+        <div class="user-icon-container">
+            <a href="/login"><i class="fa-solid fa-user"></i></a>
+        </div>
+        
     </div>
     <div class="header-mid">
         <div class="search-bar-container">
@@ -31,17 +34,24 @@
                     </li>
                 </div>
                 <li><a class="nav-link" href="/products/discounts">Promociones</a></li>
+                <%if(user && user.rol == "admin"){%>
                 <li><a class="nav-link" href="/products/create">Vender</a></li>
+                <%}%>
+                <li><a class="nav-link" href="/users/register">Registrarse</a></li>
                 <li><a class="nav-link" href="/contact">Contacto</a></li>
-                <!-- <li><a class="nav-link" href="#">Ayuda</a></li> -->
             </ul>
         </div>
     </div>
     <div class="header-right">
         <ul class="right-nav-bar">
+            <%if(user){%>
+                <li><a href="/users/profile"><i class="fa-solid fa-user logged"></i> Mi perfil</a></li>
+                <li><a href="/cart"><i class="fa-solid fa-cart-shopping logged"></i> Mi carrito </a></li>
+                <%} else {%>
             <li><a href="/login">Ingresá <i class="fa-solid fa-right-to-bracket"></i></a></li>
             <li><a href="/users/register">Creá tu cuenta <i class="fa-solid fa-user"></i></a></li>
-            <li><a href="/cart">Tu carrito <i class="fa-solid fa-cart-shopping"></i></a></li>
+            <li>Mi carrito<a href="/cart"><i class="fa-solid fa-cart-shopping"></i></a></li>
+            <%}%>
         </ul>
 
     </div>

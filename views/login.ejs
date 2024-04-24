@@ -12,14 +12,13 @@
     <h1 class="login">Login</h1>
     <div class="logincotainer">
       <div class="formcontainer">
-        <form action="/index.html" class="login-form">
-        <input type="text" placeholder="Nombre y apellido" class="nombre"/>
+        <form action="/users/login" method="post" class="login-form">
+        
+        <input name="email" type="email" placeholder="E-mail" class="email"/>
         <br>
-        <input type="email" placeholder="E-mail" class="email"/>
+        <input name="password" type="password" placeholder="Contraseña" class="password" />
         <br>
-        <input type="password" placeholder="Contraseña" class="password" />
-        <br>
-        <button class="iniciar-sesion">Iniciar sesion</button>
+        <button type="submit" class="iniciar-sesion">Iniciar sesion</button>
         <br>
         </form>
       </div>
