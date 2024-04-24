@@ -137,7 +137,6 @@ const userController = {
         if(bcryptjs.compareSync(req.body.password, userToLogin.password)){
             req.session.userLogged = userToLogin;
             if(req.body.Recordarme == 'on') {
-                console.log('hay cookie');
               res.cookie('Recordarme', req.session.userLogged.email, {maxAge: 60000})}
                 let user2 = req.session.userLogged;
             res.redirect('/users/profile')
@@ -161,9 +160,7 @@ const userController = {
             {
             res.send('usuario Logueado')
         }
-        res.send('usuario NO Logueado')
-
-        
+        res.send('usuario NO Logueado')        
         },
     
 
@@ -188,6 +185,12 @@ const userController = {
             fs.writeFileSync(usersFilePath, usersJSON);
             res.redirect(`/`);
         }
+    },
+
+    exit: function(req, res){
+        req.session.destroy();
+        res.clearCookie("Recordarme")
+        res.redirect('/')
     }
 };
 

@@ -8,7 +8,6 @@ const messages = JSON.parse(fs.readFileSync(contactFilePath, 'utf-8'));
 const mainController = {
     paginaPrincipal: (req, res) => {
         let user = req.session.userLogged;
-        console.log(user);
         res.render("home", {products : products, user: user});
     },
     
@@ -27,7 +26,6 @@ const mainController = {
     },
 
     paginaLogin: (req, res) => {
-        req.session.userLogged = "";
         res.render("login");
     },
 
@@ -50,9 +48,7 @@ const mainController = {
         messages.push(newMessage);
         let messagesJSON = JSON.stringify(messages);
         fs.writeFileSync(contactFilePath, messagesJSON);
-        console.log(newMessage);
-        // res.redirect('/');
-        res.send(messagesJSON)
+        res.redirect('/');
     }
 }
 

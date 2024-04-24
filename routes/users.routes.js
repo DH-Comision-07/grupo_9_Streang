@@ -41,6 +41,8 @@ router.post('/login', userController.processLogin)
 
 router.get('/check', userController.check)
 
+router.get('/exit', userController.exit)
+
 // ruta paara vista de perfil de admin
 
 

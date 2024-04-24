@@ -15,7 +15,8 @@ function rememberMiddleware(req, res, next){
         }
     }
 
-    userLog = req.session.userLogged;
+     req.session.userLogged = userLog;
+     res.locals.user = req.session.userLogged;
     next();
 }
 
