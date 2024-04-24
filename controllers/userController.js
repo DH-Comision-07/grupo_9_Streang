@@ -136,8 +136,10 @@ const userController = {
        if(userToLogin){
         if(bcryptjs.compareSync(req.body.password, userToLogin.password)){
             req.session.userLogged = userToLogin;
-            
-            let user2 = req.session.userLogged;
+            if(req.body.Recordarme == 'on') {
+                console.log('hay cookie');
+              res.cookie('Recordarme', req.session.userLogged.email, {maxAge: 60000})}
+                let user2 = req.session.userLogged;
             res.redirect('/users/profile')
             
         } else {
@@ -155,11 +157,15 @@ const userController = {
     },
 
     check : function (req, res){
-        if(req.session.userLogged){
+        if(req.session.userLogged)
+            {
             res.send('usuario Logueado')
         }
         res.send('usuario NO Logueado')
-    },
+
+        
+        },
+    
 
     registerView: function (req,res) {
         res.render('register');
