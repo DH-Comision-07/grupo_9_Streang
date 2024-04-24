@@ -2,6 +2,8 @@ const path = require('path');
 const fs = require('fs');
 const { viewCategory, viewDiscounts } = require('../controllers/productosController');
 const { create } = require('domain');
+const session = require('express-session');
+const userController = require("../controllers/userController")
 
 const productsFilePath = path.join(__dirname, '../data/json-products.json');
 
@@ -10,8 +12,21 @@ const productsService = {
 
     products : JSON.parse(fs.readFileSync(productsFilePath, 'utf-8')),
 
-    getAll: function(){
-        return {products : this.products};
+    setUser: function(req){
+        let user = req.session.userLogged;
+        return user;
+    },
+
+    check: function(req){
+        let user = req.session.userLogged;
+        return user;
+    },
+
+    getAll: function(req){
+        let user = req.session.userLogged;
+        return {
+            products : this.products
+        };
     },
 
     getOne: function(id){

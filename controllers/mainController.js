@@ -7,7 +7,9 @@ const messages = JSON.parse(fs.readFileSync(contactFilePath, 'utf-8'));
 
 const mainController = {
     paginaPrincipal: (req, res) => {
-        res.render("home", {products : products});
+        let user = req.session.userLogged;
+        console.log(user);
+        res.render("home", {products : products, user: user});
     },
     
     search : function(req, res) {
@@ -25,6 +27,7 @@ const mainController = {
     },
 
     paginaLogin: (req, res) => {
+        req.session.userLogged = "";
         res.render("login");
     },
 

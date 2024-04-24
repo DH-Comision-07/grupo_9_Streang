@@ -14,15 +14,40 @@
     <main>
         <form action="/users/register" method="POST" class="create-form" enctype="multipart/form-data">
             <div class="campo-general">
+                <%if(locals.errors){
+                    for(let error in errors){ %>
+                    <p><%=error.msg %></p>
+                <%}}%>
                 <label><h2 class="titulo">Creá tu usuario en Streang</h2></label>
-                <div class="control-formulario"><input type="email" placeholder="Ingrese su correo electrónico" name="email"></div>
-                <div class="control-formulario"><input type="text" placeholder="Ingrese su Username" name="username"></div>
+                <div class="control-formulario"><input type="email" placeholder="Ingrese su correo electrónico" name="email" value="<%= locals.old && old.email ? old.email : '' %>"></div>
+                <%if(locals.errors && errors.email){%>
+                <p class="form-error-msg"><%= errors.email.msg %></p>
+                <%}%>
+                <div class="control-formulario"><input type="text" placeholder="Ingrese su Username" name="username" value="<%= locals.old && old.username ? old.username : '' %>"></div>
+                <%if(locals.errors && errors.username){%>
+                    <p class="form-error-msg"><%= errors.username.msg %></p>
+                <%}%>
                 <div class="control-formulario"><input type="password" placeholder="Ingrese su contraseña" name="password"></div>
-                <div class="control-formulario"><input type="password" placeholder="Reingrese su contraseña"></div>
-                <div class="control-formulario"><input type="text" placeholder="Nombre" name="realName"></div>
-                <div class="control-formulario"><input type="text" placeholder="Apellido" name="surname"></div>
+                <%if(locals.errors && errors.password){%>
+                    <p class="form-error-msg"><%= errors.password.msg %></p>
+                <%}%>
+                <div class="control-formulario"><input type="password" placeholder="Reingrese su contraseña" name="repPassword"></div>
+                <%if(locals.errors && errors.repPassword){%>
+                    <p class="form-error-msg"><%= errors.repPassword.msg %></p>
+                <%}%>
+                <div class="control-formulario"><input type="text" placeholder="Nombre" name="realName" value="<%= locals.old && old.realName ? old.realName : '' %>"></div>
+                <%if(locals.errors && errors.realName){%>
+                    <p class="form-error-msg"><%= errors.realName.msg %></p>
+                <%}%>
+                <div class="control-formulario"><input type="text" placeholder="Apellido" name="surname" value="<%= locals.old && old.surname ? old.surname : '' %>"></div>
+                <%if(locals.errors && errors.surname){%>
+                    <p class="form-error-msg"><%= errors.surname.msg %></p>
+                <%}%>
                 <label><h2 class="titulo">Selecciona tu dia de nacimiento</h2></label>
-                <div class="control-formulario"><input type="date" placeholder="" name="birthDate"></div>
+                <%if(locals.errors && errors.birthDate){%>
+                    <p class="form-error-msg"><%= errors.birthDate.msg %></p>
+                <%}%>                
+                <div class="control-formulario"><input type="date" placeholder="" name="birthDate" value="<%= locals.old && old.birthDate ? old.birthDate : '' %>"></div>
                 <label><h2 class="titulo">Sube tu imagen de avatar</h2></label>
                 <div class="control-formulario"><input type="file" placeholder="UserAvatar" name="UserAvatar"></div>
             </div>
