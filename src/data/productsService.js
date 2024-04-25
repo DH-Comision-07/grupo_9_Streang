@@ -87,7 +87,7 @@ const productsService = {
             return match ? match[1] : null;
         }
         const youtubeId = extractYouTubeId(req.body.video);
-       
+        
         try{            
             let newProduct = {
                 id: maxId + 1,
@@ -112,7 +112,7 @@ const productsService = {
                 
         } catch (error) {
             return error;
-        }
+        }        
     },
 
     viewEdit: function(id){

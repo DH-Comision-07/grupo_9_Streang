@@ -19,7 +19,11 @@ const productosController = {
     },
     
     newProduct: (req, res) => {
-        res.render("newProduct");
+        if(req.session.userLogged && req.session.userLogged.rol == "admin"){
+            res.render("newProduct");
+        } else {
+            res.send("Upss! No posees permisos para ver esta página.")
+        }        
     },
 
     create: function(req, res){
@@ -28,12 +32,16 @@ const productosController = {
     },
 
     viewEdit: function(req, res){
-        res.render("editProduct", productsService.viewEdit(req.params.id));
+        if(req.session.userLogged && req.session.userLogged.rol == "admin"){
+            res.render("editProduct", productsService.viewEdit(req.params.id));
+        } else {
+            res.send("Upss! No posees permisos para ver esta página.")
+    }
     },
 
-    edit: function(req, res){
+    edit: function(req, res){        
         productsService.edit(req);
-        res.redirect('/');
+        res.redirect('/');        
     },
 
     delete: function(req, res){
