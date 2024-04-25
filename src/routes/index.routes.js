@@ -1,7 +1,7 @@
 let express = require ('express');
 let router = express.Router();
-const mainController = require('../controllers/mainController.js');
-
+// const mainController = require('./controllers/mainController.js');
+const mainController = require('../controllers/mainController.js')
 
 // route para pagina raiz
 router.get('/', mainController.paginaPrincipal);

@@ -8,15 +8,17 @@ function rememberMiddleware(req, res, next){
     
 
     let userLog = ''
-    for (let i = 0; i < users.length; i++ ) {
-        if (users[i].email == req.cookies.Recordarme) {
-            userLog = users[i];
-            break;
+    if(req.cookies.Recordarme){
+        for (let i = 0; i < users.length; i++ ) {
+            if (users[i].email == req.cookies.Recordarme) {
+                userLog = users[i];
+                break;
+            }
         }
+        req.session.userLogged = userLog;
+        res.locals.user = req.session.userLogged;
     }
-
-     req.session.userLogged = userLog;
-     res.locals.user = req.session.userLogged;
+   
     next();
 }
 

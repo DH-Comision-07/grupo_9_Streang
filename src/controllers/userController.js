@@ -133,20 +133,21 @@ const userController = {
     processLogin : function(req, res){
 
         let userToLogin = users.find(user => user.email == req.body.email.toLowerCase());
-       if(userToLogin){
-        if(bcryptjs.compareSync(req.body.password, userToLogin.password)){
-            req.session.userLogged = userToLogin;
-            if(req.body.Recordarme == 'on') {
-              res.cookie('Recordarme', req.session.userLogged.email, {maxAge: 60000})}
-                let user2 = req.session.userLogged;
-            res.redirect('/users/profile')
-            
-        } else {
-            res.send("Credenciales invalidas");
+        if(userToLogin){
+            // console.log(userToLogin)
+            if(bcryptjs.compareSync(req.body.password, userToLogin.password)){
+                req.session.userLogged = userToLogin;
+                if(req.body.Recordarme != undefined) {
+                res.cookie('Recordarme', req.session.userLogged.email, {maxAge: 60000})}
+                    let user2 = req.session.userLogged;
+                res.redirect('/users/profile')
+                
+            } else {
+                res.send("Credenciales invalidas");
+            }
+        }else{
+            res.send("mail no encontrado")
         }
-       }else{
-        res.send("mail no encontrado")
-       }
        
        if(req.session.userLogged){
         res.send(req.session.userLogged)

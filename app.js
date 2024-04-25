@@ -1,13 +1,12 @@
 const express = require('express');
 const path = require('path');
-const mainRouter = require('./routes/mainRoutes.routes');
+const mainRouter = require('./src/routes/mainRoutes.routes');
 const app = express();
 const methodOverride = require('method-override');
 const session = require('express-session');
-const checkUserLogin = require('./middlewares/checkUserLogin.js');
-const passUserToViews = require('./middlewares/passUserToViews.js');
+const passUserToViews = require('./src/middlewares/passUserToViews.js');
 const cookieParser = require('cookie-parser')
-const rememberMeMiddleware = require('./middlewares/rememberMeMiddleware.js')
+const rememberMeMiddleware = require('./src/middlewares/rememberMeMiddleware.js')
 
 app.use(express.urlencoded({extended: true}));
 app.use(express.json());
@@ -17,7 +16,8 @@ app.use(cookieParser());
 app.use(rememberMeMiddleware)
 
 app.set("view engine", "ejs");
-app.use('/', checkUserLogin, passUserToViews, rememberMeMiddleware, mainRouter);
+app.set('views', 'src/views')
+app.use('/', passUserToViews, rememberMeMiddleware, mainRouter);
 
 
 const publicPath = path.resolve(__dirname, './public');
@@ -32,10 +32,3 @@ app.use((req, res, next) =>{
 app.listen(PORT, () =>{
     console.log(`http://localhost:${PORT}`);
 });
-
-
-
-
-
-
-
