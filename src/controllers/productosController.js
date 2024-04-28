@@ -41,7 +41,7 @@ const productosController = {
 
     edit: function(req, res){        
         productsService.edit(req);
-        res.redirect('/');        
+        res.redirect('/products');        
     },
 
     delete: function(req, res){

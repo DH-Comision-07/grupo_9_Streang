@@ -44,39 +44,50 @@ const userController = {
                 old: req.body});
         }
 
-        // verificar si ambas pass del registro son iguales
-        let hashedPass = bcryptjs.hashSync(req.body.password, 10);
-        let equalPass = bcryptjs.compareSync(req.body.repPassword, hashedPass)
-
-        // Si no se carga una image, guarda una imagen default
-        let avatarImage = ""
-        if(!req.file || req.file == undefined){
-            avatarImage = "avatar-default.png"
-        } else {
-            avatarImage = req.file.filename;
-        }
-
-        if(equalPass){
-            let newUserInfo = {
-                id: maxId + 1,
-                email: req.body.email,
-                username: req.body.username,
-                password: hashedPass,
-                name: req.body.realName,
-                surname: req.body.surname,
-                birthDate: req.body.birthDate,
-                avatar: avatarImage,
-                rol: 'user'
+        // verificar si existe el mail
+        let emailExists = false;
+        for (let user of users) {
+            if (req.body.email == user.email) {
+                emailExists = true;
+                res.send("Ya existe una cuenta asociada al correo electrónico ingresado");
+                break;
+                }
             }
-            users.push(newUserInfo)
-            let usersJSON = JSON.stringify(users)
-            fs.writeFileSync(usersFilePath, usersJSON)
-            res.send(newUserInfo)
-        } else {
-            res.send("Las contraseñas no coinciden.");
-        }        
-    },
+        
+        if(!emailExists){
+            // verificar si ambas pass del registro son iguales
+            let hashedPass = bcryptjs.hashSync(req.body.password, 10);
+            let equalPass = bcryptjs.compareSync(req.body.repPassword, hashedPass)
 
+            // Si no se carga una imagen, guarda una imagen default
+            let avatarImage = ""
+            if(!req.file || req.file == undefined){ 
+                avatarImage = "avatar-default.png"
+            } else {
+                avatarImage = req.file.filename;
+            }
+
+            if(equalPass){
+                let newUserInfo = {
+                    id: maxId + 1,
+                    email: req.body.email.trim(),
+                    username: req.body.username.trim(),
+                    password: hashedPass.trim(),
+                    name: req.body.realName.trim(),
+                    surname: req.body.surname.trim(),
+                    birthDate: req.body.birthDate,
+                    avatar: avatarImage,
+                    rol: 'user'
+                }
+                users.push(newUserInfo)
+                let usersJSON = JSON.stringify(users)
+                fs.writeFileSync(usersFilePath, usersJSON)
+                res.redirect('/login')
+            } else {
+                res.send("Las contraseñas no coinciden.");
+            }
+        }            
+    },
     editUser: (req, res) => {
         let userIndex = users.findIndex(user => user.id == req.params.id);
         let userToEdit = users.find(user => user.id == req.params.id);
@@ -89,6 +100,7 @@ const userController = {
         if (!req.file || req.file == undefined){
             avatarImage = userToEdit.avatar;
         } else {
+            console.log(req.file)
             avatarImage = req.file.filename;
         }
         
@@ -96,10 +108,10 @@ const userController = {
             let userEdited = {
                 id : parseInt(req.params.id),
                 email: req.body.email.toLowerCase(),
-                username: req.body.username,
-                password: hashedPass,
-                name: req.body.realName,
-                surname: req.body.surname,
+                username: req.body.username.trim(),
+                password: hashedPass.trim(),
+                name: req.body.realName.trim(),
+                surname: req.body.surname.trim(),
                 birthDate: req.body.birthDate,
                 avatar: avatarImage,
                 rol: userToEdit.rol
@@ -109,7 +121,8 @@ const userController = {
                 users[userIndex] = userEdited;
                 let usersJSON = JSON.stringify(users);
                 fs.writeFileSync(usersFilePath, usersJSON);
-                res.redirect(`/users/profile/${userEdited.id}`);
+                req.session.userLogged = userEdited;
+                res.redirect(`/users/profile`);
             } else {
                 return "User not found."
             }
@@ -124,6 +137,7 @@ const userController = {
             users.splice(userIndex, 1);
             let usersJSON = JSON.stringify(users);
             fs.writeFileSync(usersFilePath, usersJSON);
+            req.session.userLogged = null;
             res.redirect('/');
         } else {
             return 'Usuario no encontrado';
@@ -132,13 +146,13 @@ const userController = {
 
     processLogin : function(req, res){
 
-        let userToLogin = users.find(user => user.email == req.body.email.toLowerCase());
+        let userToLogin = users.find(user => user.email == req.body.email.toLowerCase().trim());
         if(userToLogin){
             // console.log(userToLogin)
             if(bcryptjs.compareSync(req.body.password, userToLogin.password)){
                 req.session.userLogged = userToLogin;
                 if(req.body.Recordarme != undefined) {
-                res.cookie('Recordarme', req.session.userLogged.email, {maxAge: 60000})}
+                res.cookie('Recordarme', req.session.userLogged.email, {maxAge: 86400000})}
                     let user2 = req.session.userLogged;
                 res.redirect('/users/profile')
                 
@@ -174,7 +188,7 @@ const userController = {
         let userIndex = users.findIndex(user => user.id == req.body.id);
         let userToEdit = users.find(user => user.id == req.body.id);
 
-        if(req.body.admin == "on"){
+        if(req.body.admin == "admin"){
             userToEdit.rol = "admin";
             } else {
             userToEdit.rol = "user";
@@ -184,7 +198,7 @@ const userController = {
             users[userIndex] = userToEdit;
             let usersJSON = JSON.stringify(users);
             fs.writeFileSync(usersFilePath, usersJSON);
-            res.redirect(`/`);
+            res.redirect(`/users/profile`);
         }
     },
 
@@ -192,6 +206,15 @@ const userController = {
         req.session.destroy();
         res.clearCookie("Recordarme")
         res.redirect('/')
+    },
+
+    allUsers: function(req, res){
+        if(req.session.userLogged && req.session.userLogged.rol == "admin"){
+            res.render('allUsers', {users: users})
+        } else {
+            res.send("Ups! No tienes permiso para ver esta pagina")
+        }
+        
     }
 };
 

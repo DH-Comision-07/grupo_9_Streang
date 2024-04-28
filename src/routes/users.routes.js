@@ -9,7 +9,7 @@ const validateRegister = require('../middlewares/userRegisterValidation');
 
 const storage = multer.diskStorage ({
     destination: function (req, file, cb) {
-        cb(null, path.join(__dirname,  '../public/images/users/avatar'));
+        cb(null, path.join(__dirname,  '../../public/images/users/avatar'));
     },
     filename: function(req, file, cb) {
         const newFilename = 'avatar-' + Date.now() + path.extname(file.originalname);
@@ -28,9 +28,9 @@ router.get('/register', userController.registerView)
 router.post('/register', upload.single('UserAvatar'), validateRegister, userController.saveUser)
 
 //ruta para editar usuario
-router.put('/profile/:id', upload.single('avatar'), userController.editUser)
+router.put('/profile/:id', upload.single('UserAvatar'), userController.editUser)
 
-// ruta para hacer que un usuario adquiera el rol="amin"
+// ruta para actualizar rol de usuario
 router.put('/admin', userController.adminForm)
 
 // ruta para borrar un usuario
@@ -41,9 +41,11 @@ router.post('/login', userController.processLogin)
 
 router.get('/check', userController.check)
 
+// Cerrar sesion
 router.get('/exit', userController.exit)
 
-// ruta paara vista de perfil de admin
+//ver todos los usuarios (solo admin)
+router.get('/', userController.allUsers)
 
 
 module.exports = router;

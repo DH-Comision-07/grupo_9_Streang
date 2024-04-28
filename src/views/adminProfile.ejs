@@ -65,10 +65,12 @@
                         
                         <form id="adminForm" action="/users/admin?_method=PUT" method="POST">
                             <label>
-                                <input type="checkbox" name="admin"> Admin
+                                <input type="radio" name="admin" value="admin"> Admin
+                            </label>
+                            <label>
+                                <input type="radio" name="admin" value="user"> User
                             </label>
                             <input name="id" value="<%=users[i].id%>" style="display: none">
-                            <input name="prueba">
                             <br>
                             <button class="edit-button-form" type="submit">Aceptar</button>
                             <button id="cancel-btn" class="cancel-button" type="button">Cancelar</button>
@@ -77,7 +79,7 @@
                 </div>
 
                 <%}%>
-                <a class="view-all" href="#">Ver todos los usuarios</a>
+                <a class="view-all" href="/users">Ver todos los usuarios</a>
             </div>
         </div>
         

@@ -8,6 +8,8 @@ const passUserToViews = require('./src/middlewares/passUserToViews.js');
 const cookieParser = require('cookie-parser')
 const rememberMeMiddleware = require('./src/middlewares/rememberMeMiddleware.js')
 
+
+
 app.use(express.urlencoded({extended: true}));
 app.use(express.json());
 app.use(methodOverride('_method'));
@@ -20,7 +22,7 @@ app.set('views', 'src/views')
 app.use('/', passUserToViews, rememberMeMiddleware, mainRouter);
 
 
-const publicPath = path.resolve(__dirname, './public');
+const publicPath = path.join(__dirname, '/public');
 app.use(express.static(publicPath));
 
 const PORT = process.env.PORT || 3000;

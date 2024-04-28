@@ -5,7 +5,7 @@ const { create } = require('domain');
 const session = require('express-session');
 const userController = require("../controllers/userController")
 
-const productsFilePath = path.join(__dirname, '../data/json-products.json');
+const productsFilePath = path.dirname(__dirname) + '/data/json-products.json'
 
 
 const productsService = {
@@ -187,7 +187,7 @@ const productsService = {
 			let jsonProducts = JSON.stringify(this.products);
 	
 			// Write the updated JSON back to the file
-			fs.writeFileSync('./data/json-products.json', jsonProducts);
+			fs.writeFileSync(productsFilePath, jsonProducts);
 		} else {
 			// Product not found
 			return "Product not found";
@@ -202,7 +202,7 @@ const productsService = {
         if (productIndex !== -1){
             this.products.splice(productIndex, 1);
             let jsonProducts = JSON.stringify(this.products);
-            fs.writeFileSync('./data/json-products.json', jsonProducts);
+            fs.writeFileSync(productsFilePath, jsonProducts);
         } else {
             return 'producto no encontrado';
         }
