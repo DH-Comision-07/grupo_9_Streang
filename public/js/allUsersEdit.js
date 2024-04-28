@@ -1,18 +1,3 @@
-console.log("EditUser cargando linkeado correctamente");
-
-const editButton = document.getElementById('edit-button-form');
-const editFormContainer = document.getElementById('edit-container');
-const cancelButton = document.getElementById('cancel-button');
-
-editButton.addEventListener('click', ()=>{
-    editFormContainer.classList.add('show');
-});
-
-cancelButton.addEventListener('click', ()=>{
-    editFormContainer.classList.remove('show');
-});
-
-
 // EDITAR USUARIOS DE TERCEROS, SOLO PARA ADMIN
 const editBtns = document.querySelectorAll('.edit-btn');
 const cancelBtns = document.querySelectorAll('.cancel-button');
