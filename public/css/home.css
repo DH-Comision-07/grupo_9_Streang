@@ -296,12 +296,13 @@ footer {
     .products{
         display: flex;
         flex-wrap: wrap;
-        justify-content: space-between;
+        /* justify-content:flex-start; */
+        justify-content: flex-start;
         margin: auto;
     }
 
     .product-container{
-        width: 30%;
+        width: 32%;
         position: relative;
         margin: 0 5px;
         margin-bottom: 20px;
@@ -385,16 +386,8 @@ footer {
 
 
     .more-img-container img:hover{
-        transform: scale(2) translate(-50%, -50%);
-        position: fixed;
-        background-color: rgba(0,0,0, 0.5);
-        top: 70%;
-        left: 67%;
-        z-index: 1;
-        margin: 50px;
-        border: 3px solid white;
+      cursor: pointer;
+      box-shadow: 5px 5px 5px 5px rgba(0,0,0, 0.5);
     }
 
-
-    
 }

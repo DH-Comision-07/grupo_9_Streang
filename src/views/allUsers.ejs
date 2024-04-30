@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%-include('partials/head.ejs')%>
+    <link rel="stylesheet" href="/css/userProfile.css">
+    <title>Todos los usuarios</title>
+</head>
+<body>
+    <%-include('partials/header.ejs')%>
+    <div class="users-info">
+        <h3>Usuarios</h3>
+        <%let userToShow = "";
+        for(i=0; i < users.length; i++){
+            userToShow=users[i];%>
+        <div class="user-card"> 
+            <div class="img-container">
+                <img src="/images/users/avatar/<%= users[i].avatar %> " alt="product image">
+            </div>
+            <p class="username">Username: <%= users[i].username %></p>
+            <p class="complete-name"><%= users[i].name %> <%= users[i].surname %></p>
+            <p class="rol">Rol: <%= users[i].rol %> </p>
+            <button class="edit-btn" type="button">Ver</button>
+        </div>
+
+        <div class="edit-container-users">
+            <div class="form-container">
+                <h2>Editar usuario</h2>
+                <div class="profile-img-container">
+                    <img src="/images/users/avatar/<%= users[i].avatar %>" alt="profile image">
+                </div>
+                <label for="">Usuario</label>
+                <p class="data"><%= users[i].username %></p>
+                <label for="">Nombre</label>
+                <p class="data"><%= users[i].name %></p>
+                <label for="">Apellido</label>
+                <p class="data"><%= users[i].surname %></p>
+                <label for="">E-mail</label>
+                <p class="data"><%= users[i].email %></p>
+                <label for="">Fecha de Nacimiento</label>
+                <p class="data"><%= users[i].birthDate %></p>
+                
+                <form id="adminForm" action="/users/admin?_method=PUT" method="POST">
+                    <label>
+                        <input type="radio" name="admin" value="admin"> Admin
+                    </label>
+                    <label>
+                        <input type="radio" name="admin" value="user"> User
+                    </label>
+                    <input name="id" value="<%=users[i].id%>" style="display: none">
+                    <br>
+                    <button class="edit-button-form" type="submit">Aceptar</button>
+                    <button id="cancel-btn" class="cancel-button" type="button">Cancelar</button>
+                </form>
+            </div>
+        </div>
+
+        <%}%>
+    </div>
+
+
+    <%-include('partials/footer.ejs')%>
+    <script src="/js/allUsersEdit.js"></script>
+</body>
+</html>

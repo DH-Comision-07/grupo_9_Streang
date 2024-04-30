@@ -1,0 +1,50 @@
+<div class="edit-container" id="edit-container">
+    <div class="form-container">
+        <form action="/users/profile/<%= user.id %>?_method=PUT" method="POST" enctype="multipart/form-data">                
+            <div class="control-formulario">
+                <label class="edit-label" for="email">Email
+                    <input type="email" placeholder="Email" name="email" value="<%= user.email %>">
+                </label>
+                </div>
+            <div class="control-formulario">
+                <label class="edit-label" for="username">Nombre de usuario
+                    <input type="text" placeholder="Nombre de usuario" name="username" value="<%= user.username %>">
+                </label>
+                </div>
+            <div class="control-formulario">
+                <label class="edit-label" for="password"> Nueva contraseña
+                    <input type="password" placeholder="Ingrese nueva contraseña" name="password">
+                </label>
+                </div>
+            <div class="control-formulario">
+                <label class="edit-label" for="repPassword">Repita nueva constraseña
+                    <input type="password" placeholder="Repita nueva contraseña" name="repPassword">
+                </label>
+                </div>
+            <div class="control-formulario">
+                <label class="edit-label" for="realName">Nombre
+                    <input type="text" placeholder="Nombre" name="realName" value="<%= user.name %>">
+                </label>
+                </div>
+            <div class="control-formulario">
+                <label class="edit-label" for="surname"> Apellido
+                    <input type="text" placeholder="Apellido" name="surname" value="<%= user.surname %>">
+                </label>
+                </div>
+            <label><h3 class="titulo">Selecciona tu día de nacimiento</h3></label>
+                <div class="control-formulario">
+                    <input type="date" placeholder="" name="birthDate" value="<%= user.birthDate %>">
+                </div>
+            <label><h3 class="titulo">Nueva imagen de perfil</h3></label>
+                <div class="control-formulario">
+                    <input type="file" placeholder="UserAvatar" name="UserAvatar">
+                </div>
+            <button class="edit-button-form" type="submit">Aceptar</button>
+            <button id="cancel-button" class="cancel-button" type="button">Cancelar</button>
+        </form>
+    </div>
+</div>
+
+<script src="/js/editUser.js"></script>
+
+<!-- RECORDAR HACER EL SCRIPT -->
