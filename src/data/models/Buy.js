@@ -2,29 +2,29 @@ module.exports = function(sequelize, dataTypes) {
     let alias = "Buys"
     let cols = {
         id: {
-            type: DataTypes.INTEGER,
+            type: dataTypes.INTEGER,
             autoIncrement: true,
             primaryKey: true,
             allowNull: false,
         },
         date: {
-            type: DataTypes.DATE,
+            type: dataTypes.DATE,
             allowNull: false,
         },
         buyscol: {
-            type: DataTypes.STRING(45),
+            type: dataTypes.STRING(45),
             allowNull: false,
         },
         user_id: {
-            type: DataTypes.INTEGER,
+            type: dataTypes.INTEGER,
             allowNull: false,
         },
         product_id: {
-            type: DataTypes.INTEGER,
+            type: dataTypes.INTEGER,
             allowNull: false,
         },
         total: {
-            type: DataTypes.INTEGER,
+            type: dataTypes.INTEGER,
             allowNull: false
         }
     };
@@ -35,6 +35,24 @@ module.exports = function(sequelize, dataTypes) {
     }
 
     let Buy = sequelize.define(alias, cols, config);
+
+    /*Buy.associate = function(models){
+
+        Buy.belongsToMany(models.Product, {
+            as: 'products',
+            through: 'products_buys',
+            foreignKey: "buy_id",
+            otherkey: "product_id",
+            timestamps: false
+        })
+
+        Buy.belongsTo(models.User, {
+            foreignKey: "user_id",
+            as: "user"
+        })
+
+    }*/
+
 
     return Buy; 
 }
