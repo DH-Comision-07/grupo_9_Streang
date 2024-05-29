@@ -1,5 +1,5 @@
 module.exports = function(sequelize, dataTypes){
-    let alias = "Usuario";
+    let alias = "Users";
     let cols = {
         id: {
             type: dataTypes.INTEGER,
@@ -8,13 +8,13 @@ module.exports = function(sequelize, dataTypes){
             autoIncrement: true
         },
 
-        nombre: {
+        name: {
             type: dataTypes.STRING(45),
             allowNull: false
         },
 
-        apellido: {
-            type: dataTypes.STRING(60),
+        last_name: {
+            type: dataTypes.STRING(45),
             allowNull: false
         },
 
@@ -23,32 +23,33 @@ module.exports = function(sequelize, dataTypes){
             allowNull: false
         },
 
-        imagen: {
-            type: dataTypes.BOOLEAN,
+        avatar: {
+            type: dataTypes.STRING(45),
             allowNull: true
         },
 
-        contraseña: {
-            type: dataTypes.STRING(45),
+        password: {
+            type: dataTypes.STRING(100),
             allowNull: false
         },
 
-        categoria: {
-            type: dataTypes.ENUM('administrador', 'invitado'),
+        rol_id: {
+            type: dataTypes.INTEGER,
+            allowNull: false
+        },
+
+        birthdate:{
+            type: dataTypes.DATEONLY,
             allowNull: false
         }
     }
     let config = {
-        tableName: 'usuarios',
+        tableName: 'users',
         timestamps: false
     }
 
-    let Usuario = sequelize.define(alias, cols, config);
+    let User = sequelize.define(alias, cols, config);
 
-    Usuario.associate = function(models){
-        Usuario.belongsTo(models.Compra, {
-            foreignKey: "usuarios_id",
-            as: "usuarios"
-        })
-    }
+  
+    return User;
 }

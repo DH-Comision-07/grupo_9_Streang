@@ -5,6 +5,7 @@ const usersDataBase = require('../data/users.json')
 const bcryptjs = require('bcryptjs');
 let users = JSON.parse(fs.readFileSync(usersFilePath, 'utf-8'))
 const {validationResult} = require('express-validator');
+const db = require('../data/models')
 
 const productsFilePath = path.join(__dirname, '../data/json-products.json');
 const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
@@ -214,6 +215,15 @@ const userController = {
         } else {
             res.send("Ups! No tienes permiso para ver esta pagina")
         }
+        
+    },
+
+    DBtry: function(req, res){
+        db.Users.findAll()
+        .then(function(users){
+            // console.log(users);
+            res.render('DBtry', {users:users})
+        })
         
     }
 };
