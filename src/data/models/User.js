@@ -58,5 +58,9 @@ module.exports = function(sequelize, dataTypes){
             foreignKey: "rol_id",
             as: "rols"
         })
+        User.hasMany(models.Buy, {
+            foreignKey: "user_id",
+            as: "buys"
+        })
     }
 }

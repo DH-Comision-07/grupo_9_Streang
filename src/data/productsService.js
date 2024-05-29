@@ -3,7 +3,8 @@ const fs = require('fs');
 const { viewCategory, viewDiscounts } = require('../controllers/productosController');
 const { create } = require('domain');
 const session = require('express-session');
-const userController = require("../controllers/userController")
+const userController = require("../controllers/userController");
+let db = require("./models");
 
 const productsFilePath = path.dirname(__dirname) + '/data/json-products.json'
 
@@ -39,7 +40,7 @@ const productsService = {
         return {result : result};
     },
 
-    create: function(req){
+    create: function(req, res){
         let maxId = 0;
         for (const obj of this.products) {
             if (obj.id && obj.id > maxId) {
@@ -112,7 +113,11 @@ const productsService = {
                 
         } catch (error) {
             return error;
-        }  
+        }
+        // db.Product.findAll()
+        //     .then(function(products){
+        //         return res.render("home", {products: products})
+        //     })
     },
 
     viewEdit: function(id){

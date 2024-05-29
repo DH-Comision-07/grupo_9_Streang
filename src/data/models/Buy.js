@@ -14,7 +14,7 @@ module.exports = function(sequelize, dataTypes){
         },
 
         buyscol: {
-            type: dataTypes.VARCHAR(45),
+            type: dataTypes.STRING,
             allowNull: false
         },
 
