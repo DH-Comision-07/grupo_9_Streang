@@ -28,4 +28,13 @@ module.exports = function(sequelize, dataTypes) {
             allowNull: false
         }
     };
+
+    let config = {
+        tableName: 'buys',
+        timestamps: false
+    }
+
+    let Buy = sequelize.define(alias, cols, config);
+
+    return Buy; 
 }

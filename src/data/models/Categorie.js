@@ -12,4 +12,14 @@ module.exports = function(sequelize, dataTypes) {
             allownull: false,
         }
     }
+
+
+    let config = {
+        tableName: 'categories',
+        timestamps: false
+    }
+
+    let Categorie = sequelize.define(alias, cols, config);
+
+    return Categorie;
 }
