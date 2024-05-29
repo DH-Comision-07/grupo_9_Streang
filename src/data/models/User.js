@@ -14,7 +14,7 @@ module.exports = function(sequelize, dataTypes){
         },
 
         last_name: {
-            type: dataTypes.STRING(60),
+            type: dataTypes.STRING(45),
             allowNull: false
         },
 
@@ -23,28 +23,25 @@ module.exports = function(sequelize, dataTypes){
             allowNull: false
         },
 
-        password: {
-            type: dataTypes.STRING(45),
-            allowNull: false
-        },
-
-        user_name: {
-            
-        },
-
         avatar: {
-            type: dataTypes.BOOLEAN,
+            type: dataTypes.STRING(45),
             allowNull: true
         },
 
-        birthdate: {
-            
-        }
+        password: {
+            type: dataTypes.STRING(100),
+            allowNull: false
+        },
 
-        // categoria: {
-        //     type: dataTypes.ENUM('administrador', 'invitado'),
-        //     allowNull: false
-        // }
+        rol_id: {
+            type: dataTypes.INTEGER,
+            allowNull: false
+        },
+
+        birthdate:{
+            type: dataTypes.DATEONLY,
+            allowNull: false
+        }
     }
     let config = {
         tableName: 'users',
@@ -58,11 +55,12 @@ module.exports = function(sequelize, dataTypes){
     //         foreignKey: "rol_id",
     //         as: "rols"
     //     })
+
     //     User.hasMany(models.Buy, {
     //         foreignKey: "user_id",
     //         as: "buys"
     //     })
     // }
-
+    
     return User;
 }

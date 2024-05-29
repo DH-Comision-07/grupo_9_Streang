@@ -5,8 +5,6 @@ let users = JSON.parse(fs.readFileSync(usersFilePath, 'utf-8'))
 
 
 function rememberMiddleware(req, res, next){
-    
-
     let userLog = ''
     if(req.cookies.Recordarme){
         for (let i = 0; i < users.length; i++ ) {
@@ -17,9 +15,9 @@ function rememberMiddleware(req, res, next){
         }
         req.session.userLogged = userLog;
         res.locals.user = req.session.userLogged;
-    }
-   
+    }   
     next();
 }
+
 
 module.exports = rememberMiddleware;

@@ -47,5 +47,10 @@ router.get('/exit', userController.exit)
 //ver todos los usuarios (solo admin)
 router.get('/', userController.allUsers)
 
+// prueba de DB
+router.get('/DBtry', userController.DBtry)
+
+// router.post('/DBtry',upload.single('UserAvatar'), userController.DBtrycreate)
+
 
 module.exports = router;
