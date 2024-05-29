@@ -63,14 +63,15 @@ module.exports = function(sequelize, dataTypes){
             allowNull: false
         }
     }
+
     let config = {
-        tableName: 'users',
+        tableName: 'products',
         timestamps: false
     }
 
     let Product = sequelize.define(alias, cols, config);
     
-    Product.associate = function(models){
+    // Product.associate = function(models){
 
         // Product.hasMany(models.Format, {
         //     foreignKey: "format_id",
@@ -97,7 +98,7 @@ module.exports = function(sequelize, dataTypes){
         //     otherKey: "buy_id",
         //     timestamps: false,
         // })
-    }
+    // }
 
     return Product;
 }
