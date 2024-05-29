@@ -70,9 +70,8 @@ module.exports = function(sequelize, dataTypes){
     }
 
     let Product = sequelize.define(alias, cols, config);
-    
-    // Product.associate = function(models){
 
+    // Product.associate = function(models){
         // Product.belongsTo(models.Format, {
         //     foreignKey: "format_id",
         //     as: "format"
