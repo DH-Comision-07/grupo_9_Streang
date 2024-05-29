@@ -31,19 +31,19 @@ module.exports = function(sequelize, dataTypes){
 
     let Buy = sequelize.define(alias, cols, config);
 
-    Buy.associate = function(models){
-        Buy.belongsTo(models.User, {
-            foreignKey: "user_id",
-            foreignKey: "product_id",
-            as: "users"
-        })
+    // Buy.associate = function(models){
+    //     Buy.belongsTo(models.User, {
+    //         foreignKey: "user_id",
+    //         foreignKey: "product_id",
+    //         as: "users"
+    //     })
 
-        Buy.belongsToMany(models.Product, {
-            as: "compras",
-            through: "products_buys",
-            foreignKey: "user_id",
-            otherKey: "product_id",
-            timestamps: false
-        })
-    }
+    //     Buy.belongsToMany(models.Product, {
+    //         as: "compras",
+    //         through: "products_buys",
+    //         foreignKey: "user_id",
+    //         otherKey: "product_id",
+    //         timestamps: false
+    //     })
+    // }
 }

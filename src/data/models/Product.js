@@ -45,13 +45,13 @@ module.exports = function(sequelize, dataTypes){
 
     let Product = sequelize.define(alias, cols, config);
 
-    Product.associate = function(models){
-        Product.belongsToMany(models.Compra, {
-            as: "buys",
-            through: "products_buys",
-            foreignKey: "product_id",
-            otherKey: "buy_id",
-            timestamps: false
-        })
-    }
+    // Product.associate = function(models){
+    //     Product.belongsToMany(models.Compra, {
+    //         as: "buys",
+    //         through: "products_buys",
+    //         foreignKey: "product_id",
+    //         otherKey: "buy_id",
+    //         timestamps: false
+    //     })
+    // }
 }
