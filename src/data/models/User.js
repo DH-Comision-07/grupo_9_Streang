@@ -62,4 +62,6 @@ module.exports = function(sequelize, dataTypes){
     //         as: "buys"
     //     })
     // }
+
+    return User;
 }

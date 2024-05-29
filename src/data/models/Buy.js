@@ -9,7 +9,7 @@ module.exports = function(sequelize, dataTypes){
         },
 
         date: {
-            type: dataTypes.DATETIME,
+            type: dataTypes.DATE,
             allowNull: false
         },
 
@@ -46,4 +46,6 @@ module.exports = function(sequelize, dataTypes){
     //         timestamps: false
     //     })
     // }
+
+    return Buy;
 }
