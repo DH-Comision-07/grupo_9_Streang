@@ -8,12 +8,12 @@ module.exports = function(sequelize, dataTypes){
             autoIncrement: true
         },
 
-        nombre: {
+        name: {
             type: dataTypes.STRING(45),
             allowNull: false
         },
 
-        apellido: {
+        last_name: {
             type: dataTypes.STRING(60),
             allowNull: false
         },
@@ -23,20 +23,28 @@ module.exports = function(sequelize, dataTypes){
             allowNull: false
         },
 
-        imagen: {
-            type: dataTypes.BOOLEAN,
-            allowNull: true
-        },
-
-        contraseña: {
+        password: {
             type: dataTypes.STRING(45),
             allowNull: false
         },
 
-        categoria: {
-            type: dataTypes.ENUM('administrador', 'invitado'),
-            allowNull: false
+        user_name: {
+            
+        },
+
+        avatar: {
+            type: dataTypes.BOOLEAN,
+            allowNull: true
+        },
+
+        birthdate: {
+            
         }
+
+        // categoria: {
+        //     type: dataTypes.ENUM('administrador', 'invitado'),
+        //     allowNull: false
+        // }
     }
     let config = {
         tableName: 'users',
@@ -46,9 +54,9 @@ module.exports = function(sequelize, dataTypes){
     let User = sequelize.define(alias, cols, config);
 
     User.associate = function(models){
-        User.belongsTo(models.Buy, {
-            foreignKey: "user_id",
-            as: "users"
+        User.belongsTo(models.Rol, {
+            foreignKey: "rol_id",
+            as: "rols"
         })
     }
 }

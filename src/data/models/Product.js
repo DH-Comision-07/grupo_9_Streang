@@ -1,5 +1,5 @@
 module.exports = function(sequelize, dataTypes){
-    let alias = "Products";
+    let alias = "Product";
     let cols = {
         id: {
             type: dataTypes.INTEGER,
@@ -8,27 +8,27 @@ module.exports = function(sequelize, dataTypes){
             autoIncrement: true
         },
 
-        marca: {
+        name: {
             type: dataTypes.STRING(45),
             allowNull: false
         },
 
-        nombre: {
+        video: {
             type: dataTypes.STRING(60),
             allowNull: false
         },
 
-        precio: {
+        price: {
             type: dataTypes.INTEGER,
             allowNull: false
         },
 
-        disponible: {
+        available: {
             type: dataTypes.BOOLEAN,
             allowNull: false
         },
 
-        imagenes: {
+        main_image: {
             type: dataTypes.BOOLEAN,
             allowNull: true
         },
@@ -43,14 +43,14 @@ module.exports = function(sequelize, dataTypes){
         timestamps: false
     }
 
-    let Producto = sequelize.define(alias, cols, config);
+    let Product = sequelize.define(alias, cols, config);
 
-    Producto.associate = function(models){
-        Producto.belongsToMany(models.Compra, {
-            as: "compras",
-            through: "productos_compras",
-            foreignKey: "productos_id",
-            otherKey: "compras_id",
+    Product.associate = function(models){
+        Product.belongsToMany(models.Compra, {
+            as: "buys",
+            through: "products_buys",
+            foreignKey: "product_id",
+            otherKey: "buy_id",
             timestamps: false
         })
     }

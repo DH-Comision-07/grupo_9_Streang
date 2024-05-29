@@ -112,7 +112,7 @@ const productsService = {
                 
         } catch (error) {
             return error;
-        }        
+        }  
     },
 
     viewEdit: function(id){
