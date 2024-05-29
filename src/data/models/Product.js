@@ -71,9 +71,31 @@ module.exports = function(sequelize, dataTypes){
     let Product = sequelize.define(alias, cols, config);
     
     Product.associate = function(models){
-        // Product.hasMany(models.Platform, {
-        //     foreignKey: "platform_id",
-        //     as: "platform"
+
+        // Product.hasMany(models.Format, {
+        //     foreignKey: "format_id",
+        //     as: "format"
+        // })
+
+        // Product.hasMany(models.Category, {
+        //     foreignKey: "category_id",
+        //     as: "category"
+        // })
+
+        // Product.belongsToMany(models.Platform, {
+        //     as: "platforms",
+        //     through: "products_platforms",
+        //     foreignKey: "product_id",
+        //     otherKey: "platform_id",
+        //     timestamps: false,
+        // })
+
+        // Product.belongsToMany(models.Buy, {
+        //     as: "buys",
+        //     through: "products_buys",
+        //     foreignKey: "product_id",
+        //     otherKey: "buy_id",
+        //     timestamps: false,
         // })
     }
 
