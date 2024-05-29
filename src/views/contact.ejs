@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%-include('./partials/head.ejs')%>
+    <link rel="stylesheet" href="./css/contact.css">
+    <title>Contacto</title>
+</head>
+<body>
+    
+
+    <%-include('partials/header.ejs')%>
+
+    <h1 class="title">COMUNICATE CON NOSOTROS</h1>
+    <p>Ponete en contacto por cualquiera de los siguientes medios,
+        nos comunicaremos contigo lo más rápido posible.
+    </p>
+        <div class="contact-container">
+
+            <div class="form-container">
+                <form action="/contact" method="POST">
+                    <input name="name" type="text" placeholder="Nombre">
+                    <input name="email" type="email" placeholder="Email">
+                    <input name="subject" type="text" placeholder="Asunto">
+                    <textarea name="message" placeholder="Escribe tu mensaje"></textarea>
+
+                    <button type="submit" class="send-button">Enviar</button>
+                </form>
+
+            </div>
+
+            <div class="social-media-contact">
+                <div class="contact whatsApp">
+                    <a href="wa.me/+549351555555"><i class="fa-brands fa-whatsapp" style="color: #1fbd00;"></i><span>+54 9 351555555</a></span>
+                </div>
+                <div class="contact Instagram">
+                    <a href="https://instagram.com"><i class="fa-brands fa-instagram"></i><span> Instragram</a></span>
+                </div>
+                <div class="contact email">
+                    <i class="fa-regular fa-envelope"></i> <span>streang@ejemplo.com</span>
+                </div>
+                <div class="contact tel">
+                    <i class="fa-solid fa-phone"></i><span> 351555555</span>
+                </div>
+            </div>
+
+        </div>
+
+            
+            
+        <!-- <div class="map-container">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1524.0417309298819!2d-4.458160399999995!3d40.184956!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd4035b57551b6f3%3A0x84be095154d712f6!2sC.%20Falsa%2C%2045908%20Aldea%20en%20Cabo%2C%20Toledo%2C%20Espa%C3%B1a!5e0!3m2!1ses-419!2sar!4v1712443452918!5m2!1ses-419!2sar" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div> -->
+
+
+    <%-include('partials/footer.ejs')%>
+    
+</body>
+</html>

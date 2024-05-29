@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%-include('partials/head.ejs')%>
+    <link href="/css/login.css" rel="stylesheet" />
+    <title>Login</title>
+  </head>
+  <body>
+
+    <%-include('partials/header.ejs')%>
+
+    <h1 class="login">Login</h1>
+    <div class="logincotainer">
+      <div class="formcontainer">
+        <form action="/users/login" method="post" class="login-form">
+        
+        <input name="email" type="email" placeholder="E-mail" class="email"/>
+        <br>
+        <input name="password" type="password" placeholder="Contraseña" class="password" />
+        <br>
+        <button type="submit" class="iniciar-sesion">Iniciar sesion</button>
+        <br>
+        <!-- </form> -->
+      </div>
+        <div class="olviderecordarmediv">
+        <!-- <form action="/index.html" class="olviderecordarmeform"> -->
+        <label for="nombre">Olvidé mi contraseña</label><input type="checkbox" name="Olvidé mi contraseña" value="si" class="olvide-mi-clave">
+        <label for="nombre">Recordarme</label><input type="checkbox" name="Recordarme" class="recordarme">
+      </form>
+        </div>
+    </div>
+    
+    
+  </body>
+</html>
