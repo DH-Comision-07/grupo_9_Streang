@@ -1,28 +1,33 @@
-module.exports = function(sequelize, dataTypes){
-    let alias = "Buys";
+module.exports = function(sequelize, dataTypes) {
+    let alias = "Buys"
     let cols = {
         id: {
             type: dataTypes.INTEGER,
-            allowNull: false,
+            autoIncrement: true,
             primaryKey: true,
-            autoIncrement: true
+            allowNull: false,
         },
-
         date: {
             type: dataTypes.DATE,
-            allowNull: false
+            allowNull: false,
         },
-
         buyscol: {
-            type: dataTypes.STRING,
-            allowNull: false
+            type: dataTypes.STRING(45),
+            allowNull: false,
         },
-
+        user_id: {
+            type: dataTypes.INTEGER,
+            allowNull: false,
+        },
+        product_id: {
+            type: dataTypes.INTEGER,
+            allowNull: false,
+        },
         total: {
             type: dataTypes.INTEGER,
             allowNull: false
         }
-    }
+    };
 
     let config = {
         tableName: 'buys',
@@ -31,21 +36,23 @@ module.exports = function(sequelize, dataTypes){
 
     let Buy = sequelize.define(alias, cols, config);
 
-    // Buy.associate = function(models){
-    //     Buy.belongsTo(models.User, {
-    //         foreignKey: "user_id",
-    //         foreignKey: "product_id",
-    //         as: "users"
-    //     })
+    /*Buy.associate = function(models){
 
-    //     Buy.belongsToMany(models.Product, {
-    //         as: "compras",
-    //         through: "products_buys",
-    //         foreignKey: "user_id",
-    //         otherKey: "product_id",
-    //         timestamps: false
-    //     })
-    // }
+        Buy.belongsToMany(models.Product, {
+            as: 'products',
+            through: 'products_buys',
+            foreignKey: "buy_id",
+            otherkey: "product_id",
+            timestamps: false
+        })
 
-    return Buy;
+        Buy.belongsTo(models.User, {
+            foreignKey: "user_id",
+            as: "user"
+        })
+
+    }*/
+
+
+    return Buy; 
 }
