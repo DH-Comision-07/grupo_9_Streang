@@ -47,5 +47,4 @@ router.get('/exit', userController.logOut)
 //ver todos los usuarios (solo admin)
 router.get('/', userController.allUsers)
 
-
 module.exports = router;

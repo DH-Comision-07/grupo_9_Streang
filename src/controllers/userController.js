@@ -117,7 +117,7 @@ const userController = {
     },
 
     allUsers: async function(req, res){
-        usersService.viewAllUsers(req, res)        
+        usersService.viewAllUsers(req, res);
     }
 };
 

@@ -19,6 +19,7 @@ const usersService = {
                 });
             }
 
+
             let userExists = await db.Users.findOne({where:{
                 email: req.body.email
             }});
@@ -26,7 +27,7 @@ const usersService = {
             if(userExists != null){
                 res.send("El mail ingresado ya se encuentra registrado")
             }
-               
+          
             // verificar si ambas pass del registro son iguales
             let hashedPass = bcryptjs.hashSync(req.body.password, 10);
             let equalPass = bcryptjs.compareSync(req.body.repPassword, hashedPass)
