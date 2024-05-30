@@ -6,6 +6,7 @@ const bcryptjs = require('bcryptjs');
 let users = JSON.parse(fs.readFileSync(usersFilePath, 'utf-8'))
 const {validationResult} = require('express-validator');
 const db = require('../data/models')
+const usersService = require('../data/usersService')
 
 const productsFilePath = path.join(__dirname, '../data/json-products.json');
 const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
@@ -30,64 +31,67 @@ const userController = {
         
     },
     saveUser: (req,res) => {
-        let maxId = 0;
-        for (const obj of users) {
-            if (obj.id && obj.id > maxId) {
-                maxId = obj.id;
-            }
-        }
+
+        usersService.createUser(req, res);
+
+        // let maxId = 0;
+        // for (const obj of users) {
+        //     if (obj.id && obj.id > maxId) {
+        //         maxId = obj.id;
+        //     }
+        // }
     
-        let resultValidation = validationResult(req);
+        // let resultValidation = validationResult(req);
 
-        if(resultValidation.errors.length > 0){
-            return res.render('register', {
-                errors: resultValidation.mapped(),
-                old: req.body});
-        }
+        // if(resultValidation.errors.length > 0){
+        //     return res.render('register', {
+        //         errors: resultValidation.mapped(),
+        //         old: req.body});
+        // }
 
-        // verificar si existe el mail
-        let emailExists = false;
-        for (let user of users) {
-            if (req.body.email == user.email) {
-                emailExists = true;
-                res.send("Ya existe una cuenta asociada al correo electrónico ingresado");
-                break;
-                }
-            }
+        // // verificar si existe el mail
+        // let emailExists = false;
+        // for (let user of users) {
+        //     if (req.body.email == user.email) {
+        //         emailExists = true;
+        //         res.send("Ya existe una cuenta asociada al correo electrónico ingresado");
+        //         break;
+        //         }
+        //     }
         
-        if(!emailExists){
-            // verificar si ambas pass del registro son iguales
-            let hashedPass = bcryptjs.hashSync(req.body.password, 10);
-            let equalPass = bcryptjs.compareSync(req.body.repPassword, hashedPass)
+        // if(!emailExists){
+        //     // verificar si ambas pass del registro son iguales
+        //     let hashedPass = bcryptjs.hashSync(req.body.password, 10);
+        //     let equalPass = bcryptjs.compareSync(req.body.repPassword, hashedPass)
 
-            // Si no se carga una imagen, guarda una imagen default
-            let avatarImage = ""
-            if(!req.file || req.file == undefined){ 
-                avatarImage = "avatar-default.png"
-            } else {
-                avatarImage = req.file.filename;
-            }
+        //     // Si no se carga una imagen, guarda una imagen default
+        //     let avatarImage = ""
+        //     if(!req.file || req.file == undefined){ 
+        //         avatarImage = "avatar-default.png"
+        //     } else {
+        //         avatarImage = req.file.filename;
+        //     }
 
-            if(equalPass){
-                let newUserInfo = {
-                    id: maxId + 1,
-                    email: req.body.email.trim(),
-                    username: req.body.username.trim(),
-                    password: hashedPass.trim(),
-                    name: req.body.realName.trim(),
-                    surname: req.body.surname.trim(),
-                    birthDate: req.body.birthDate,
-                    avatar: avatarImage,
-                    rol: 'user'
-                }
-                users.push(newUserInfo)
-                let usersJSON = JSON.stringify(users)
-                fs.writeFileSync(usersFilePath, usersJSON)
-                res.redirect('/login')
-            } else {
-                res.send("Las contraseñas no coinciden.");
-            }
-        }            
+        //     if(equalPass){
+        //         let newUserInfo = {
+        //             id: maxId + 1,
+        //             email: req.body.email.trim(),
+        //             username: req.body.username.trim(),
+        //             password: hashedPass.trim(),
+        //             name: req.body.realName.trim(),
+        //             surname: req.body.surname.trim(),
+        //             birthDate: req.body.birthDate,
+        //             avatar: avatarImage,
+        //             rol: 'user'
+        //         }
+        //         users.push(newUserInfo)
+        //         let usersJSON = JSON.stringify(users)
+        //         fs.writeFileSync(usersFilePath, usersJSON)
+        //         res.redirect('/login')
+        //     } else {
+        //         res.send("Las contraseñas no coinciden.");
+        //     }
+        // }            
     },
     editUser: (req, res) => {
         let userIndex = users.findIndex(user => user.id == req.params.id);
@@ -223,8 +227,13 @@ const userController = {
         .then(function(users){
             // console.log(users);
             res.render('DBtry', {users:users})
-        })
+        })       
         
+    },
+
+    DBtrycreate: function(req, res){
+        usersService.DBtrycreate(req, res);
+        res.send('Usuario creado exitosamente');
     }
 };
 
