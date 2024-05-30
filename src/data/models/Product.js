@@ -72,31 +72,31 @@ module.exports = function(sequelize, dataTypes){
     let Product = sequelize.define(alias, cols, config);
 
     // Product.associate = function(models){
-        // Product.belongsTo(models.Format, {
-        //     foreignKey: "format_id",
-        //     as: "format"
-        // })
+    //     Product.belongsTo(models.Format, {
+    //         foreignKey: "format_id",
+    //         as: "format"
+    //     })
 
-        // Product.belongsTo(models.Categorie, {
-        //     foreignKey: "category_id",
-        //     as: "categorie"
-        // })
+    //     Product.belongsTo(models.Categorie, {
+    //         foreignKey: "category_id",
+    //         as: "categorie"
+    //     })
 
-        // Product.belongsToMany(models.Platform, {
-        //     as: "platforms",
-        //     through: "products_platforms",
-        //     foreignKey: "product_id",
-        //     otherKey: "platform_id",
-        //     timestamps: false
-        // })
+    //     Product.belongsToMany(models.Platform, {
+    //         as: "platforms",
+    //         through: "products_platforms",
+    //         foreignKey: "product_id",
+    //         otherKey: "platform_id",
+    //         timestamps: false
+    //     })
 
-        // Product.belongsToMany(models.Buy, {
-        //     as: "buys",
-        //     through: "products_buys",
-        //     foreignKey: "product_id",
-        //     otherKey: "buy_id",
-        //     timestamps: false
-        // })
+    //     Product.belongsToMany(models.Buy, {
+    //         as: "buys",
+    //         through: "products_buys",
+    //         foreignKey: "product_id",
+    //         otherKey: "buy_id",
+    //         timestamps: false
+    //     })
     // }
 
     return Product;
