@@ -56,17 +56,17 @@ const productsService = {
         }
 
         if(!req.files['moreImages'] || req.files['moreImages'][0] == undefined){
-            moreImages1.filename = "default.avif"
-            moreImages2.filename = "default.avif"
-            moreImages3.filename = "default.avif";
+            moreImages1 = "default.avif"
+            moreImages2 = "default.avif"
+            moreImages3 = "default.avif";
         } else if (req.files['moreImages'][1] == undefined){
             moreImages1 = req.files['moreImages'][0].filename;
-            moreImages2.filename = "default.avif"
-            moreImages3.filename = "default.avif";
+            moreImages2 = "default.avif"
+            moreImages3 = "default.avif";
         } else if( req.files['moreImages'][2] == undefined){
             moreImages1 = req.files['moreImages'][0].filename;
             moreImages2 = req.files['moreImages'][1].filename;
-            moreImages3.filename = "default.avif";
+            moreImages3 = "default.avif";
         } else {
             moreImages1 = req.files['moreImages'][0].filename;
             moreImages2 = req.files['moreImages'][1].filename;
@@ -84,6 +84,8 @@ const productsService = {
             return match ? match[1] : null;
         }
         const youtubeId = extractYouTubeId(req.body.video);
+
+        let finalPrice = parseFloat(req.body.price) - (parseFloat(req.body.price) * (parseFloat(req.body.discount) / 100));
         
         try{            
             let newProduct = await db.Products.create({
@@ -99,13 +101,13 @@ const productsService = {
                 banner_image: bannerImage,
                 category_id: 1,
                 discount: parseFloat(req.body.discount),
-                final_price: parseFloat(req.body.price) - (parseFloat(req.body.price) * (parseFloat(req.body.discount) / 100)),
+                final_price: finalPrice,
                 format_id: 1,
                 platform_id: 1,
                 stock: parseInt(req.body.stock)
             })
 
-            return res.send("producto creado");
+            return res.redirect("/");
                 
         } catch (error) {
             console.log(error);

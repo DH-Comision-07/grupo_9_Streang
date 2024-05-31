@@ -81,6 +81,11 @@ module.exports = function(sequelize, dataTypes){
         discount: {
             type: dataTypes.INTEGER,
             allowNull: false
+        },
+
+        final_price: {
+            type: dataTypes.INTEGER,
+            allowNull: false
         }
     }
 
