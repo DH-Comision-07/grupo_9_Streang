@@ -32,7 +32,7 @@ const productosController = {
     },
 
     viewEdit: function(req, res){
-        if(req.session.userLogged && req.session.userLogged.rol == "admin"){
+        if(req.session.userLogged && req.session.userLogged.rol_id == 2){
             res.render("editProduct", productsService.viewEdit(req.params.id));
         } else {
             res.send("Upss! No posees permisos para ver esta página.")

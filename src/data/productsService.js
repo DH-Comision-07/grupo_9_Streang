@@ -195,18 +195,19 @@ const productsService = {
 		}
     },
 
-    delete: function(id){
-        let productID = parseInt(id);
-        // let productToDelete = this.products.find(product => product.id == productID);
-        let productIndex = this.products.findIndex(product => product.id == productID);
-        // console.log(productToDelete);
-        if (productIndex !== -1){
-            this.products.splice(productIndex, 1);
-            let jsonProducts = JSON.stringify(this.products);
-            fs.writeFileSync(productsFilePath, jsonProducts);
-        } else {
-            return 'producto no encontrado';
+    delete: async function(id){
+        try {
+            let productToDelete = await db.Products.findByPk(id);
+            if(productToDelete){
+                await productToDelete.destroy();
+            } else {
+                res.send("producto no encontrado");
+            }
+        } catch(error) {
+            return error;
         }
+        
+
     }
 }
 
