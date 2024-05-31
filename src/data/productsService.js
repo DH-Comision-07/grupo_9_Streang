@@ -40,48 +40,44 @@ const productsService = {
         return {result : result};
     },
 
-    create: function(req, res){
-        let maxId = 0;
-        for (const obj of this.products) {
-            if (obj.id && obj.id > maxId) {
-                maxId = obj.id;
-            }
-        }
+    create: async function(req, res){
 
         // Verificacion de imagenes. Si no se cargo una imagen, se define por defecto la imagen "default.avif"
-        let mainImage = {"filename": ""};
-        let moreImages = [{"filename": ""}, {"filename": ""}, {"filename": ""}];
-        let bannerImage = {"filename": ""};
+        let mainImage = "";
+        let moreImages1 = "";
+        let moreImages2 = "";
+        let moreImages3 = "";
+        let bannerImage = "";
 
         if(!req.files['mainImage'] || req.files['mainImage'][0] == undefined || !req.files['mainImage'][0]){
             mainImage.filename = 'default.avif'
         } else {
-            mainImage = req.files['mainImage'][0];
+            mainImage = req.files['mainImage'][0].filename;
         }
 
         if(!req.files['moreImages'] || req.files['moreImages'][0] == undefined){
-            moreImages[0].filename = "default.avif"
-            moreImages[1].filename = "default.avif"
-            moreImages[2].filename = "default.avif";
+            moreImages1.filename = "default.avif"
+            moreImages2.filename = "default.avif"
+            moreImages3.filename = "default.avif";
         } else if (req.files['moreImages'][1] == undefined){
-            moreImages[0] = req.files['moreImages'][0];
-            moreImages[1].filename = "default.avif"
-            moreImages[2].filename = "default.avif";
+            moreImages1 = req.files['moreImages'][0].filename;
+            moreImages2.filename = "default.avif"
+            moreImages3.filename = "default.avif";
         } else if( req.files['moreImages'][2] == undefined){
-            moreImages[0] = req.files['moreImages'][0];
-            moreImages[1] = req.files['moreImages'][1]
-            moreImages[2].filename = "default.avif";
+            moreImages1 = req.files['moreImages'][0].filename;
+            moreImages2 = req.files['moreImages'][1].filename;
+            moreImages3.filename = "default.avif";
         } else {
-            moreImages = req.files['moreImages'];
+            moreImages1 = req.files['moreImages'][0].filename;
+            moreImages2 = req.files['moreImages'][1].filename;
+            moreImages3 = req.files['moreImages'][2].filename;
         }
 
         if(!req.files['bannerImage'] || req.files['bannerImage'][0] == undefined){
             bannerImage.filename = 'default.avif';
         } else {
-            bannerImage = req.files['bannerImage'][0];
+            bannerImage = req.files['bannerImage'][0].filename;
         }
-
-        console.log(mainImage);
         
         function extractYouTubeId(url) {
             const match = url.match(/[?&]v=([^?&]+)/);
@@ -90,34 +86,32 @@ const productsService = {
         const youtubeId = extractYouTubeId(req.body.video);
         
         try{            
-            let newProduct = {
-                id: maxId + 1,
+            let newProduct = await db.Products.create({
                 name: req.body.name,
                 price: parseFloat(req.body.price),
                 video: youtubeId,
                 description: req.body.description,
-                mainImage: mainImage,
-                moreImages: moreImages,
-                bannerImage: bannerImage,
-                category: req.body.category,
+                available: true,
+                main_image: mainImage,
+                more_images_1: moreImages1,
+                more_images_2: moreImages2,
+                more_images_3: moreImages3,
+                banner_image: bannerImage,
+                category_id: 1,
                 discount: parseFloat(req.body.discount),
-                finalPrice : parseFloat(req.body.price) - (parseFloat(req.body.price) * (parseFloat(req.body.discount) / 100)),
-                format: req.body.format,
-                platform: req.body.platform,
+                final_price: parseFloat(req.body.price) - (parseFloat(req.body.price) * (parseFloat(req.body.discount) / 100)),
+                format_id: 1,
+                platform_id: 1,
                 stock: parseInt(req.body.stock)
-            }
+            })
 
-            this.products.push(newProduct);
-            let JSONproducts = JSON.stringify(this.products);
-            fs.writeFileSync(productsFilePath, JSONproducts);
+            return res.send("producto creado");
                 
         } catch (error) {
-            return error;
+            console.log(error);
+            // return error;
         }
-        // db.Product.findAll()
-        //     .then(function(products){
-        //         return res.render("home", {products: products})
-        //     })
+
     },
 
     viewEdit: function(id){

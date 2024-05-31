@@ -33,6 +33,26 @@ module.exports = function(sequelize, dataTypes){
             allowNull: true
         },
 
+        more_images_1: {
+            type: dataTypes.STRING(45),
+            allowNull: true
+        },
+
+        more_images_2: {
+            type: dataTypes.STRING(45),
+            allowNull: true
+        },
+
+        more_images_3: {
+            type: dataTypes.STRING(45),
+            allowNull: true
+        },
+
+        banner_image: {
+            type: dataTypes.STRING(45),
+            allowNull: true
+        },
+
         description: {
             type: dataTypes.TEXT,
             allowNull: false
