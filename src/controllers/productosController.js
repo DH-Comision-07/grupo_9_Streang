@@ -36,7 +36,7 @@ const productosController = {
             res.render("editProduct", productsService.viewEdit(req.params.id));
         } else {
             res.send("Upss! No posees permisos para ver esta página.")
-    }
+        }
     },
 
     edit: function(req, res){        
