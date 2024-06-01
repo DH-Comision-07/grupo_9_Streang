@@ -30,11 +30,17 @@ router.post('/register', upload.single('UserAvatar'), validateRegister, userCont
 //ruta para editar usuario
 router.put('/profile/:id', upload.single('UserAvatar'), userController.editUser)
 
+//ruta para editar usuario de la base de datos
+router.get('/profile/:id', userController.editUserDb)
+
 // ruta para actualizar rol de usuario
 router.put('/admin', userController.adminForm)
 
 // ruta para borrar un usuario
 router.delete('/:id/delete', userController.deleteUser)
+
+// ruta para borrar un usuario de la base de datos
+router.delete('/:id/delete', userController.deleteUserDb)
 
 // router para pagina de login
 router.post('/login', userController.processLogin)

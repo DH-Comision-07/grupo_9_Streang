@@ -62,6 +62,14 @@ const userController = {
         }
     },
 
+    editUserDb: function (req,res) {
+        db.Users.findByPk(req.params.id
+            .then(function(user){
+                res.render('')
+            })
+        )
+    },
+
     deleteUser: (req, res) =>{
         let userIndex = users.findIndex(user => user.id == parseInt(req.params.id));
         if(userIndex !== -1){
@@ -73,6 +81,24 @@ const userController = {
         } else {
             return 'Usuario no encontrado';
         }
+    },
+
+
+    deleteUserDb: function (req, res) {
+        db.Users.findOne({
+            where: {
+                id: req.params.id
+            }
+        }).then(user => {
+            if(user) {
+                db.Users.destroy({
+                    where: {
+                        id: req.params.id
+                    }
+                })
+                res.redirect('/')
+            }
+        })
     },
 
     processLogin : function(req, res){
