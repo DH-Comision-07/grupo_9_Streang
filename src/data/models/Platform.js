@@ -19,6 +19,16 @@ module.exports = function(sequelize, dataTypes){
 
     let Platform = sequelize.define(alias, cols, config);
 
+    // Platform.associate = function(models){
+    //     Platform.belongsToMany(models.Product, {
+    //         through: "products_platforms",
+    //         foreignKey: "platform_id",
+    //         otherKey: "product_id",
+    //         as: "products",
+    //         timestamps: false
+    //     })
+    // }
+
     return Platform;
 
 }
