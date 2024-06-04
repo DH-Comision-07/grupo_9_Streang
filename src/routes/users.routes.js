@@ -42,10 +42,9 @@ router.post('/login', userController.processLogin)
 router.get('/check', userController.check)
 
 // Cerrar sesion
-router.get('/exit', userController.exit)
+router.get('/exit', userController.logOut)
 
 //ver todos los usuarios (solo admin)
 router.get('/', userController.allUsers)
-
 
 module.exports = router;
