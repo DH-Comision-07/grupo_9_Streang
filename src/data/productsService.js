@@ -11,7 +11,7 @@ const productsFilePath = path.dirname(__dirname) + '/data/json-products.json'
 
 const productsService = {
 
-    products : JSON.parse(fs.readFileSync(productsFilePath, 'utf-8')),
+    // products : JSON.parse(fs.readFileSync(productsFilePath, 'utf-8')),
 
     setUser: function(req){
         let user = req.session.userLogged;
@@ -23,16 +23,14 @@ const productsService = {
         return user;
     },
 
-    getAll: function(req){
-        let user = req.session.userLogged;
-        return {
-            products : this.products
-        };
+    getAll: async function(req, res){
+        const products = await db.Products.findAll(); 
+        res.render('allProducts', {products: products});
     },
 
-    getOne: function(id){
-        let product = this.products.find(product => product.id == id);
-        return {product : product};
+    getOne: async function(req, res){
+        let product = await db.Products.findByPk(req.params.id);
+        res.render('productDetail', {product: product});
     },
 
     viewCategory: function(category){
@@ -116,9 +114,12 @@ const productsService = {
 
     },
 
-    viewEdit: function(id){
-        let productToEdit = this.products.find(product => product.id == id);
-        return {product : productToEdit};
+    viewEdit: async function(req, res){
+        // let productToEdit = this.products.find(product => product.id == id);
+        let productToEdit = await db.Products.findByPk(req.params.id);
+        res.render('editProduct', {product: productToEdit});
+
+        // return {product : productToEdit};
     },
 
     viewDiscounts: function(){

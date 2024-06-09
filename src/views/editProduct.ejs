@@ -112,15 +112,15 @@
                                 <h2 id="preview-name" class="product-title"><%= product.name %></h2>
                                 <i class="fa-regular fa-images main-img-mobile"></i>
                                 <!-- <div id="mainImagePreview"></div> -->
-                                <img id="mainImagePreview" src="/images/products/<%= product.mainImage.filename %>">
+                                <img id="mainImagePreview" src="/images/products/<%= product.main_image %>">
                                 <div id="videoPreview" class="video-preview"></div>
                                 <i class="fa-brands fa-youtube"></i>
                             </div>
                             <div class="more-img-container" id="moreImagesContainer">
                                 <!-- <i class="fa-regular fa-images"></i> -->
-                                <img src="/images/products/<%= product.moreImages[0].filename %>">
-                                <img src="/images/products/<%= product.moreImages[1].filename %>">
-                                <img src="/images/products/<%= product.moreImages[2].filename %>">
+                                <img src="/images/products/<%= product.more_images_1 %>">
+                                <img src="/images/products/<%= product.more_images_2 %>">
+                                <img src="/images/products/<%= product.more_images_3 %>">
                                 <!-- <i class="fa-regular fa-images"></i>    -->
                                 <!-- <i class="fa-regular fa-images"></i> -->
                             </div>
@@ -128,7 +128,7 @@
                         
                         <div class="product-description">
                             <!-- <i id="bannerImage" class="fa-regular fa-images product-banner"></i> -->
-                            <img id="bannerImagePreview" src="/images/products/<%= product.bannerImage.filename %>">
+                            <img id="bannerImagePreview" src="/images/products/<%= product.banner_image %>">
                             <div id="banner-preview"></div>
                             <p id="preview-description"><%= product.description %> </p>
                         </div>

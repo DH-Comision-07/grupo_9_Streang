@@ -2,7 +2,7 @@ const productsService = require('../data/productsService');
 const productosController = { 
     viewAll: function (req, res) {
         // console.log(productsService.getAll());
-        res.render('allProducts', productsService.getAll(req));
+        productsService.getAll(req, res);
     },
 
     check: function(req, res){
@@ -10,8 +10,10 @@ const productosController = {
     },
 
     productDetail: function (req, res) {
-        res.render("productDetail", productsService.getOne(req.params.id));
+        productsService.getOne(req, res);
     },
+
+    // Falta viewCategory
     
     viewCategory: function(req, res) {
         let category = req.params.category;
@@ -33,7 +35,7 @@ const productosController = {
 
     viewEdit: function(req, res){
         if(req.session.userLogged && req.session.userLogged.rol_id == 2){
-            res.render("editProduct", productsService.viewEdit(req.params.id));
+            productsService.viewEdit(req, res);
         } else {
             res.send("Upss! No posees permisos para ver esta página.")
         }

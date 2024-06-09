@@ -14,12 +14,12 @@
             <article class="product-container">
                 <div class="main-img-container">
                     <h2 class="product-title"><%= products[i].name %></h2>                    
-                    <a class="linkToProduct" href="/products/detail/<%= products[i].id %>"><img class="mainImage" src="/images/products/<%= products[i].mainImage.filename %>"></a>
+                    <a class="linkToProduct" href="/products/detail/<%= products[i].id %>"><img class="mainImage" src="/images/products/<%= products[i].main_image %>"></a>
                 </div>
                 <div class="more-img-container">
-                    <img class="clickable" data-product-index="<%= i %>" src="/images/products/<%= products[i].moreImages[0].filename %>" alt="game image">
-                    <img class="clickable" data-product-index="<%= i %>" src="/images/products/<%= products[i].moreImages[1].filename %>" alt="game image">
-                    <img class="clickable" data-product-index="<%= i %>" src="/images/products/<%= products[i].moreImages[2].filename %>" alt="game image">
+                    <img class="clickable" data-product-index="<%= i %>" src="/images/products/<%= products[i].more_images_1 %>" alt="game image">
+                    <img class="clickable" data-product-index="<%= i %>" src="/images/products/<%= products[i].more_images_2 %>" alt="game image">
+                    <img class="clickable" data-product-index="<%= i %>" src="/images/products/<%= products[i].more_images_3 %>" alt="game image">
                 </div>
                 <div class="product-description">
                     <p><%= products[i].description %> </p>

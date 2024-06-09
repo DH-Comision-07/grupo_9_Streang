@@ -39,7 +39,7 @@ router.delete('/:id/delete', userController.deleteUser)
 // router para pagina de login
 router.post('/login', userController.processLogin)
 
-router.get('/check', userController.check)
+// router.get('/check', userController.check)
 
 // Cerrar sesion
 router.get('/exit', userController.logOut)

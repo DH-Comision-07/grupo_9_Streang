@@ -25,31 +25,12 @@ const userController = {
 
     deleteUser: (req, res) =>{
         usersService.deleteUser(req, res);
-        // let userIndex = users.findIndex(user => user.id == parseInt(req.params.id));
-        // if(userIndex !== -1){
-        //     users.splice(userIndex, 1);
-        //     let usersJSON = JSON.stringify(users);
-        //     fs.writeFileSync(usersFilePath, usersJSON);
-        //     req.session.userLogged = null;
-        //     res.redirect('/');
-        // } else {
-        //     return 'Usuario no encontrado';
-        // }
     },
 
     processLogin : function(req, res){
 
         usersService.processLogin(req, res);
-    },
-
-    check : function (req, res){
-        if(req.session.userLogged)
-            {
-            res.send('usuario Logueado')
-        }
-        res.send('usuario NO Logueado')        
-        },
-    
+    },    
 
     registerView: function (req, res) {
         res.render('register');
