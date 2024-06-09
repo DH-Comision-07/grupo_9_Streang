@@ -46,7 +46,7 @@
                         placeholder="Descripcion" value="" required><%= product.description %></textarea>
 
                         <select class="category" name="category">
-                            <option value="" selected hidden>Categoria</option>
+                            <option value="<%= product.category_id %>" selected><%= product.category_id %></option>
                             <option value="videogames">Videojuegos</option>
                             <option value="consoles">Consolas</option>
                             <option value="accesories">Accesorios</option>
@@ -135,7 +135,7 @@
                         <div class="price-container">
                             <h4 id="preview-price" class="price">$<%= product.price %></h4>
                             <h4 id="preview-discount" class="discount">%<%= product.discount %></h4>
-                            <h4 class="final-price"><%= product.finalPrice %></h4>
+                            <h4 class="final-price"><%= product.final_price %></h4>
                         </div>
                         <h3 class="add-cart">Agregar al carrito</h3>
                     </article>

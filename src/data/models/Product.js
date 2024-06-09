@@ -59,7 +59,7 @@ module.exports = function(sequelize, dataTypes){
         },
 
         category_id: {
-            type: dataTypes.INTEGER,
+            type: dataTypes.STRING(45),
             allowNull: false
         },
 

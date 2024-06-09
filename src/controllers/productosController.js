@@ -1,8 +1,12 @@
 const productsService = require('../data/productsService');
 const productosController = { 
-    viewAll: function (req, res) {
-        // console.log(productsService.getAll());
-        productsService.getAll(req, res);
+    viewAll: async function (req, res) {
+        try{          
+            let products = await productsService.getAll();  
+            res.render('allProducts', {products: products});
+        } catch(error) {
+            console.log(error);
+        }        
     },
 
     check: function(req, res){
@@ -12,12 +16,10 @@ const productosController = {
     productDetail: function (req, res) {
         productsService.getOne(req, res);
     },
-
-    // Falta viewCategory
     
-    viewCategory: function(req, res) {
-        let category = req.params.category;
-        res.render("search", productsService.viewCategory(category));            
+    viewCategory: async function(req, res) {
+        let category = await productsService.viewCategory(req.params.category);
+        res.render("search", {result: category});            
     },
     
     newProduct: (req, res) => {
@@ -42,8 +44,8 @@ const productosController = {
     },
 
     edit: function(req, res){        
-        productsService.edit(req);
-        res.redirect('/products');        
+        productsService.edit(req, res);
+        res.redirect('/products');
     },
 
     delete: function(req, res){
@@ -51,8 +53,13 @@ const productosController = {
         res.redirect('/products');
     },
 
-    viewDiscounts: function(req, res){
-        res.render('discounts', productsService.viewDiscounts());
+    viewDiscounts: async function(req, res){
+        let products = await productsService.viewDiscounts();
+        res.render('discounts', {products: products});
+    },
+
+    search : function(req, res) {
+        productsService.search(req, res);        
     }
 };
 

@@ -27,10 +27,9 @@
                 <div class="price-container">
                     <h4 class="price">$<%= products[i].price %></h4>
                     <h4 class="discount">%<%= products[i].discount %></h4>
-                    <h4 class="final-price">$<%= products[i].finalPrice %></h4>
+                    <h4 class="final-price">$<%= products[i].final_price %></h4>
                 </div>
                 <h3 class="add-cart">Agregar al carrito</h3>
-                <a class="toEdit-button" href="/products/<%= products[i].id %>/edit">Editar producto</a>
             </article>
             <%}%>
         </section>

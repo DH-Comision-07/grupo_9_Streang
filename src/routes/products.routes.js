@@ -43,10 +43,14 @@ router.post('/', uploadFile, productosController.create);
 
 // FORMULARIO DE EDICIÓN DE PRODUCTO
 router.get('/:id/edit', productosController.viewEdit);
-router.put('/:id', productosController.productDetail); // ACCIÓN DE EDICIÓN
+// router.put('/:id', productosController.productDetail); // ACCIÓN DE EDICIÓN
+router.put('/:id/edit', uploadFile, productosController.edit);
 
 // BORRADO DE PRODUCTO
 router.delete('/:id', productosController.delete);
+
+// Buscar producto
+router.get('/search', productosController.search);
 
 router.get('/check', productosController.check)
 

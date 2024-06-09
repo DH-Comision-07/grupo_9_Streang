@@ -13,7 +13,7 @@ CREATE TABLE IF NOT EXISTS `streang`.`products` (
   more_images_3 VARCHAR(45) NULL,
   banner_image VARCHAR(45) NULL,
   `description` TEXT NOT NULL,
-  `category_id` INT NULL,
+  `category_id` VARCHAR(45) NULL,
   `stock` INT NULL,
   `platform_id` INT NULL,
   `format_id` INT NULL,
