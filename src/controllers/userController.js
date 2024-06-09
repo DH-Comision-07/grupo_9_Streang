@@ -20,59 +20,21 @@ const userController = {
         usersService.createUser(req, res);
     },
     editUser: (req, res) => {
-        let userIndex = users.findIndex(user => user.id == req.params.id);
-        let userToEdit = users.find(user => user.id == req.params.id);
-
-        let hashedPass = bcryptjs.hashSync(req.body.password, 10);
-        let equalPass = bcryptjs.compareSync(req.body.repPassword, hashedPass);
-
-        // validacion de imagen de avatar
-        let avatarImage = "";
-        if (!req.file || req.file == undefined){
-            avatarImage = userToEdit.avatar;
-        } else {
-            console.log(req.file)
-            avatarImage = req.file.filename;
-        }
-        
-        if(equalPass){
-            let userEdited = {
-                id : parseInt(req.params.id),
-                email: req.body.email.toLowerCase(),
-                username: req.body.username.trim(),
-                password: hashedPass.trim(),
-                name: req.body.realName.trim(),
-                surname: req.body.surname.trim(),
-                birthDate: req.body.birthDate,
-                avatar: avatarImage,
-                rol: userToEdit.rol
-            }            
-
-            if(userIndex !== -1){
-                users[userIndex] = userEdited;
-                let usersJSON = JSON.stringify(users);
-                fs.writeFileSync(usersFilePath, usersJSON);
-                req.session.userLogged = userEdited;
-                res.redirect(`/users/profile`);
-            } else {
-                return "User not found."
-            }
-        } else {
-            res.send('Las contraseñas no coinciden.')
-        }
+        usersService.editUser(req, res);
     },
 
     deleteUser: (req, res) =>{
-        let userIndex = users.findIndex(user => user.id == parseInt(req.params.id));
-        if(userIndex !== -1){
-            users.splice(userIndex, 1);
-            let usersJSON = JSON.stringify(users);
-            fs.writeFileSync(usersFilePath, usersJSON);
-            req.session.userLogged = null;
-            res.redirect('/');
-        } else {
-            return 'Usuario no encontrado';
-        }
+        usersService.deleteUser(req, res);
+        // let userIndex = users.findIndex(user => user.id == parseInt(req.params.id));
+        // if(userIndex !== -1){
+        //     users.splice(userIndex, 1);
+        //     let usersJSON = JSON.stringify(users);
+        //     fs.writeFileSync(usersFilePath, usersJSON);
+        //     req.session.userLogged = null;
+        //     res.redirect('/');
+        // } else {
+        //     return 'Usuario no encontrado';
+        // }
     },
 
     processLogin : function(req, res){
@@ -94,22 +56,7 @@ const userController = {
     },
 
     adminForm: function(req, res){
-
-        let userIndex = users.findIndex(user => user.id == req.body.id);
-        let userToEdit = users.find(user => user.id == req.body.id);
-
-        if(req.body.admin == "admin"){
-            userToEdit.rol = "admin";
-            } else {
-            userToEdit.rol = "user";
-        }
-
-        if(userIndex !== -1){
-            users[userIndex] = userToEdit;
-            let usersJSON = JSON.stringify(users);
-            fs.writeFileSync(usersFilePath, usersJSON);
-            res.redirect(`/users/profile`);
-        }
+        usersService.adminForm(req, res);
     },
 
     logOut: function(req, res){

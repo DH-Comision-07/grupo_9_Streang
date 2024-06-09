@@ -199,6 +199,38 @@ button a{
     justify-content:space-between;
 }
 
+.confirm-container{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin:auto;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    top:-50px;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.confirm-delete{
+    background-color: white;
+    padding: 25px;
+    border: none;
+    border-radius:5px ;
+}
+
+.confirm-buttons{
+    display: flex;
+}
+
+.show{
+    opacity: 1;
+    pointer-events: auto;
+}
+
 /* EDIT FORM DESKTOP */
 .edit-container, .edit-container-users{
     width: 100%;

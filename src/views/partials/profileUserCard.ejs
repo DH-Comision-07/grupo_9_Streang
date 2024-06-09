@@ -19,9 +19,21 @@
     </div>
     
     <div class="botones">
-        <form id="edit-form">
-        </form>
+        <!-- <form id="edit-form">
+        </form> -->
         <button id="edit-button-form" type="button" class="edit-button">Editar</button>
         <button type="button" class="edit-button"><a href="/users/exit">Cerrar sesión</a></button>
-        <button form="edit-form" class="delete-button" formmethod="post" formaction="/users/<%= user.id %>/delete?_method=DELETE" >Eliminar Cuenta</button>
-    </div>          
+        <button id="delete-button" class="delete-button" >Eliminar Cuenta</button>
+        
+    </div>
+    <div class="confirm-container" id="confirm-container">
+        <div class="confirm-delete">
+            <p>¿Estás seguro de querer eliminar su usuario?</p>
+            <div class="confirm-buttons">
+                <form id="edit-form">
+                </form>
+                <button form="edit-form" class="delete-button" formmethod="post" formaction="/users/<%= user.id %>/delete?_method=DELETE" id="delete-button" data-user-id="<%= user.id %>" type="submit">Eliminar usuario</button>
+                <button id="cancel-button" class="submit-button">Cancelar</button>
+            </div>                
+        </div>
+    </div>
