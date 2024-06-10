@@ -11,7 +11,7 @@
     </div>
     <div class="header-mid">
         <div class="search-bar-container">
-            <form action="/search" method="GET">
+            <form action="/products/search" method="GET">
                 <input name="query_search" class="search-bar" type="text" placeholder="Buscar...">
                 <i class="fa-solid fa-magnifying-glass"></i>
             </form>            
@@ -34,7 +34,7 @@
                     </li>
                 </div>
                 <li><a class="nav-link" href="/products/discounts">Promociones</a></li>
-                <%if(user && user.rol == "admin"){%>
+                <%if(user && user.rol_id == 2){%>
                 <li><a class="nav-link" href="/products/create">Vender</a></li>
                 <%}%>
                 <li><a class="nav-link" href="/users/register">Registrarse</a></li>

@@ -14,7 +14,7 @@
                 <div class="main-img-container">
                     <h2 class="product-title"><%= product.name%></h2>
                     <%if (product.video == null) {%>
-                    <img class="mainImage" src="/images/products/<%=product.mainImage.filename %>">
+                    <img class="mainImage" src="/images/products/<%=product.main_image %>">
                     <%}else{%>
                     <div id="player">
                         <p id="video"><%=product.video%></p>
@@ -23,20 +23,20 @@
                     <%}%>
                 </div>
                 <div class="more-img-container">
-                    <img class="clickable" data-product-index="<%= i %>" src="/images/products/<%=product.moreImages[0].filename%>" alt="game image">
-                    <img class="clickable" data-product-index="<%= i %>" src="/images/products/<%=product.moreImages[1].filename%>" alt="game image">
-                    <img class="clickable" data-product-index="<%= i %>" src="/images/products/<%=product.moreImages[2].filename%>" alt="game image">
+                    <img class="clickable" data-product-index="1" src="/images/products/<%=product.more_images_1%>" alt="game image">
+                    <img class="clickable" data-product-index="1" src="/images/products/<%=product.more_images_2%>" alt="game image">
+                    <img class="clickable" data-product-index="1" src="/images/products/<%=product.more_images_3%>" alt="game image">
                 </div>
             </div>
             
             <div class="product-description">
-                <img src="/images/products/<%=product.bannerImage.filename %>" alt="cuphead title image">
+                <img src="/images/products/<%=product.banner_image %>" alt="banner image">
                 <p> <%=product.description%> </p>
             </div>
             <div class="price-container">
                 <h4 class="price">$<%=product.price%></h4>
                 <h4 class="discount">%<%=product.discount%> DTO</h4>
-                <h4 class="final-price"><%=product.finalPrice%></h4>
+                <h4 class="final-price"><%=product.final_price%></h4>
             </div>
             <h3 class="add-cart">Agregar al carrito</h3>
         </article>
