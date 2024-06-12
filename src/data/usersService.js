@@ -25,7 +25,15 @@ const usersService = {
             }});
 
             if(userExists != null){
-                res.send("El mail ingresado ya se encuentra registrado")
+                // res.send("El mail ingresado ya se encuentra registrado")
+                return res.render('register', {
+                    errors: {
+                        email: {
+                            msg: "Ese email ya está registrado"
+                        }
+                    },
+                    old: req.body
+                })
             }
           
             // verificar si ambas pass del registro son iguales
@@ -90,7 +98,14 @@ const usersService = {
         });
 
         if(userToLogin == null){
-            res.send('Usuario no encontrado')
+            // res.send('Usuario no encontrado')
+            return res.render('login', {
+                errors: {
+                    email: {
+                        msg: "Usuario no encontrado"
+                    }
+                }
+            })
         }
 
         if(bcryptjs.compareSync(req.body.password, userToLogin.password)){
@@ -100,7 +115,14 @@ const usersService = {
             res.redirect('/users/profile')
             
         } else {
-            res.send("Credenciales invalidas");
+            // res.send("Credenciales invalidas");
+            return res.render('login', {
+                errors: {
+                    email: {
+                        msg: "Credenciales inválidas"
+                    }
+                }
+            })
         }
     },
 
