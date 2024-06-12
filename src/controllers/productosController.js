@@ -1,4 +1,5 @@
 const productsService = require('../data/productsService');
+const { validationResult } = require('express-validator')
 const productosController = { 
     viewAll: function (req, res) {
         // console.log(productsService.getAll());
@@ -51,6 +52,21 @@ const productosController = {
 
     viewDiscounts: function(req, res){
         res.render('discounts', productsService.viewDiscounts());
+    },
+
+    productValidation: function(req, res){
+        let resultValidation = validationResult(req);
+
+        if(resultValidation.errors.length < 0){
+            productosController.create({
+
+            })
+            .then(function(){
+                res.render('/')
+            })
+        }else{
+            return res.render('create', {errors: resultValidation.mapped})
+        }
     }
 };
 

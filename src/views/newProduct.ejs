@@ -11,6 +11,11 @@
         <%-include('partials/header.ejs')%>
         <main>
 
+            <% for( let oneError in errors) { %>
+                <p><%= errors[oneError].msg</p>
+            <% } %>
+
+
             <div class="main-boxes-container">
                 <div class="form-box">
                     <h2>Nuevo producto</h2>

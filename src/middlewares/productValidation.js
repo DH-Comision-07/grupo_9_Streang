@@ -10,14 +10,14 @@ const validateProduct = [
     check('name').notEmpty()
     .withMessage('Inserte el nombre del producto'),
 
-    check('name').isLength({min: 3})
-    .withMessage('El nombre del producto tiene que tener un minimo de 3 caracteres'),
+    check('name').isLength({min: 5})
+    .withMessage('El nombre del producto tiene que tener un minimo de 5 caracteres'),
 
     check('description').notEmpty()
     .withMessage('Descripcion requerida'),
 
-    check('descripcion').isLength({min: 13})
-    .withMessage('La descripcion del producto tiene que tener un minimo de 13 caracteres'),
+    check('descripcion').isLength({min: 20})
+    .withMessage('La descripcion del producto tiene que tener un minimo de 20 caracteres'),
     
     check('price').notEmpty()
     .withMessage('Inserte precio para el producto'),
