@@ -9,7 +9,7 @@ module.exports = function(sequelize, dataTypes) {
         },
         date: {
             type: dataTypes.DATE,
-            allowNull: false,
+            allowNull: false
         },
         buyscol: {
             type: dataTypes.STRING(45),
@@ -46,13 +46,13 @@ module.exports = function(sequelize, dataTypes) {
             timestamps: false
         })
 
-        Buy.belongsTo(models.User, {
-            foreignKey: "user_id",
-            as: "user"
-        })
-
-    }*/
-
-
-    return Buy; 
+    //     Buy.belongsToMany(models.Product, {
+    //         as: "compras",
+    //         through: "products_buys",
+    //         foreignKey: "user_id",
+    //         otherKey: "product_id",
+    //         timestamps: false
+    //     })
+    // }*/
+    return Buy;
 }
