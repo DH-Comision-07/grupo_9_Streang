@@ -11,11 +11,6 @@
         <%-include('partials/header.ejs')%>
         <main>
 
-            <% for( let oneError in errors) { %>
-                <p><%= errors[oneError].msg</p>
-            <% } %>
-
-
             <div class="main-boxes-container">
                 <div class="form-box">
                     <h2>Nuevo producto</h2>
@@ -25,16 +20,36 @@
                             <input id="mainImageInput" class="product-img" type="file" name="mainImage" accept=".jpg, .jpeg, .png" placeholder="">
                             <p id="mainImageName"></p>
                         </label>
+                        
+                        <% if (locals.errors && errors.name{ %>
+                            <div class="warning-text">
+                                <%= errors.name.msg %>
+                                </div>
+                       <% }) %>
+
+                        
 
                         <label id="moreImagesLabel" class="product-img-label" for="moreImageInput">Más imágenes<i class="fa-regular fa-images img-form"></i>
                             <input id="moreImageInput" class="product-img" type="file" name="moreImages" accept=".jpg, .jpeg, .png, .gif" placeholder="" multiple>
                             <p id="moreImagesNames"></p>
                         </label>
 
+                        <% if (locals.errors && errors.moreImages{ %>
+                            <div class="warning-text">
+                                <%= errors.moreImages.msg %>
+                                </div>
+                       <% }) %>
+
                         <label id="bannerImageLabel" class="product-img-label" for="bannerImageInput">Imagen del banner<i class="fa-regular fa-images img-form"></i>
                             <input id="bannerImageInput" class="product-img" type="file" name="bannerImage" accept=".jpg, .jpeg, .png" placeholder="">
                             <p id="bannerImageName"></p>
                         </label>
+
+                        <% if (locals.errors && errors.bannerImage{ %>
+                            <div class="warning-text">
+                                <%= errors.bannerImage.msg %>
+                                </div>
+                       <% }) %>
 
                         <label class="video-label" for="">
                             <input id="videoInput" type="text" name="video" placeholder="Video de Youtube">
@@ -44,12 +59,30 @@
                             </div>                            
                         </label>
 
+                        <% if (locals.errors && errors.video{ %>
+                            <div class="warning-text">
+                                <%= errors.video.msg %>
+                                </div>
+                       <% }) %>
+
                         <label for="">
                             <input type="text" name="name" placeholder="Nombre del producto*" required>
                         </label>
 
+                        <% if (locals.errors && errors.name{ %>
+                            <div class="warning-text">
+                                <%= errors.name.msg %>
+                                </div>
+                       <% }) %>
+
                         <textarea class="description-area" name="description" cols="30" rows="10" autocapitalize="on"
                         placeholder="Descripcion*" required></textarea>
+
+                        <% if (locals.errors && errors.description{ %>
+                            <div class="warning-text">
+                                <%= errors.description.msg %>
+                                </div>
+                       <% }) %>
 
                         <select class="category" name="category">
                             <option value="" selected hidden>Categoria</option>
@@ -60,6 +93,12 @@
                             <option value="PC">Computacion</option>
                             <option value="other">Otros</option>
                         </select>
+
+                        <% if (locals.errors && errors.category{ %>
+                            <div class="warning-text">
+                                <%= errors.category.msg %>
+                                </div>
+                       <% }) %>
 
                         <div class="checkbox-container">
 
