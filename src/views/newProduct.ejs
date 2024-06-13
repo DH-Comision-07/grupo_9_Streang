@@ -131,6 +131,12 @@
                             <input type="text" name="price" placeholder="Precio*" required>
                         </label>
 
+                        <% if (locals.errors && errors.price{ %>
+                            <div class="warning-text">
+                                <%= errors.price.msg %>
+                                </div>
+                       <% }) %>
+
                         <label for="">
                             <input type="text" name="discount" placeholder="Descuento">
                         </label>
@@ -141,9 +147,21 @@
                             <option value="digital">Digital</option>
                         </select>
 
+                        <% if (locals.errors && errors.format{ %>
+                            <div class="warning-text">
+                                <%= errors.format.msg %>
+                                </div>
+                       <% }) %>
+
                         <label for="">
                             <input type="number" name="stock" placeholder="Stock">
                         </label>
+
+                        <% if (locals.errors && errors.stock{ %>
+                            <div class="warning-text">
+                                <%= errors.stock.msg %>
+                                </div>
+                       <% }) %>
 
                         <button class="submit-button" type="submit">Crear</button>
 
