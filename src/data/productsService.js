@@ -12,6 +12,11 @@ const productsFilePath = path.dirname(__dirname) + '/data/json-products.json'
 const productsService = {
 
     products : JSON.parse(fs.readFileSync(productsFilePath, 'utf-8')),
+    
+    // products: function(){
+    //     db.Products.findAll();
+    //     // res.render('allProducts', {products: products});
+    // },
 
     setUser: function(req){
         let user = req.session.userLogged;
@@ -23,30 +28,62 @@ const productsService = {
         return user;
     },
 
-    getAll: function(req){
-        let user = req.session.userLogged;
+    getAll: function(res, req){
+        db.Products.findAll();
         return {
-            products : this.products
+            products: this.products
         };
     },
 
-    getOne: function(id){
-        let product = this.products.find(product => product.id == id);
-        return {product : product};
+    getOne: function(res, req){
+        // let product = this.products.find(product => product.id == id);
+        // return {product : product};
+        let product = db.Products.findByPk({where:{
+            name: product.id
+        }})
+        res.render('allProducts', {product: product});
     },
 
-    viewCategory: function(category){
+    viewCategory: async function(res, req){
         let result = this.products.filter(product => product.category == category);
         return {result : result};
+        // let categories = db.Categories.findAll();
+        // let result = await db.Product.findByPk(categories.id)
+        // res.render('allProducts', {result: result});
     },
 
-    create: function(req, res){
-        let maxId = 0;
-        for (const obj of this.products) {
-            if (obj.id && obj.id > maxId) {
-                maxId = obj.id;
-            }
+    create: async function(req, res){
+        let resultValidation = validationResult(req);
+    
+        if(resultValidation.errors.length > 0){
+            return res.render('newProduct', {
+                errors: resultValidation.mapped(),
+                old: req.body
+            });
         }
+
+        let productExists = await db.Products.findOne({where:{
+            name: req.body.name
+        }});
+
+        if(productExists != null){
+            // res.send("Ese nombre ya está registrado")
+            return res.render('newProduct', {
+                errors: {
+                    name: {
+                        msg: "Ese nombre ya está registrado"
+                    }
+                },
+                old: req.body
+            })
+        }
+
+        // let maxId = 0;
+        // for (const obj of this.products) {
+        //     if (obj.id && obj.id > maxId) {
+        //         maxId = obj.id;
+        //     }
+        // }
 
         // Verificacion de imagenes. Si no se cargo una imagen, se define por defecto la imagen "default.avif"
         let mainImage = {"filename": ""};
@@ -110,6 +147,16 @@ const productsService = {
             this.products.push(newProduct);
             let JSONproducts = JSON.stringify(this.products);
             fs.writeFileSync(productsFilePath, JSONproducts);
+
+            if(req.body.name == null){
+                return res.render("newProduct", {
+                    errors: {
+                        name: {
+                            msg: "El nombre de producto es obligatorio"
+                        }
+                    }
+                })
+            }
                 
         } catch (error) {
             return error;

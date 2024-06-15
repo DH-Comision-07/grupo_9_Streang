@@ -41,6 +41,9 @@
 
                         <label for="">
                             <input type="text" name="name" placeholder="Nombre del producto*" required>
+                            <% if(locals.errors && errors.name){ %>
+                                <p class="form-error-msg"><%= errors.name.msg %></p>
+                            <% } %>
                         </label>
 
                         <textarea class="description-area" name="description" cols="30" rows="10" autocapitalize="on"
