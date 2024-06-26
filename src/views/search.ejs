@@ -19,12 +19,12 @@
             <article class="product-container">
                 <div class="main-img-container">
                     <h2 class="product-title"><%= result[i].name %></h2>                    
-                    <a class="linkToProduct" href="/products/detail/<%= result[i].id %>"><img class="mainImage" src="/images/products/<%= result[i].mainImage.filename %>"></a>
+                    <a class="linkToProduct" href="/products/detail/<%= result[i].id %>"><img class="mainImage" src="/images/products/<%= result[i].main_image %>"></a>
                 </div>
                 <div class="more-img-container">
-                    <img class="clickable" data-product-index="<%= i %>" src="/images/products/<%= result[i].moreImages[0].filename %>" alt="game image">
-                    <img class="clickable" data-product-index="<%= i %>" src="/images/products/<%= result[i].moreImages[1].filename %>" alt="game image">
-                    <img class="clickable" data-product-index="<%= i %>" src="/images/products/<%= result[i].moreImages[2].filename %>" alt="game image">
+                    <img class="clickable" data-product-index="<%= i %>" src="/images/products/<%= result[i].more_images_1 %>" alt="game image">
+                    <img class="clickable" data-product-index="<%= i %>" src="/images/products/<%= result[i].more_images_2 %>" alt="game image">
+                    <img class="clickable" data-product-index="<%= i %>" src="/images/products/<%= result[i].more_images_3 %>" alt="game image">
                 </div>
                 <div class="product-description">
                     <p><%= result[i].description %> </p>
@@ -32,7 +32,7 @@
                 <div class="price-container">
                     <h4 class="price">$<%= result[i].price %></h4>
                     <h4 class="discount">%<%= result[i].discount %></h4>
-                    <h4 class="final-price">$<%= result[i].finalPrice %></h4>
+                    <h4 class="final-price">$<%= result[i].final_price %></h4>
                 </div>
                 <h3 class="add-cart">Agregar al carrito</h3>
             </article>
