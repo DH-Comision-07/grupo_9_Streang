@@ -36,6 +36,7 @@ module.exports = function(sequelize, dataTypes) {
 
     let Buy = sequelize.define(alias, cols, config);
 
+
     /*Buy.associate = function(models){
 
         Buy.belongsToMany(models.Product, {
@@ -55,4 +56,24 @@ module.exports = function(sequelize, dataTypes) {
     //     })
     // }*/
     return Buy;
+
+    // Buy.associate = function(models){
+
+    //     Buy.belongsToMany(models.Product, {
+    //         as: 'products',
+    //         through: 'products_buys',
+    //         foreignKey: "buy_id",
+    //         otherkey: "product_id",
+    //         timestamps: false
+    //     })
+
+    //     Buy.belongsTo(models.User, {
+    //         foreignKey: "user_id",
+    //         as: "user"
+    //     })
+
+    // }
+
+
+    return Buy; 
 }

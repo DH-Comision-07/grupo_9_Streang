@@ -7,7 +7,7 @@ const mainController = require('../controllers/mainController.js')
 router.get('/', mainController.paginaPrincipal);
 
 //route para buscar un producto
-router.get('/search', mainController.search);
+// router.get('/search', mainController.search);
 
 router.get('/login', mainController.paginaLogin);
 
