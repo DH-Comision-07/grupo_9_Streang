@@ -9,7 +9,7 @@ module.exports = function(sequelize, dataTypes) {
         },
         date: {
             type: dataTypes.DATE,
-            allowNull: false,
+            allowNull: false
         },
         buyscol: {
             type: dataTypes.STRING(45),
@@ -35,6 +35,27 @@ module.exports = function(sequelize, dataTypes) {
     }
 
     let Buy = sequelize.define(alias, cols, config);
+
+
+    /*Buy.associate = function(models){
+
+        Buy.belongsToMany(models.Product, {
+            as: 'products',
+            through: 'products_buys',
+            foreignKey: "buy_id",
+            otherkey: "product_id",
+            timestamps: false
+        })
+
+    //     Buy.belongsToMany(models.Product, {
+    //         as: "compras",
+    //         through: "products_buys",
+    //         foreignKey: "user_id",
+    //         otherKey: "product_id",
+    //         timestamps: false
+    //     })
+    // }*/
+    return Buy;
 
     // Buy.associate = function(models){
 

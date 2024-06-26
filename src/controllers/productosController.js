@@ -1,4 +1,5 @@
 const productsService = require('../data/productsService');
+const { validationResult } = require('express-validator')
 const productosController = { 
     viewAll: async function (req, res) {
         try{          
@@ -52,6 +53,20 @@ const productosController = {
         productsService.delete(req.params.id);
         res.redirect('/products');
     },
+
+    productValidation: function(req, res){
+        let resultValidation = validationResult(req);
+
+        if(resultValidation.errors.length < 0){
+            productosController.create({
+
+            })
+            .then(function(){
+                res.render('/')
+            })
+        }else{
+            return res.render('create', {errors: resultValidation.mapped})
+        }
 
     viewDiscounts: async function(req, res){
         let products = await productsService.viewDiscounts();

@@ -11,13 +11,19 @@
 
     <h1 class="login">Login</h1>
     <div class="logincotainer">
-      <div class="formcontainer">
+      <div class="control-formulario">
         <form action="/users/login" method="post" class="login-form">
         
         <input name="email" type="email" placeholder="E-mail" class="email"/>
-        <br>
+        <%if(locals.errors && errors.email){%>
+          <p class="form-error-msg"><%= errors.email.msg %></p>
+        <%}%>
+
         <input name="password" type="password" placeholder="Contraseña" class="password" />
-        <br>
+        <%if(locals.errors && errors.password){%>
+          <p class="form-error-msg"><%= errors.password.msg %></p>
+        <%}%>
+        
         <button type="submit" class="iniciar-sesion">Iniciar sesion</button>
         <br>
         <!-- </form> -->
