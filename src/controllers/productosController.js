@@ -64,9 +64,10 @@ const productosController = {
             .then(function(){
                 res.render('/')
             })
-        }else{
+        } else{
             return res.render('create', {errors: resultValidation.mapped})
         }
+    },
 
     viewDiscounts: async function(req, res){
         let products = await productsService.viewDiscounts();
