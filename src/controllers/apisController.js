@@ -110,7 +110,6 @@ const controller = {
       );
 
       let updatedUser = await db.Users.findByPk(req.params.id);
-      console.log(updatedUser);
 
       const response = {
         meta: {
@@ -127,5 +126,159 @@ const controller = {
   },
 
   // APIs de productos
+  listProducts: async function (req, res) {
+    try {
+      await db.Products.findAll().then((products) => {
+        const response = {
+          meta: {
+            status: 200,
+            total: products.length,
+            url: "/api/products",
+          },
+          data: products,
+        };
+        return res.json(response);
+      });
+    } catch (error) {
+      return res.status(500).json(error);
+    }
+  },
+
+  productDetail: async function (req, res) {
+    try {
+      let product = await db.Products.findByPk(req.params.id);
+      if (!product || product == null) {
+        return res.status(404).json({ error: "No se encontro el producto" });
+      }
+      let response = {
+        meta: {
+          status: 200,
+          url: "/api/products/:id",
+        },
+        data: product,
+      };
+      return res.json(response);
+    } catch (error) {
+      return res.status(500).json(error);
+    }
+  },
+
+  createProduct: async function (req, res) {
+    try {
+      function extractYouTubeId(url) {
+        const match = url.match(/[?&]v=([^?&]+)/);
+        return match ? match[1] : null;
+      }
+      const youtubeId = extractYouTubeId(req.body.video);
+
+      req.body.video = youtubeId;
+      req.body.final_price =
+        req.body.price - (req.body.price * req.body.discount) / 100;
+
+      await db.Products.create({
+        main_image: "default.avif",
+        more_images_1: "default.avif",
+        more_images_2: "default.avif",
+        more_images_3: "default.avif",
+        banner_image: "default.avif",
+        platform_id: 1,
+        format_id: 1,
+        ...req.body,
+      }).then((product) => {
+        const response = {
+          meta: {
+            status: 200,
+            url: "/api/products/" + product.id,
+          },
+          message: "product created",
+          data: product,
+        };
+        return res.json(response);
+      });
+    } catch (error) {
+      console.log(error);
+      return res.json({ error: "No se pudo crear el producto" });
+    }
+  },
+
+  deleteProduct: async function (req, res) {
+    let productToEdit = await db.Products.findByPk(req.params.id);
+    try {
+      if (!productToEdit) {
+        return res.json({ error: "No se encontro el producto" });
+      }
+
+      await db.Products.destroy({
+        where: {
+          id: req.params.id,
+        },
+      }).then((product) => {
+        const response = {
+          meta: {
+            status: 200,
+            url: "/api/products/" + product.id,
+          },
+          message: "product deleted",
+        };
+        return res.json(response);
+      });
+    } catch (error) {
+      console.log(error);
+      return res.json({ error: "No se pudo eliminar el producto" });
+    }
+  },
+
+  updateProduct: async function (req, res) {
+    let productToUpdate = await db.Products.findByPk(req.params.id);
+
+    try {
+      if (!productToUpdate) {
+        return res.json({ error: "No se encontro el producto" });
+      }
+
+      function extractYouTubeId(url) {
+        const match = url.match(/[?&]v=([^?&]+)/);
+        return match ? match[1] : null;
+      }
+      const youtubeId = extractYouTubeId(req.body.video);
+
+      req.body.video = youtubeId;
+      req.body.final_price =
+        req.body.price - (req.body.price * req.body.discount) / 100;
+
+      await db.Products.update(
+        {
+          main_image: productToUpdate.main_image,
+          more_images_1: productToUpdate.more_images_1,
+          more_images_2: productToUpdate.more_images_2,
+          more_images_3: productToUpdate.more_images_3,
+          banner_image: productToUpdate.banner_image,
+          platform_id: 1,
+          format_id: 1,
+          ...req.body,
+        },
+        {
+          where: {
+            id: req.params.id,
+          },
+        }
+      );
+
+      let productUpdated = await db.Products.findByPk(req.params.id);
+      let response = {
+        meta: {
+          status: 200,
+          url: "/api/products/" + productUpdated.id,
+        },
+        message: "product updated",
+        data: productUpdated,
+      };
+      return res.json(response);
+    } catch (error) {
+      console.log(error);
+      return res.json({ error: "No se pudo actualizar el producto" });
+    }
+  }
 };
+
 module.exports = controller;
