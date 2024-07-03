@@ -1,9 +1,10 @@
+// const productsService = require('../data/productsService');
 const productsService = require('../data/productsService');
 const { validationResult } = require('express-validator')
 const productosController = { 
     viewAll: async function (req, res) {
         try{          
-            let products = await productsService.getAll();  
+            let products = await productsService.getAll();
             res.render('allProducts', {products: products});
         } catch(error) {
             console.log(error);

@@ -1,11 +1,6 @@
-const products = require ('../data/json-products.json');
 const path = require('path');
 const fs = require('fs');
-const productosController = require('../controllers/productosController');
 const productsService = require('../data/productsService');
-
-const contactFilePath = path.join(__dirname, '../data/contact.json');
-const messages = JSON.parse(fs.readFileSync(contactFilePath, 'utf-8'));
 
 const mainController = {
     paginaPrincipal: async (req, res) => {

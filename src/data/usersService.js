@@ -3,10 +3,6 @@ const fs = require('fs');
 const db = require('./models')
 const {validationResult} = require('express-validator');
 const bcryptjs = require('bcryptjs');
-
-const productsFilePath = path.join(__dirname, '../data/json-products.json');
-const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
-
 const usersService = {
     createUser: async function (req, res){
         try{       
@@ -141,13 +137,14 @@ const usersService = {
             if(req.session.userLogged && req.session.userLogged.rol_id == 2){
                 let user = await db.Users.findByPk(req.session.userLogged.id);
                 let users = await db.Users.findAll();
-                console.log(req.session.userLogged);
+                let products = await db.Products.findAll();
+                // console.log(req.session.userLogged);
                 res.render('adminProfile', {user: user, products: products, users:users})
             } else if(req.session.userLogged && req.session.userLogged.rol_id == 1) {
                 let user = await db.Users.findByPk(req.session.userLogged.id);
                 res.render('userProfile', {user})
             } else {
-                res.send('no se encontro sesion logueada')
+                res.redirect('/login')
             }            
 
         } catch(error) {
