@@ -22,20 +22,6 @@ const mainController = {
 
     contact: (req, res) => {
         res.render("contact");
-    },
-
-    sendMessage: (req, res) => {
-        let newMessage = {
-            date : new Date(),
-            name: req.body.name,
-            email: req.body.email,
-            subject: req.body.subject,
-            message: req.body.message
-        }
-        messages.push(newMessage);
-        let messagesJSON = JSON.stringify(messages);
-        fs.writeFileSync(contactFilePath, messagesJSON);
-        res.redirect('/');
     }
 }
 
