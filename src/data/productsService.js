@@ -36,7 +36,10 @@ const productsService = {
 
     getOne: async function(req, res){
         let product = await db.Products.findByPk(req.params.id);
-        res.render('productDetail', {product: product});
+        let comments = await db.Comments.findAll({where: {product_id: req.params.id}});
+        let products = await db.Products.findAll({where: {category : product.category}});
+        console.log(comments);
+        res.render('productDetail', {product: product, comments: comments, products});
     },
 
     viewCategory: async function(category){
@@ -124,8 +127,6 @@ const productsService = {
         // let productToEdit = this.products.find(product => product.id == id);
         let productToEdit = await db.Products.findByPk(req.params.id);
         res.render('editProduct', {product: productToEdit});
-
-        // return {product : productToEdit};
     },
 
     viewDiscounts: async function(){

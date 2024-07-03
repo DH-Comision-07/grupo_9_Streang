@@ -1,171 +1,192 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <%-include('partials/head.ejs')%>
-    <link href="/css/mainProduct.css" rel="stylesheet"/>
+    <link href="/css/mainProduct.css" rel="stylesheet" />
     <title>Producto</title>
-</head>
-<body>
-        <!-- Header -->
-        <%-include('partials/header.ejs')%>
+  </head>
+  <body>
+    <!-- Header -->
+    <%-include('partials/header.ejs')%>
     <main>
-        <article class="product-container">
-            <div class="product-imgs">
-                <div class="main-img-container">
-                    <h2 class="product-title"><%= product.name%></h2>
-                    <%if (product.video == null) {%>
-                    <img class="mainImage" src="/images/products/<%=product.main_image %>">
-                    <%}else{%>
-                    <div id="player">
-                        <p id="video"><%=product.video%></p>
-                        <!-- <P id="id-video"><%=product.video%></P> -->
-                    </div>
-                    <%}%>
-                </div>
-                <div class="more-img-container">
-                    <img class="clickable" data-product-index="1" src="/images/products/<%=product.more_images_1%>" alt="game image">
-                    <img class="clickable" data-product-index="1" src="/images/products/<%=product.more_images_2%>" alt="game image">
-                    <img class="clickable" data-product-index="1" src="/images/products/<%=product.more_images_3%>" alt="game image">
-                </div>
+      <article class="product-container">
+        <div class="product-imgs">
+          <div class="main-img-container">
+            <h2 class="product-title"><%= product.name%></h2>
+            <%if (product.video == null) {%>
+            <img
+              class="mainImage"
+              src="/images/products/<%=product.main_image %>"
+            />
+            <%}else{%>
+            <div id="player">
+              <p id="video"><%=product.video%></p>
+              <!-- <P id="id-video"><%=product.video%></P> -->
             </div>
-            
-            <div class="product-description">
-                <img src="/images/products/<%=product.banner_image %>" alt="banner image">
-                <p> <%=product.description%> </p>
-            </div>
-            <div class="price-container">
-                <h4 class="price">$<%=product.price%></h4>
-                <h4 class="discount">%<%=product.discount%> DTO</h4>
-                <h4 class="final-price"><%=product.final_price%></h4>
-            </div>
-            <h3 class="add-cart">Agregar al carrito</h3>
-        </article>
+            <%}%>
+          </div>
+          <div class="more-img-container">
+            <img
+              class="clickable"
+              data-product-index="1"
+              src="/images/products/<%=product.more_images_1%>"
+              alt="game image"
+            />
+            <img
+              class="clickable"
+              data-product-index="1"
+              src="/images/products/<%=product.more_images_2%>"
+              alt="game image"
+            />
+            <img
+              class="clickable"
+              data-product-index="1"
+              src="/images/products/<%=product.more_images_3%>"
+              alt="game image"
+            />
+          </div>
+        </div>
 
-        <section class="comentaries">
-            <h3>Dejá tu comentario</h3>
-            <div class="form-container">
-                <form action="#" method="POST">                    
-                    <input type="text" placeholder="Nombre" name="user-name">
-                    <textarea maxlength="1500" placeholder="Escribe aquí tu comentario" rows="10"></textarea>
-                    <div class="buttons-container">
-                        <button class="sendButton">Aceptar</button>
-                        <button class="cancelButton" type="reset">Borrar</button>
-                    </div>
-                </form>
+        <div class="product-description">
+          <img
+            src="/images/products/<%=product.banner_image %>"
+            alt="banner image"
+          />
+          <p><%=product.description%></p>
+        </div>
+        <div class="price-container">
+          <h4 class="price">$<%=product.price%></h4>
+          <h4 class="discount">%<%=product.discount%> DTO</h4>
+          <h4 class="final-price"><%=product.final_price%></h4>
+        </div>
+        <h3 class="add-cart">Agregar al carrito</h3>
+      </article>
+
+      <section class="comentaries">
+        <%if(locals.user){%>
+        <h3>Dejá tu comentario</h3>
+        <div class="form-container">
+          <form action="/comment" method="POST">
+            <input type="text" placeholder="Nombre" name="name" />
+            <input
+              type="number"
+              name="product_id"
+              value="<%=product.id%>"
+              style="display: none"
+            />
+            <textarea
+              name="comment"
+              maxlength="1500"
+              placeholder="Escribe aquí tu comentario"
+              rows="10"
+            ></textarea>
+            <div class="buttons-container">
+              <button class="sendButton">Aceptar</button>
+              <button class="cancelButton" type="reset">Borrar</button>
             </div>
-            <h3>Opiniones de usuarios</h3>
-            <article class="user-comentary">
-                <div class="info-user">
-                    <div class="profile-img-container">
-                        <!-- <p> </p> -->
-                    </div>
-                    <div class="user-and-date-container">
-                        <p class="userName">Usuario01</p>
-                        <p class="date">15 de Julio 2023</p>
-                    </div>
-                </div>
-                <p class="comentary">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-                    Fusce risus velit, pulvinar vitae vulputate laoreet, 
-                    imperdiet a odio. Praesent mollis orci et quam eleifend fringilla. 
-                    Vivamus at euismod mi, non ultricies sem. 
-                    Suspendisse ac risus non lacus tristique finibus.
-                </p>
-            </article>
-            <article class="user-comentary">
-                <div class="info-user">
-                    <div class="profile-img-container">
-                    </div>
-                    <div class="user-and-date-container">
-                        <p class="userName">Usuario02</p>
-                        <p class="date">7 de Agosto 2023</p>
-                    </div>
-                </div>
-                <p class="comentary">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-                    Fusce risus velit, pulvinar vitae vulputate laoreet, 
-                    imperdiet a odio. Praesent mollis orci et quam eleifend fringilla. 
-                    Vivamus at euismod mi, non ultricies sem. 
-                    Suspendisse ac risus non lacus tristique finibus.
-                </p>
-            </article>            
-        </section>
-        <h3>Productos similares</h3>
-        <section class="similar-products">
-            <div class="similar-products-container">
-                <img src="images/hollow-knight.webp" alt="Hollow Knight game">
-                <img src="images/GTAV.jpeg" alt="GTAV game">
-                <img src="images/cuphead-the-delicious-last-course.webp" alt="Cuphead the deliciuos last course">
-            </div>            
-        </section>
+          </form>
+        </div>
+        <%}%>
+        <h3>Opiniones de usuarios</h3>
+        <% if(comments.length > 0){ for(let i = 0; i < comments.length; i++){%>
+        <article class="user-comentary">
+          <div class="info-user">
+            <div class="profile-img-container">
+              <img
+                src="/images/users/avatar/<%=comments[i].avatar%>"
+                alt="user profile image"
+              />
+            </div>
+            <div class="user-and-date-container">
+              <p class="userName"><%=comments[i].user%></p>
+              <p class="date"><%=comments[i].date%></p>
+            </div>
+          </div>
+          <p class="comentary"><%=comments[i].comment%></p>
+        </article>
+        <%}} else { %>
+        <p>No hay comentarios sobre este producto</p>
+        <%}%>
+      </section>
+      <h3>Productos similares</h3>
+      <section class="similar-products">
+        <%if(products.length > 2){ for (i = 0; i < 3; i++){%>
+
+        <div class="similar-products-container">
+          <a href="/products/detail/<%=products[i].id%>">
+            <img
+              class="similar-product-img"
+              src="/images/products/<%=products[i].main_image%>"
+              alt="<%=products[i].name%>"
+            />
+          </a>
+        </div>
+
+        <%}}else{%>
+        <p>No hay productos similares</p>
+        <%}%>
+      </section>
     </main>
-    
+
     <!-- FOOTER -->
     <%-include('partials/footer.ejs')%>
 
+    <script>
+      // API DE VIDEO DE YOUTBE
+      let videoIdDinamico = "<%= product.video %>";
 
+      // 2. This code loads the IFrame Player API code asynchronously.
+      var tag = document.createElement("script");
 
+      tag.src = "https://www.youtube.com/iframe_api";
+      var firstScriptTag = document.getElementsByTagName("script")[0];
+      firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
-<script>
-    // API DE VIDEO DE YOUTBE
-    let videoIdDinamico ='<%= product.video %>';
-
-    // 2. This code loads the IFrame Player API code asynchronously.
-    var tag = document.createElement('script');
-
-    tag.src = "https://www.youtube.com/iframe_api";
-    var firstScriptTag = document.getElementsByTagName('script')[0];
-    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-
-    // 3. This function creates an <iframe> (and YouTube player)
-    //    after the API code downloads.
-    var player;
-    function onYouTubeIframeAPIReady() {
-        player = new YT.Player('player', {
-        height: '360',
-        width: '640',
-        videoId: videoIdDinamico,
-        events: {
-            'onReady': onPlayerReady,
-            'onStateChange': onPlayerStateChange
-        }
+      // 3. This function creates an <iframe> (and YouTube player)
+      //    after the API code downloads.
+      var player;
+      function onYouTubeIframeAPIReady() {
+        player = new YT.Player("player", {
+          height: "360",
+          width: "640",
+          videoId: videoIdDinamico,
+          events: {
+            onReady: onPlayerReady,
+            onStateChange: onPlayerStateChange,
+          },
         });
-    }
+      }
 
-    // 4. The API will call this function when the video player is ready.
-    function onPlayerReady(event) {
+      // 4. The API will call this function when the video player is ready.
+      function onPlayerReady(event) {
         event.target.playVideo();
-    }
+      }
 
-    // 5. The API calls this function when the player's state changes.
-    //    The function indicates that when playing a video (state=1),
-    //    the player should play for six seconds and then stop.
-    var done = false;
-    function onPlayerStateChange(event) {
+      // 5. The API calls this function when the player's state changes.
+      //    The function indicates that when playing a video (state=1),
+      //    the player should play for six seconds and then stop.
+      var done = false;
+      function onPlayerStateChange(event) {
         if (event.data == YT.PlayerState.PLAYING && !done) {
-        setTimeout(stopVideo, 6000);
-        done = true;
+          setTimeout(stopVideo, 6000);
+          done = true;
         }
-    }     
-        
-    document.addEventListener('DOMContentLoaded', function () {
-        const clickableImages = document.querySelectorAll('.clickable');
+      }
+
+      document.addEventListener("DOMContentLoaded", function () {
+        const clickableImages = document.querySelectorAll(".clickable");
 
         clickableImages.forEach(function (clickableImage) {
-            clickableImage.addEventListener('click', function () {
-                const productIndex = this.getAttribute('data-product-index');
-                const mainImage = document.querySelector('.mainImage');
-                const tempSrc = mainImage.src;
-                mainImage.src = this.src;
-                this.src = tempSrc;
-            });
+          clickableImage.addEventListener("click", function () {
+            const productIndex = this.getAttribute("data-product-index");
+            const mainImage = document.querySelector(".mainImage");
+            const tempSrc = mainImage.src;
+            mainImage.src = this.src;
+            this.src = tempSrc;
+          });
         });
-    });
-
-    
-</script>
-<!-- <script src="/js/header.js" async></script> -->
-
-   
-</body>
+      });
+    </script>
+    <!-- <script src="/js/header.js"></script> -->
+  </body>
 </html>
