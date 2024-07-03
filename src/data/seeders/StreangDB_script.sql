@@ -42,6 +42,16 @@ subject VARCHAR(70),
 message TEXT NOT NULL,
 primary key(id)
 );
+
+CREATE TABLE IF NOT EXISTS comments(
+id INT AUTO_INCREMENT,
+product_id INT NOT NULL,
+user VARCHAR(45) NOT NULL, 
+comment TEXT NOT NULL,
+date DATE NOT NULL,
+avatar VARCHAR(45) NOT NULL, 
+PRIMARY KEY (id)
+);
   
   CREATE TABLE IF NOT EXISTS `streang`.`platforms` (
   `id` INT NOT NULL AUTO_INCREMENT,
