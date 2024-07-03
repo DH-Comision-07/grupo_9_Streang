@@ -17,91 +17,95 @@
                     <form class="form-container" action="/products" method="POST" enctype="multipart/form-data">
                         
                         <label id="mainImageLabel" class="product-img-label" for="mainImageInput">Imagen principal<i class="fa-regular fa-images img-form"></i>
-                            <input id="mainImageInput" class="product-img" type="file" name="mainImage" accept=".jpg, .jpeg, .png" placeholder="">
+                            <input id="mainImageInput" class="product-img" type="file" name="mainImage" placeholder="">
                             <p id="mainImageName"></p>
                         </label>
-                        
-                        <% if (locals.errors && errors.name{ %>
-                            <div class="warning-text">
-                                <%= errors.name.msg %>
-                                </div>
-                       <% }) %>
 
+                        <% if (locals.errors && errors.mainImage){ %>
+                            <div class="warning-text">
+                                <%= errors.mainImage.msg %>
+                                </div>
+                       <% } %>
                         
 
                         <label id="moreImagesLabel" class="product-img-label" for="moreImageInput">Más imágenes<i class="fa-regular fa-images img-form"></i>
-                            <input id="moreImageInput" class="product-img" type="file" name="moreImages" accept=".jpg, .jpeg, .png, .gif" placeholder="" multiple>
+                            <input id="moreImageInput" class="product-img" type="file" name="moreImages" placeholder="" multiple>
                             <p id="moreImagesNames"></p>
                         </label>
 
-                        <% if (locals.errors && errors.moreImages{ %>
+                        <% if (locals.errors && errors.moreImages){ %>
                             <div class="warning-text">
                                 <%= errors.moreImages.msg %>
                                 </div>
-                       <% }) %>
+                       <% } %>
 
                         <label id="bannerImageLabel" class="product-img-label" for="bannerImageInput">Imagen del banner<i class="fa-regular fa-images img-form"></i>
                             <input id="bannerImageInput" class="product-img" type="file" name="bannerImage" accept=".jpg, .jpeg, .png" placeholder="">
                             <p id="bannerImageName"></p>
                         </label>
 
-                        <% if (locals.errors && errors.bannerImage{ %>
+                        <% if (locals.errors && errors.bannerImage){ %>
                             <div class="warning-text">
                                 <%= errors.bannerImage.msg %>
                                 </div>
-                       <% }) %>
+                       <% } %>
 
                         <label class="video-label" for="">
-                            <input id="videoInput" type="text" name="video" placeholder="Video de Youtube">
+                            <input id="videoInput" type="text" name="video" placeholder="Video de Youtube" value="<%= locals.oldData ? oldData.video : null%>">
                             <div class="video-instructions-container">
                                 <p class="video-instructions">Pega la dirección URL del vídeo aquí.
                                 </p>
                             </div>                            
                         </label>
 
-                        <% if (locals.errors && errors.video{ %>
+                        <% if (locals.errors && errors.video){ %>
                             <div class="warning-text">
                                 <%= errors.video.msg %>
                                 </div>
-                       <% }) %>
+                       <% } %>
+
+                       
 
                         <label for="">
-                            <input type="text" name="name" placeholder="Nombre del producto*" required>
-                            <% if(locals.errors && errors.name){ %>
-                                <p class="form-error-msg"><%= errors.name.msg %></p>
-                            <% } %>
+                            <input type="text" name="name" placeholder="Nombre del producto*" value="<%= locals.oldData ? oldData.name : null%>"
+                            
                         </label>
+                        
 
-                        <% if (locals.errors && errors.name{ %>
+                        <% if (locals.errors && errors.name){ %>
                             <div class="warning-text">
                                 <%= errors.name.msg %>
                                 </div>
-                       <% }) %>
+                       <% } %>
 
                         <textarea class="description-area" name="description" cols="30" rows="10" autocapitalize="on"
-                        placeholder="Descripcion*" required></textarea>
+                        placeholder="Descripcion*" value="<%= locals.oldData ? oldData.description : null%>"></textarea>
 
-                        <% if (locals.errors && errors.description{ %>
+                        <% if (locals.errors && errors.description){ %>
                             <div class="warning-text">
                                 <%= errors.description.msg %>
                                 </div>
-                       <% }) %>
+                       <% } %>
 
-                        <select class="category" name="category">
-                            <option value="" selected hidden>Categoria</option>
-                            <option value="videogames">Videojuegos</option>
-                            <option value="consoles">Consolas</option>
-                            <option value="accesories">Accesorios</option>
-                            <option value="audio">Audio y sonido</option>
-                            <option value="PC">Computacion</option>
-                            <option value="other">Otros</option>
-                        </select>
+                       <select class="category" name="category">
+                        <% 
+                            let categories = ['Videojuegos', 'Consolas', 'Accesorios', 'Audio y sonido', 'Computacion', 'Otros'];
+                        %>
+                        <option value="" selected hidden>Categoria</option>
+                        <% for (let oneCategorie of categories) { %>
+                            <option value="<%= oneCategorie %>">
+                                <%= oneCategorie %>
+                            </option>
+                        <% } %>
+                    </select>
+                    
+                    <% if (locals.errors && errors.category) { %>
+                        <div class="warning-text">
+                            <%= errors.category.msg %>
+                        </div>
+                    <% } %>
+                    
 
-                        <% if (locals.errors && errors.category{ %>
-                            <div class="warning-text">
-                                <%= errors.category.msg %>
-                                </div>
-                       <% }) %>
 
                         <div class="checkbox-container">
 
@@ -131,14 +135,14 @@
                         </div>
 
                         <label for="">
-                            <input type="text" name="price" placeholder="Precio*" required>
+                            <input type="text" name="price" placeholder="Precio*">
                         </label>
 
-                        <% if (locals.errors && errors.price{ %>
+                        <% if (locals.errors && errors.price){ %>
                             <div class="warning-text">
                                 <%= errors.price.msg %>
                                 </div>
-                       <% }) %>
+                       <% } %>
 
                         <label for="">
                             <input type="text" name="discount" placeholder="Descuento">
@@ -150,21 +154,21 @@
                             <option value="digital">Digital</option>
                         </select>
 
-                        <% if (locals.errors && errors.format{ %>
+                        <% if (locals.errors && errors.format){ %>
                             <div class="warning-text">
                                 <%= errors.format.msg %>
                                 </div>
-                       <% }) %>
+                       <% } %>
 
                         <label for="">
-                            <input type="number" name="stock" placeholder="Stock">
+                            <input type="number" name="stock" placeholder="Stock" value="<%= locals.oldData ? oldData.stock : null%>">
                         </label>
 
-                        <% if (locals.errors && errors.stock{ %>
+                        <% if (locals.errors && errors.stock){ %>
                             <div class="warning-text">
                                 <%= errors.stock.msg %>
                                 </div>
-                       <% }) %>
+                       <% } %>
 
                         <button class="submit-button" type="submit">Crear</button>
 

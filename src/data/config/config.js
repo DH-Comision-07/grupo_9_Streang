@@ -8,14 +8,14 @@ module.exports = {
   },
   "test": {
     "username": "root",
-    "password": "",
+    "password": "root",
     "database": "streang",
     "host": "127.0.0.1",
     "dialect": "mysql"
   },
   "production": {
     "username": "root",
-    "password": "",
+    "password": "root",
     "database": "streang",
     "host": "127.0.0.1",
     "dialect": "mysql"

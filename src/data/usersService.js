@@ -3,10 +3,6 @@ const fs = require('fs');
 const db = require('./models')
 const {validationResult} = require('express-validator');
 const bcryptjs = require('bcryptjs');
-
-const productsFilePath = path.join(__dirname, '../data/json-products.json');
-const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
-
 const usersService = {
     createUser: async function (req, res){
         try{       
@@ -85,19 +81,87 @@ const usersService = {
             res.status(400).json({ error: "Ha ocurrido un error inesperado." });
         }
     },
+
+    editUser: async function(req, res){
+        try{
+            let userToEdit = await db.Users.findByPk(req.params.id);
+            let resultValidation = validationResult(req);
+
+            if(resultValidation.errors.length > 0){
+                res.status(400).json({ error: resultValidation.mapped() });
+            }
+
+            let avatarImage = "";
+            let pass = "";
+            if(!req.file || req.file == undefined){ 
+                avatarImage = userToEdit.avatar;
+            } else {
+                avatarImage = req.file.filename;
+            }
+
+            if(req.body.password == ""){
+                pass = userToEdit.password; // Si no se cambia la pass, no se actualiza
+            } else {
+                if(req.body.password == req.body.repPassword){
+                    pass = bcryptjs.hashSync(req.body.password, 10);
+                } else {
+                    res.status(400).json({ error: "Las contraseñas no coinciden." });
+                }
+            } 
+
+            await db.Users.update({
+                email: req.body.email.trim(),
+                user_name: req.body.username.trim(),
+                password: pass,
+                name: req.body.realName.trim(),
+                last_name: req.body.surname.trim(),
+                birthdate: req.body.birthDate,
+                avatar: avatarImage,
+                rol_id: 1                
+            },                
+                {where:{
+                    id : req.params.id
+                }
+            })
+
+            res.redirect('/users/profile')
+            
+
+        } catch (err){
+            res.status(400).json({ error: "Ha ocurrido un error inesperado." });
+        }
+
+
+    },
+
+    deleteUser: async function(req, res){
+        try{
+            await db.Users.destroy({
+                where:{
+                    id : req.params.id}
+            })
+            req.session.userLogged = null
+            res.status(200).json({"success": "Usuario eliminado"})
+
+        } catch(error) {
+            console.log(error);
+            res.status(400).json({"Ocurrio un error": error})
+        }
+    },
     
     viewProfile: async function(req, res){
         try{
             if(req.session.userLogged && req.session.userLogged.rol_id == 2){
                 let user = await db.Users.findByPk(req.session.userLogged.id);
                 let users = await db.Users.findAll();
-                console.log(req.session.userLogged);
+                let products = await db.Products.findAll();
+                // console.log(req.session.userLogged);
                 res.render('adminProfile', {user: user, products: products, users:users})
             } else if(req.session.userLogged && req.session.userLogged.rol_id == 1) {
                 let user = await db.Users.findByPk(req.session.userLogged.id);
                 res.render('userProfile', {user})
             } else {
-                res.send('no se encontro sesion logueada')
+                res.redirect('/login')
             }            
 
         } catch(error) {
@@ -105,6 +169,34 @@ const usersService = {
             res.status(400).json({"Ocurrio un error": error})
 
         }
+    },
+
+    adminForm: async function(req, res){
+        try{
+            if(req.body.admin == "admin"){
+                await db.Users.update({
+                    rol_id : 2},
+                    {
+                        where:{
+                            id: req.body.id}
+                        }
+                )                    
+            } else {
+                await db.Users.update({
+                    rol_id : 1},
+                    {
+                        where:{
+                            id: req.body.id}
+                        }
+                )
+            }
+            res.redirect('/users/profile')
+
+        } catch(error) {
+            console.log(error);
+            res.status(400).json({"Ocurrio un error": error})
+        }
+
     },
 
     processLogin: async function(req, res){

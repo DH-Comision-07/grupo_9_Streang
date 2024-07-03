@@ -1,23 +1,17 @@
 const path = require('path');
 const fs = require('fs');
-const { viewCategory, viewDiscounts } = require('../controllers/productosController');
-const { create } = require('domain');
-const session = require('express-session');
+// const { viewCategory, viewDiscounts } = require('../controllers/productosController');
+// const { create } = require('domain');
+// const session = require('express-session');
 const {validationResult} = require('express-validator');
-const userController = require("../controllers/userController");
+// const userController = require("../controllers/userController");
 let db = require("./models");
+const Op = db.Sequelize.Op
 
-const productsFilePath = path.dirname(__dirname) + '/data/json-products.json'
 
 
 const productsService = {
 
-    products : JSON.parse(fs.readFileSync(productsFilePath, 'utf-8')),
-    
-    // products: function(){
-    //     db.Products.findAll();
-    //     // res.render('allProducts', {products: products});
-    // },
 
     setUser: function(req){
         let user = req.session.userLogged;
@@ -29,181 +23,160 @@ const productsService = {
         return user;
     },
 
-    getAll: function(res, req){
-        db.Products.findAll();
-        return {
-            products: this.products
-        };
+    getAll: async function(req, res){
+        try{
+            const products = await db.Products.findAll();
+            // console.log(products);
+            return products;
+        } catch(error){
+            console.log(error);
+        }
+        
     },
 
-    getOne: function(res, req){
-        // let product = this.products.find(product => product.id == id);
-        // return {product : product};
-        let product = db.Products.findByPk({where:{
-            name: product.id
-        }})
-        res.render('allProducts', {product: product});
+    getOne: async function(req, res){
+        let product = await db.Products.findByPk(req.params.id);
+        res.render('productDetail', {product: product});
     },
 
-    viewCategory: async function(res, req){
-        let result = this.products.filter(product => product.category == category);
-        return {result : result};
-        // let categories = db.Categories.findAll();
-        // let result = await db.Product.findByPk(categories.id)
-        // res.render('allProducts', {result: result});
+    viewCategory: async function(category){
+        let result = db.Products.findAll({where: {category: category}});
+        return result;
     },
 
     create: async function(req, res){
-        let resultValidation = validationResult(req);
-    
-        if(resultValidation.errors.length > 0){
-            return res.render('newProduct', {
-                errors: resultValidation.mapped(),
-                old: req.body
-            });
-        }
-
-        let productExists = await db.Products.findOne({where:{
-            name: req.body.name
-        }});
-
-        if(productExists != null){
-            // res.send("Ese nombre ya está registrado")
-            return res.render('newProduct', {
-                errors: {
-                    name: {
-                        msg: "Ese nombre ya está registrado"
-                    }
-                },
-                old: req.body
-            })
-        }
-
-        // let maxId = 0;
-        // for (const obj of this.products) {
-        //     if (obj.id && obj.id > maxId) {
-        //         maxId = obj.id;
-        //     }
-        // }
 
         // Verificacion de imagenes. Si no se cargo una imagen, se define por defecto la imagen "default.avif"
-        let mainImage = {"filename": ""};
-        let moreImages = [{"filename": ""}, {"filename": ""}, {"filename": ""}];
-        let bannerImage = {"filename": ""};
+        let mainImage = "";
+        let moreImages1 = "";
+        let moreImages2 = "";
+        let moreImages3 = "";
+        let bannerImage = "";
 
         if(!req.files['mainImage'] || req.files['mainImage'][0] == undefined || !req.files['mainImage'][0]){
-            mainImage.filename = 'default.avif'
+            mainImage = 'default.avif'
         } else {
-            mainImage = req.files['mainImage'][0];
+            mainImage = req.files['mainImage'][0].filename;
         }
 
         if(!req.files['moreImages'] || req.files['moreImages'][0] == undefined){
-            moreImages[0].filename = "default.avif"
-            moreImages[1].filename = "default.avif"
-            moreImages[2].filename = "default.avif";
+            moreImages1 = "default.avif"
+            moreImages2 = "default.avif"
+            moreImages3 = "default.avif";
         } else if (req.files['moreImages'][1] == undefined){
-            moreImages[0] = req.files['moreImages'][0];
-            moreImages[1].filename = "default.avif"
-            moreImages[2].filename = "default.avif";
+            moreImages1 = req.files['moreImages'][0].filename;
+            moreImages2 = "default.avif"
+            moreImages3 = "default.avif";
         } else if( req.files['moreImages'][2] == undefined){
-            moreImages[0] = req.files['moreImages'][0];
-            moreImages[1] = req.files['moreImages'][1]
-            moreImages[2].filename = "default.avif";
+            moreImages1 = req.files['moreImages'][0].filename;
+            moreImages2 = req.files['moreImages'][1].filename;
+            moreImages3 = "default.avif";
         } else {
-            moreImages = req.files['moreImages'];
+            moreImages1 = req.files['moreImages'][0].filename;
+            moreImages2 = req.files['moreImages'][1].filename;
+            moreImages3 = req.files['moreImages'][2].filename;
         }
 
         if(!req.files['bannerImage'] || req.files['bannerImage'][0] == undefined){
-            bannerImage.filename = 'default.avif';
+            bannerImage = 'default.avif';
         } else {
-            bannerImage = req.files['bannerImage'][0];
+            bannerImage = req.files['bannerImage'][0].filename;
         }
-
-        console.log(mainImage);
         
         function extractYouTubeId(url) {
             const match = url.match(/[?&]v=([^?&]+)/);
             return match ? match[1] : null;
         }
         const youtubeId = extractYouTubeId(req.body.video);
+
+        let finalPrice = parseFloat(req.body.price) - (parseFloat(req.body.price) * (parseFloat(req.body.discount) / 100));
         
         try{            
-            let newProduct = {
-                id: maxId + 1,
+            let newProduct = await db.Products.create({
                 name: req.body.name,
                 price: parseFloat(req.body.price),
                 video: youtubeId,
                 description: req.body.description,
-                mainImage: mainImage,
-                moreImages: moreImages,
-                bannerImage: bannerImage,
-                category: req.body.category,
+                available: true,
+                main_image: mainImage,
+                more_images_1: moreImages1,
+                more_images_2: moreImages2,
+                more_images_3: moreImages3,
+                banner_image: bannerImage,
+                category: req.body.category || "others",
                 discount: parseFloat(req.body.discount),
-                finalPrice : parseFloat(req.body.price) - (parseFloat(req.body.price) * (parseFloat(req.body.discount) / 100)),
-                format: req.body.format,
-                platform: req.body.platform,
+                final_price: finalPrice,
+                format_id: 1,
+                platform_id: 1,
                 stock: parseInt(req.body.stock)
-            }
+            })
 
-            this.products.push(newProduct);
-            let JSONproducts = JSON.stringify(this.products);
-            fs.writeFileSync(productsFilePath, JSONproducts);
-
-            if(req.body.name == null){
-                return res.render("newProduct", {
-                    errors: {
-                        name: {
-                            msg: "El nombre de producto es obligatorio"
-                        }
-                    }
-                })
-            }
+            return res.redirect("/");
                 
         } catch (error) {
-            return error;
+            console.log(error);
+            // return error;
         }
-        // db.Product.findAll()
-        //     .then(function(products){
-        //         return res.render("home", {products: products})
-        //     })
+
     },
 
-    viewEdit: function(id){
-        let productToEdit = this.products.find(product => product.id == id);
-        return {product : productToEdit};
+    viewEdit: async function(req, res){
+        // let productToEdit = this.products.find(product => product.id == id);
+        let productToEdit = await db.Products.findByPk(req.params.id);
+        res.render('editProduct', {product: productToEdit});
+
+        // return {product : productToEdit};
     },
 
-    viewDiscounts: function(){
-        let discounts = this.products.filter(product => product.discount > 0);
-        return {products: discounts};
+    viewDiscounts: async function(){
+        let discounts = await db.Products.findAll({where: {discount: {[Op.gt]: 0}}});
+        return discounts;
     },
 
-    edit: function(req){
-        let productID = req.params.id;
-        let productToEdit = this.products.find(product => product.id == productID);
+    edit: async function(req, res){
 
-        // VERIFICAR SI SE CARGARON NUEVAS IMAGENES
+        let productToEdit = await db.Products.findByPk(req.params.id);
+        if(!productToEdit){
+            res.status(400).json({"Ocurrio un error": "No se encontro el producto"});
+        }
+        // Verificacion de imagenes.
         let mainImage = "";
-        let moreImages = [];
+        let moreImages1 = "";
+        let moreImages2 = "";
+        let moreImages3 = "";
         let bannerImage = "";
-        if(!req.files['mainImage'] || req.files['mainImage'][0] == undefined){
-            mainImage = productToEdit.mainImage;
+
+        if(!req.files['mainImage'] || req.files['mainImage'][0] == undefined || !req.files['mainImage'][0]){
+            mainImage = productToEdit.main_image;
         } else {
-            mainImage = req.files['mainImage'][0];
+            mainImage = req.files['mainImage'][0].filename;
         }
 
-        if(!req.files['moreImages'] || req.files['moreImages'][0] == undefined && 
-        req.files['moreImages'][1] == undefined && req.files['moreImages'][2] == undefined){
-            moreImages = productToEdit.moreImages;
+        if(!req.files['moreImages'] || req.files['moreImages'][0] == undefined){
+            moreImages1 = productToEdit.more_images_1;
+            moreImages2 = productToEdit.more_images_2;
+            moreImages3 = productToEdit.more_images_3;
+        } else if (req.files['moreImages'][1] == undefined){
+            moreImages1 = req.files['moreImages'][0].filename;
+            moreImages2 = productToEdit.more_images_2;
+            moreImages3 = productToEdit.more_images_3;
+        } else if( req.files['moreImages'][2] == undefined){
+            moreImages1 = req.files['moreImages'][0].filename;
+            moreImages2 = req.files['moreImages'][1].filename;
+            moreImages3 = productToEdit.more_images_3;
         } else {
-            moreImages = req.files['moreImages'];
+            moreImages1 = req.files['moreImages'][0].filename;
+            moreImages2 = req.files['moreImages'][1].filename;
+            moreImages3 = req.files['moreImages'][2].filename;
         }
 
         if(!req.files['bannerImage'] || req.files['bannerImage'][0] == undefined){
-            bannerImage = productToEdit.bannerImage;
+            bannerImage= productToEdit.banner_image;
         } else {
-            bannerImage = req.files['bannerImage'][0];
+            bannerImage = req.files['bannerImage'][0].filename;
         }
+
+        let finalPrice = parseFloat(req.body.price) - (parseFloat(req.body.price) * (parseFloat(req.body.discount) / 100));
 
         // OBTENER ID DE VIDEO DE YOUTUBE
         function extractYouTubeId(url) {
@@ -212,54 +185,59 @@ const productsService = {
         }
         const youtubeId = extractYouTubeId(req.body.video);
 
-		let updatedProduct = {
-			id: parseInt(productID), // Convert ID to integer
-			name: req.body.name,
-            price: parseFloat(req.body.price),
-            video: youtubeId,
-            description: req.body.description,
-            mainImage: mainImage,
-            moreImages: moreImages,
-            bannerImage: bannerImage,
-            category: req.body.category,
-            discount: parseFloat(req.body.discount),
-            finalPrice : parseFloat(req.body.price) - (parseFloat(req.body.price) * (parseFloat(req.body.discount) / 100)),
-            format: req.body.format,
-            platform: req.body.platform,
-            stock: req.body.stock
-		};
-	
-		// Find the index of the product in the products array
-		let productIndex = this.products.findIndex(product => product.id == productID);
-	
-		if (productIndex !== -1) { // Product found
-			// Update the product in the array
-			this.products[productIndex] = updatedProduct;
-	
-			// Convert the updated products array to JSON
-			let jsonProducts = JSON.stringify(this.products);
-	
-			// Write the updated JSON back to the file
-			fs.writeFileSync(productsFilePath, jsonProducts);
-		} else {
-			// Product not found
-			return "Product not found";
-		}
+        try{
+            await db.Products.update({
+                name: req.body.name,
+                price: parseFloat(req.body.price),
+                video: youtubeId,
+                description: req.body.description,
+                available: true,
+                main_image: mainImage,
+                more_images_1: moreImages1,
+                more_images_2: moreImages2,
+                more_images_3: moreImages3,
+                banner_image: bannerImage,
+                category: req.body.category,
+                discount: parseFloat(req.body.discount),
+                final_price: finalPrice,
+                format_id: 1,
+                platform_id: 1,
+                stock: parseInt(req.body.stock)
+            }, {
+                where:{
+                    id: req.params.id}
+            })
+        } catch(error) {
+            console.log(error);
+            // res.status(400).json({"Ocurrio un error": error})
+            res.redirect(`/products/edit/${req.params.id}`);
+        }		
     },
 
-    delete: function(id){
-        let productID = parseInt(id);
-        // let productToDelete = this.products.find(product => product.id == productID);
-        let productIndex = this.products.findIndex(product => product.id == productID);
-        // console.log(productToDelete);
-        if (productIndex !== -1){
-            this.products.splice(productIndex, 1);
-            let jsonProducts = JSON.stringify(this.products);
-            fs.writeFileSync(productsFilePath, jsonProducts);
-        } else {
-            return 'producto no encontrado';
+    delete: async function(id){
+        try {
+            let productToDelete = await db.Products.findByPk(id);
+            if(productToDelete){
+                await productToDelete.destroy();
+            } else {
+                res.send("producto no encontrado");
+            }
+        } catch(error) {
+            return error;
+        }
+        
+
+    },
+
+    search: async function(req, res){
+        try{
+            let searched = req.query.query_search;
+            let result = await db.Products.findAll({where: {name: {[Op.like]: `%${searched}%`}}});
+            res.render("search", {result: result});
+        } catch(error) {
+            console.log(error);
+            res.status(400).json({"Ocurrio un error": error})
         }
     }
 }
-
 module.exports = productsService;
