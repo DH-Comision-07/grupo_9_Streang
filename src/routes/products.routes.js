@@ -25,19 +25,18 @@ const uploadFile = multer({ storage: storage}).fields([{name: "mainImage", maxCo
 
  const validations = [
   check('mainImage').custom((value, { req }) => {
-    let file = req.file;
+    let file = req.files['mainImage'] ? req.files['mainImage'][0] : null;
     let acceptedExtensions = ['.jpg', '.jpeg', '.png'];
-    
 
     if (!file) {
-      throw new Error('Introduzca la Imagen Principal')
+      throw new Error('Introduzca la imagen');
     } else {
       let fileExtension = path.extname(file.originalname);
-    if (!acceptedExtensions.includes(fileExtension)){
-      throw new Error('Sube una imagen con formato .jpg, .jpeg, .png ')
+      if (!acceptedExtensions.includes(fileExtension)) {
+        throw new Error('Sube una imagen con formato .jpg, .jpeg, .png');
+      }
     }
     return true;
-  }
   }),
 
 
@@ -64,6 +63,8 @@ const uploadFile = multer({ storage: storage}).fields([{name: "mainImage", maxCo
   check('category')
     .notEmpty().withMessage('Selecciona una Categoria')
     .isIn(['Videojuegos', 'Consolas', 'Accesorios', 'Audio y sonido', 'Computacion', 'Otros']).withMessage('Categoría no válida'),
+
+  
   
 ];
 

@@ -36,14 +36,18 @@ const productosController = {
     create: function(req, res){
         let resultValidation = validationResult(req);
 
+        console.log(resultValidation)
+
         if (resultValidation.errors.length > 0) {
             return res.render("newProduct" , {errors: resultValidation.mapped(),
                 oldData: req.body
             }) 
             
-        }
+        } else {
+
         productsService.create(req);
-        res.send(resultValidation);
+        res.redirect('/');
+        }
     },
 
     viewEdit: function(req, res){

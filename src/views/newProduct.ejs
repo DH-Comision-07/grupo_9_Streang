@@ -135,7 +135,7 @@
                         </div>
 
                         <label for="">
-                            <input type="text" name="price" placeholder="Precio*">
+                            <input type="text" name="price" placeholder="Precio*" value="<%= locals.oldData ? oldData.price : null%>">
                         </label>
 
                         <% if (locals.errors && errors.price){ %>
@@ -145,13 +145,22 @@
                        <% } %>
 
                         <label for="">
-                            <input type="text" name="discount" placeholder="Descuento">
+                            <input type="text" name="discount" placeholder="Descuento" value="<%= locals.oldData ? oldData.discount : null%>">
                         </label>
 
+
+
                         <select class="format" name="format">
-                            <option hidden>Formato</option>
-                            <option value="physical">Fisico</option>
-                            <option value="digital">Digital</option>
+
+                            <% 
+                                let formats = ['Formato', 'Fisico', 'Digital'];    
+                            %>
+
+                            <% for( let oneFormat of formats) { %>
+                                <option value="<%= oneFormat %>">
+                                <%= oneFormat  %>
+                                </option>
+                            <% } %>
                         </select>
 
                         <% if (locals.errors && errors.format){ %>
