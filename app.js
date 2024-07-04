@@ -15,11 +15,11 @@ app.use(express.json());
 app.use(methodOverride('_method'));
 app.use(session({secret: "streang2024"}));
 app.use(cookieParser());
-app.use(rememberMeMiddleware)
+// app.use(rememberMeMiddleware)
 
 app.set("view engine", "ejs");
 app.set('views', 'src/views')
-app.use('/', passUserToViews, rememberMeMiddleware, mainRouter);
+app.use('/', passUserToViews, mainRouter);
 
 
 const publicPath = path.join(__dirname, '/public');

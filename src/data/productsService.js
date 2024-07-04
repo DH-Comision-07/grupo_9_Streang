@@ -1,19 +1,17 @@
 const path = require('path');
 const fs = require('fs');
-const { viewCategory, viewDiscounts } = require('../controllers/productosController');
-const { create } = require('domain');
-const session = require('express-session');
-const {validationResult} = require('express-validator');
-const userController = require("../controllers/userController");
+// const { viewCategory, viewDiscounts } = require('../controllers/productosController');
+// const { create } = require('domain');
+// const session = require('express-session');
+// const {validationResult} = require('express-validator');
+// const userController = require("../controllers/userController");
 let db = require("./models");
 const Op = db.Sequelize.Op
 
-const productsFilePath = path.dirname(__dirname) + '/data/json-products.json'
 
 
 const productsService = {
 
-    // products : JSON.parse(fs.readFileSync(productsFilePath, 'utf-8')),
 
     setUser: function(req){
         let user = req.session.userLogged;
@@ -26,17 +24,26 @@ const productsService = {
     },
 
     getAll: async function(req, res){
-        const products = await db.Products.findAll();
-        return products;
+        try{
+            const products = await db.Products.findAll();
+            // console.log(products);
+            return products;
+        } catch(error){
+            console.log(error);
+        }
+        
     },
 
     getOne: async function(req, res){
         let product = await db.Products.findByPk(req.params.id);
-        res.render('productDetail', {product: product});
+        let comments = await db.Comments.findAll({where: {product_id: req.params.id}});
+        let products = await db.Products.findAll({where: {category : product.category}});
+        console.log(comments);
+        res.render('productDetail', {product: product, comments: comments, products});
     },
 
     viewCategory: async function(category){
-        let result = db.Products.findAll({where: {category_id: category}});
+        let result = db.Products.findAll({where: {category: category}});
         return result;
     },
 
@@ -99,7 +106,7 @@ const productsService = {
                 more_images_2: moreImages2,
                 more_images_3: moreImages3,
                 banner_image: bannerImage,
-                category_id: 1,
+                category: req.body.category || "others",
                 discount: parseFloat(req.body.discount),
                 final_price: finalPrice,
                 format_id: 1,
@@ -120,8 +127,6 @@ const productsService = {
         // let productToEdit = this.products.find(product => product.id == id);
         let productToEdit = await db.Products.findByPk(req.params.id);
         res.render('editProduct', {product: productToEdit});
-
-        // return {product : productToEdit};
     },
 
     viewDiscounts: async function(){
@@ -193,7 +198,7 @@ const productsService = {
                 more_images_2: moreImages2,
                 more_images_3: moreImages3,
                 banner_image: bannerImage,
-                category_id: req.body.category,
+                category: req.body.category,
                 discount: parseFloat(req.body.discount),
                 final_price: finalPrice,
                 format_id: 1,

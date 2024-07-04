@@ -13,7 +13,7 @@ CREATE TABLE IF NOT EXISTS `streang`.`products` (
   more_images_3 VARCHAR(45) NULL,
   banner_image VARCHAR(45) NULL,
   `description` TEXT NOT NULL,
-  `category_id` VARCHAR(45) NULL,
+  `category` VARCHAR(45) NULL,
   `stock` INT NULL,
   `platform_id` INT NULL,
   `format_id` INT NULL,
@@ -21,7 +21,7 @@ CREATE TABLE IF NOT EXISTS `streang`.`products` (
   final_price INT NOT NULL,
   PRIMARY KEY (`id`));
   
-  INSERT INTO products (id, name, price, video, stock, available, format_id, category_id, discount, platform_id, main_image, more_images_1, more_images_2, more_images_3, final_price, description, banner_image) 
+  INSERT INTO products (id, name, price, video, stock, available, format_id, category, discount, platform_id, main_image, more_images_1, more_images_2, more_images_3, final_price, description, banner_image) 
 VALUES 
 (
     1,
@@ -174,10 +174,7 @@ VALUES
     0,
     '¡Teclado ideal para iniciarte en el mundo gamer ! Este modelo de The Game House se destaca por brindar comodidad y diseño para adentrarte en el mundo del gaming y el stream.\r\n\r\nDistinción a todo color\r\nSu retroiluminación le da un toque diferente a tu equipo y resalta su composición cuando es utilizado en espacios poco iluminados.\r\n\r\nTecnología antighosting\r\nEste dispositivo tiene teclas antighosting. Esta cualidad es indispensable si requerís de un uso intensivo del periférico. Gracias a esto podrás evitar fallas al tocar varias teclas al mismo tiempo.',
     'product-1712236991625.webp'
-);
-
-INSERT INTO products (id, name, price, video, stock, available, format_id, category_id, discount, platform_id, main_image, more_images_1, more_images_2, more_images_3, final_price, description, banner_image) 
-VALUES 
+), 
 (
     14,
     'Cuphead',

@@ -58,7 +58,7 @@ module.exports = function(sequelize, dataTypes){
             allowNull: false
         },
 
-        category_id: {
+        category: {
             type: dataTypes.STRING(45),
             allowNull: false
         },
