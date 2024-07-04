@@ -22,7 +22,7 @@
                     <p class="title"><%= products[i].name %></p>
                     <p class="price">Precio: $<%= products[i].price %></p> 
                     <p class="discount">%<%= products[i].discount %> Dto.</p>
-                    <p class="final-price">Precio final: $<%= products[i].finalPrice %></p>                   
+                    <p class="final-price">Precio final: $<%= products[i].final_price %></p>                   
                     <!-- <button type="button" class="edit-button" formmethod="GET" formaction="/products/products[i].id/edit">Editar</button> -->
                     <a href="/products/<%= products[i].id %>/edit" class="edit-button">Editar</a>
                 </div>
@@ -57,17 +57,17 @@
                             <img src="/images/users/avatar/<%= users[i].avatar %>" alt="profile image">
                         </div>
                         <label for="">Usuario</label>
-                        <p class="data"><%= users[i].user_name %></p>
+                        <p class="data-edit"><%= users[i].user_name %></p>
                         <label for="">Nombre</label>
-                        <p class="data"><%= users[i].name %></p>
+                        <p class="data-edit"><%= users[i].name %></p>
                         <label for="">Apellido</label>
-                        <p class="data"><%= users[i].last_name %></p>
+                        <p class="data-edit"><%= users[i].last_name %></p>
                         <label for="">E-mail</label>
-                        <p class="data"><%= users[i].email %></p>
+                        <p class="data-edit"><%= users[i].email %></p>
                         <label for="">Fecha de Nacimiento</label>
-                        <p class="data"><%= users[i].birthdate %></p>
+                        <p class="data-edit"><%= users[i].birthdate %></p>
                         
-                        <form id="adminForm" action="/users/admin?_method=PUT" method="POST">
+                        <form class="adminForm" id="adminForm" action="/users/admin?_method=PUT" method="POST">
                             <label>
                                 <input type="radio" name="admin" value="admin"> Admin
                             </label>

@@ -1,9 +1,11 @@
+console.log("JS header aalinkeado correctamente");
 
-console.log("JS linkeado correctamente");
-const menuBtn = document.getElementById('menu-button');
-const nav = document.querySelector('.nav-bar');
+document.addEventListener("DOMContentLoaded", function () {
+  const menuBtn = document.getElementById("menu-button");
+  const nav = document.querySelector(".nav-bar");
 
-menuBtn.addEventListener('click', (event) => {
-    nav.classList.toggle('show');
+  menuBtn.addEventListener("click", function () {
+    console.log("se hizo click");
+    nav.classList.toggle("show");
+  });
 });
-

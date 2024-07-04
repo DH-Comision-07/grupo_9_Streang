@@ -2,7 +2,7 @@ console.log("EditUser cargando linkeado correctamente");
 
 const editButton = document.getElementById('edit-button-form');
 const editFormContainer = document.getElementById('edit-container');
-const cancelButton = document.getElementById('cancel-button');
+const cancelButton = document.getElementById('edit-cancel-button');
 const deletebutton = document.getElementById('delete-button');
 const confirmContainer = document.getElementById('confirm-container');
 const cancelBtn = document.getElementById('cancel-button');

@@ -59,7 +59,7 @@ main {
     padding: 7px 15px 10px 15px;
 }
 
-.edit-button, .delete-button, .edit-btn{
+.edit-button, .delete-button, .edit-btn, .submit-button{
     width: 30%;
     margin: 0 auto;
     font-size: 15px;
@@ -69,13 +69,14 @@ main {
     background-color: grey;
 }
 
+
 .delete-button{
     margin: 10px auto;
     color: white !important;
     background-color: red !important;
 }
 
-.delete-button:hover, .edit-button:hover, .view-all:hover, .edit-btn:hover{
+.delete-button:hover, .edit-button:hover, .view-all:hover, .edit-btn:hover, .submit-button:hover{
     box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
     cursor: pointer;
 }
@@ -224,6 +225,9 @@ button a{
 
 .confirm-buttons{
     display: flex;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
 }
 
 .show{
@@ -297,6 +301,14 @@ button a{
 .edit-label{
     color:aquamarine;
     padding-top: 10px;
+}
+
+p.data-edit, .form-container h2{
+    color: white;
+}
+
+.adminForm input{
+    margin-bottom: 25px;
 }
 
 /* ESTILO DEL SCROLL */

@@ -21,11 +21,11 @@
                             <p id="mainImageName"></p>
                         </label>
                         
-                        <% if (locals.errors && errors.name{ %>
+                        <% if (locals.errors && errors.name){ %>
                             <div class="warning-text">
                                 <%= errors.name.msg %>
                                 </div>
-                       <% }) %>
+                       <% } %>
 
                         
 
@@ -34,22 +34,22 @@
                             <p id="moreImagesNames"></p>
                         </label>
 
-                        <% if (locals.errors && errors.moreImages{ %>
+                        <% if (locals.errors && errors.moreImages){ %>
                             <div class="warning-text">
                                 <%= errors.moreImages.msg %>
                                 </div>
-                       <% }) %>
+                       <% } %>
 
                         <label id="bannerImageLabel" class="product-img-label" for="bannerImageInput">Imagen del banner<i class="fa-regular fa-images img-form"></i>
                             <input id="bannerImageInput" class="product-img" type="file" name="bannerImage" accept=".jpg, .jpeg, .png" placeholder="">
                             <p id="bannerImageName"></p>
                         </label>
 
-                        <% if (locals.errors && errors.bannerImage{ %>
+                        <% if (locals.errors && errors.bannerImage){ %>
                             <div class="warning-text">
                                 <%= errors.bannerImage.msg %>
                                 </div>
-                       <% }) %>
+                       <% } %>
 
                         <label class="video-label" for="">
                             <input id="videoInput" type="text" name="video" placeholder="Video de Youtube">
@@ -59,30 +59,30 @@
                             </div>                            
                         </label>
 
-                        <% if (locals.errors && errors.video{ %>
+                        <% if (locals.errors && errors.video){ %>
                             <div class="warning-text">
                                 <%= errors.video.msg %>
                                 </div>
-                       <% }) %>
+                       <% } %>
 
                         <label for="">
                             <input type="text" name="name" placeholder="Nombre del producto*" required>
                         </label>
 
-                        <% if (locals.errors && errors.name{ %>
+                        <% if (locals.errors && errors.name){ %>
                             <div class="warning-text">
                                 <%= errors.name.msg %>
                                 </div>
-                       <% }) %>
+                       <% } %>
 
                         <textarea class="description-area" name="description" cols="30" rows="10" autocapitalize="on"
                         placeholder="Descripcion*" required></textarea>
 
-                        <% if (locals.errors && errors.description{ %>
+                        <% if (locals.errors && errors.description){ %>
                             <div class="warning-text">
                                 <%= errors.description.msg %>
                                 </div>
-                       <% }) %>
+                       <% } %>
 
                         <select class="category" name="category">
                             <option value="" selected hidden>Categoria</option>
@@ -94,11 +94,11 @@
                             <option value="other">Otros</option>
                         </select>
 
-                        <% if (locals.errors && errors.category{ %>
+                        <% if (locals.errors && errors.category){ %>
                             <div class="warning-text">
                                 <%= errors.category.msg %>
                                 </div>
-                       <% }) %>
+                       <% } %>
 
                         <div class="checkbox-container">
 
@@ -131,11 +131,11 @@
                             <input type="text" name="price" placeholder="Precio*" required>
                         </label>
 
-                        <% if (locals.errors && errors.price{ %>
+                        <% if (locals.errors && errors.price){ %>
                             <div class="warning-text">
                                 <%= errors.price.msg %>
                                 </div>
-                       <% }) %>
+                       <% } %>
 
                         <label for="">
                             <input type="text" name="discount" placeholder="Descuento">
@@ -147,21 +147,21 @@
                             <option value="digital">Digital</option>
                         </select>
 
-                        <% if (locals.errors && errors.format{ %>
+                        <% if (locals.errors && errors.format){ %>
                             <div class="warning-text">
                                 <%= errors.format.msg %>
                                 </div>
-                       <% }) %>
+                       <% } %>
 
                         <label for="">
                             <input type="number" name="stock" placeholder="Stock">
                         </label>
 
-                        <% if (locals.errors && errors.stock{ %>
+                        <% if (locals.errors && errors.stock){ %>
                             <div class="warning-text">
                                 <%= errors.stock.msg %>
                                 </div>
-                       <% }) %>
+                       <% } %>
 
                         <button class="submit-button" type="submit">Crear</button>
 

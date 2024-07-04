@@ -12,7 +12,7 @@ CREATE TABLE IF NOT EXISTS `streang`.`products` (
   more_images_3 VARCHAR(45) NULL,
   banner_image VARCHAR(45) NULL,
   `description` TEXT NOT NULL,
-  `category_id` INT NULL,
+  `category` VARCHAR(45) NULL,
   `stock` INT NULL,
   `platform_id` INT NULL,
   `format_id` INT NULL,
@@ -33,6 +33,25 @@ CREATE TABLE IF NOT EXISTS `streang`.`products` (
   PRIMARY KEY (`id`),
   UNIQUE INDEX `email_UNIQUE` (`email` ASC),
   UNIQUE INDEX `user_name_UNIQUE` (`user_name` ASC));
+
+  create table IF NOT EXISTS contact(
+id INT auto_increment,
+name VARCHAR(40) NOT NULL,
+email VARCHAR(70) NOT NULL,
+subject VARCHAR(70),
+message TEXT NOT NULL,
+primary key(id)
+);
+
+CREATE TABLE IF NOT EXISTS comments(
+id INT AUTO_INCREMENT,
+product_id INT NOT NULL,
+user VARCHAR(45) NOT NULL, 
+comment TEXT NOT NULL,
+date DATE NOT NULL,
+avatar VARCHAR(45) NOT NULL, 
+PRIMARY KEY (id)
+);
   
   CREATE TABLE IF NOT EXISTS `streang`.`platforms` (
   `id` INT NOT NULL AUTO_INCREMENT,
