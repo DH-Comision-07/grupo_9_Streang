@@ -5,6 +5,11 @@ const bycryptjs = require("bcryptjs");
 const controller = {
   // APIs de usuarios
   listUsers: async function (req, res) {
+    res.setHeader('Access-Control-Allow-Credentials', 'true');
+    if (req.headers.origin && ['http://localhost:3000', 'http://localhost:3001'].includes(req.headers.origin)) {
+      res.setHeader('Access-Control-Allow-Origin', req.headers.origin);
+    } // Para permitir acceso a la base de datos
+
     await db.Users.findAll()
       .then((users) => {
         const response = {
@@ -127,6 +132,11 @@ const controller = {
 
   // APIs de productos
   listProducts: async function (req, res) {
+    res.setHeader('Access-Control-Allow-Credentials', 'true');
+    if (req.headers.origin && ['http://localhost:3000', 'http://localhost:3001'].includes(req.headers.origin)) {
+      res.setHeader('Access-Control-Allow-Origin', req.headers.origin);
+    } // Para permitir acceso a la base de datos
+
     try {
       await db.Products.findAll().then((products) => {
         const response = {
