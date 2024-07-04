@@ -18,11 +18,13 @@
         <%if(locals.errors && errors.email){%>
           <p class="form-error-msg"><%= errors.email.msg %></p>
         <%}%>
+        <br>
 
         <input name="password" type="password" placeholder="Contraseña" class="password" />
         <%if(locals.errors && errors.password){%>
           <p class="form-error-msg"><%= errors.password.msg %></p>
         <%}%>
+        <br>
         
         <button type="submit" class="iniciar-sesion">Iniciar sesion</button>
         <br>

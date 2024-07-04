@@ -57,7 +57,24 @@ const usersService = {
                     });
                 res.redirect('/login')
             } else {
-                res.status(400).json({ error: "Las contraseñas no coinciden." });
+                // res.status(400).json({ error: "Las contraseñas no coinciden." });
+                return res.render('register', {
+                    errors: {
+                        repPassword: {
+                            msg: "Las contraseñas no coinciden"
+                        }
+                    }
+                })
+            }
+
+            if (req.body.password.length < 8){
+                return res.render('register', {
+                    errors: {
+                        password: {
+                            msg: "La contraseña debe tener como mínimo 8 caracteres"
+                        }
+                    }
+                })
             }
                       
         } catch(error) {
