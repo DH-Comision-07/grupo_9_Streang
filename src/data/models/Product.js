@@ -58,8 +58,8 @@ module.exports = function(sequelize, dataTypes){
             allowNull: false
         },
 
-        category_id: {
-            type: dataTypes.INTEGER,
+        category: {
+            type: dataTypes.STRING(45),
             allowNull: false
         },
 

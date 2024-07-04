@@ -1,17 +1,17 @@
 const path = require('path');
 const fs = require('fs');
-const { viewCategory, viewDiscounts } = require('../controllers/productosController');
-const { create } = require('domain');
-const session = require('express-session');
-const userController = require("../controllers/userController");
+// const { viewCategory, viewDiscounts } = require('../controllers/productosController');
+// const { create } = require('domain');
+// const session = require('express-session');
+const {validationResult} = require('express-validator');
+// const userController = require("../controllers/userController");
 let db = require("./models");
+const Op = db.Sequelize.Op
 
-const productsFilePath = path.dirname(__dirname) + '/data/json-products.json'
 
 
 const productsService = {
 
-    products : JSON.parse(fs.readFileSync(productsFilePath, 'utf-8')),
 
     setUser: function(req){
         let user = req.session.userLogged;
@@ -23,21 +23,28 @@ const productsService = {
         return user;
     },
 
-    getAll: function(req){
-        let user = req.session.userLogged;
-        return {
-            products : this.products
-        };
+    getAll: async function(req, res){
+        try{
+            const products = await db.Products.findAll();
+            // console.log(products);
+            return products;
+        } catch(error){
+            console.log(error);
+        }
+        
     },
 
-    getOne: function(id){
-        let product = this.products.find(product => product.id == id);
-        return {product : product};
+    getOne: async function(req, res){
+        let product = await db.Products.findByPk(req.params.id);
+        let comments = await db.Comments.findAll({where: {product_id: req.params.id}});
+        let products = await db.Products.findAll({where: {category : product.category}});
+        console.log(comments);
+        res.render('productDetail', {product: product, comments: comments, products});
     },
 
-    viewCategory: function(category){
-        let result = this.products.filter(product => product.category == category);
-        return {result : result};
+    viewCategory: async function(category){
+        let result = db.Products.findAll({where: {category: category}});
+        return result;
     },
 
     create: async function(req, res){
@@ -50,7 +57,7 @@ const productsService = {
         let bannerImage = "";
 
         if(!req.files['mainImage'] || req.files['mainImage'][0] == undefined || !req.files['mainImage'][0]){
-            mainImage.filename = 'default.avif'
+            mainImage = 'default.avif'
         } else {
             mainImage = req.files['mainImage'][0].filename;
         }
@@ -74,7 +81,7 @@ const productsService = {
         }
 
         if(!req.files['bannerImage'] || req.files['bannerImage'][0] == undefined){
-            bannerImage.filename = 'default.avif';
+            bannerImage = 'default.avif';
         } else {
             bannerImage = req.files['bannerImage'][0].filename;
         }
@@ -99,7 +106,7 @@ const productsService = {
                 more_images_2: moreImages2,
                 more_images_3: moreImages3,
                 banner_image: bannerImage,
-                category_id: 1,
+                category: req.body.category || "others",
                 discount: parseFloat(req.body.discount),
                 final_price: finalPrice,
                 format_id: 1,
@@ -116,42 +123,61 @@ const productsService = {
 
     },
 
-    viewEdit: function(id){
-        let productToEdit = this.products.find(product => product.id == id);
-        return {product : productToEdit};
+    viewEdit: async function(req, res){
+        // let productToEdit = this.products.find(product => product.id == id);
+        let productToEdit = await db.Products.findByPk(req.params.id);
+        res.render('editProduct', {product: productToEdit});
     },
 
-    viewDiscounts: function(){
-        let discounts = this.products.filter(product => product.discount > 0);
-        return {products: discounts};
+    viewDiscounts: async function(){
+        let discounts = await db.Products.findAll({where: {discount: {[Op.gt]: 0}}});
+        return discounts;
     },
 
-    edit: function(req){
-        let productID = req.params.id;
-        let productToEdit = this.products.find(product => product.id == productID);
+    edit: async function(req, res){
 
-        // VERIFICAR SI SE CARGARON NUEVAS IMAGENES
+        let productToEdit = await db.Products.findByPk(req.params.id);
+        if(!productToEdit){
+            res.status(400).json({"Ocurrio un error": "No se encontro el producto"});
+        }
+        // Verificacion de imagenes.
         let mainImage = "";
-        let moreImages = [];
+        let moreImages1 = "";
+        let moreImages2 = "";
+        let moreImages3 = "";
         let bannerImage = "";
-        if(!req.files['mainImage'] || req.files['mainImage'][0] == undefined){
-            mainImage = productToEdit.mainImage;
+
+        if(!req.files['mainImage'] || req.files['mainImage'][0] == undefined || !req.files['mainImage'][0]){
+            mainImage = productToEdit.main_image;
         } else {
-            mainImage = req.files['mainImage'][0];
+            mainImage = req.files['mainImage'][0].filename;
         }
 
-        if(!req.files['moreImages'] || req.files['moreImages'][0] == undefined && 
-        req.files['moreImages'][1] == undefined && req.files['moreImages'][2] == undefined){
-            moreImages = productToEdit.moreImages;
+        if(!req.files['moreImages'] || req.files['moreImages'][0] == undefined){
+            moreImages1 = productToEdit.more_images_1;
+            moreImages2 = productToEdit.more_images_2;
+            moreImages3 = productToEdit.more_images_3;
+        } else if (req.files['moreImages'][1] == undefined){
+            moreImages1 = req.files['moreImages'][0].filename;
+            moreImages2 = productToEdit.more_images_2;
+            moreImages3 = productToEdit.more_images_3;
+        } else if( req.files['moreImages'][2] == undefined){
+            moreImages1 = req.files['moreImages'][0].filename;
+            moreImages2 = req.files['moreImages'][1].filename;
+            moreImages3 = productToEdit.more_images_3;
         } else {
-            moreImages = req.files['moreImages'];
+            moreImages1 = req.files['moreImages'][0].filename;
+            moreImages2 = req.files['moreImages'][1].filename;
+            moreImages3 = req.files['moreImages'][2].filename;
         }
 
         if(!req.files['bannerImage'] || req.files['bannerImage'][0] == undefined){
-            bannerImage = productToEdit.bannerImage;
+            bannerImage= productToEdit.banner_image;
         } else {
-            bannerImage = req.files['bannerImage'][0];
+            bannerImage = req.files['bannerImage'][0].filename;
         }
+
+        let finalPrice = parseFloat(req.body.price) - (parseFloat(req.body.price) * (parseFloat(req.body.discount) / 100));
 
         // OBTENER ID DE VIDEO DE YOUTUBE
         function extractYouTubeId(url) {
@@ -160,39 +186,33 @@ const productsService = {
         }
         const youtubeId = extractYouTubeId(req.body.video);
 
-		let updatedProduct = {
-			id: parseInt(productID), // Convert ID to integer
-			name: req.body.name,
-            price: parseFloat(req.body.price),
-            video: youtubeId,
-            description: req.body.description,
-            mainImage: mainImage,
-            moreImages: moreImages,
-            bannerImage: bannerImage,
-            category: req.body.category,
-            discount: parseFloat(req.body.discount),
-            finalPrice : parseFloat(req.body.price) - (parseFloat(req.body.price) * (parseFloat(req.body.discount) / 100)),
-            format: req.body.format,
-            platform: req.body.platform,
-            stock: req.body.stock
-		};
-	
-		// Find the index of the product in the products array
-		let productIndex = this.products.findIndex(product => product.id == productID);
-	
-		if (productIndex !== -1) { // Product found
-			// Update the product in the array
-			this.products[productIndex] = updatedProduct;
-	
-			// Convert the updated products array to JSON
-			let jsonProducts = JSON.stringify(this.products);
-	
-			// Write the updated JSON back to the file
-			fs.writeFileSync(productsFilePath, jsonProducts);
-		} else {
-			// Product not found
-			return "Product not found";
-		}
+        try{
+            await db.Products.update({
+                name: req.body.name,
+                price: parseFloat(req.body.price),
+                video: youtubeId,
+                description: req.body.description,
+                available: true,
+                main_image: mainImage,
+                more_images_1: moreImages1,
+                more_images_2: moreImages2,
+                more_images_3: moreImages3,
+                banner_image: bannerImage,
+                category: req.body.category,
+                discount: parseFloat(req.body.discount),
+                final_price: finalPrice,
+                format_id: 1,
+                platform_id: 1,
+                stock: parseInt(req.body.stock)
+            }, {
+                where:{
+                    id: req.params.id}
+            })
+        } catch(error) {
+            console.log(error);
+            // res.status(400).json({"Ocurrio un error": error})
+            res.redirect(`/products/edit/${req.params.id}`);
+        }		
     },
 
     delete: async function(id){
@@ -208,7 +228,17 @@ const productsService = {
         }
         
 
+    },
+
+    search: async function(req, res){
+        try{
+            let searched = req.query.query_search;
+            let result = await db.Products.findAll({where: {name: {[Op.like]: `%${searched}%`}}});
+            res.render("search", {result: result});
+        } catch(error) {
+            console.log(error);
+            res.status(400).json({"Ocurrio un error": error})
+        }
     }
 }
-
 module.exports = productsService;

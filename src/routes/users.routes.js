@@ -5,6 +5,7 @@ const router = express.Router();
 const userController = require('../controllers/userController');
 const mainController = require('../controllers/mainController');
 const validateRegister = require('../middlewares/userRegisterValidation');
+const validateLogin = require('../middlewares/userLoginValidation');
 
 
 const storage = multer.diskStorage ({
@@ -37,9 +38,9 @@ router.put('/admin', userController.adminForm)
 router.delete('/:id/delete', userController.deleteUser)
 
 // router para pagina de login
-router.post('/login', userController.processLogin)
+router.post('/login', validateLogin, userController.processLogin)
 
-router.get('/check', userController.check)
+// router.get('/check', userController.check)
 
 // Cerrar sesion
 router.get('/exit', userController.logOut)

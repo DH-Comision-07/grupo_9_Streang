@@ -125,6 +125,7 @@ header .fa-solid{
 /* SECCION COMENTARIOS */
 .comentaries h3{
     padding-left: 5%;
+    color: lightskyblue;
 }
 .form-container{
     width: 90%;
@@ -194,26 +195,36 @@ textarea{
 }
 /* SECCION PRODUCTOS SIMILARES */
 .similar-products{
-    width: 100%;
+    width: 90%;
+    display: flex;
+    flex-direction: row;
+    margin: auto;
+    justify-content: space-between;
 }
 .similar-products-container{
     display: flex;
-    justify-content: space-between;
-    width: 90%;
-    /* height: 150px; */
+    flex-direction: row;
+    width: 30%;
     margin: 10px auto;
     background-color: rgb(27, 73, 158);
     padding: 10px;
     border-radius: 5px;
 }
+
+.similar-products-container a{
+    width: 100%;
+}
 .similar-products-container img{
-    width: 30%;
+    width: 100%;
     padding: 5px;
     background-color: lightskyblue;
+    height: 350px;
+    object-fit: cover;
 }
 
 main h3{
     padding-left: 5%;
+    color: lightskyblue;
 }
 
 footer {
@@ -223,6 +234,21 @@ footer {
 }
 footer p{
     color: white;
+}
+
+.info-user .profile-img-container{
+    border: 1px solid black;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.info-user .profile-img-container img{
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
 }
 
 /* MEDIA DESKTOP */
@@ -352,9 +378,6 @@ footer p{
         width: 50%;
     }
 
-    /* .main-img-container img{
-        display: none;
-    } */
 
     iframe, .product-description img{
         width: 100%;
@@ -407,4 +430,39 @@ footer p{
     }
 
 
+}
+
+@media (max-width: 699px){
+    .similar-products{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        margin: auto;
+        justify-content: center;
+    }
+
+    .similar-products-container{
+        display: flex;
+        flex-direction: row;
+        width: 90%;
+        margin: 10px auto;
+        background-color: rgb(27, 73, 158);
+        padding: 10px;
+        border-radius: 5px;
+    }
+    
+    .similar-products-container a{
+        /* width: 100%; */
+    }
+    .similar-products-container img{
+        padding: 5px;
+        background-color: lightskyblue;
+        height: 450px;
+        object-fit: cover;
+    }
+
+}
+
+.show{
+    display: block;
 }
