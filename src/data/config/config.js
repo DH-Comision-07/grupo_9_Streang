@@ -1,23 +1,23 @@
 module.exports = {
   "development": {
     "username": "root",
-    "password": "",
+    "password": "root",
     "database": "streang",
-    "host": "127.0.0.1",
+    "host": "db",
     "dialect": "mysql"
   },
   "test": {
     "username": "root",
-    "password": "",
+    "password": "root",
     "database": "streang",
-    "host": "127.0.0.1",
+    "host": "db",
     "dialect": "mysql"
   },
   "production": {
     "username": "root",
-    "password": "",
+    "password": "root",
     "database": "streang",
-    "host": "127.0.0.1",
+    "host": "db",
     "dialect": "mysql"
   }
 }
