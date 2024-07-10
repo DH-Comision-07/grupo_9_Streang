@@ -1,0 +1,44 @@
+version: '3.8'
+
+services:
+  db:
+    image: mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: streang
+    ports:
+      - "33060:33060"
+    volumes:
+      - ./data/mysql:/var/lib/mysql
+
+  streang:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: always
+    ports:
+      - "3000:3000"
+    depends_on:
+      - auth-service
+
+  auth-service:
+    build:
+      context: ../register-y-login
+      dockerfile: Dockerfile
+    restart: always
+    ports:
+      - "3033:3033"
+    depends_on:
+      - db
+
+  frontend:
+    build:
+      context: ../dashboard-streang
+      dockerfile: Dockerfile
+    restart: always
+    ports:
+      - "3001:3000"
+    depends_on:
+      - auth-service
+      - streang
